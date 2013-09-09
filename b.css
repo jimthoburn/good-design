@@ -1,0 +1,434 @@
+
+
+/* =Elements
+  ----------------------------------------------- */
+  body {
+    font: 100%/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0 3em 3em; /* @body-padding */
+    background: white;
+    color: black;
+    min-width: 70em;
+  }
+  a {
+    color: rgb(102, 102, 102);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  a:hover,
+  a:active,
+  a:focus {
+    color: rgb(113, 179, 247); /* @link-color */
+  }
+  button {
+    cursor: pointer;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+  }
+
+
+/* =Containers
+  ----------------------------------------------- */
+  header              > .container,
+  .feed-advertisement > .container {
+    width: 70em; /* 1120px / 16px */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .carousel h1 {
+    width: 46.66666666666667em; /* 1120px / 24px */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+/* =Header
+  ----------------------------------------------- */
+  header {
+    text-align: right;
+    border-bottom: 1px solid rgb(221, 221, 221); /* @silver */
+    margin-left: -3em; /* @body-padding x -1 */
+    margin-right: -3em;
+    padding-left: 3em;
+    padding-right: 3em;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+  }
+  header:after {
+    /* @clearfix */
+    content: "";
+    display: table;
+    clear: both;
+  }
+  header h2,
+  header h3,
+  header form,
+  header form p,
+  header nav,
+  header nav ul {
+    display: inline-block;
+    margin: 0;
+  }
+  header h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: "TradeGothicW01-BoldCn20 675334", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @trade */
+    color: rgb(35, 31, 32);
+    text-transform: uppercase;
+    float: left;
+    margin-right: 1em;
+  }
+  header h2 a,
+  header h2 img {
+    display: block;
+  }
+  header form label > span:first-child {
+    /* @hidden-accessible */
+    position: absolute;
+    left: -9999px;
+  }
+  header form label br {
+    display: none;
+  }
+  header .primary {
+    border-width: 0 1px;
+    border-style: solid;
+    border-color: rgb(239, 239, 239);
+    padding: 0.65em 3em;
+    margin: 0 1.5em;
+  }
+  header .primary ul,
+  header .primary li {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  header .primary li {
+    display: inline;
+    margin-right: 3em;
+  }
+  header .primary li:last-child {
+    margin-right: 0;
+  }
+  header .primary a {
+    font-size: 1.375em; /* 22px / @font-size */
+  }
+
+
+/* =Search
+  ----------------------------------------------- */
+  .search input[type="text"] {
+    border-width: 0;
+    border-radius: 0.25em;
+    border: 1px solid rgb(225, 225, 225); /* @bright-silver */
+
+    width: 25em;
+
+    margin: 0;
+    font-size: 0.9375em;
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+    color: rgb(102, 102, 102);
+
+    /* TRICKY: Some browsers don’t allow line height to be
+    adjusted on text fields, so assume a line height of normal
+    and rely on padding. */
+    padding: 0.45em 0.6em;
+  }
+  .search {
+    position: relative;
+  }
+  .search button {
+    display: inline-block;
+    border-width: 0;
+    background: white url(images/b/lense.png) center no-repeat;
+    text-indent: -9999px;
+    overflow: hidden;
+    width: 3em;
+    height: 2.5em;
+    position: absolute;
+    z-index: 1;
+    top: 0.3em;
+    right: 0.6em;
+  }
+
+
+/* =Account
+  ----------------------------------------------- */
+  header .account h3 img {
+    vertical-align: middle;
+    border: 1px solid rgb(153, 153, 153); /* @aluminum */
+  }
+  header .account h3 span {
+    display: inline-block;
+    background: rgb(249, 249, 249);
+    border: 1px solid rgb(153, 153, 153); /* @aluminum */
+    border-left-width: 0;
+    width: 38px;
+    height: 38px;
+    vertical-align: middle;
+    background: transparent url(images/b/triangle.svg) center no-repeat;
+    border-top-right-radius    : 0.15em;
+    border-bottom-right-radius : 0.15em;
+  }
+  header .account {
+    position: relative;
+  }
+  header .account .options {
+    position: absolute;
+    left: -9999px;
+    text-align: left;
+    opacity: 0;
+    transition: opacity 0.2s;
+    padding-top: 1em; /* pointer-image.height - @font-size */
+  }
+  header .account:hover  .options,
+  header .account:active .options,
+  header .account:focus  .options {
+    left: auto;
+    right: 0;
+    opacity: 1;
+  }
+  header .account .container {
+    background: white;
+    border: 2px solid rgb(51, 51, 51);
+  }
+  header .account .container:after {
+    content: "";
+    display: block;
+    width: 1.375em; /* 22px / @font-size */
+    height: 1.1875em; /* 19px / @font-size */
+    background: transparent url(images/b/pointer.svg) bottom no-repeat;
+    position: absolute;
+    top: 0;
+    right: 2em;
+  }
+  header .account ul,
+  header .account li {
+    /* @reset-list */
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  header .account a {
+    display: block;
+  }
+  header .account ul {
+    display: block;
+    padding: 0.5em 1em;
+    border-bottom: 1px solid rgb(218, 220, 225);
+  }
+  header .account li a {
+    color: rgb(153, 153, 153); /* @aluminum */
+    font-weight: bold;
+    font-size: 0.8125em; /* 13px / 16px */
+    line-height: 2.5;
+  }
+  header .account table {
+    text-align: center;
+    border-collapse: collapse;
+  }
+  header .account table a {
+    display: block;
+    padding: 0.25em 0.75em;
+  }
+  header .account th a {
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+  header .account th,
+  header .account td {
+    border-width: 0;
+    padding: 0;
+  }
+  header .account td + td {
+    border-left: 1px solid white;
+  }
+  header .account th a {
+    color: rgb(95, 93, 103);
+    font-weight: normal;
+    font-size: 0.6875em; /* 11px / 16px */
+    font-family: "Brandon Grot W01 Medium", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @brandon-medium */
+    text-transform: uppercase;
+  }
+  header .account td a {
+    background-color: rgb(81, 80, 86);
+    color: white;
+    font-weight: bold;
+  }
+
+
+/* =Carousel
+  ----------------------------------------------- */
+  .carousel {
+    margin-left: -3em; /* @body-padding x -1 */
+    margin-right: -3em;
+  }
+
+
+/* =Advertisement
+  ----------------------------------------------- */
+  .feed-advertisement > .container {
+    position: relative;
+  }
+  .advertisement {
+    margin-top: 3em; /* @line-height x 2 */
+
+    position: absolute;
+    right: 0;
+  }
+
+
+/* =Feed
+  ----------------------------------------------- */
+  .feed {
+    margin-top: 3em;
+    margin-right: 332px;
+  }
+  .feed h1 {
+    font-size: 1.5em; /* 24px / @font-size */
+  } 
+  .feed .more a {
+    display: block;
+    font-weight: bold;
+    font-size: 1.125em; /* 18px / @font-size */
+    background-color: rgb(249, 249, 249); /* @mercury */
+    border: 1px solid rgb(225, 225, 225);
+    text-align: center;
+    padding: 0.5em;
+  }
+  .feed article {
+    border-top: 1px solid rgb(218, 220, 224);
+    color: rgb(153, 153, 153); /* @aluminum */
+    position: relative;
+    padding-top: 1.5em;
+  }
+  .feed article + article {
+    margin-top: 3em; /* @line-height x 2 */
+  }
+  .feed article:after {
+    /* @clearfix */
+    /*
+    content: "";
+    display: table;
+    clear: both;
+    */
+  }
+  .feed article.do {
+    background: rgb(243, 253, 248);
+    padding: 1.5em;
+  }
+  .feed article h2 {
+    font-size: 2.5em; /* 40px / @font-size */
+    font-family: "FreightText Light", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @freight */
+  }
+  .feed article h2 img {
+    width: 3.75em; /* 150px / 40px */
+    height: auto;
+    float: right;
+    margin-left: 1.5em;
+  }
+  .feed article .time {
+    float: right;
+    color: rgb(204, 204, 204);
+    font-size: 0.75em;
+  }
+  .feed article .count {
+    float: right;
+    margin-left: 0.5em;
+    background: rgb(135, 233, 184);
+    text-align: center;
+    line-height: 1;
+    padding: 2em 3em;
+    border-radius: 100em;
+  }
+  .feed article .count strong {
+    font-size: 8.125em; /* 130px / 16px */
+    font-weight: normal;
+    font-family: "TradeGothicW01-BoldCn20 675334", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @trade */
+    color: white;
+    display: block;
+  }
+  .feed article .count span {
+    font-size: 0.6875em; /* 11px / 16px */
+    font-family: "Brandon Grot W01 Bold", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @brandon */
+    display: block;
+    text-transform: uppercase;
+    color: rgb(81, 140, 110);
+  }
+  .author {
+    margin-top: 0;
+    font-size: 0.75em; /* 12px / @font-size */
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .author img {
+    width: 2.66666666666667em; /* 32px / 12px */
+    height: auto;
+    border-width: 0 1px 1px;
+    border-style: solid;
+    border-color: rgb(218, 220, 224);
+    vertical-align: middle;
+    margin-right: 0.25em;
+  }
+  .feed article footer {
+    clear: both;
+  }
+
+
+/* =Social
+  ----------------------------------------------- */
+  .social p,
+  .social form {
+    display: inline;
+  }
+  .social p {
+    margin-right: 1em;
+  }
+
+  .votes a,
+  .comments a {
+    color: inherit;
+    font-size: 0.75em;
+  }
+  .votes img,
+  .comments img {
+    vertical-align: middle;
+    margin-right: 0.25em
+  }
+  .social button {
+    border-radius: 0.25em;
+    padding: 0.5em;
+    min-width: 5em;
+    font-size: 1.125em; /* 18px / @font-size */
+    font-family: "TradeGothicW01-BoldCn20 675334", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @trade */
+    font-weight: normal;
+    text-align: center;
+    background-color: rgb(249, 249, 249); /* @mercury */
+    color: rgb(153, 153, 153); /* @aluminum */
+    border: 1px solid rgb(225, 225, 225);
+    transition: all 0.2s;
+  }
+  .social button:hover,
+  .social button:active,
+  .social button:focus {
+    border-color: rgb(113, 179, 247); /* @link-color */
+    color: rgb(113, 179, 247); /* @link-color */
+  }
+  .social button span {
+    text-transform: uppercase;
+  }
+  .social .active button {
+    background-color: rgb(113, 179, 247); /* @link-color */
+    color: white;
+    border-color: transparent;
+  }
+  .social .active button:hover,
+  .social .active button:active,
+  .social .active button:focus {
+    background-color: rgb(73, 139, 207);
+  }
+
