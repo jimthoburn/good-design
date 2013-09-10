@@ -439,9 +439,9 @@
   }
 
 
-/* =Author
+/* =Source
   ----------------------------------------------- */
-  .author .summary {
+  .source .summary {
     margin-top: 0;
     font-size: 0.6875em; /* 11px / @font-size */
     font-weight: bold;
@@ -456,10 +456,10 @@
     padding-right: 1.5em;
     border-bottom-right-radius: 0.5em;
   }
-  .author .summary.has-image {
+  .source .summary.has-image {
     padding-left: 7em;
   }
-  .author .summary img {
+  .source .summary img {
     width: 5.45454545454545em; /* 60px / 12px */
     height: auto;
     border-width: 0 1px 1px;
@@ -471,7 +471,7 @@
     top: 0;
     left: 0;
   }
-  .author .details {
+  .source .details {
     margin-top: 0;
     top: 2.1em;
     position: absolute;
@@ -486,39 +486,39 @@
     opacity: 0;
     transition: opacity 0.2s;
   }
-  .author:hover  .details,
-  .author:active .details,
-  .author:focus  .details {
+  .source:hover  .details,
+  .source:active .details,
+  .source:focus  .details {
     left: auto;
     opacity: 1;
   }
-  .author .details .container {
+  .source .details .container {
     border: 0.25em solid rgb(239, 239, 239);
     padding: 0.375em; /* 6px / 16px */
     padding-left: 4.75em;
     border-radius: 0.25em;
     position: relative;
   }
-  .author .details img {
+  .source .details img {
     width: 3.75em; /* 60px / @font-size  */
     left: 0.375em;
     height: auto;
     position: absolute;
   }
-  .author .details h3 {
+  .source .details h3 {
     font-size: inherit;
     font-weight: bold;
     color: black;
     margin-top: 0;
     margin-bottom: 0;
   }
-  .author .details a p {
+  .source .details a p {
     margin-top: 0;
     font-size: 0.75em; /* 12px / @font-size */
     color: rgb(153, 153, 153); /* @aluminum */
     margin-bottom: 0;
   }
-  .author .details .container > p {
+  .source .details .container > p {
     margin-top: 0.75em;
     margin-bottom: 0.75em;
     border-top: 1px solid rgb(218, 220, 224);
@@ -526,16 +526,16 @@
     color: rgb(102, 102, 102); /* @steel */
     font-size: 0.875em; /* 14px / @font-size */
   }
-  .author .details form {
+  .source .details form {
     margin-top: 0;
     position: absolute;
-    top   : 0.375em; /* author-details.padding */
+    top   : 0.375em; /* source-details.padding */
     right : 0.375em;
   }
-  .author .details form p {
+  .source .details form p {
     margin-top: 0;
   }
-  .author .details button {
+  .source .details button {
     border-radius: 0.25em;
     padding: 0.85em 2.25em;
     font-size: 0.875em; /* 14px / @font-size */
@@ -546,9 +546,9 @@
     transition: all 0.2s;
     border-width: 0;
   }
-  .author .details button:hover,
-  .author .details button:active,
-  .author .details button:focus {
+  .source .details button:hover,
+  .source .details button:active,
+  .source .details button:focus {
     background-color: rgb(115, 213, 164);
   }
 
