@@ -177,6 +177,7 @@
   }
   header .account .options {
     position: absolute;
+    z-index: 1;
     left: -9999px;
     text-align: left;
     opacity: 0;
