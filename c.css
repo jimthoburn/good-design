@@ -363,7 +363,8 @@
     max-width: 36.25em; /* 580px / @font-size */
     box-sizing: border-box;
   }
-  .feed article.link .body {
+  .feed article.link .body,
+  .feed article.comment .body {
     padding: 1.25em; /* 20px / @font-size */
     border: 0.0625em solid rgb(243, 243, 243); /* @bright-silver */
     background: rgb(253, 253, 253);
@@ -381,7 +382,8 @@
     float: left;
     border-right: 1.25em solid white; /* 20px / @font-size */
   }
-  .feed article.link .body > a > img {
+  .feed article.link .body > a > img,
+  .feed article.comment .body > a > img {
     float: right;
     height: 3.625em; /* 58px / @font-size */
     width: auto;
@@ -399,7 +401,7 @@
     white-space: nowrap;
   }
   .feed article .body h3 a {
-    color: inherit;
+    font-weight: bold;
   }
   .feed article h2 {
     margin: 0;
@@ -444,20 +446,23 @@
   .source .summary {
     margin-top: 0;
     font-size: 0.6875em; /* 11px / @font-size */
-    font-weight: bold;
+    font-weight: normal;
     position: absolute;
     top: 0;
     left: 0;
     background: rgb(253, 253, 253);
-    border-width: 0 1px 1px 0;
+    border-width: 0 1px 1px 1px;
     border-style: solid;
     border-color: rgb(243, 243, 243); /* @bright-silver */
-    padding: 0.75em;
-    padding-right: 1.5em;
+    padding: 0.75em 1.5em;
     border-bottom-right-radius: 0.5em;
+  }
+  .source .summary a {
+    font-weight: bold;
   }
   .source .summary.has-image {
     padding-left: 7em;
+    border-left-width: 0;
   }
   .source .summary img {
     width: 5.45454545454545em; /* 60px / 12px */
@@ -477,7 +482,7 @@
     position: absolute;
     z-index: 1;
     background: white;
-    max-width: 21.875em; /* 350px / @font-size */
+    width: 21.875em; /* 350px / @font-size */
     box-sizing: border-box;
     border-radius: 0.25em;
     box-shadow: 0 0.25em 0.25em rgba(0, 0, 0, 0.05);
@@ -550,6 +555,44 @@
   .source .details button:active,
   .source .details button:focus {
     background-color: rgb(115, 213, 164);
+  }
+
+
+/* =Comment
+  ----------------------------------------------- */
+  article .comment {
+    margin-top: 1.25em;
+    max-width: 36.25em; /* 580px / @font-size */
+    box-sizing: border-box;
+    padding-right: 2em;
+    padding-left: 3em;
+  }
+  article .comment .author {
+    font-size: 0.6875em; /* 11px / @font-size */
+    color: rgb(153, 153, 153);
+  }
+  article .comment .author a {
+    font-weight: bold;
+    margin-right: 0.5em;
+  }
+  article .comment .author img {
+    width: 2.72727272727273em; /* 30px / 11px */
+    height: auto;
+    vertical-align: middle;
+    margin-right: 0.5em;
+    margin-left: -3.5em;
+  }
+  article .comment p {
+    color: black;
+    font-size: 0.875em; /* 14px / @font-size */
+  }
+  article .comment p a {
+    color: rgb(102, 153, 204);
+  }
+  article .comment p a:hover,
+  article .comment p a:active,
+  article .comment p a:focus {
+    color: rgb(113, 179, 247); /* @link-color */
   }
 
 
