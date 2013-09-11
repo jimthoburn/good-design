@@ -7,6 +7,7 @@
     font-family: "FreightText Black", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @freight-black */
   }
 
+
 /* =Article
   ----------------------------------------------- */
   article {
@@ -33,7 +34,7 @@
     font-size: 0.6875em; /* 11px / @font-size */
     color: rgb(153, 153, 153); /* @aluminum */
   }
-  article header h3.via span {
+  article header h3.via a {
     font-family: "Brandon Grot W01 Bold", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @brandon-bold */
   }
   article header .source,

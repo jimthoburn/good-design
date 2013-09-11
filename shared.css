@@ -283,7 +283,7 @@
 /* =Feed
   ----------------------------------------------- */
   .feed {
-    margin-top: 3em;
+    margin-top: 1.5em;
     margin-right: 332px;
   }
   .feed header {
@@ -299,34 +299,105 @@
     font-size: 0.875em; /* 14px / @font-size */
     font-family: "Brandon Grot W01 Bold", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @brandon-bold */
     text-transform: uppercase;
+    margin-right: 1em;
   }
   .feed h1,
   .feed nav {
     margin-top: 0;
     display: inline-block;
   }
-  .feed header form {
-    margin-left: 1em;
+
+
+/* =Filter
+  ----------------------------------------------- */
+  .feed .filter {
+    position: relative;
   }
-  .feed header form,
-  .feed header p {
-    margin-top: 0;
+  .feed .filter h2,
+  .feed .filter ul {
+    min-width: 18em;
+    box-sizing: border-box;
+  }
+  .feed .filter ul,
+  .feed .filter li {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .feed .filter ul {
+    color: rgb(182, 185, 192);
+    font-weight: bold;
+    font-size: 0.875em;
+    background: rgb(249, 249, 249);
+    border: 1px solid rgb(218, 220, 224);
+    border-radius: 0.25em;
     display: inline-block;
   }
-  .feed header select {
-    font-size: inherit;
-    vertical-align: middle;
+  .feed .filter li {
+    margin-right: 0.5em;
   }
-  .feed header label > span:first-child,
-  .feed header button {
-    /* @hidden-accessible */
+  .feed .filter ul a {
+    display: block;
+    padding: 0.75em 1.25em;
+  }
+  .feed .filter h2 {
+    margin: 0;
+    color: rgb(182, 185, 192);
+    font-weight: bold;
+    font-size: 0.875em;
+    background: rgb(249, 249, 249);
+    border: 1px solid rgb(218, 220, 224);
+    padding: 0.75em 1.25em;
+    border-radius: 0.25em;
+    display: inline-block;
+  }
+  .feed .filter h2:after {
     position: absolute;
-    left: -9999px;
+    right: 0;
+    top: 0;
+    content: "";
+    display: inline-block;
+    background: rgb(249, 249, 249);
+    border: 1px solid transparent;
+    width: 3em;
+    height: 100%;
+    box-sizing: border-box;
+    vertical-align: middle;
+    background: transparent url(images/c/triangle.svg) center no-repeat;
+    border-top-right-radius: 0.15em;
+    border-bottom-right-radius: 0.15em;
+    border-left-color: rgb(233, 234, 236);
   }
-  .feed nav {
+  .feed .filter ul {
+    position: absolute;
+    margin: 0;
+    top: 0;
+    z-index: 1;
+    left: -9999px;
+    text-align: left;
+    opacity: 0;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+  }
+  .feed .filter:hover  ul,
+  .feed .filter:active ul,
+  .feed .filter:focus  ul {
+    left: 0;
+    opacity: 1;
+    border-color: rgb(113, 179, 247); /* @link-color */
+  }
+
+
+/* =Options
+  ----------------------------------------------- */
+  .feed header .options {
     float: right;
   }
-  .feed nav a {
+  .feed header .options p {
+    margin: 0 0 0 0.5em;
+    display: inline-block;
+  }
+  .feed header .options a {
     color: rgb(182, 185, 192);
     font-weight: bold;
     font-size: 0.875em; /* 14px / @font-size */
@@ -334,6 +405,13 @@
     border: 1px solid rgb(218, 220, 224);
     padding: 0.75em 1.25em;
     border-radius: 0.25em;
+    display: inline-block;
+  }
+  .feed header .options a:hover,
+  .feed header .options a:active,
+  .feed header .options a:focus {
+    color: rgb(113, 179, 247); /* @link-color */
+    border-color: rgb(113, 179, 247); /* @link-color */
   }
   .feed > .more a {
     display: block;
