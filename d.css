@@ -407,6 +407,28 @@
   article.scripted header h2:focus {
     color: rgb(113, 179, 247); /* @link-color */
   }
+  article.scripted {
+    padding-left: 3em;
+  }
+  article.scripted header h2:before {
+    position: absolute;
+    margin-left: -1.8em;
+    content: "";
+    display: block;
+    background-color: rgb(253, 253, 253);
+    border: 1px solid transparent;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    background: transparent url(images/d/triangle.svg) center no-repeat;
+    border-radius    : 0.15em;
+  }
+  article.scripted header:hover  h2:before,
+  article.scripted header:active h2:before,
+  article.scripted header:focus  h2:before {
+    background-color : rgb(253, 253, 253);
+    border-color     : rgb(239, 239, 239);
+  }
   article.scripted .body {
     transition: opacity 0.2s;
     opacity: 1;
@@ -415,6 +437,21 @@
     position: absolute;
     left: -9999px;
     opacity: 0;
+  }
+  article.scripted header h2:before {
+    -webkit-transform : rotate(180deg);
+    -moz-transform    : rotate(180deg);
+    -ms-transform     : rotate(180deg);
+    -o-transform      : rotate(180deg);
+    transform         : rotate(180deg);
+    transition: all 0.2s;
+  }
+  article.scripted.summary header h2:before {
+    -webkit-transform : none;
+    -moz-transform    : none;
+    -ms-transform     : none;
+    -o-transform      : none;
+    transform         : none;
   }
 
   article header .source,
