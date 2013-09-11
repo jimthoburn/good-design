@@ -286,9 +286,6 @@
     margin-top: 3em;
     margin-right: 332px;
   }
-  .feed header {
-    margin-bottom: 1.5em;
-  }
   .feed header:after {
     /* @clearfix */
     content: "";
@@ -297,7 +294,7 @@
   }
   .feed h1 {
     font-size: 0.875em; /* 14px / @font-size */
-    font-family: "Brandon Grot W01 Bold", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @brandon */
+    font-family: "Brandon Grot W01 Bold", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @brandon-bold */
     text-transform: uppercase;
   }
   .feed h1,
@@ -344,18 +341,43 @@
     text-align: center;
     padding: 0.5em;
   }
+
+
+/* =Article
+  ----------------------------------------------- */
   article {
     border-top: 1px solid rgb(218, 220, 224);
     color: rgb(51, 51, 51); /* @tungsten */
     position: relative;
-    padding-top    : 3.5em; /* 56px / @font-size */
-    padding-bottom : 2.5em; /* 40px / @font-size */
+    padding-top    : 1.25em;
+    padding-bottom : 1.25em;
   }
   article h2 {
     margin: 0;
     font-size: 1.5em; /* 24px / @font-size */
     font-family: "FreightText Black", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @freight-black */
     color: black;
+  }
+  article header h2 {
+    display: inline-block;
+    margin-right: 0.25em;
+  }
+  article header h3.via {
+    display: inline-block;
+    font-family: "BrandonGrotW01-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @brandon-regular */
+    text-transform: uppercase;
+    font-size: 0.6875em; /* 11px / @font-size */
+    color: rgb(153, 153, 153); /* @aluminum */
+  }
+  article header h3.via span {
+    font-family: "Brandon Grot W01 Bold", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @brandon-bold */
+  }
+  article header .source,
+  article header .social {
+    display: inline-block;
+  }
+  article header .social {
+    margin-left: 1.5em;
   }
   article .body {
     max-width: 36.25em; /* 580px / @font-size */
@@ -408,69 +430,6 @@
     background: transparent url(images/d/mask.svg) bottom repeat-x;
     width: 100%;
     height: 100%;
-  }
-
-  article.scripted header h2 {
-    cursor: pointer;
-  }
-  article.scripted header h2:hover,
-  article.scripted header h2:active,
-  article.scripted header h2:focus {
-    color: rgb(113, 179, 247); /* @link-color */
-  }
-  article.scripted {
-    padding-left: 3em;
-  }
-  article.scripted header h2:before {
-    position: absolute;
-    margin-left: -1.8em;
-    content: "";
-    display: block;
-    background-color: rgb(253, 253, 253);
-    border: 1px solid transparent;
-    width: 30px;
-    height: 30px;
-    vertical-align: middle;
-    background: transparent url(images/d/triangle.svg) center no-repeat;
-    border-radius    : 0.15em;
-  }
-  article.scripted header:hover  h2:before,
-  article.scripted header:active h2:before,
-  article.scripted header:focus  h2:before {
-    background-color : rgb(253, 253, 253);
-    border-color     : rgb(239, 239, 239);
-  }
-  article.scripted .body {
-    transition: opacity 0.2s;
-    opacity: 1;
-  }
-  article.summary .body {
-    position: absolute;
-    left: -9999px;
-    opacity: 0;
-  }
-  article.scripted header h2:before {
-    -webkit-transform : rotate(180deg);
-    -moz-transform    : rotate(180deg);
-    -ms-transform     : rotate(180deg);
-    -o-transform      : rotate(180deg);
-    transform         : rotate(180deg);
-    transition: all 0.2s;
-  }
-  article.scripted.summary header h2:before {
-    -webkit-transform : none;
-    -moz-transform    : none;
-    -ms-transform     : none;
-    -o-transform      : none;
-    transform         : none;
-  }
-
-  article header .source,
-  article header .social {
-    display: inline-block;
-  }
-  article header .social {
-    margin-left: 1.5em;
   }
   article .more {
     margin-top: 1.5em;
@@ -612,5 +571,64 @@
   }
 
 
+/* Hide the post text until the header is pressed
+  ----------------------------------------------- */
+  article.scripted header h2 {
+    cursor: pointer;
+  }
+  article.scripted header h2:hover,
+  article.scripted header h2:active,
+  article.scripted header h2:focus {
+    color: rgb(113, 179, 247); /* @link-color */
+  }
+  article.scripted {
+    padding-left: 3em;
+  }
+  article.scripted header h2:before {
+    position: absolute;
+    margin-left: -1.8em;
+    content: "";
+    display: block;
+    background-color: rgb(253, 253, 253);
+    border: 1px solid transparent;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    background: transparent url(images/d/triangle.svg) center no-repeat;
+    border-radius    : 0.15em;
+    opacity: 0.4;
+    transition: all 0.2s;
+  }
+  article.scripted header:hover  h2:before,
+  article.scripted header:active h2:before,
+  article.scripted header:focus  h2:before {
+    background-color : rgb(253, 253, 253);
+    border-color     : rgb(239, 239, 239);
+    opacity: 1;
+  }
+  article.scripted .body {
+    margin-top: 1.5em; /* @line-height */
+    transition: opacity 0.2s;
+    opacity: 1;
+  }
+  article.summary .body {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+  }
+  article.scripted header h2:before {
+    -webkit-transform : rotate(180deg);
+    -moz-transform    : rotate(180deg);
+    -ms-transform     : rotate(180deg);
+    -o-transform      : rotate(180deg);
+    transform         : rotate(180deg);
+  }
+  article.scripted.summary header h2:before {
+    -webkit-transform : none;
+    -moz-transform    : none;
+    -ms-transform     : none;
+    -o-transform      : none;
+    transform         : none;
+  }
 
 
