@@ -143,7 +143,7 @@
   .search button {
     display: inline-block;
     border-width: 0;
-    background: white url(images/c/lense.png) center no-repeat;
+    background: white url(images/d/lense.png) center no-repeat;
     text-indent: -9999px;
     overflow: hidden;
     width: 3em;
@@ -169,7 +169,7 @@
     width: 38px;
     height: 38px;
     vertical-align: middle;
-    background: transparent url(images/c/triangle.svg) center no-repeat;
+    background: transparent url(images/d/triangle.svg) center no-repeat;
     border-top-right-radius    : 0.15em;
     border-bottom-right-radius : 0.15em;
   }
@@ -201,7 +201,7 @@
     display: block;
     width: 1.375em; /* 22px / @font-size */
     height: 1.1875em; /* 19px / @font-size */
-    background: transparent url(images/c/pointer.svg) bottom no-repeat;
+    background: transparent url(images/d/pointer.svg) bottom no-repeat;
     position: absolute;
     top: 0;
     right: 2em;
