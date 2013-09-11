@@ -192,6 +192,23 @@
     right: 0;
     opacity: 1;
   }
+
+
+  /* If the page is scripted, delay the hover effect */
+  .header .account.scripted:hover  .options,
+  .header .account.scripted:active .options,
+  .header .account.scripted:focus  .options {
+    left: -9999px;
+    opacity: 0;
+  }
+  .header .account.active:hover  .options,
+  .header .account.active:active .options,
+  .header .account.active:focus  .options {
+    left: auto;
+    opacity: 1;
+  }
+
+
   .header .account .container {
     background: white;
     border: 2px solid rgb(51, 51, 51);
@@ -261,14 +278,15 @@
   }
 
 
+  /*
   .header .account.scripted h3 {
     cursor: pointer;
   }
   .header .account.scripted h3:hover,
   .header .account.scripted h3:active,
   .header .account.scripted h3:focus {
-    color: rgb(113, 179, 247); /* @link-color */
-    border-color: rgb(113, 179, 247); /* @link-color */;
+    color: rgb(113, 179, 247);
+    border-color: rgb(113, 179, 247);
   }
   .header .account.scripted .options {
     transition: opacity 0.2s;
@@ -282,6 +300,7 @@
     right: auto;
     opacity: 0;
   }
+  */
 
 
 /* =Carousel

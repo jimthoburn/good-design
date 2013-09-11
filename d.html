@@ -390,7 +390,9 @@
 
   (function() {
 
-   /*  =SummaryText
+    if (!document.body.addEventListener) return;
+
+  /*  =SummaryText
     ----------------------------------------------- */
     var SummaryText = function(element) {
 

@@ -169,6 +169,21 @@
     left: auto;
     opacity: 1;
   }
+
+  /* If the page is scripted, delay the hover effect */
+  .source.scripted:hover  .details,
+  .source.scripted:active .details,
+  .source.scripted:focus  .details{
+    left: -9999px;
+    opacity: 0;
+  }
+  .source.active:hover  .details,
+  .source.active:active .details,
+  .source.active:focus  .details{
+    left: auto;
+    opacity: 1;
+  }
+
   .source .details > .container {
     border: 1px solid rgb(204, 204, 204);
     border-radius: 0.25em;
