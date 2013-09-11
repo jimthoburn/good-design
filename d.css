@@ -1,0 +1,505 @@
+
+
+/* =Elements
+  ----------------------------------------------- */
+  body {
+    font: 100%/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0 3em 3em; /* @body-padding */
+    background: white;
+    color: black;
+    min-width: 70em;
+  }
+  a {
+    color: rgb(102, 102, 102); /* @steel */
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  a:hover,
+  a:active,
+  a:focus {
+    color: rgb(113, 179, 247); /* @link-color */
+  }
+  button {
+    cursor: pointer;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+  }
+
+
+/* =Containers
+  ----------------------------------------------- */
+  .header              > .container,
+  .feed-advertisement > .container {
+    width: 70em; /* 1120px / 16px */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .carousel h1 {
+    width: 46.66666666666667em; /* 1120px / 24px */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+/* =Header
+  ----------------------------------------------- */
+  body > header {
+    text-align: right;
+    border-bottom: 1px solid rgb(221, 221, 221); /* @silver */
+    margin-left: -3em; /* @body-padding x -1 */
+    margin-right: -3em;
+    padding-left: 3em;
+    padding-right: 3em;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+  }
+  .header:after {
+    /* @clearfix */
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .header h2,
+  .header h3,
+  .header form,
+  .header form p,
+  .header nav,
+  .header nav ul {
+    display: inline-block;
+    margin: 0;
+  }
+  .header h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: "TradeGothicW01-BoldCn20 675334", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @trade */
+    color: rgb(35, 31, 32);
+    text-transform: uppercase;
+    float: left;
+    margin-right: 1em;
+  }
+  .header h2 a,
+  .header h2 img {
+    display: block;
+  }
+  .header form label > span:first-child {
+    /* @hidden-accessible */
+    position: absolute;
+    left: -9999px;
+  }
+  .header form label br {
+    display: none;
+  }
+  .header .primary {
+    border-width: 0 1px;
+    border-style: solid;
+    border-color: rgb(239, 239, 239);
+    padding: 0.65em 3em;
+    margin: 0 1.5em;
+  }
+  .header .primary ul,
+  .header .primary li {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .header .primary li {
+    display: inline;
+    margin-right: 3em;
+  }
+  .header .primary li:last-child {
+    margin-right: 0;
+  }
+  .header .primary a {
+    font-size: 1.5em; /* 24px / @font-size */
+    font-family: "FreightText Black", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @freight-black */
+  }
+
+
+/* =Search
+  ----------------------------------------------- */
+  .search input[type="text"] {
+    border-width: 0;
+    border-radius: 0.25em;
+    border: 1px solid rgb(225, 225, 225); /* @bright-silver */
+
+    width: 25em;
+
+    margin: 0;
+    font-size: 0.9375em;
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+    color: rgb(102, 102, 102); /* @steel */
+
+    /* TRICKY: Some browsers don’t allow line height to be
+    adjusted on text fields, so assume a line height of normal
+    and rely on padding. */
+    padding: 0.45em 0.6em;
+  }
+  .search {
+    position: relative;
+  }
+  .search button {
+    display: inline-block;
+    border-width: 0;
+    background: white url(images/c/lense.png) center no-repeat;
+    text-indent: -9999px;
+    overflow: hidden;
+    width: 3em;
+    height: 2.5em;
+    position: absolute;
+    z-index: 1;
+    top: 0.3em;
+    right: 0.6em;
+  }
+
+
+/* =Account
+  ----------------------------------------------- */
+  .header .account h3 img {
+    vertical-align: middle;
+    border: 1px solid rgb(153, 153, 153); /* @aluminum */
+  }
+  .header .account h3 span {
+    display: inline-block;
+    background: rgb(249, 249, 249);
+    border: 1px solid rgb(153, 153, 153); /* @aluminum */
+    border-left-width: 0;
+    width: 38px;
+    height: 38px;
+    vertical-align: middle;
+    background: transparent url(images/c/triangle.svg) center no-repeat;
+    border-top-right-radius    : 0.15em;
+    border-bottom-right-radius : 0.15em;
+  }
+  .header .account {
+    position: relative;
+  }
+  .header .account .options {
+    position: absolute;
+    z-index: 1;
+    left: -9999px;
+    text-align: left;
+    opacity: 0;
+    transition: opacity 0.2s;
+    padding-top: 1em; /* pointer-image.height - @font-size */
+  }
+  .header .account:hover  .options,
+  .header .account:active .options,
+  .header .account:focus  .options {
+    left: auto;
+    right: 0;
+    opacity: 1;
+  }
+  .header .account .container {
+    background: white;
+    border: 2px solid rgb(51, 51, 51); /* @tungsten */
+  }
+  .header .account .container:after {
+    content: "";
+    display: block;
+    width: 1.375em; /* 22px / @font-size */
+    height: 1.1875em; /* 19px / @font-size */
+    background: transparent url(images/c/pointer.svg) bottom no-repeat;
+    position: absolute;
+    top: 0;
+    right: 2em;
+  }
+  .header .account ul,
+  .header .account li {
+    /* @reset-list */
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .header .account a {
+    display: block;
+  }
+  .header .account ul {
+    display: block;
+    padding: 0.5em 1em;
+    border-bottom: 1px solid rgb(218, 220, 225);
+  }
+  .header .account li a {
+    color: rgb(153, 153, 153); /* @aluminum */
+    font-weight: bold;
+    font-size: 0.8125em; /* 13px / 16px */
+    line-height: 2.5;
+  }
+  .header .account table {
+    text-align: center;
+    border-collapse: collapse;
+  }
+  .header .account table a {
+    display: block;
+    padding: 0.25em 0.75em;
+  }
+  .header .account th a {
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+  .header .account th,
+  .header .account td {
+    border-width: 0;
+    padding: 0;
+  }
+  .header .account td + td {
+    border-left: 1px solid white;
+  }
+  .header .account th a {
+    color: rgb(95, 93, 103);
+    font-weight: normal;
+    font-size: 0.6875em; /* 11px / 16px */
+    font-family: "Brandon Grot W01 Medium", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @brandon-medium */
+    text-transform: uppercase;
+  }
+  .header .account td a {
+    background-color: rgb(81, 80, 86);
+    color: white;
+    font-weight: bold;
+  }
+
+
+/* =Carousel
+  ----------------------------------------------- */
+  .carousel {
+    margin-left: -3em; /* @body-padding x -1 */
+    margin-right: -3em;
+  }
+
+
+/* =Advertisement
+  ----------------------------------------------- */
+  .feed-advertisement > .container {
+    position: relative;
+  }
+  .advertisement {
+    position: absolute;
+    right: 0;
+  }
+
+
+/* =Feed
+  ----------------------------------------------- */
+  .feed {
+    margin-top: 3em;
+    margin-right: 332px;
+  }
+  .feed header {
+    margin-bottom: 1.5em;
+  }
+  .feed header:after {
+    /* @clearfix */
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .feed h1 {
+    font-size: 0.875em; /* 14px / @font-size */
+    font-family: "Brandon Grot W01 Bold", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @brandon */
+    text-transform: uppercase;
+  }
+  .feed h1,
+  .feed nav {
+    margin-top: 0;
+    display: inline-block;
+  }
+  .feed header form {
+    margin-left: 1em;
+  }
+  .feed header form,
+  .feed header p {
+    margin-top: 0;
+    display: inline-block;
+  }
+  .feed header select {
+    font-size: inherit;
+    vertical-align: middle;
+  }
+  .feed header label > span:first-child,
+  .feed header button {
+    /* @hidden-accessible */
+    position: absolute;
+    left: -9999px;
+  }
+  .feed nav {
+    float: right;
+  }
+  .feed nav a {
+    color: rgb(182, 185, 192);
+    font-weight: bold;
+    font-size: 0.875em; /* 14px / @font-size */
+    background: rgb(249, 249, 249);
+    border: 1px solid rgb(218, 220, 224);
+    padding: 0.75em 1.25em;
+    border-radius: 0.25em;
+  }
+  .feed > .more a {
+    display: block;
+    font-weight: bold;
+    font-size: 1.125em; /* 18px / @font-size */
+    background-color: rgb(249, 249, 249); /* @mercury */
+    border: 1px solid rgb(225, 225, 225);
+    text-align: center;
+    padding: 0.5em;
+  }
+  article {
+    border-top: 1px solid rgb(218, 220, 224);
+    color: rgb(51, 51, 51); /* @tungsten */
+    position: relative;
+    padding-top    : 3.5em; /* 56px / @font-size */
+    padding-bottom : 2.5em; /* 40px / @font-size */
+  }
+  article h2 {
+    margin: 0;
+    font-size: 1.5em; /* 24px / @font-size */
+    font-family: "FreightText Black", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @freight-black */
+    color: black;
+  }
+  article .body {
+    max-width: 36.25em; /* 580px / @font-size */
+    box-sizing: border-box;
+  }
+  article.link .body,
+  article.comment .body {
+    padding: 1.25em; /* 20px / @font-size */
+    border: 0.0625em solid rgb(243, 243, 243); /* @bright-silver */
+    background: rgb(253, 253, 253);
+    border-radius: 0.25em;
+  }
+  article .body > a {
+    padding: 0.5em;
+    display: block;
+    background: black;
+    color: white;
+  }
+  article .body > a:after {
+    /* @clearfix */
+    content: "";
+    display: table;
+    clear: both;
+  }
+  article .body > a > img {
+    float: left;
+    margin-right: 1.25em; /* 20px / @font-size */
+  }
+
+  article header .source,
+  article header .social {
+    display: inline-block;
+  }
+  article header .social {
+    margin-left: 1.5em;
+  }
+  article .more {
+    margin-top: 1.5em;
+  }
+  article .more a {
+    background: rgb(253, 253, 253);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(243, 243, 243);
+    border-radius: 0.25em;
+    padding: 0.85em 1.65em;
+    font-size: 0.75em; /* 12px / @font-size */
+    font-weight: bold;
+  }
+
+
+/* =Source
+  ----------------------------------------------- */
+  article h3.source {
+    font-size: 0.75em; /* 12px / @font-size */
+    background: rgb(253, 253, 253);
+    border-width: 1px 1px 1px 0;
+    border-style: solid;
+    border-color: rgb(243, 243, 243);
+    border-top-right-radius    : 0.25em;
+    border-bottom-right-radius : 0.25em;
+    margin-left: 1em; /* image.width / 2*/
+  }
+  article h3.source a {
+    display: inline-block;
+    padding-right: 1em;
+  }
+  article h3.source img {
+    border-radius: 2em;
+    border: 1px solid rgb(207, 207, 207);
+    vertical-align: middle;
+    margin-right: 0.5em;
+    margin-left: -1em; /* image.width / 2*/
+  }
+  article h3.source span {
+    font-weight: bold;
+  }
+
+
+/* =Comment
+  ----------------------------------------------- */
+  article .comment {
+    margin-top: 1.25em;
+    max-width: 36.25em; /* 580px / @font-size */
+    box-sizing: border-box;
+    padding-right: 2em;
+    padding-left: 3em;
+  }
+  article .comment .author {
+    font-size: 0.6875em; /* 11px / @font-size */
+    color: rgb(153, 153, 153);
+  }
+  article .comment .author a {
+    font-weight: bold;
+    margin-right: 0.5em;
+  }
+  article .comment .author img {
+    width: 2.72727272727273em; /* 30px / 11px */
+    height: auto;
+    vertical-align: middle;
+    margin-right: 0.5em;
+    margin-left: -3.5em;
+  }
+  article .comment p {
+    color: black;
+    font-size: 0.875em; /* 14px / @font-size */
+  }
+  article .comment p a {
+    color: rgb(102, 153, 204);
+  }
+  article .comment p a:hover,
+  article .comment p a:active,
+  article .comment p a:focus {
+    color: rgb(113, 179, 247); /* @link-color */
+  }
+
+
+/* =Social
+  ----------------------------------------------- */
+  .social p,
+  .social form {
+    display: inline;
+  }
+  .social p {
+    margin-right: 1em;
+  }
+
+  .votes    a,
+  .comments a {
+    color: inherit;
+    font-size: 0.75em;
+    opacity: 0.6;
+  }
+  .votes    a:hover,
+  .votes    a:active,
+  .votes    a:focus,
+  .comments a:hover,
+  .comments a:active,
+  .comments a:focus {
+    opacity: 1;
+  }
+  .votes img,
+  .comments img {
+    vertical-align: middle;
+    margin-right: 0.25em
+  }
+
