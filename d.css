@@ -456,7 +456,8 @@
     border-color: rgb(243, 243, 243);
     border-top-right-radius    : 0.25em;
     border-bottom-right-radius : 0.25em;
-    margin-left: 1em; /* image.width / 2*/
+    margin-left: 1em; /* image.width / 2 */
+    margin-bottom: 0;
   }
   article h3.source a {
     display: inline-block;
@@ -521,7 +522,6 @@
   .social p {
     margin-right: 0.5em;
   }
-
   .votes    a,
   .comments a {
     color: rgb(190, 190, 190);
@@ -571,7 +571,89 @@
   }
 
 
-/* Hide the post text until the header is pressed
+/* =Following
+  ----------------------------------------------- */
+  article.following {
+    padding-left: 3em; /* line up with the scripted articles */
+  }
+  article.following h3.source {
+    display: table;
+    margin-bottom: 1.5em;
+  }
+  article.following section {
+    margin-top: 0.75em;
+    margin-left: 2em;
+    padding: 0.375em; /* 6px / 16px */
+    border-radius: 0.25em;
+    position: relative;
+    border: 1px solid rgb(243, 243, 243); /* @bright-silver */
+    background: rgb(253, 253, 253);
+  }
+  article.following section:after {
+    /* @clearfix */
+    content: "";
+    display: table;
+    clear: both;
+  }
+  article.following section img {
+    width: 3.75em; /* 60px / @font-size  */
+    left: 0.375em;
+    height: auto;
+    float: left;
+    margin-right: 0.75em;
+  }
+  article.following section h3 {
+    font-size: inherit;
+    font-weight: bold;
+    color: black;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  article.following section a p {
+    margin-top: 0;
+    font-size: 0.75em; /* 12px / @font-size */
+    color: rgb(153, 153, 153); /* @aluminum */
+    margin-bottom: 0;
+  }
+  article.following section > p {
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+    border-top: 1px solid rgb(218, 220, 224);
+    padding-top: 0.75em;
+    color: rgb(102, 102, 102); /* @steel */
+    font-size: 0.875em; /* 14px / @font-size */
+  }
+  article.following section form {
+    margin-top: 0;
+    position: absolute;
+    top   : 0.375em; /* source-details.padding */
+    right : 0.375em;
+  }
+  article.following section form p {
+    margin-top: 0;
+  }
+  article.following section button {
+    border-radius: 0.25em;
+    padding: 0.85em 2.25em;
+    font-size: 0.875em; /* 14px / @font-size */
+    font-weight: bold;
+    text-align: center;
+    background-color: rgb(135, 233, 184);
+    color: white;
+    transition: all 0.2s;
+    border-width: 0;
+  }
+  article.following section button:hover,
+  article.following section button:active,
+  article.following section button:focus {
+    background-color: rgb(115, 213, 164);
+  }
+
+
+
+/* =Scripted
+  -----------------------------------------------
+  Hide the post text until the header is pressed
   ----------------------------------------------- */
   article.scripted header h2 {
     cursor: pointer;
