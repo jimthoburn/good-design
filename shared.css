@@ -388,6 +388,28 @@
   }
 
 
+  .feed .filter.scripted h2 {
+    cursor: pointer;
+  }
+  .feed .filter.scripted h2:hover,
+  .feed .filter.scripted h2:active,
+  .feed .filter.scripted h2:focus {
+    color: rgb(113, 179, 247); /* @link-color */
+    border-color: rgb(113, 179, 247); /* @link-color */;
+  }
+  .feed .filter.scripted ul {
+    transition: opacity 0.2s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+  }
+  .feed .filter.summary ul {
+    left: -9999px;
+    opacity: 0;
+  }
+
+
 /* =Options
   ----------------------------------------------- */
   .feed header .options {
