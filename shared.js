@@ -23,7 +23,15 @@
 
       if (!element) return;
 
-      var headline = element.getElementsByTagName("h2")[0];
+      var headline = element.getElementsByTagName("h2");
+      if (headline.length > 0) {
+        headline = headline[0];
+      } else {
+        headline = element.getElementsByTagName("h3");
+        if (headline.length > 0) {
+          headline = headline[0];
+        }
+      }
 
       var detailsShowing;
 
@@ -44,7 +52,10 @@
 
       hideDetails();
 
-      headline.addEventListener("click", toggle, false);
+      headline.addEventListener("click", function(e) {
+        toggle();
+        e.preventDefault();
+      }, false);
 
       element.className += " scripted";
 
@@ -57,5 +68,6 @@
     }
 
     new DropDown(document.getElementById("filter"));
+    //new DropDown(document.getElementById("account"));
 
   })();

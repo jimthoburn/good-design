@@ -261,6 +261,29 @@
   }
 
 
+  .header .account.scripted h3 {
+    cursor: pointer;
+  }
+  .header .account.scripted h3:hover,
+  .header .account.scripted h3:active,
+  .header .account.scripted h3:focus {
+    color: rgb(113, 179, 247); /* @link-color */
+    border-color: rgb(113, 179, 247); /* @link-color */;
+  }
+  .header .account.scripted .options {
+    transition: opacity 0.2s;
+    position: absolute;
+    left: auto;
+    right: 0;
+    opacity: 1;
+  }
+  .header .account.summary .options {
+    left: -9999px;
+    right: auto;
+    opacity: 0;
+  }
+
+
 /* =Carousel
   ----------------------------------------------- */
   .carousel {
