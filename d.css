@@ -7,69 +7,6 @@
     font-family: "FreightText Black", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @freight-black */
   }
 
-/* =Feed
-  ----------------------------------------------- */
-  .feed {
-    margin-top: 3em;
-    margin-right: 332px;
-  }
-  .feed header:after {
-    /* @clearfix */
-    content: "";
-    display: table;
-    clear: both;
-  }
-  .feed h1 {
-    font-size: 0.875em; /* 14px / @font-size */
-    font-family: "Brandon Grot W01 Bold", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @brandon-bold */
-    text-transform: uppercase;
-  }
-  .feed h1,
-  .feed nav {
-    margin-top: 0;
-    display: inline-block;
-  }
-  .feed header form {
-    margin-left: 1em;
-  }
-  .feed header form,
-  .feed header p {
-    margin-top: 0;
-    display: inline-block;
-  }
-  .feed header select {
-    font-size: inherit;
-    vertical-align: middle;
-  }
-  .feed header label > span:first-child,
-  .feed header button {
-    /* @hidden-accessible */
-    position: absolute;
-    left: -9999px;
-  }
-  .feed nav {
-    float: right;
-  }
-  .feed nav a {
-    color: rgb(182, 185, 192);
-    font-weight: bold;
-    font-size: 0.875em; /* 14px / @font-size */
-    background: rgb(249, 249, 249);
-    border: 1px solid rgb(218, 220, 224);
-    padding: 0.75em 1.25em;
-    border-radius: 0.25em;
-  }
-  .feed > .more a {
-    display: block;
-    font-weight: bold;
-    font-size: 1.125em; /* 18px / @font-size */
-    background-color: rgb(249, 249, 249); /* @mercury */
-    border: 1px solid rgb(225, 225, 225);
-    text-align: center;
-    padding: 0.5em;
-  }
-
-
 /* =Article
   ----------------------------------------------- */
   article {
@@ -199,44 +136,6 @@
   }
   article h3.source span {
     font-weight: bold;
-  }
-
-
-/* =Comment
-  ----------------------------------------------- */
-  article .comment {
-    margin-top: 1.25em;
-    max-width: 36.25em; /* 580px / @font-size */
-    box-sizing: border-box;
-    padding-right: 2em;
-    padding-left: 3em;
-  }
-  article .comment .author {
-    font-size: 0.6875em; /* 11px / @font-size */
-    color: rgb(153, 153, 153);
-  }
-  article .comment .author a {
-    font-weight: bold;
-    margin-right: 0.5em;
-  }
-  article .comment .author img {
-    width: 2.72727272727273em; /* 30px / 11px */
-    height: auto;
-    vertical-align: middle;
-    margin-right: 0.5em;
-    margin-left: -3.5em;
-  }
-  article .comment p {
-    color: black;
-    font-size: 0.875em; /* 14px / @font-size */
-  }
-  article .comment p a {
-    color: rgb(102, 153, 204);
-  }
-  article .comment p a:hover,
-  article .comment p a:active,
-  article .comment p a:focus {
-    color: rgb(113, 179, 247); /* @link-color */
   }
 
 

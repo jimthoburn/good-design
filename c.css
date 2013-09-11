@@ -11,68 +11,16 @@
 
 /* =Feed
   ----------------------------------------------- */
-  .feed {
-    margin-top: 3em;
-    margin-right: 332px;
-  }
-  .feed header {
-    margin-bottom: 1.5em;
-  }
-  .feed header:after {
-    /* @clearfix */
-    content: "";
-    display: table;
-    clear: both;
-  }
   .feed h1 {
     font-size: 1.125em; /* 18px / @font-size */
     font-family: "Brandon Grot W01 Bold", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @brandon */
     text-transform: uppercase;
   }
-  .feed h1,
-  .feed nav {
-    margin-top: 0;
-    display: inline-block;
-  }
-  .feed header form {
-    margin-left: 1em;
-  }
-  .feed header form,
-  .feed header p {
-    margin-top: 0;
-    display: inline-block;
-  }
-  .feed header select {
-    font-size: inherit;
-    vertical-align: middle;
-  }
-  .feed header label > span:first-child,
-  .feed header button {
-    /* @hidden-accessible */
-    position: absolute;
-    left: -9999px;
-  }
-  .feed nav {
-    float: right;
-  }
-  .feed nav a {
-    color: rgb(182, 185, 192);
-    font-weight: bold;
-    background: rgb(249, 249, 249);
-    border: 0.0625em solid rgb(218, 220, 224);
-    padding: 0.5em 1em;
-    border-radius: 0.25em;
-  }
-  .feed .more a {
-    display: block;
-    font-weight: bold;
-    font-size: 1.125em; /* 18px / @font-size */
-    background-color: rgb(249, 249, 249); /* @mercury */
-    border: 1px solid rgb(225, 225, 225);
-    text-align: center;
-    padding: 0.5em;
-  }
-  .feed article {
+
+
+/* =Article
+  ----------------------------------------------- */
+  article {
     border-top: 1px solid rgb(218, 220, 224);
     color: rgb(153, 153, 153); /* @aluminum */
     position: relative;
@@ -80,35 +28,35 @@
     padding-bottom : 2.5em; /* 40px / @font-size */
     padding-left   : 5.0em; /* 80px / @font-size */
   }
-  .feed article.do {
+  article.do {
     background: rgb(243, 253, 248);
     padding: 1.5em;
   }
-  .feed article .body {
+  article .body {
     max-width: 36.25em; /* 580px / @font-size */
     box-sizing: border-box;
   }
-  .feed article.link .body,
-  .feed article.comment .body {
+  article.link .body,
+  article.comment .body {
     padding: 1.25em; /* 20px / @font-size */
     border: 0.0625em solid rgb(243, 243, 243); /* @bright-silver */
     background: rgb(253, 253, 253);
     border-radius: 0.25em;
   }
-  .feed article .body:after {
+  article .body:after {
     /* @clearfix */
     content: "";
     display: table;
     clear: both;
   }
-  .feed article.article .body > a > img {
+  article.article .body > a > img {
     height: 6.25em; /* 100px / @font-size */
     width: auto;
     float: left;
     border-right: 1.25em solid white; /* 20px / @font-size */
   }
-  .feed article.link .body > a > img,
-  .feed article.comment .body > a > img {
+  article.link .body > a > img,
+  article.comment .body > a > img {
     float: right;
     height: 3.625em; /* 58px / @font-size */
     width: auto;
@@ -116,29 +64,29 @@
     padding: 0.0625em;
     margin-left: 1.25em; /* 20px / @font-size */
   }
-  .feed article .body h2,
-  .feed article .body h3 {
+  article .body h2,
+  article .body h3 {
     display: inline;
   }
-  .feed article .body h3 {
+  article .body h3 {
     font-size: 0.6875em; /* 11px / @font-size */
     color: rgb(153, 153, 153);
     white-space: nowrap;
   }
-  .feed article .body h3 a {
+  article .body h3 a {
     font-weight: bold;
   }
-  .feed article h2 {
+  article h2 {
     margin: 0;
     font-size: 1.5em; /* 24px / @font-size */
     font-family: "FreightText Light", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @freight */
   }
-  .feed article .time {
+  article .time {
     float: right;
     color: rgb(204, 204, 204);
     font-size: 0.75em;
   }
-  .feed article .count {
+  article .count {
     float: right;
     margin-left: 0.5em;
     background: rgb(135, 233, 184);
@@ -147,21 +95,21 @@
     padding: 2em 3em;
     border-radius: 100em;
   }
-  .feed article .count strong {
+  article .count strong {
     font-size: 8.125em; /* 130px / 16px */
     font-weight: normal;
     font-family: "TradeGothicW01-BoldCn20 675334", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @trade */
     color: white;
     display: block;
   }
-  .feed article .count span {
+  article .count span {
     font-size: 0.6875em; /* 11px / 16px */
     font-family: "Brandon Grot W01 Bold", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @brandon */
     display: block;
     text-transform: uppercase;
     color: rgb(81, 140, 110);
   }
-  .feed article footer {
+  article footer {
     clear: both;
   }
 
