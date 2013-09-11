@@ -384,6 +384,38 @@
     float: left;
     margin-right: 1.25em; /* 20px / @font-size */
   }
+  article .body > a h3 {
+    font-size: 0.875em; /* 14px / @font-size */
+    font-weight: bold;
+  }
+  article .body > a h4 {
+    color: rgb(102, 102, 102);
+    font-size: 0.6875em; /* 11px / @font-size */
+  }
+  article .body > a h4 span {
+    font-weight: bold;
+  }
+  article .body .text {
+    font-size: 0.875em; /* 14px / @font-size */
+  }
+
+  article.scripted header h2 {
+    cursor: pointer;
+  }
+  article.scripted header h2:hover,
+  article.scripted header h2:active,
+  article.scripted header h2:focus {
+    color: rgb(113, 179, 247); /* @link-color */
+  }
+  article.scripted .body {
+    transition: opacity 0.2s;
+    opacity: 1;
+  }
+  article.summary .body {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+  }
 
   article header .source,
   article header .social {

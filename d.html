@@ -216,5 +216,50 @@
   </div><!-- /.container -->
 </div><!-- /.feed-advertisement -->
 
+<script>
+
+  (function() {
+
+   /*  =SummaryText
+    ----------------------------------------------- */
+    var SummaryText = function(element) {
+
+      if (!element) return;
+
+      var headline = element.getElementsByTagName("h2")[0];
+
+      var detailsShowing;
+
+      function hideDetails() {
+        element.className += " summary";
+        detailsShowing = false;
+      };
+
+      function showDetails() {
+        element.className = element.className.replace(/summary/g, "");
+        detailsShowing = true;
+      };
+
+      function toggle() {
+        if (detailsShowing) hideDetails();
+        else showDetails();
+      }
+
+      hideDetails();
+
+      headline.addEventListener("click", toggle, false);
+
+      element.className += " scripted";
+    }
+
+    var articles = document.getElementsByTagName("article");
+    for (var index = 0; index < articles.length; index++) {
+      new SummaryText(articles[index]);
+    }
+
+  })();
+
+</script>
+
 </body>
 </html>
