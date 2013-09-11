@@ -59,6 +59,7 @@
     display: block;
     background: black;
     color: white;
+    border-radius: 0.25em;
   }
   article .body > a:after {
     /* @clearfix */
@@ -68,15 +69,19 @@
   }
   article .body > a > img {
     float: left;
-    margin-right: 1.25em; /* 20px / @font-size */
+    border-right: 1.25em solid black; /* 20px / @font-size */
   }
   article .body > a h3 {
     font-size: 0.875em; /* 14px / @font-size */
     font-weight: bold;
+    margin-bottom: 0;
   }
   article .body > a h4 {
+    margin-top: 0.75em;
     color: rgb(102, 102, 102);
     font-size: 0.6875em; /* 11px / @font-size */
+    padding-bottom: 1.5em;
+    border-bottom: 1px solid rgb(102, 102, 102);
   }
   article .body > a h4 span {
     font-weight: bold;
