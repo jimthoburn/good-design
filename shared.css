@@ -195,6 +195,7 @@
 
 
   /* If the page is scripted, delay the hover effect */
+  /*
   .header .account.scripted:hover  .options,
   .header .account.scripted:active .options,
   .header .account.scripted:focus  .options {
@@ -207,6 +208,7 @@
     left: auto;
     opacity: 1;
   }
+  */
 
 
   .header .account .container {
@@ -277,8 +279,7 @@
     font-weight: bold;
   }
 
-
-  /*
+  /* Make the account menu behave like a dropdown */
   .header .account.scripted h3 {
     cursor: pointer;
   }
@@ -300,7 +301,6 @@
     right: auto;
     opacity: 0;
   }
-  */
 
 
 /* =Carousel
