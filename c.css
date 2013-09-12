@@ -24,9 +24,9 @@
     border-top: 1px solid rgb(218, 220, 224);
     color: rgb(153, 153, 153); /* @aluminum */
     position: relative;
-    padding-top    : 3.5em; /* 56px / @font-size */
-    padding-bottom : 2.5em; /* 40px / @font-size */
-    padding-left   : 5.0em; /* 80px / @font-size */
+    padding-top    : 3.5em;  /* 56px / @font-size */
+    padding-bottom : 2.5em;  /* 40px / @font-size */
+    padding-left   : 5.25em; /* 84px / @font-size */
   }
   article.do {
     background: rgb(243, 253, 248);
@@ -145,7 +145,8 @@
     border-style: solid;
     border-color: rgb(243, 243, 243); /* @bright-silver */
     border-bottom-right-radius: 0.5em;
-    transition: background-color 0.2s;
+    transition: all 0.2s;
+    color: rgb(153, 153, 153);
   }
   .source .summary a:hover,
   .source .summary a:active,
@@ -156,6 +157,8 @@
   .source .summary a span {
     font-weight: bold;
     transition: color 0.2s;
+    color: rgb(102, 102, 102);
+    margin-right: 0.375em;
   }
   .source .summary a:hover  span,
   .source .summary a:active span,
@@ -303,7 +306,7 @@
   }
   article .comment .author a {
     font-weight: bold;
-    margin-right: 0.5em;
+    margin-right: 0.375em;
   }
   article .comment .author img {
     width: 2.72727272727273em; /* 30px / 11px */
