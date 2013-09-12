@@ -339,7 +339,7 @@
   ----------------------------------------------- */
   .social {
     margin-top: 0.75em;
-    border-top: 1px solid rgb(243, 243, 243); /* @bright-silver */
+    border-top: 1px solid rgb(243, 243, 243);
     padding-top: 0.75em;
   }
   .social p,
@@ -347,14 +347,14 @@
     display: inline;
   }
   .social p {
-    margin-right: 1em;
+    margin-right: 0.75em;
   }
-
   .votes    a,
   .comments a {
-    color: inherit;
+    color: rgb(190, 190, 190);
     font-size: 0.75em;
     opacity: 0.6;
+    transition: opacity 0.2s, color 0.2s;
   }
   .votes    a:hover,
   .votes    a:active,
@@ -362,12 +362,39 @@
   .comments a:hover,
   .comments a:active,
   .comments a:focus {
+    color: inherit;
     opacity: 1;
   }
-  .votes img,
-  .comments img {
+  .votes    a:before,
+  .comments a:before {
+    content: "";
+    display: inline-block;
     vertical-align: middle;
-    margin-right: 0.25em
+    margin-right: 0.25em;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.6;
+  }
+  .votes    a:before {
+    background-image: url(images/c/votes-off.png);
+    width: 12px;
+    height: 13px;
+  }
+  .comments a:before {
+    background-image: url(images/c/comments-off.png);
+    width: 15px;
+    height: 15px;
+  }
+  .votes    a:hover:before,
+  .votes    a:active:before,
+  .votes    a:focus:before {
+    background-image: url(images/c/votes.png);
+  }
+  .comments a:hover:before,
+  .comments a:active:before,
+  .comments a:focus:before {
+    background-image: url(images/c/comments.png);
   }
 
 /* =Following
