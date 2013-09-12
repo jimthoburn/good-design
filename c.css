@@ -135,17 +135,34 @@
     position: absolute;
     top: 0;
     left: 0;
+  }
+  .source .summary a {
+    position: relative;
+    display: block;
+    padding: 0.75em 1.5em;
     background: rgb(253, 253, 253);
     border-width: 0 1px 1px 1px;
     border-style: solid;
     border-color: rgb(243, 243, 243); /* @bright-silver */
-    padding: 0.75em 1.5em;
     border-bottom-right-radius: 0.5em;
+    transition: background-color 0.2s;
   }
-  .source .summary a {
+  .source .summary a:hover,
+  .source .summary a:active,
+  .source .summary a:focus {
+    color: rgb(102, 102, 102);
+    background-color: rgb(245, 252, 255);
+  }
+  .source .summary a span {
     font-weight: bold;
+    transition: color 0.2s;
   }
-  .source .summary.has-image {
+  .source .summary a:hover  span,
+  .source .summary a:active span,
+  .source .summary a:focus  span {
+    color: black;
+  }
+  .source .summary.has-image a {
     padding-left: 7em;
     border-left-width: 0;
   }
@@ -185,13 +202,13 @@
   /* If the page is scripted, delay the hover effect */
   .source.scripted:hover  .details,
   .source.scripted:active .details,
-  .source.scripted:focus  .details{
+  .source.scripted:focus  .details {
     left: -9999px;
     opacity: 0;
   }
   .source.active:hover  .details,
   .source.active:active .details,
-  .source.active:focus  .details{
+  .source.active:focus  .details {
     left: auto;
     opacity: 1;
   }
