@@ -158,4 +158,12 @@
   .social .active button:focus {
     background-color: rgb(73, 139, 207);
   }
+  .do .social .active button {
+    background-color: rgb(135, 233, 184);
+  }
+  .do .social .active button:hover,
+  .do .social .active button:active,
+  .do .social .active button:focus {
+    background-color: rgb(115, 213, 164);
+  }
 
