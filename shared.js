@@ -70,7 +70,7 @@
   }
 
   new DropDown(document.getElementById("filter"));
-  //new DropDown(document.getElementById("account"));
+  new DropDown(document.getElementById("account"));
 
 
   /* =DelayedHover
@@ -118,7 +118,7 @@
     new DelayedHover(sources[index]);
   }
 
-  new DelayedHover(document.getElementById("account"), 50);
+  //new DelayedHover(document.getElementById("account"), 50);
 
 })();
 
