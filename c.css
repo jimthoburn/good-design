@@ -187,7 +187,7 @@
     position: absolute;
     z-index: 1;
     background: white;
-    width: 21.875em; /* 350px / @font-size */
+    width: 400px; /* 400px / @font-size */
     box-sizing: border-box;
     box-shadow: 0 0.25em 0.25em rgba(0, 0, 0, 0.05);
     left: -9999px;
