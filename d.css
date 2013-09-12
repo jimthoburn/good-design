@@ -45,6 +45,7 @@
     margin-left: 1.5em;
   }
   article .body {
+    margin-top: 1.5em;
     max-width: 36.25em; /* 580px / @font-size */
     box-sizing: border-box;
   }
@@ -252,9 +253,6 @@
 
 /* =Following
   ----------------------------------------------- */
-  article.following {
-    padding-left: 3em; /* line up with the scripted articles */
-  }
   article.following h3.source {
     display: table;
     margin-bottom: 1.5em;
