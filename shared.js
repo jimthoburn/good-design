@@ -80,7 +80,7 @@
 
     var timer;
     var active = true;
-    if (!delay) delay = 500;
+    if (!delay) delay = 250;
 
     function activate() {
       if (active) return;
