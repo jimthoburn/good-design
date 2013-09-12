@@ -153,6 +153,45 @@
   }
 
 
+/* =Comment
+  ----------------------------------------------- */
+  article .comment {
+    margin-top: 3em;
+    border-top: 1px solid rgb(218, 220, 224);
+    max-width: 36.25em; /* 580px / @font-size */
+    box-sizing: border-box;
+    padding-right: 2em;
+    padding-left: 3em;
+  }
+  article .comment .author {
+    font-size: 0.6875em; /* 11px / @font-size */
+    color: rgb(153, 153, 153);
+  }
+  article .comment .author a {
+    font-weight: bold;
+    margin-right: 0.375em;
+  }
+  article .comment .author img {
+    width: 2.72727272727273em; /* 30px / 11px */
+    height: auto;
+    vertical-align: middle;
+    margin-right: 0.5em;
+    margin-left: -3.5em;
+  }
+  article .comment p {
+    color: black;
+    font-size: 0.875em; /* 14px / @font-size */
+  }
+  article .comment p a {
+    color: rgb(102, 153, 204);
+  }
+  article .comment p a:hover,
+  article .comment p a:active,
+  article .comment p a:focus {
+    color: rgb(113, 179, 247); /* @link-color */
+  }
+
+
 /* =Social
   ----------------------------------------------- */
   .social p,
