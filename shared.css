@@ -328,10 +328,10 @@
     margin-top: 1.5em;
     margin-right: 332px;
   }
-  .feed header {
+  .feed > header {
     margin-bottom: 1.5em;
   }
-  .feed header:after {
+  .feed > header:after {
     /* @clearfix */
     content: "";
     display: table;
