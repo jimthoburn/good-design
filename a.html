@@ -23,11 +23,16 @@
       border-bottom: 3px solid rgb(153, 153, 153);
       padding-bottom: 12px;
     }
-    .personalized.feed h1 span + span {
+    .personalized.feed h1 a {
       color: rgb(153, 153, 153);
       font-weight: normal;
     }
-    .personalized.feed h1 span + span:before {
+    .personalized.feed h1 a:hover,
+    .personalized.feed h1 a:active,
+    .personalized.feed h1 a:focus {
+      color: rgb(113, 179, 247); /* @link-color */
+    }
+    .personalized.feed h1 a:before {
       content: "/ ";
       color: rgb(230, 230, 230);
     }
@@ -175,7 +180,7 @@
         </div>
 
         <div class="personalized feed" style="display: block;">
-            <h1><span>For You</span> <span>Popular</span> <span>Newest</span></h1>
+            <h1><span>For You</span> <a href="">Popular</a> <a href="">Newest</a></h1>
 
             <div class="personalized posts">
                 <ul class="feed">
