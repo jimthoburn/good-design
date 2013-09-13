@@ -563,6 +563,63 @@
 
 <div class="footer"></div>
 
+
+<script>
+
+  (function() {
+
+    if (!document.body.addEventListener) return;
+
+  /*  =ToggleButton
+    ----------------------------------------------- */
+    var ToggleButton = function(element, activeLabel, inactiveLabel) {
+
+      if (!element) return;
+
+      var button = element.getElementsByTagName("button");
+      if (button.length > 0) button = button[0];
+
+      var active;
+
+      function activate() {
+        element.className += " active";
+        button.innerHTML = activeLabel;
+        active = true;
+      };
+
+      function deactivate() {
+        element.className = element.className.replace(/active/g, "");
+        button.innerHTML = inactiveLabel;
+        active = false;
+      };
+
+      function toggle(e) {
+        e.preventDefault();
+        if (active) deactivate();
+        else activate();
+      }
+
+      if (element.className.indexOf("active") >= 0) active = true;
+
+      button.addEventListener("click", toggle, false);
+    }
+
+    var articles = document.getElementsByTagName("article");
+    for (var index = 0; index < articles.length; index++) {
+      var form = articles[index].getElementsByTagName("form");
+      if (form.length > 0) {
+        if (articles[index].className.indexOf("do") >= 0) {
+          new ToggleButton(form[0], "Do", "Do It");
+        } else {
+          new ToggleButton(form[0], "Good", "It’s Good");
+        }
+      }
+    }
+
+  })();
+
+</script>
+
 <script src="shared.js"></script>
 
 </body>
