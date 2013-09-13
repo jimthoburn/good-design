@@ -91,6 +91,10 @@
     position: absolute;
     top: 0;
     left: 0;
+    padding-top: 0.5em;
+  }
+  .author.has-image {
+    padding-top: 0;
   }
   .author img {
     width: 2.66666666666667em; /* 32px / 12px */
