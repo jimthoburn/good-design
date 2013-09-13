@@ -75,7 +75,14 @@
     text-transform: uppercase;
     color: rgb(81, 140, 110);
   }
-  .author {
+  .feed article footer {
+    clear: both;
+  }
+
+
+/* =Source
+  ----------------------------------------------- */
+  .source .summary {
     margin-top: 0;
     font-size: 0.75em; /* 12px / @font-size */
     font-weight: bold;
@@ -84,10 +91,10 @@
     left: 0;
     padding-top: 0.5em;
   }
-  .author.has-image {
+  .source .summary.has-image {
     padding-top: 0;
   }
-  .author img {
+  .source .summary img {
     width: 2.66666666666667em; /* 32px / 12px */
     height: auto;
     border-width: 0 1px 1px;
@@ -96,8 +103,125 @@
     vertical-align: middle;
     margin-right: 0.25em;
   }
-  .feed article footer {
-    clear: both;
+
+
+/* =Source Details
+  ----------------------------------------------- */
+  .source .details {
+    margin-top: 0;
+    margin-left: 3em;
+    top: 1.6em;
+    position: absolute;
+    z-index: 1;
+    background: white;
+    width: 400px; /* 400px / @font-size */
+    box-sizing: border-box;
+    box-shadow: 0 0.25em 0.25em rgba(0, 0, 0, 0.05);
+    left: -9999px;
+    opacity: 0;
+    transition: opacity 0.2s;
+    padding-top: 0.4em;
+  }
+  .source:hover  .details,
+  .source:active .details,
+  .source:focus  .details {
+    left: auto;
+    opacity: 1;
+  }
+
+  /* If the page is scripted, delay the hover effect */
+  .source.scripted:hover  .details,
+  .source.scripted:active .details,
+  .source.scripted:focus  .details {
+    left: -9999px;
+    opacity: 0;
+  }
+  .source.active:hover  .details,
+  .source.active:active .details,
+  .source.active:focus  .details {
+    left: auto;
+    opacity: 1;
+  }
+
+  .source .details > .container {
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 0.25em;
+  }
+  .source .details .container .container {
+    border: 0.25em solid rgb(239, 239, 239);
+    background: white;
+    padding: 0.375em; /* 6px / 16px */
+    padding-left: 4.75em;
+    border-radius: 0.25em;
+    position: relative;
+  }
+  .source .details .container .container:after {
+    content: "";
+    display: block;
+    width  : 0.6875em; /* 11px / @font-size */
+    height : 0.8125em; /* 13px / @font-size */
+    background: transparent url(images/c/source-pointer.svg) bottom no-repeat;
+    position: absolute;
+    top: -11px;
+    left: 2em;
+  }
+  .source .details img {
+    width: 3.75em; /* 60px / @font-size  */
+    left: 0.375em;
+    height: auto;
+    position: absolute;
+  }
+  .source .details h3 {
+    font-size: inherit;
+    font-weight: bold;
+    color: black;
+    margin-top: 0;
+    margin-bottom: 0;
+    transition: color 0.2s;
+  }
+  .source .details a:hover h3,
+  .source .details a:hover h3,
+  .source .details a:hover h3 {
+    color: rgb(113, 179, 247); /* @link-color */
+  }
+  .source .details a p {
+    margin-top: 0;
+    font-size: 0.75em; /* 12px / @font-size */
+    color: rgb(153, 153, 153); /* @aluminum */
+    margin-bottom: 0;
+  }
+  .source .details .container > p {
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+    border-top: 1px solid rgb(218, 220, 224);
+    padding-top: 0.75em;
+    color: rgb(102, 102, 102); /* @steel */
+    font-size: 0.875em; /* 14px / @font-size */
+  }
+  .source .details form {
+    margin-top: 0;
+    position: absolute;
+    top   : 0.375em; /* source-details.padding */
+    right : 0.375em;
+  }
+  .source .details form p {
+    margin-top: 0;
+  }
+  .source .details button {
+    border-radius: 0.25em;
+    padding: 0.85em 2.25em;
+    font-size: 0.875em; /* 14px / @font-size */
+    font-weight: bold;
+    text-align: center;
+    background-color: rgb(135, 233, 184);
+    color: white;
+    transition: all 0.2s;
+    border-width: 0;
+  }
+  .source .details button:hover,
+  .source .details button:active,
+  .source .details button:focus {
+    background-color: rgb(115, 213, 164);
   }
 
 
