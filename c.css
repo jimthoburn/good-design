@@ -367,7 +367,7 @@
   .comments a:hover,
   .comments a:active,
   .comments a:focus {
-    color: inherit;
+    color: black;
     opacity: 1;
   }
   .votes    a:before,
