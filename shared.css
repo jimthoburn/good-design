@@ -28,8 +28,14 @@
     font-weight: normal;
   }
 
+  /* For IE */
   a img {
     border-width: 0;
+  }
+
+  /* For older browsers */
+  section, article, nav {
+    display: block;
   }
 
 
