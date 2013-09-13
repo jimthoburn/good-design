@@ -609,9 +609,9 @@
       var form = articles[index].getElementsByTagName("form");
       if (form.length > 0) {
         if (articles[index].className.indexOf("do") >= 0) {
-          new ToggleButton(form[0], "Do", "Do It");
+          new ToggleButton(form[0], "<span>Do</span>", "<span>Do</span> It");
         } else {
-          new ToggleButton(form[0], "Good", "It’s Good");
+          new ToggleButton(form[0], "<span>Good</span>", "It’s <span>Good</span>");
         }
       }
     }
