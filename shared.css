@@ -28,6 +28,10 @@
     font-weight: normal;
   }
 
+  a img {
+    border-width: 0;
+  }
+
 
 /* =Containers
   ----------------------------------------------- */
