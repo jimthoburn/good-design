@@ -34,7 +34,7 @@
   }
 
   /* For older browsers */
-  section, article, nav {
+  section, article, nav, header, footer {
     display: block;
   }
 
