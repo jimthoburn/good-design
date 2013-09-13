@@ -402,6 +402,15 @@
     background-image: url(images/c/comments.png);
   }
 
+  /* Preload */
+  .votes    a abbr:before {
+    background-image: url(images/c/votes.png);
+  }
+  .comments a abbr:before {
+    background-image: url(images/c/comments.png);
+  }
+
+
 /* =Following
   ----------------------------------------------- */
   article.following {
