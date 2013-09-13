@@ -15,15 +15,6 @@
   }
   .feed h1 {
     font-size: 1.5em; /* 24px / @font-size */
-  } 
-  .feed .more a {
-    display: block;
-    font-weight: bold;
-    font-size: 1.125em; /* 18px / @font-size */
-    background-color: rgb(249, 249, 249); /* @mercury */
-    border: 1px solid rgb(225, 225, 225);
-    text-align: center;
-    padding: 0.5em;
   }
   .feed article {
     border-top: 1px solid rgb(218, 220, 224);

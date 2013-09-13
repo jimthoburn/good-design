@@ -492,6 +492,7 @@
     border-color: rgb(113, 179, 247); /* @link-color */
   }
   .feed > .more a {
+    margin-top: 3em;
     display: block;
     font-weight: bold;
     font-size: 1.125em; /* 18px / @font-size */
