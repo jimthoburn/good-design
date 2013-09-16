@@ -186,6 +186,11 @@
       new ToggleButton(forms[j], "Following", "Follow");
     }
 
+    forms = articles[index].querySelectorAll(".person form");
+    for (var j = 0; j < forms.length; j++) {
+      new ToggleButton(forms[j], "Following", "Follow");
+    }
+
   }
 
 })();
