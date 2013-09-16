@@ -40,7 +40,7 @@
   article.comment .body {
     padding: 1.25em; /* 20px / @font-size */
     border: 0.0625em solid rgb(243, 243, 243); /* @bright-silver */
-    background: rgb(253, 253, 253);
+    background: rgb(249, 249, 249);
     border-radius: 0.25em;
   }
   article .body:after {
@@ -91,7 +91,7 @@
   article h2 {
     margin: 0;
     font-size: 1.5em; /* 24px / @font-size */
-    font-family: "FreightText Light", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @freight */
+    font-family: "FreightText Light", "FreightTextLight", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @freight */
   }
   article .time {
     float: right;
@@ -428,7 +428,7 @@
     border-radius: 0.25em;
     position: relative;
     border: 1px solid rgb(243, 243, 243); /* @bright-silver */
-    background: rgb(253, 253, 253);
+    background: rgb(249, 249, 249);
     min-height: 3.75em; /* image.height */
   }
   article.following .person img {
