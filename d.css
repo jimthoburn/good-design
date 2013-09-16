@@ -20,7 +20,7 @@
   article h2 {
     margin: 0;
     font-size: 1.5em; /* 24px / @font-size */
-    font-family: "FreightText Black", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @freight-black */
+    font-family: "FreightText Black", "FreightTextBlack", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @freight-black */
     color: black;
   }
   article h2 a {

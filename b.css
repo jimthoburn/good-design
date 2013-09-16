@@ -39,7 +39,7 @@
   }
   .feed article h2 {
     font-size: 2.5em; /* 40px / @font-size */
-    font-family: "FreightText Light", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @freight */
+    font-family: "FreightText Light", "FreightTextlight", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @freight */
   }
   .feed article h2 img {
     width: 3.75em; /* 150px / 40px */
