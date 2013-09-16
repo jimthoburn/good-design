@@ -272,13 +272,27 @@
     background-color: rgb(135, 233, 184);
     color: white;
     transition: all 0.2s;
-    border-width: 0;
+    border: 1px solid transparent;
   }
   .source .details button:hover,
   .source .details button:active,
   .source .details button:focus {
     background-color: rgb(115, 213, 164);
   }
+  /*
+  .source .details .active button {
+    background-color: rgb(249, 249, 249);
+    color: rgb(153, 153, 153);
+    border-color: rgb(225, 225, 225);
+  }
+  .source .details .active button:hover,
+  .source .details .active button:active,
+  .source .details .active button:focus {
+    background-color: rgb(249, 249, 249);
+    color        : rgb(95, 193, 144);
+    border-color : rgb(95, 193, 144);
+  }
+  */
 
 
 /* =Comment

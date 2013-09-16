@@ -122,3 +122,119 @@
 
 })();
 
+
+(function() {
+
+  if (!document.body.addEventListener || !document.body.querySelector) return;
+
+/*  =ToggleButton
+  ----------------------------------------------- */
+  var ToggleButton = function(element, activeLabel, inactiveLabel) {
+
+    if (!element) return;
+
+    var button = element.getElementsByTagName("button");
+    if (button.length > 0) button = button[0];
+
+    var active;
+
+    function activate() {
+      element.className += " active";
+      button.innerHTML = activeLabel;
+      active = true;
+    };
+
+    function deactivate() {
+      element.className = element.className.replace(/active/g, "");
+      button.innerHTML = inactiveLabel;
+      active = false;
+    };
+
+    function toggle() {
+      if (active) deactivate();
+      else activate();
+    }
+
+    if (element.className.indexOf("active") >= 0) active = true;
+
+    element.addEventListener("submit", function(e) { e.preventDefault(); }, false);
+    button.addEventListener("click", function(e) {
+      toggle();
+      e.preventDefault();
+    }, false);
+  }
+
+  var articles = document.getElementsByTagName("article");
+  for (var index = 0; index < articles.length; index++) {
+
+    var form = articles[index].querySelector(".social form");
+    if (form) {
+      if (articles[index].className.indexOf("do") >= 0) {
+        new ToggleButton(form, "<span>Do</span>", "<span>Do</span> It");
+      } else {
+        new ToggleButton(form, "<span>Good</span>", "It’s <span>Good</span>");
+      }
+    }
+
+    form = articles[index].querySelector(".source .details form");
+    if (form) {
+      new ToggleButton(form, "Following", "Follow");
+    }
+
+    forms = articles[index].querySelectorAll(".object form");
+    for (var j = 0; j < forms.length; j++) {
+      new ToggleButton(forms[j], "Following", "Follow");
+    }
+
+  }
+
+})();
+
+
+(function() {
+
+  var messageDuration = 5; // seconds
+  var timer;
+
+  var messageElement = document.createElement("div");
+  messageElement.className = "message";
+  document.body.appendChild(messageElement);
+
+  function showMessage(message) {
+    messageElement.innerHTML = message;
+    messageElement.className += " active";
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(function() {
+      messageElement.className = messageElement.className.replace(/ *active/g, "");
+    }, messageDuration * 1000);
+  };
+
+  var links = document.getElementsByTagName("a");
+  for (var index = 0; index < links.length; index++) {
+    (function() {   
+      var link = links[index];
+      link.addEventListener("click", function(e) {
+        var title = link.getAttribute("title");
+        if (title) {
+          showMessage("Link to <strong>“" + link.title + "”</strong>");
+          e.preventDefault();
+        }
+      }, false);
+    })();
+  }
+
+  /*
+  var forms = document.getElementsByTagName("form");
+  for (var index = 0; index < forms.length; index++) {
+    (function() {   
+      var form = forms[index];
+      form.addEventListener("submit", function(e) {
+        //showMessage(form.href);
+        e.preventDefault();
+      }, false);
+    })();
+  }
+  */
+
+})();
+
