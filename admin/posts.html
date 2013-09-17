@@ -33,14 +33,16 @@
       <section class="page">
         <div class="admin-posts" id="admin-manage-posts____disable-application-styles">
           <h1>Posts</h1>
+
           <div class="filters">
             <span>Filters</span>
-
-            <a href="/admin/posts?scope=every">All Posts</a>
-            <a href="/admin/posts?scope=unpublished">Unpublished Posts</a>
-            <a href="/admin/posts?scope=recently_published">Published Posts</a>
-            <a class="active" href="/admin/posts?scope=flagged">Flagged Posts</a>
-            <a href="/admin/posts?scope=spam">Spam Posts</a>
+            <ul>
+              <li><a href="/admin/posts?scope=every">All Posts</a></li>
+              <li><a href="/admin/posts?scope=unpublished">Unpublished Posts</a></li>
+              <li><a href="/admin/posts?scope=recently_published">Published Posts</a></li>
+              <li><a class="active" href="/admin/posts?scope=flagged">Flagged Posts</a></li>
+              <li><a href="/admin/posts?scope=spam">Spam Posts</a></li>
+            </ul>
 
             <form accept-charset="UTF-8" action="/admin/posts" method="post">
               <input id="scope" name="scope" type="hidden" value="flagged" />
@@ -71,7 +73,8 @@
                 <option value="Action">
                   Do
                 </option>
-              </select><input name="commit" type="submit" value="Filter">
+              </select>
+              <button name="commit" type="submit">Filter</button>
             </form>
           </div>
 
@@ -106,18 +109,43 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td class="check"><input id="posts_" name="posts[]" type="checkbox" value="corcentric-to-host-automated-workflow-the-cure-for-chaos-part-two-of-the-30-minute-matters" /></td>
-                    <td class="long"><a href="/posts/corcentric-to-host-automated-workflow-the-cure-for-chaos-part-two-of-the-30-minute-matters" target="_blank">Corcentric to Host &quot;Automated Workflow: The Cure for Chaos,&quot; Part Two of the 30 Minute Matters</a></td>
+                    <td class="check">
+                      <input id="posts_" name="posts[]" type="checkbox" value="corcentric-to-host-automated-workflow-the-cure-for-chaos-part-two-of-the-30-minute-matters" />
+                    </td>
+                    <td class="long">
+                      <a href="/posts/corcentric-to-host-automated-workflow-the-cure-for-chaos-part-two-of-the-30-minute-matters" target="_blank">
+                        Corcentric to Host &quot;Automated Workflow: The Cure for Chaos,&quot; Part Two of the 30 Minute Matters
+                      </a>
+                    </td>
                     <td><a href="/members/patrick1gall" target="_blank">patrick1gall</a></td>
                     <td>September 13, 2013 at  2:42 AM</td>
                     <td>Link</td>
                     <td>September 13, 2013 at  9:42 AM</td>
                     <td>Akismet</td>
                     <td class="short">1 flaggings</td>
-                    <td class="short"><a href="/admin/posts/corcentric-to-host-automated-workflow-the-cure-for-chaos-part-two-of-the-30-minute-matters/confirm_spam" class="scary" data-method="put" rel="nofollow">mark as spam</a></td>
-                    <td class="short"><a href="/admin/posts/corcentric-to-host-automated-workflow-the-cure-for-chaos-part-two-of-the-30-minute-matters/preserve_ham" class="chillwave" data-method="put" rel="nofollow">ham, not spam</a></td>
-                    <td class="short"><a href="/admin/posts/corcentric-to-host-automated-workflow-the-cure-for-chaos-part-two-of-the-30-minute-matters/edit">edit</a></td>
-                    <td class="short"><a href="/admin/posts/corcentric-to-host-automated-workflow-the-cure-for-chaos-part-two-of-the-30-minute-matters" class="scary" data-method="delete" rel="nofollow">delete</a></td>
+                    <td class="short">
+                      <a href="/admin/posts/corcentric-to-host-automated-workflow-the-cure-for-chaos-part-two-of-the-30-minute-matters/confirm_spam"
+                        class="scary" data-method="put" rel="nofollow">
+                        mark as spam
+                      </a>
+                    </td>
+                    <td class="short">
+                      <a href="/admin/posts/corcentric-to-host-automated-workflow-the-cure-for-chaos-part-two-of-the-30-minute-matters/preserve_ham"
+                        class="chillwave" data-method="put" rel="nofollow">
+                        ham, not spam
+                      </a>
+                    </td>
+                    <td class="short">
+                      <a href="/admin/posts/corcentric-to-host-automated-workflow-the-cure-for-chaos-part-two-of-the-30-minute-matters/edit">
+                        edit
+                      </a>
+                    </td>
+                    <td class="short">
+                      <a href="/admin/posts/corcentric-to-host-automated-workflow-the-cure-for-chaos-part-two-of-the-30-minute-matters"
+                        class="scary" data-method="delete" rel="nofollow">
+                        delete
+                      </a>
+                    </td>
                   </tr>
                   <tr>
                     <td class="check"><input id="posts_" name="posts[]" type="checkbox" value="radical-empathy-what-does-it-actually-look-like" /></td>
