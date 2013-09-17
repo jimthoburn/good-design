@@ -31,62 +31,22 @@
     </div>
     <div class="main">
       <section class="page">
-        <div class="admin-posts" id="admin-manage-posts____disable-application-styles">
+        <div class="admin-posts">
+          <div id="admin-manage-posts">
+          <p class="tip">This is a list of posts that users have flagged as possible spam. If you accept the flaggings by clicking <strong>
+                        Mark as spam
+                      </strong> then the post will be hidden and its contents reported to akismet.<br /><br>If you “unflag” it, its flaggings will be destroyed and it will be removed from this queue.</br>
+          </p>
           <h1>Posts</h1>
+          <div class="filters">
+            <span>Filters</span><a href="/admin/posts?scope=every">All Posts</a><a href="/admin/posts?scope=unpublished">Unpublished Posts</a><a href="/admin/posts?scope=recently_published">Published Posts</a><a href="/admin/posts?scope=flagged" class="active">Flagged Posts</a><a href="/admin/posts?scope=spam">Spam Posts</a><form accept-charset="UTF-8" action="/admin/posts" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div><input id="scope" name="scope" type="hidden" value="flagged" /><label>Published</label><input id="start_date" name="start_date" placeholder="Start Date (MM/DD/YYYY)" type="text" value="09/01/2012" /><label>to</label><input id="end_date" name="end_date" placeholder="End Date (MM/DD/YYYY)" type="text" value="09/16/2013" /><select id="post_type" name="post_type"><option value="Post">Post Type</option>
+                <option value="Post">All</option>
+                <option value="Article">Article</option>
+                <option value="Bookmark">Link</option>
+                <option value="Action">Do</option></select><input name="commit" type="submit" value="Filter" /></form></div>
+          <form accept-charset="UTF-8" action="/admin/posts/bulk_spam" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="P1sLyxdYQ8J6CTAHN36tmvenOwiPLnDxQeHAt306mR4=" /></div><input id="scope" name="scope" type="hidden" value="flagged" />
 
-          <!--
-          <div class="tip">
-            <p>
-            This is a list of posts that users have flagged as possible
-            spam. If you accept the flaggings by clicking <strong>mark as spam</strong>
-            then the post will be hidden and its contents reported to akismet.
-            </p>
-            <p>
-              If you mark it as ham, its flaggings will be destroyed and it will be removed
-              from this queue.
-            </p>
-          </div>
-          -->
-
-          <nav class="status">
-            <h2>Show</h2>
-            <ul>
-              <li><a href="">Unpublished Posts</a></li>
-              <li><a href="">Published Posts</a></li>
-              <li><a href="">Flagged Posts</a></li>
-              <li><a href="">Spam Posts</a></li>
-            </ul>
-          </nav>
-
-          <section class="date">
-            <form accept-charset="UTF-8" action="/admin/posts" method="post">
-              <h2>Date Range</h2>
-              <p>
-                <label>
-                  <span>Published</span>
-                  <input name="start_date" placeholder="Start Date (MM/DD/YYYY)" type="text" value="09/01/2012" />
-                </label>
-                <label>
-                  <span>to</span>
-                  <input name="end_date" placeholder="End Date (MM/DD/YYYY)" type="text" value="09/16/2013" />
-                </label>
-              </p>
-              <p class="submit">
-                <button name="commit" type="submit">Filter</button>
-              </p>
-            </form>
-          </section>
-
-          <nav class="type">
-            <h2>Filter</h2>
-            <ul>
-              <li><a href="">All Types</a></li>
-              <li><a href="">Articles Only</a></li>
-              <li><a href="">Links Only</a></li>
-              <li><a href="">Dos Only</a></li>
-            </ul>
-          </nav>
-
+          </div><!-- /#admin-manage-posts -->
           <form accept-charset="UTF-8" action="/admin/posts/bulk_spam" method="post">
             <input id="scope" name="scope" type="hidden" value="flagged">
 
@@ -122,20 +82,20 @@
                     <td class="short">1 flaggings</td>
                     <td class="short">
                       <a href="/admin/posts/corcentric-to-host-automated-workflow-the-cure-for-chaos-part-two-of-the-30-minute-matters/confirm_spam"
-                        class="scary" data-method="put" rel="nofollow">
-                        mark as spam
+                        class="spam" data-method="put" rel="nofollow" title="Mark this post as spam">
+                        <span>Mark as spam</span>
                       </a>
                     </td>
                     <td class="short">
                       <a href="/admin/posts/corcentric-to-host-automated-workflow-the-cure-for-chaos-part-two-of-the-30-minute-matters/preserve_ham"
-                        class="chillwave" data-method="put" rel="nofollow">
-                        unflag
+                        class="unflag" data-method="put" rel="nofollow" title="Unflag this post">
+                        <span>Unflag</span>
                       </a>
                     </td>
                     <td class="short">
                       <a href="/admin/posts/corcentric-to-host-automated-workflow-the-cure-for-chaos-part-two-of-the-30-minute-matters"
-                        class="scary" data-method="delete" rel="nofollow">
-                        delete
+                        class="delete" data-method="delete" rel="nofollow" title="Delete this post">
+                        <span>Delete</span>
                       </a>
                     </td>
                   </tr>
@@ -149,10 +109,12 @@
                     <td class="date"><span>09/16/2013, 10:54 PM</td>
                     <td><span>Akismet</span></td>
                     <td class="short">1 flaggings</td>
-                    <td class="short"><a href="/admin/posts/radical-empathy-what-does-it-actually-look-like/confirm_spam" class="scary" data-method="put" rel="nofollow">mark as spam</a></td>
-                    <td class="short"><a href="/admin/posts/radical-empathy-what-does-it-actually-look-like/preserve_ham" class="chillwave" data-method="put" rel="nofollow">unflag</a></td>
+                    <td class="short"><a href="/admin/posts/radical-empathy-what-does-it-actually-look-like/confirm_spam" class="spam" data-method="put" rel="nofollow">
+                        <span>Mark as spam</span>
+                      </a></td>
+                    <td class="short"><a href="/admin/posts/radical-empathy-what-does-it-actually-look-like/preserve_ham" class="unflag" data-method="put" rel="nofollow"><span>Unflag</span></a></td>
                     
-                    <td class="short"><a href="/admin/posts/radical-empathy-what-does-it-actually-look-like" class="scary" data-method="delete" rel="nofollow">delete</a></td>
+                    <td class="short"><a href="/admin/posts/radical-empathy-what-does-it-actually-look-like" class="delete" data-method="delete" rel="nofollow"><span>Delete</span></a></td>
                   </tr>
                   <tr>
                     <td class="check"><span><input id="posts_" name="posts[]" type="checkbox" value="10-tips-for-wedding-second-shooters" /><span>
@@ -164,10 +126,12 @@
                     <td class="date"><span>09/16/2013, 10:44 PM</td>
                     <td><span>User</span></td>
                     <td class="short">1 flaggings</td>
-                    <td class="short"><a href="/admin/posts/10-tips-for-wedding-second-shooters/confirm_spam" class="scary" data-method="put" rel="nofollow">mark as spam</a></td>
-                    <td class="short"><a href="/admin/posts/10-tips-for-wedding-second-shooters/preserve_ham" class="chillwave" data-method="put" rel="nofollow">unflag</a></td>
+                    <td class="short"><a href="/admin/posts/10-tips-for-wedding-second-shooters/confirm_spam" class="spam" data-method="put" rel="nofollow">
+                        <span>Mark as spam</span>
+                      </a></td>
+                    <td class="short"><a href="/admin/posts/10-tips-for-wedding-second-shooters/preserve_ham" class="unflag" data-method="put" rel="nofollow"><span>Unflag</span></a></td>
                     
-                    <td class="short"><a href="/admin/posts/10-tips-for-wedding-second-shooters" class="scary" data-method="delete" rel="nofollow">delete</a></td>
+                    <td class="short"><a href="/admin/posts/10-tips-for-wedding-second-shooters" class="delete" data-method="delete" rel="nofollow"><span>Delete</span></a></td>
                   </tr>
                   <tr>
                     <td class="check"><span><input id="posts_" name="posts[]" type="checkbox" value="chinese-developed-microbots-carry-drugs-to-point-of-injury" /><span>
@@ -179,10 +143,12 @@
                     <td class="date"><span>09/16/2013,  7:50 PM</td>
                     <td><span>Akismet</span></td>
                     <td class="short">1 flaggings</td>
-                    <td class="short"><a href="/admin/posts/chinese-developed-microbots-carry-drugs-to-point-of-injury/confirm_spam" class="scary" data-method="put" rel="nofollow">mark as spam</a></td>
-                    <td class="short"><a href="/admin/posts/chinese-developed-microbots-carry-drugs-to-point-of-injury/preserve_ham" class="chillwave" data-method="put" rel="nofollow">unflag</a></td>
+                    <td class="short"><a href="/admin/posts/chinese-developed-microbots-carry-drugs-to-point-of-injury/confirm_spam" class="spam" data-method="put" rel="nofollow">
+                        <span>Mark as spam</span>
+                      </a></td>
+                    <td class="short"><a href="/admin/posts/chinese-developed-microbots-carry-drugs-to-point-of-injury/preserve_ham" class="unflag" data-method="put" rel="nofollow"><span>Unflag</span></a></td>
                     
-                    <td class="short"><a href="/admin/posts/chinese-developed-microbots-carry-drugs-to-point-of-injury" class="scary" data-method="delete" rel="nofollow">delete</a></td>
+                    <td class="short"><a href="/admin/posts/chinese-developed-microbots-carry-drugs-to-point-of-injury" class="delete" data-method="delete" rel="nofollow"><span>Delete</span></a></td>
                   </tr>
                   <tr>
                     <td class="check"><span><input id="posts_" name="posts[]" type="checkbox" value="new-york-fashion-week-2013-round-up" /><span>
@@ -194,10 +160,12 @@
                     <td class="date"><span>09/16/2013,  7:07 PM</td>
                     <td><span>Akismet</span></td>
                     <td class="short">1 flaggings</td>
-                    <td class="short"><a href="/admin/posts/new-york-fashion-week-2013-round-up/confirm_spam" class="scary" data-method="put" rel="nofollow">mark as spam</a></td>
-                    <td class="short"><a href="/admin/posts/new-york-fashion-week-2013-round-up/preserve_ham" class="chillwave" data-method="put" rel="nofollow">unflag</a></td>
+                    <td class="short"><a href="/admin/posts/new-york-fashion-week-2013-round-up/confirm_spam" class="spam" data-method="put" rel="nofollow">
+                        <span>Mark as spam</span>
+                      </a></td>
+                    <td class="short"><a href="/admin/posts/new-york-fashion-week-2013-round-up/preserve_ham" class="unflag" data-method="put" rel="nofollow"><span>Unflag</span></a></td>
                     
-                    <td class="short"><a href="/admin/posts/new-york-fashion-week-2013-round-up" class="scary" data-method="delete" rel="nofollow">delete</a></td>
+                    <td class="short"><a href="/admin/posts/new-york-fashion-week-2013-round-up" class="delete" data-method="delete" rel="nofollow"><span>Delete</span></a></td>
                   </tr>
                   <tr>
                     <td class="check"><span><input id="posts_" name="posts[]" type="checkbox" value="ugly-animal-preservation-society-chooses-mascot" /><span>
@@ -209,10 +177,12 @@
                     <td class="date"><span>09/16/2013,  6:45 PM</td>
                     <td><span>Akismet</span></td>
                     <td class="short">1 flaggings</td>
-                    <td class="short"><a href="/admin/posts/ugly-animal-preservation-society-chooses-mascot/confirm_spam" class="scary" data-method="put" rel="nofollow">mark as spam</a></td>
-                    <td class="short"><a href="/admin/posts/ugly-animal-preservation-society-chooses-mascot/preserve_ham" class="chillwave" data-method="put" rel="nofollow">unflag</a></td>
+                    <td class="short"><a href="/admin/posts/ugly-animal-preservation-society-chooses-mascot/confirm_spam" class="spam" data-method="put" rel="nofollow">
+                        <span>Mark as spam</span>
+                      </a></td>
+                    <td class="short"><a href="/admin/posts/ugly-animal-preservation-society-chooses-mascot/preserve_ham" class="unflag" data-method="put" rel="nofollow"><span>Unflag</span></a></td>
                     
-                    <td class="short"><a href="/admin/posts/ugly-animal-preservation-society-chooses-mascot" class="scary" data-method="delete" rel="nofollow">delete</a></td>
+                    <td class="short"><a href="/admin/posts/ugly-animal-preservation-society-chooses-mascot" class="delete" data-method="delete" rel="nofollow"><span>Delete</span></a></td>
                   </tr>
                   <tr>
                     <td class="check"><span><input id="posts_" name="posts[]" type="checkbox" value="have-researchers-found-the-fountain-of-youth" /><span>
@@ -224,10 +194,12 @@
                     <td class="date"><span>09/16/2013,  6:08 PM</td>
                     <td><span>Akismet</span></td>
                     <td class="short">1 flaggings</td>
-                    <td class="short"><a href="/admin/posts/have-researchers-found-the-fountain-of-youth/confirm_spam" class="scary" data-method="put" rel="nofollow">mark as spam</a></td>
-                    <td class="short"><a href="/admin/posts/have-researchers-found-the-fountain-of-youth/preserve_ham" class="chillwave" data-method="put" rel="nofollow">unflag</a></td>
+                    <td class="short"><a href="/admin/posts/have-researchers-found-the-fountain-of-youth/confirm_spam" class="spam" data-method="put" rel="nofollow">
+                        <span>Mark as spam</span>
+                      </a></td>
+                    <td class="short"><a href="/admin/posts/have-researchers-found-the-fountain-of-youth/preserve_ham" class="unflag" data-method="put" rel="nofollow"><span>Unflag</span></a></td>
                     
-                    <td class="short"><a href="/admin/posts/have-researchers-found-the-fountain-of-youth" class="scary" data-method="delete" rel="nofollow">delete</a></td>
+                    <td class="short"><a href="/admin/posts/have-researchers-found-the-fountain-of-youth" class="delete" data-method="delete" rel="nofollow"><span>Delete</span></a></td>
                   </tr>
                   <tr>
                     <td class="check"><span><input id="posts_" name="posts[]" type="checkbox" value="terry-fox-ran-3-000-miles-with-one-leg-for-canccer-research-canadians-follow-his-legacy-33-years-later" /><span>
@@ -239,10 +211,12 @@
                     <td class="date"><span>09/16/2013,  5:58 PM</td>
                     <td><span>Akismet</span></td>
                     <td class="short">1 flaggings</td>
-                    <td class="short"><a href="/admin/posts/terry-fox-ran-3-000-miles-with-one-leg-for-canccer-research-canadians-follow-his-legacy-33-years-later/confirm_spam" class="scary" data-method="put" rel="nofollow">mark as spam</a></td>
-                    <td class="short"><a href="/admin/posts/terry-fox-ran-3-000-miles-with-one-leg-for-canccer-research-canadians-follow-his-legacy-33-years-later/preserve_ham" class="chillwave" data-method="put" rel="nofollow">unflag</a></td>
+                    <td class="short"><a href="/admin/posts/terry-fox-ran-3-000-miles-with-one-leg-for-canccer-research-canadians-follow-his-legacy-33-years-later/confirm_spam" class="spam" data-method="put" rel="nofollow">
+                        <span>Mark as spam</span>
+                      </a></td>
+                    <td class="short"><a href="/admin/posts/terry-fox-ran-3-000-miles-with-one-leg-for-canccer-research-canadians-follow-his-legacy-33-years-later/preserve_ham" class="unflag" data-method="put" rel="nofollow"><span>Unflag</span></a></td>
                     
-                    <td class="short"><a href="/admin/posts/terry-fox-ran-3-000-miles-with-one-leg-for-canccer-research-canadians-follow-his-legacy-33-years-later" class="scary" data-method="delete" rel="nofollow">delete</a></td>
+                    <td class="short"><a href="/admin/posts/terry-fox-ran-3-000-miles-with-one-leg-for-canccer-research-canadians-follow-his-legacy-33-years-later" class="delete" data-method="delete" rel="nofollow"><span>Delete</span></a></td>
                   </tr>
                   <tr>
                     <td class="check"><span><input id="posts_" name="posts[]" type="checkbox" value="how-doctors-die-it-s-not-like-the-rest-of-us-but-it-should-be" /><span>
@@ -254,10 +228,12 @@
                     <td class="date"><span>09/16/2013,  5:35 PM</td>
                     <td><span>Akismet</span></td>
                     <td class="short">1 flaggings</td>
-                    <td class="short"><a href="/admin/posts/how-doctors-die-it-s-not-like-the-rest-of-us-but-it-should-be/confirm_spam" class="scary" data-method="put" rel="nofollow">mark as spam</a></td>
-                    <td class="short"><a href="/admin/posts/how-doctors-die-it-s-not-like-the-rest-of-us-but-it-should-be/preserve_ham" class="chillwave" data-method="put" rel="nofollow">unflag</a></td>
+                    <td class="short"><a href="/admin/posts/how-doctors-die-it-s-not-like-the-rest-of-us-but-it-should-be/confirm_spam" class="spam" data-method="put" rel="nofollow">
+                        <span>Mark as spam</span>
+                      </a></td>
+                    <td class="short"><a href="/admin/posts/how-doctors-die-it-s-not-like-the-rest-of-us-but-it-should-be/preserve_ham" class="unflag" data-method="put" rel="nofollow"><span>Unflag</span></a></td>
                     
-                    <td class="short"><a href="/admin/posts/how-doctors-die-it-s-not-like-the-rest-of-us-but-it-should-be" class="scary" data-method="delete" rel="nofollow">delete</a></td>
+                    <td class="short"><a href="/admin/posts/how-doctors-die-it-s-not-like-the-rest-of-us-but-it-should-be" class="delete" data-method="delete" rel="nofollow"><span>Delete</span></a></td>
                   </tr>
                   <tr>
                     <td class="check"><span><input id="posts_" name="posts[]" type="checkbox" value="how-to-entertain-your-dog-with-special-android-tablet-games" /><span>
@@ -269,17 +245,26 @@
                     <td class="date"><span>09/16/2013, 11:32 AM</span></td>
                     <td><span>Akismet</span></td>
                     <td class="short">1 flaggings</td>
-                    <td class="short"><a href="/admin/posts/how-to-entertain-your-dog-with-special-android-tablet-games/confirm_spam" class="scary" data-method="put" rel="nofollow">mark as spam</a></td>
-                    <td class="short"><a href="/admin/posts/how-to-entertain-your-dog-with-special-android-tablet-games/preserve_ham" class="chillwave" data-method="put" rel="nofollow">unflag</a></td>
+                    <td class="short"><a href="/admin/posts/how-to-entertain-your-dog-with-special-android-tablet-games/confirm_spam" class="spam" data-method="put" rel="nofollow">
+                        <span>Mark as spam</span>
+                      </a></td>
+                    <td class="short"><a href="/admin/posts/how-to-entertain-your-dog-with-special-android-tablet-games/preserve_ham" class="unflag" data-method="put" rel="nofollow"><span>Unflag</span></a></td>
                     
-                    <td class="short"><a href="/admin/posts/how-to-entertain-your-dog-with-special-android-tablet-games" class="scary" data-method="delete" rel="nofollow">delete</a></td>
+                    <td class="short"><a href="/admin/posts/how-to-entertain-your-dog-with-special-android-tablet-games" class="delete" data-method="delete" rel="nofollow"><span>Delete</span></a></td>
                   </tr>
                 </tbody>
               </table>
-              <ul class="submit">
-                <li><button type="submit" name="commit" value="Mark as spam">Mark as spam</button></li>
-                <li><button type="submit" name="commit" value="Unflag">Unflag</button></li>
-              </ul>
+              <div class="checked-items">
+                <h3>Checked items:</h3>
+                <ul>
+                  <li class="spam">
+                    <button type="submit" class="spam_button" name="commit" value="Mark checked as spam"><span></span>Mark as spam</button>
+                  </li>
+                  <li class="unflag">
+                    <button type="submit" class="spam_button" name="commit" value="Mark checked as ham"><span></span><span>Unflag</span></button>
+                  </li>
+                </ul>
+              </div>
           </form>
         </div>
       </section>

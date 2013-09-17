@@ -2,49 +2,32 @@
 
 /* =Admin Posts
   ----------------------------------------------- */
-  .admin-posts {
-    margin: 0;
-    padding: 1.5em;
-    line-height: 1.5;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  }
-  .admin-posts a {
-    color: inherit;
-    text-decoration: none;
-    transition: all 0.2s;
-  }
-  .admin-posts a:hover,
-  .admin-posts a:active,
-  .admin-posts a:focus {
-    color: rgb(51, 153, 255); /* @link-color */
-  }
-  .admin-posts button {
-    cursor: pointer;
-  }
 
-  .admin-posts h1 {
-    font-size: 3em;
-    margin-bottom: 1em;
-  }
-  .admin-posts h2 {
-    font-weight: bold;
-    margin-right: 1em;
-  }
-  .admin-posts h2,
-  .admin-posts h2 + ul {
-    display: inline;
-  }
-  .admin-posts h2:after {
-    content: ":";
+  html.controller-admin\/posts.action-index .main {
+    max-width: 1060px;
   }
 
   .admin-posts table {
-    margin-top: 1.5em;
+    margin: 1.5em 0 0;
+    padding: 1.5em;
+    line-height: 1.5;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     border-width: 1px 0 0 0;
     border-style: solid;
     border-color: rgb(204, 204, 204);
     border-spacing: 0;
+    width: 100%;
   }
+  .admin-posts table a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .admin-posts table a:hover,
+  .admin-posts table a:active,
+  .admin-posts table a:focus {
+    color: rgb(51, 153, 255); /* @link-color */
+  }
+
   .admin-posts th,
   .admin-posts td {
     border-width: 0 0 1px 0;
@@ -60,14 +43,38 @@
     display: block;
     padding: 10px 10px;
   }
+  .admin-posts th:first-child,
+  .admin-posts td:first-child {
+    padding-left: 10px;
+  }
+  .admin-posts th:last-child,
+  .admin-posts td:last-child {
+    padding-right: 10px;
+  }
+
+  .admin-posts td {
+    padding: 10px 0;
+  }
   .admin-posts td > a,
   .admin-posts td > span {
     display: block;
-    padding: 20px 10px;
+    padding: 10px 10px;
   }
   .admin-posts td.short > a,
   .admin-posts th > span {
     white-space: nowrap;
+  }
+
+  /*
+  .admin-posts tbody tr:nth-child(2n) {
+    background: rgb(250, 250, 250);
+  }
+  */
+
+  /* KLUDGE: Attempt to line the checkboxes up with the text to the right */
+  .admin-posts th:first-child input[type="checkbox"],
+  .admin-posts td:first-child input[type="checkbox"] {
+    margin-top: 6px;
   }
 
   .admin-posts tbody tr:hover,
@@ -75,16 +82,19 @@
   .admin-posts tbody tr:focus {
     background: rgb(255, 252, 231);
   }
+
+  /*
   .admin-posts tbody tr:hover  a,
   .admin-posts tbody tr:active a,
   .admin-posts tbody tr:focus  a {
-    color: rgb(51, 153, 255); /* @link-color */
+    color: rgb(51, 153, 255);
   }
   .admin-posts tbody tr:hover  .short a,
   .admin-posts tbody tr:active .short a,
   .admin-posts tbody tr:focus  .short a {
     color: rgb(162, 166, 121);
   }
+  */
 
 
 /* TEMP:
@@ -104,6 +114,87 @@ Pretend these columns have been removed in the HTML. */
     color: black;
     font-size: 16px;
   }
+  td.long + td a {
+    color: rgb(102, 102, 102);
+  }
+
+  td.short a {
+    font-weight: bold;
+    border: 1px solid transparent;
+    border-radius: 3em;
+    text-align: center;
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+  td.short a:hover,
+  td.short a:active,
+  td.short a:focus {
+    color: rgb(218, 55, 42);
+    color: rgb(102, 102, 102);
+    background: white;
+    border-color: rgb(213, 212, 209);
+  }
+  td.short a.unflag:hover,
+  td.short a.unflag:active,
+  td.short a.unflag:focus {
+    color: rgb(51, 204, 102);
+    color: rgb(102, 102, 102);
+  }
+  td.short a.spam:before,
+  td.short a.unflag:before,
+  td.short a.delete:before {
+    content: "";
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    opacity: 0.75;
+    margin-right: 5px;
+  }
+
+  /* If the device supports hover effects */
+  /*
+  .hoverable td.short a.spam:before,
+  .hoverable td.short a.unflag:before,
+  .hoverable td.short a.delete:before {
+    margin-right: 0;
+  }
+  .hoverable td.short a span {
+    position: absolute;
+    left: -9999px;
+  }
+  */
+
+  td.short a.spam:before {
+    background-image: url(images/no-gray.png);
+    width: 15px;
+    height: 14px;
+  }
+  td.short a.spam:hover:before,
+  td.short a.spam:active:before,
+  td.short a.spam:focus:before {
+    background-image: url(images/no.png);
+  }
+  td.short a.unflag:before {
+    background-image: url(images/checkmark-gray.png);
+    width: 15px;
+    height: 11px;
+  }
+  td.short a.unflag:hover:before,
+  td.short a.unflag:active:before,
+  td.short a.unflag:focus:before {
+    background-image: url(images/checkmark.png);
+  }
+  td.short a.delete:before {
+    background-image: url(images/x-gray.png);
+    width: 12px;
+    height: 11px;
+  }
+  td.short a.delete:hover:before,
+  td.short a.delete:active:before,
+  td.short a.delete:focus:before {
+    background-image: url(images/x.png);
+  }
 
   .admin-posts th {
     text-transform: uppercase;
@@ -112,158 +203,46 @@ Pretend these columns have been removed in the HTML. */
     border-bottom: 2px solid rgb(204, 204, 204);
   }
 
-
-/* =Status
-  ----------------------------------------------- */
-  /*
-  .admin-posts .status {
-    position: relative;
-    width: 18em;
+  .checked-items {
+    margin-left: 20px;
+    color: rgb(153, 153, 153);
   }
-  .admin-posts .status h2,
-  .admin-posts .status ul {
-    width: 100%;
-    box-sizing: border-box;
+  .checked-items h3 {
+    text-transform: uppercase;
+    font-family: "BrandonGrotesque-Bold", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    margin-right: 10px;
   }
-  .admin-posts .status ul,
-  .admin-posts .status li {
+  .checked-items h3,
+  .checked-items ul,
+  .checked-items li {
+    display: inline;
+  }
+  .checked-items ul,
+  .checked-items li {
     list-style: none;
     margin-left: 0;
     padding-left: 0;
   }
-  .admin-posts .status ul {
-    color: rgb(182, 185, 192);
-    font-weight: bold;
-    font-size: 0.875em;
-    background: rgb(249, 249, 249);
-    border: 1px solid rgb(218, 220, 224);
-    border-radius: 0.25em;
-    display: inline-block;
+  .checked-items button {
+    margin-left: 0;
   }
-  .admin-posts .status li {
-    margin-right: 0.5em;
-  }
-  .admin-posts .status ul a {
-    display: block;
-    padding: 0.75em 1.25em;
-  }
-  .admin-posts .status h2 {
-    margin: 0;
-    color: rgb(182, 185, 192);
-    font-weight: bold;
-    font-size: 0.875em;
-    background: rgb(249, 249, 249);
-    border: 1px solid rgb(218, 220, 224);
-    padding: 0.75em 1.25em;
-    border-radius: 0.25em;
-    display: inline-block;
-  }
-  .admin-posts .status h2:after {
-    position: absolute;
-    right: 0;
-    top: 0;
+  .checked-items button:before {
     content: "";
     display: inline-block;
-    background: rgb(249, 249, 249);
-    border: 1px solid transparent;
-    width: 3em;
-    height: 100%;
-    box-sizing: border-box;
+    margin-right: 5px;
+    background-size: contain;
+    background-repeat: no-repeat;
     vertical-align: middle;
-    background: transparent url(images/triangle.svg) center no-repeat;
-    border-top-right-radius: 0.15em;
-    border-bottom-right-radius: 0.15em;
-    border-left-color: rgb(233, 234, 236);
   }
-  .admin-posts .status ul {
-    position: absolute;
-    margin: 0;
-    top: 0;
-    z-index: 1;
-    left: -9999px;
-    text-align: left;
-    opacity: 0;
-    transition: opacity 0.2s;
-    white-space: nowrap;
+  .checked-items .spam button:before {
+    background-image: url(images/no-gray.png);
+    width: 15px;
+    height: 14px;
   }
-  .admin-posts .status:hover  ul,
-  .admin-posts .status:active ul,
-  .admin-posts .status:focus  ul {
-    left: 0;
-    opacity: 1;
-    border-color: rgb(113, 179, 247);
+  .checked-items .unflag button:before {
+    background-image: url(images/checkmark-gray.png);
+    width: 15px;
+    height: 11px;
   }
-  */
-
-
-/* =Type
-  ----------------------------------------------- */
-  .admin-posts nav {
-    margin: 1.5em 0;
-  }
-  .admin-posts nav h2 {
-    margin-bottom: 0.5em;
-  }
-  .admin-posts nav li {
-    display: inline;
-    margin-right: 0.75em;
-  }
-  .admin-posts nav a {
-    border-radius: 0.25em;
-    display: inline-block;
-    padding: 0.5em 1em;
-    border: 1px solid #e3e5e8;
-    background: #fafafa;
-    color: #454747;
-    line-height: 1.5em;
-  }
-
-
-/* =Date
-  ----------------------------------------------- */
-  .admin-posts .date {
-    margin: 1.5em 0;
-  }
-  .admin-posts .date p {
-    display: inline-block;
-  }
-  .admin-posts input[type="text"] {
-    border-width: 0;
-    border-radius: 0.25em;
-    border: 1px solid rgb(225, 225, 225); /* @bright-silver */
-
-    width: 8em;
-
-    margin: 0;
-    font-size: 0.9375em;
-    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
-    color: rgb(102, 102, 102); /* @steel */
-
-    /* TRICKY: Some browsers don’t allow line height to be
-    adjusted on text fields, so assume a line height of normal
-    and rely on padding. */
-    padding: 0.45em 0.6em;
-  }
-  .admin-posts .date label > span:first-child {
-    display: inline-block;
-    margin-bottom: 0.25em;
-  }
-  button {
-    border-width: 0;
-    border-radius: 0.25em;
-    border: 1px solid transparent;
-    font-size: 0.9375em;
-    line-height: normal;
-    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
-    padding: 0.45em 0.6em;
-    background: rgb(51, 153, 255); /* @link-color */;
-    color: white;
-  }
-  ul.submit {
-    margin-top: 1.5em; /* @line-height */
-  }
-  ul.submit li {
-    display: inline;
-  }
-
 
