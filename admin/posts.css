@@ -5,6 +5,8 @@
   .admin-posts {
     margin: 0;
     padding: 1.5em;
+    line-height: 1.5;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
   .admin-posts a {
     color: inherit;
@@ -20,19 +22,248 @@
     cursor: pointer;
   }
 
+  .admin-posts h1 {
+    font-size: 3em;
+    margin-bottom: 1em;
+  }
+  .admin-posts h2 {
+    font-weight: bold;
+    margin-right: 1em;
+  }
+  .admin-posts h2,
+  .admin-posts h2 + ul {
+    display: inline;
+  }
+  .admin-posts h2:after {
+    content: ":";
+  }
+
   .admin-posts table {
     margin-top: 1.5em;
     border-width: 1px 0 0 0;
     border-style: solid;
     border-color: rgb(204, 204, 204);
+    border-spacing: 0;
   }
   .admin-posts th,
   .admin-posts td {
     border-width: 0 0 1px 0;
     border-style: solid;
     border-color: rgb(204, 204, 204);
-    padding: 0.5em 1em;
+    color: rgb(153, 153, 153);
+    text-align: left;
+    font-size: 12px;
+    vertical-align: top;
+  }
+  .admin-posts th > a,
+  .admin-posts th > span {
+    display: block;
+    padding: 10px 10px;
+  }
+  .admin-posts td > a,
+  .admin-posts td > span {
+    display: block;
+    padding: 20px 10px;
+  }
+  .admin-posts td.short > a,
+  .admin-posts th > span {
+    white-space: nowrap;
   }
 
+  .admin-posts tbody tr:hover,
+  .admin-posts tbody tr:active,
+  .admin-posts tbody tr:focus {
+    background: rgb(255, 252, 231);
+  }
+  .admin-posts tbody tr:hover  a,
+  .admin-posts tbody tr:active a,
+  .admin-posts tbody tr:focus  a {
+    color: rgb(51, 153, 255); /* @link-color */
+  }
+  .admin-posts tbody tr:hover  .short a,
+  .admin-posts tbody tr:active .short a,
+  .admin-posts tbody tr:focus  .short a {
+    color: rgb(162, 166, 121);
+  }
+
+
+/* TEMP:
+Pretend these columns have been removed in the HTML. */
+  th:nth-child(5),
+  th:nth-child(6),
+  th:nth-child(8),
+  td:nth-child(5),
+  td:nth-child(6),
+  td:nth-child(8) {
+    display: none;
+  }
+
+  td.long {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    color: black;
+    font-size: 16px;
+  }
+
+  .admin-posts th {
+    text-transform: uppercase;
+    font-family: "BrandonGrotesque-Bold", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    border-bottom: 2px solid rgb(204, 204, 204);
+  }
+
+
+/* =Status
+  ----------------------------------------------- */
+  /*
+  .admin-posts .status {
+    position: relative;
+    width: 18em;
+  }
+  .admin-posts .status h2,
+  .admin-posts .status ul {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .admin-posts .status ul,
+  .admin-posts .status li {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .admin-posts .status ul {
+    color: rgb(182, 185, 192);
+    font-weight: bold;
+    font-size: 0.875em;
+    background: rgb(249, 249, 249);
+    border: 1px solid rgb(218, 220, 224);
+    border-radius: 0.25em;
+    display: inline-block;
+  }
+  .admin-posts .status li {
+    margin-right: 0.5em;
+  }
+  .admin-posts .status ul a {
+    display: block;
+    padding: 0.75em 1.25em;
+  }
+  .admin-posts .status h2 {
+    margin: 0;
+    color: rgb(182, 185, 192);
+    font-weight: bold;
+    font-size: 0.875em;
+    background: rgb(249, 249, 249);
+    border: 1px solid rgb(218, 220, 224);
+    padding: 0.75em 1.25em;
+    border-radius: 0.25em;
+    display: inline-block;
+  }
+  .admin-posts .status h2:after {
+    position: absolute;
+    right: 0;
+    top: 0;
+    content: "";
+    display: inline-block;
+    background: rgb(249, 249, 249);
+    border: 1px solid transparent;
+    width: 3em;
+    height: 100%;
+    box-sizing: border-box;
+    vertical-align: middle;
+    background: transparent url(images/triangle.svg) center no-repeat;
+    border-top-right-radius: 0.15em;
+    border-bottom-right-radius: 0.15em;
+    border-left-color: rgb(233, 234, 236);
+  }
+  .admin-posts .status ul {
+    position: absolute;
+    margin: 0;
+    top: 0;
+    z-index: 1;
+    left: -9999px;
+    text-align: left;
+    opacity: 0;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+  }
+  .admin-posts .status:hover  ul,
+  .admin-posts .status:active ul,
+  .admin-posts .status:focus  ul {
+    left: 0;
+    opacity: 1;
+    border-color: rgb(113, 179, 247);
+  }
+  */
+
+
+/* =Type
+  ----------------------------------------------- */
+  .admin-posts nav {
+    margin: 1.5em 0;
+  }
+  .admin-posts nav h2 {
+    margin-bottom: 0.5em;
+  }
+  .admin-posts nav li {
+    display: inline;
+    margin-right: 0.75em;
+  }
+  .admin-posts nav a {
+    border-radius: 0.25em;
+    display: inline-block;
+    padding: 0.5em 1em;
+    border: 1px solid #e3e5e8;
+    background: #fafafa;
+    color: #454747;
+    line-height: 1.5em;
+  }
+
+
+/* =Date
+  ----------------------------------------------- */
+  .admin-posts .date {
+    margin: 1.5em 0;
+  }
+  .admin-posts .date p {
+    display: inline-block;
+  }
+  .admin-posts input[type="text"] {
+    border-width: 0;
+    border-radius: 0.25em;
+    border: 1px solid rgb(225, 225, 225); /* @bright-silver */
+
+    width: 8em;
+
+    margin: 0;
+    font-size: 0.9375em;
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+    color: rgb(102, 102, 102); /* @steel */
+
+    /* TRICKY: Some browsers don’t allow line height to be
+    adjusted on text fields, so assume a line height of normal
+    and rely on padding. */
+    padding: 0.45em 0.6em;
+  }
+  .admin-posts .date label > span:first-child {
+    display: inline-block;
+    margin-bottom: 0.25em;
+  }
+  button {
+    border-width: 0;
+    border-radius: 0.25em;
+    border: 1px solid transparent;
+    font-size: 0.9375em;
+    line-height: normal;
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 0.45em 0.6em;
+    background: rgb(51, 153, 255); /* @link-color */;
+    color: white;
+  }
+  ul.submit {
+    margin-top: 1.5em; /* @line-height */
+  }
+  ul.submit li {
+    display: inline;
+  }
 
 
