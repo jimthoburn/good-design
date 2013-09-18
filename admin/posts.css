@@ -97,24 +97,13 @@
   */
 
 
-/* TEMP:
-Pretend these columns have been removed in the HTML. */
-  th:nth-child(5),
-  th:nth-child(6),
-  th:nth-child(8),
-  td:nth-child(5),
-  td:nth-child(6),
-  td:nth-child(8) {
-    display: none;
-  }
-
   td.long {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: bold;
     color: black;
     font-size: 16px;
   }
-  td.long + td a {
+  td.author a {
     color: rgb(102, 102, 102);
   }
 
@@ -196,6 +185,14 @@ Pretend these columns have been removed in the HTML. */
     background-image: url(images/x.png);
   }
 
+  a.spam   span,
+  a.unflag span,
+  a.edit   span,
+  a.delete span {
+    position: absolute;
+    left: -9999px;
+  }
+
   .admin-posts th {
     text-transform: uppercase;
     font-family: "BrandonGrotesque-Bold", Helvetica, Arial, sans-serif;
@@ -245,4 +242,7 @@ Pretend these columns have been removed in the HTML. */
     width: 15px;
     height: 11px;
   }
+
+
+
 
