@@ -1,462 +1,1060 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr" class="controller-admin/posts action-index">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="application.css" />
-    <link rel="stylesheet" type="text/css" href="posts.css" />
-  </head>
-  <body>
-    <header>
-      <section>
-        <div class="logo"><a href="/">GOOD</a></div><div id="logged-out-actions"></div>
-        <div class="actions"><form accept-charset="UTF-8" action="/" class="search collapsed" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="P1sLyxdYQ8J6CTAHN36tmvenOwiPLnDxQeHAt306mR4=" /></div><input data-search-route="/search" id="q" name="q" placeholder="What are you looking for?" type="text" /><button name="button" type="submit">Search</button><label>find topics, members, or keywords...</label>
-                <div id="search_error">We couldn't find any suggestions matching your keyword</div>
-                <div class="header-spinner">
-                  <div class="outer"></div>
-                  <div class="inner"></div>
-                </div></form><div id="action_buttons"><a href="/explore" class="explore">Explore</a><a href="/posts/new" class="post" data-authenticated="" data-redirect="/posts/new" data-track-event="Clicked Post" data-track-target="post" id="submission_form_button">Post</a></div>
-          <div id="login_js"></div>
-          <div id="notifications_js"></div>
-        </div>
-      </section>
-    </header>
-    <div class="notice">
-      <div id="notice-message-wrapper">
-        <div class="inner-wrapper">
-          <div id="notice-message"></div>
-          <div id="alert-message"></div>
-        </div>
-        <div class="close"></div>
-      </div>
-    </div>
-    <div class="main">
-      <section class="page">
-        <div class="admin-posts">
-          <div id="admin-manage-posts">
-          <p class="tip">This is a list of posts that users have flagged as possible spam. If you accept the flaggings by clicking <strong>
-                        Mark as spam
-                      </strong> then the post will be hidden and its contents reported to akismet.<br /><br>If you “unflag” it, its flaggings will be destroyed and it will be removed from this queue.</br>
-          </p>
-          <h1>Posts</h1>
-          <div class="filters">
-            <span>Filters</span><a href="/admin/posts?scope=every">All Posts</a><a href="/admin/posts?scope=unpublished">Unpublished Posts</a><a href="/admin/posts?scope=recently_published">Published Posts</a><a href="/admin/posts?scope=flagged" class="active">Flagged Posts</a><a href="/admin/posts?scope=spam">Spam Posts</a><form accept-charset="UTF-8" action="/admin/posts" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div><input id="scope" name="scope" type="hidden" value="flagged" /><label>Published</label><input id="start_date" name="start_date" placeholder="Start Date (MM/DD/YYYY)" type="text" value="09/01/2012" /><label>to</label><input id="end_date" name="end_date" placeholder="End Date (MM/DD/YYYY)" type="text" value="09/16/2013" /><select id="post_type" name="post_type"><option value="Post">Post Type</option>
-                <option value="Post">All</option>
-                <option value="Article">Article</option>
-                <option value="Bookmark">Link</option>
-                <option value="Action">Do</option></select><input name="commit" type="submit" value="Filter" /></form></div>
-          <form accept-charset="UTF-8" action="/admin/posts/bulk_spam" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="P1sLyxdYQ8J6CTAHN36tmvenOwiPLnDxQeHAt306mR4=" /></div><input id="scope" name="scope" type="hidden" value="flagged" />
+<!doctype html>
+<html dir="ltr" lang="en" class="controller-admin&#47;posts action-index">
+<head>
+  <meta charset="utf-8" />
+  <title>GOOD | For You</title>
 
-          </div><!-- /#admin-manage-posts -->
-          <form accept-charset="UTF-8" action="/admin/posts/bulk_spam" method="post">
-            <input id="scope" name="scope" type="hidden" value="flagged">
+  <link href="http://www.good.is/assets/application-d145fffb3a87ce810c346f767ec6f969.css" rel="stylesheet" type="text/css" />
 
-            <table class="posts">
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>
-                    <span>Title</span>
-                  </th>
-                  <th>
-                    <span>Author</span>
-                  </th>
-                  <th>
-                    <span>Published</span>
-                  </th>
-                  <th>
-                    <span>Type</span>
-                  </th>
-                  <th colspan="3">
-                    <span>Action</span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="check">
-                    <span><input id="posts_" name="posts[]" type="checkbox" value="bike-to-work-twice-a-week"></span>
-                  </td>
-                  <td class="long"><a href="/posts/bike-to-work-twice-a-week" target="_blank">Bike to work twice a week</a></td>
-                  <td class="author"><a href="/members/bilbobaggins" target="_blank">bilbobaggins</a></td>
-                  <td class="date">
-                    <span>September  4, 2013 at  3:45 PM</span>
-                  </td>
-                  <td>
-                    <span>Do</span>
-                  </td>
-                  <td class="short spam"><a href="/admin/posts/bike-to-work-twice-a-week/confirm_spam" class="spam" data-method="put" rel="nofollow">Mark as spam</a></td>
-                  <td class="short"><a href="/admin/posts/bike-to-work-twice-a-week/edit">Edit</a></td>
-                  <td class="short delete"><a href="/admin/posts/bike-to-work-twice-a-week" class="delete" data-method="delete" rel="nofollow">Delete</a></td>
-                </tr>
-                <tr>
-                  <td class="check">
-                    <span><input id="posts_" name="posts[]" type="checkbox" value="short"></span>
-                  </td>
-                  <td class="long"><a href="/posts/short" target="_blank">SHort</a></td>
-                  <td class="author"><a href="/members/ryanm" target="_blank">ryanm</a></td>
-                  <td class="date">
-                    <span>August 14, 2013 at  4:31 PM</span>
-                  </td>
-                  <td>
-                    <span>Link</span>
-                  </td>
-                  <td class="short spam"><a href="/admin/posts/short/confirm_spam" class="spam" data-method="put" rel="nofollow">Mark as spam</a></td>
-                  <td class="short"><a href="/admin/posts/short/edit">Edit</a></td>
-                  <td class="short delete"><a href="/admin/posts/short" class="delete" data-method="delete" rel="nofollow">Delete</a></td>
-                </tr>
-                <tr>
-                  <td class="check">
-                    <span><input id="posts_" name="posts[]" type="checkbox" value="nitro-focus-no3"></span>
-                  </td>
-                  <td class="long"><a href="/posts/nitro-focus-no3" target="_blank">Nitro Focus NO3</a></td>
-                  <td class="author"><a href="/members/carladuffy" target="_blank">Carladuffy</a></td>
-                  <td class="date">
-                    <span>June 12, 2013 at  2:53 AM</span>
-                  </td>
-                  <td>
-                    <span>Link</span>
-                  </td>
-                  <td class="short spam"><a href="/admin/posts/nitro-focus-no3/confirm_spam" class="spam" data-method="put" rel="nofollow">Mark as spam</a></td>
-                  <td class="short"><a href="/admin/posts/nitro-focus-no3/edit">Edit</a></td>
-                  <td class="short delete"><a href="/admin/posts/nitro-focus-no3" class="delete" data-method="delete" rel="nofollow">Delete</a></td>
-                </tr>
-                <tr>
-                  <td class="check">
-                    <span><input id="posts_" name="posts[]" type="checkbox" value="reebok-fait-un-retour-comme-une-marque-de-remise-en-forme-haut-de-gamme-online-wsj"></span>
-                  </td>
-                  <td class="long"><a href="/posts/reebok-fait-un-retour-comme-une-marque-de-remise-en-forme-haut-de-gamme-online-wsj" target="_blank">Reebok fait un retour comme une marque de remise en forme haut de gamme- online.wsj</a></td>
-                  <td class="author"><a href="/members/berthedsen" target="_blank">berthedsen</a></td>
-                  <td class="date">
-                    <span>June 12, 2013 at  2:27 AM</span>
-                  </td>
-                  <td>
-                    <span>Link</span>
-                  </td>
-                  <td class="short spam"><a href="/admin/posts/reebok-fait-un-retour-comme-une-marque-de-remise-en-forme-haut-de-gamme-online-wsj/confirm_spam" class="spam" data-method="put" rel="nofollow">Mark as spam</a></td>
-                  <td class="short"><a href="/admin/posts/reebok-fait-un-retour-comme-une-marque-de-remise-en-forme-haut-de-gamme-online-wsj/edit">Edit</a></td>
-                  <td class="short delete"><a href="/admin/posts/reebok-fait-un-retour-comme-une-marque-de-remise-en-forme-haut-de-gamme-online-wsj" class="delete" data-method="delete" rel="nofollow">Delete</a></td>
-                </tr>
-                <tr>
-                  <td class="check">
-                    <span><input id="posts_" name="posts[]" type="checkbox" value="australia-vs-new-zealand-live-streaming-icc-champions-tv"></span>
-                  </td>
-                  <td class="long"><a href="/posts/australia-vs-new-zealand-live-streaming-icc-champions-tv" target="_blank">Australia vs New Zealand Live Streaming ICC Champions tv</a></td>
-                  <td class="author"><a href="/members/dsafasdfdfsaasd" target="_blank">dsafasdfdfsaasd</a></td>
-                  <td class="date">
-                    <span>June 12, 2013 at  2:11 AM</span>
-                  </td>
-                  <td>
-                    <span>Link</span>
-                  </td>
-                  <td class="short spam"><a href="/admin/posts/australia-vs-new-zealand-live-streaming-icc-champions-tv/confirm_spam" class="spam" data-method="put" rel="nofollow">Mark as spam</a></td>
-                  <td class="short"><a href="/admin/posts/australia-vs-new-zealand-live-streaming-icc-champions-tv/edit">Edit</a></td>
-                  <td class="short delete"><a href="/admin/posts/australia-vs-new-zealand-live-streaming-icc-champions-tv" class="delete" data-method="delete" rel="nofollow">Delete</a></td>
-                </tr>
-                <tr>
-                  <td class="check">
-                    <span><input id="posts_" name="posts[]" type="checkbox" value="watch-man-of-steel-online-movie-download-free"></span>
-                  </td>
-                  <td class="long"><a href="/posts/watch-man-of-steel-online-movie-download-free" target="_blank">Watch Man of Steel Online &amp; Movie Download Free</a></td>
-                  <td class="author"><a href="/members/tommuller" target="_blank">tommuller</a></td>
-                  <td class="date">
-                    <span>June 12, 2013 at  2:06 AM</span>
-                  </td>
-                  <td>
-                    <span>Do</span>
-                  </td>
-                  <td class="short spam"><a href="/admin/posts/watch-man-of-steel-online-movie-download-free/confirm_spam" class="spam" data-method="put" rel="nofollow">Mark as spam</a></td>
-                  <td class="short"><a href="/admin/posts/watch-man-of-steel-online-movie-download-free/edit">Edit</a></td>
-                  <td class="short delete"><a href="/admin/posts/watch-man-of-steel-online-movie-download-free" class="delete" data-method="delete" rel="nofollow">Delete</a></td>
-                </tr>
-                <tr>
-                  <td class="check">
-                    <span><input id="posts_" name="posts[]" type="checkbox" value="an-easy-way-to-reduce-fat-and-look-fit"></span>
-                  </td>
-                  <td class="long"><a href="/posts/an-easy-way-to-reduce-fat-and-look-fit" target="_blank">An Easy way to Reduce Fat and Look Fit</a></td>
-                  <td class="author"><a href="/members/jeromehonn" target="_blank">jeromehonn</a></td>
-                  <td class="date">
-                    <span>June 12, 2013 at  2:06 AM</span>
-                  </td>
-                  <td>
-                    <span>Link</span>
-                  </td>
-                  <td class="short spam"><a href="/admin/posts/an-easy-way-to-reduce-fat-and-look-fit/confirm_spam" class="spam" data-method="put" rel="nofollow">Mark as spam</a></td>
-                  <td class="short"><a href="/admin/posts/an-easy-way-to-reduce-fat-and-look-fit/edit">Edit</a></td>
-                  <td class="short delete"><a href="/admin/posts/an-easy-way-to-reduce-fat-and-look-fit" class="delete" data-method="delete" rel="nofollow">Delete</a></td>
-                </tr>
-                <tr>
-                  <td class="check">
-                    <span><input id="posts_" name="posts[]" type="checkbox" value="mumbai-independent-call-girls-09167673311-mumbai-escorts-services"></span>
-                  </td>
-                  <td class="long"><a href="/posts/mumbai-independent-call-girls-09167673311-mumbai-escorts-services" target="_blank">Mumbai Independent Call Girls-{09167673311}&amp;&amp;Mumbai Escorts Services</a></td>
-                  <td class="author"><a href="/members/tashu123" target="_blank">tashu123</a></td>
-                  <td class="date">
-                    <span>June 12, 2013 at  2:06 AM</span>
-                  </td>
-                  <td>
-                    <span>Link</span>
-                  </td>
-                  <td class="short spam"><a href="/admin/posts/mumbai-independent-call-girls-09167673311-mumbai-escorts-services/confirm_spam" class="spam" data-method="put" rel="nofollow">Mark as spam</a></td>
-                  <td class="short"><a href="/admin/posts/mumbai-independent-call-girls-09167673311-mumbai-escorts-services/edit">Edit</a></td>
-                  <td class="short delete"><a href="/admin/posts/mumbai-independent-call-girls-09167673311-mumbai-escorts-services" class="delete" data-method="delete" rel="nofollow">Delete</a></td>
-                </tr>
-                <tr>
-                  <td class="check">
-                    <span><input id="posts_" name="posts[]" type="checkbox" value="falcon-cookers--2"></span>
-                  </td>
-                  <td class="long"><a href="/posts/falcon-cookers--2" target="_blank">Falcon Cookers</a></td>
-                  <td class="author"><a href="/members/kattychopra" target="_blank">kattychopra</a></td>
-                  <td class="date">
-                    <span>June 12, 2013 at  1:28 AM</span>
-                  </td>
-                  <td>
-                    <span>Link</span>
-                  </td>
-                  <td class="short spam"><a href="/admin/posts/falcon-cookers--2/confirm_spam" class="spam" data-method="put" rel="nofollow">Mark as spam</a></td>
-                  <td class="short"><a href="/admin/posts/falcon-cookers--2/edit">Edit</a></td>
-                  <td class="short delete"><a href="/admin/posts/falcon-cookers--2" class="delete" data-method="delete" rel="nofollow">Delete</a></td>
-                </tr>
-                <tr>
-                  <td class="check">
-                    <span><input id="posts_" name="posts[]" type="checkbox" value="scolari-praises-neymar"></span>
-                  </td>
-                  <td class="long"><a href="/posts/scolari-praises-neymar" target="_blank">Scolari praises Neymar</a></td>
-                  <td class="author"><a href="/members/fifatloy" target="_blank">fifatloy</a></td>
-                  <td class="date">
-                    <span>June 12, 2013 at  1:25 AM</span>
-                  </td>
-                  <td>
-                    <span>Link</span>
-                  </td>
-                  <td class="short spam"><a href="/admin/posts/scolari-praises-neymar/confirm_spam" class="spam" data-method="put" rel="nofollow">Mark as spam</a></td>
-                  <td class="short"><a href="/admin/posts/scolari-praises-neymar/edit">Edit</a></td>
-                  <td class="short delete"><a href="/admin/posts/scolari-praises-neymar" class="delete" data-method="delete" rel="nofollow">Delete</a></td>
-                </tr>
-                <tr>
-                  <td class="check">
-                    <span><input id="posts_" name="posts[]" type="checkbox" value="mercury-cooker--3"></span>
-                  </td>
-                  <td class="long"><a href="/posts/mercury-cooker--3" target="_blank">Mercury Cooker</a></td>
-                  <td class="author"><a href="/members/kattychopra" target="_blank">kattychopra</a></td>
-                  <td class="date">
-                    <span>June 12, 2013 at  1:22 AM</span>
-                  </td>
-                  <td>
-                    <span>Link</span>
-                  </td>
-                  <td class="short spam"><a href="/admin/posts/mercury-cooker--3/confirm_spam" class="spam" data-method="put" rel="nofollow">Mark as spam</a></td>
-                  <td class="short"><a href="/admin/posts/mercury-cooker--3/edit">Edit</a></td>
-                  <td class="short delete"><a href="/admin/posts/mercury-cooker--3" class="delete" data-method="delete" rel="nofollow">Delete</a></td>
-                </tr>
-                <tr>
-                  <td class="check">
-                    <span><input id="posts_" name="posts[]" type="checkbox" value="for-every-bottle-sold-1-mighty-mogul-will-donate-fresh-water-in-an-edible-pouch"></span>
-                  </td>
-                  <td class="long"><a href="/posts/for-every-bottle-sold-1-mighty-mogul-will-donate-fresh-water-in-an-edible-pouch" target="_blank">For Every Bottle Sold ’1 Mighty Mogul’ Will Donate Fresh Water In An Edible Pouch</a></td>
-                  <td class="author"><a href="/members/nocamels" target="_blank">nocamels</a></td>
-                  <td class="date">
-                    <span>June 12, 2013 at  1:21 AM</span>
-                  </td>
-                  <td>
-                    <span>Link</span>
-                  </td>
-                  <td class="short spam"><a href="/admin/posts/for-every-bottle-sold-1-mighty-mogul-will-donate-fresh-water-in-an-edible-pouch/confirm_spam" class="spam" data-method="put" rel="nofollow">Mark as spam</a></td>
-                  <td class="short"><a href="/admin/posts/for-every-bottle-sold-1-mighty-mogul-will-donate-fresh-water-in-an-edible-pouch/edit">Edit</a></td>
-                  <td class="short delete"><a href="/admin/posts/for-every-bottle-sold-1-mighty-mogul-will-donate-fresh-water-in-an-edible-pouch" class="delete" data-method="delete" rel="nofollow">Delete</a></td>
-                </tr>
-                <tr>
-                  <td class="check">
-                    <span><input id="posts_" name="posts[]" type="checkbox" value="90cm-range-cookers--94"></span>
-                  </td>
-                  <td class="long"><a href="/posts/90cm-range-cookers--94" target="_blank">90cm Range Cookers</a></td>
-                  <td class="author"><a href="/members/kattychopra" target="_blank">kattychopra</a></td>
-                  <td class="date">
-                    <span>June 12, 2013 at  1:12 AM</span>
-                  </td>
-                  <td>
-                    <span>Link</span>
-                  </td>
-                  <td class="short spam"><a href="/admin/posts/90cm-range-cookers--94/confirm_spam" class="spam" data-method="put" rel="nofollow">Mark as spam</a></td>
-                  <td class="short"><a href="/admin/posts/90cm-range-cookers--94/edit">Edit</a></td>
-                  <td class="short delete"><a href="/admin/posts/90cm-range-cookers--94" class="delete" data-method="delete" rel="nofollow">Delete</a></td>
-                </tr>
-                <tr>
-                  <td class="check">
-                    <span><input id="posts_" name="posts[]" type="checkbox" value="warum-konnen-wir-nicht-uber-overhead-erhalten"></span>
-                  </td>
-                  <td class="long"><a href="/posts/warum-konnen-wir-nicht-uber-overhead-erhalten" target="_blank">Warum können wir nicht über Overhead erhalten?</a></td>
-                  <td class="author"><a href="/members/lastmohnayanah" target="_blank">lastmohnayanah</a></td>
-                  <td class="date">
-                    <span>June 12, 2013 at  1:02 AM</span>
-                  </td>
-                  <td>
-                    <span>Link</span>
-                  </td>
-                  <td class="short spam"><a href="/admin/posts/warum-konnen-wir-nicht-uber-overhead-erhalten/confirm_spam" class="spam" data-method="put" rel="nofollow">Mark as spam</a></td>
-                  <td class="short"><a href="/admin/posts/warum-konnen-wir-nicht-uber-overhead-erhalten/edit">Edit</a></td>
-                  <td class="short delete"><a href="/admin/posts/warum-konnen-wir-nicht-uber-overhead-erhalten" class="delete" data-method="delete" rel="nofollow">Delete</a></td>
-                </tr>
-                <tr>
-                  <td class="check">
-                    <span><input id="posts_" name="posts[]" type="checkbox" value="obat-kanker-payudara--7"></span>
-                  </td>
-                  <td class="long"><a href="/posts/obat-kanker-payudara--7" target="_blank">Obat Kanker Payudara</a></td>
-                  <td class="author"><a href="/members/demedha" target="_blank">demedha</a></td>
-                  <td class="date">
-                    <span>June 12, 2013 at 12:46 AM</span>
-                  </td>
-                  <td>
-                    <span>Link</span>
-                  </td>
-                  <td class="short spam"><a href="/admin/posts/obat-kanker-payudara--7/confirm_spam" class="spam" data-method="put" rel="nofollow">Mark as spam</a></td>
-                  <td class="short"><a href="/admin/posts/obat-kanker-payudara--7/edit">Edit</a></td>
-                  <td class="short delete"><a href="/admin/posts/obat-kanker-payudara--7" class="delete" data-method="delete" rel="nofollow">Delete</a></td>
-                </tr>
-                <tr>
-                  <td class="check">
-                    <span><input id="posts_" name="posts[]" type="checkbox" value="watch-man-of-steel-2013-super-man-here"></span>
-                  </td>
-                  <td class="long"><a href="/posts/watch-man-of-steel-2013-super-man-here" target="_blank">{{WATCH MAN OF STEEL 2013 (SUPER MAN) HERE}}</a></td>
-                  <td class="author"><a href="/members/lisabryce01" target="_blank">lisabryce01</a></td>
-                  <td class="date">
-                    <span>June 12, 2013 at 12:40 AM</span>
-                  </td>
-                  <td>
-                    <span>Do</span>
-                  </td>
-                  <td class="short spam"><a href="/admin/posts/watch-man-of-steel-2013-super-man-here/confirm_spam" class="spam" data-method="put" rel="nofollow">Mark as spam</a></td>
-                  <td class="short"><a href="/admin/posts/watch-man-of-steel-2013-super-man-here/edit">Edit</a></td>
-                  <td class="short delete"><a href="/admin/posts/watch-man-of-steel-2013-super-man-here" class="delete" data-method="delete" rel="nofollow">Delete</a></td>
-                </tr>
-                <tr>
-                  <td class="check">
-                    <span><input id="posts_" name="posts[]" type="checkbox" value="health-care-mailing-list"></span>
-                  </td>
-                  <td class="long"><a href="/posts/health-care-mailing-list" target="_blank">Health Care Mailing List</a></td>
-                  <td class="author"><a href="/members/b2012charlie" target="_blank">B2012Charlie</a></td>
-                  <td class="date">
-                    <span>June 12, 2013 at 12:37 AM</span>
-                  </td>
-                  <td>
-                    <span>Link</span>
-                  </td>
-                  <td class="short spam"><a href="/admin/posts/health-care-mailing-list/confirm_spam" class="spam" data-method="put" rel="nofollow">Mark as spam</a></td>
-                  <td class="short"><a href="/admin/posts/health-care-mailing-list/edit">Edit</a></td>
-                  <td class="short delete"><a href="/admin/posts/health-care-mailing-list" class="delete" data-method="delete" rel="nofollow">Delete</a></td>
-                </tr>
-                <tr>
-                  <td class="check">
-                    <span><input id="posts_" name="posts[]" type="checkbox" value="father-s-are-awesome"></span>
-                  </td>
-                  <td class="long"><a href="/posts/father-s-are-awesome" target="_blank">Father’s are Awesome</a></td>
-                  <td class="author"><a href="/members/pheobe035" target="_blank">Pheobe035</a></td>
-                  <td class="date">
-                    <span>June 12, 2013 at 12:30 AM</span>
-                  </td>
-                  <td>
-                    <span>Link</span>
-                  </td>
-                  <td class="short spam"><a href="/admin/posts/father-s-are-awesome/confirm_spam" class="spam" data-method="put" rel="nofollow">Mark as spam</a></td>
-                  <td class="short"><a href="/admin/posts/father-s-are-awesome/edit">Edit</a></td>
-                  <td class="short delete"><a href="/admin/posts/father-s-are-awesome" class="delete" data-method="delete" rel="nofollow">Delete</a></td>
-                </tr>
-                <tr>
-                  <td class="check">
-                    <span><input id="posts_" name="posts[]" type="checkbox" value="watch-man-of-steel-online-free--2"></span>
-                  </td>
-                  <td class="long"><a href="/posts/watch-man-of-steel-online-free--2" target="_blank">WATCH MAN OF STEEL ONLINE FREE</a></td>
-                  <td class="author"><a href="/members/kilans1234" target="_blank">kilans1234</a></td>
-                  <td class="date">
-                    <span>June 12, 2013 at 12:18 AM</span>
-                  </td>
-                  <td>
-                    <span>Do</span>
-                  </td>
-                  <td class="short spam"><a href="/admin/posts/watch-man-of-steel-online-free--2/confirm_spam" class="spam" data-method="put" rel="nofollow">Mark as spam</a></td>
-                  <td class="short"><a href="/admin/posts/watch-man-of-steel-online-free--2/edit">Edit</a></td>
-                  <td class="short delete"><a href="/admin/posts/watch-man-of-steel-online-free--2" class="delete" data-method="delete" rel="nofollow">Delete</a></td>
-                </tr>
-                <tr>
-                  <td class="check">
-                    <span><input id="posts_" name="posts[]" type="checkbox" value="obat-tbc-paru-herbal-cara-beli-tricajus"></span>
-                  </td>
-                  <td class="long"><a href="/posts/obat-tbc-paru-herbal-cara-beli-tricajus" target="_blank">Obat TBC Paru Herbal | Cara Beli Tricajus</a></td>
-                  <td class="author"><a href="/members/rifki27" target="_blank">rifki27</a></td>
-                  <td class="date">
-                    <span>June 12, 2013 at 12:10 AM</span>
-                  </td>
-                  <td>
-                    <span>Link</span>
-                  </td>
-                  <td class="short spam"><a href="/admin/posts/obat-tbc-paru-herbal-cara-beli-tricajus/confirm_spam" class="spam" data-method="put" rel="nofollow">Mark as spam</a></td>
-                  <td class="short"><a href="/admin/posts/obat-tbc-paru-herbal-cara-beli-tricajus/edit">Edit</a></td>
-                  <td class="short delete"><a href="/admin/posts/obat-tbc-paru-herbal-cara-beli-tricajus" class="delete" data-method="delete" rel="nofollow">Delete</a></td>
-                </tr>
-              </tbody>
-            </table>
-              <div class="checked-items">
-                <h3>Checked items:</h3>
-                <ul>
-                  <li class="spam">
-                    <button type="submit" class="spam_button" name="commit" value="Mark checked as spam"><span></span>Mark as spam</button>
-                  </li>
-                  <li class="unflag">
-                    <button type="submit" class="spam_button" name="commit" value="Mark checked as ham"><span></span><span>Unflag</span></button>
-                  </li>
-                </ul>
-              </div>
-          </form>
-        </div>
-      </section>
-    </div>
-    <footer>
-      <div class="footer-content">
-        <div class="links">
-          <h2>Where people share what's good to learn and do. <a href="" class="join" data-authenticated="register">Join our community</a></h2>
-          <ul>
-            <li><a href="/about">About</a></li>
-            <li><a href="/about/contact">Contact</a></li>
-            <li><a href="http://support.good.is/">Support</a></li>
-            <li><a href="/about/advertise">Advertise</a></li>
-            <li><a href="http://www.good.is/about/jobs">Jobs</a></li>
-            <li><a href="http://www.good.is/subscriptions">Subscriptions</a></li>
-            <li><a href="http://shop.good.is">Online Store</a></li>
-            <li><a href="http://www.goodcorps.com">GOOD/Corps</a></li>
-            <li><a href="http://m.good.is/?mobile_site=1">Mobile Site</a></li>
-            <li><a href="/about/privacy">Privacy</a></li>
-            <li><a href="/about/terms">Terms</a></li>
-          </ul>
-        </div>
-        <div class="social">
-          <h2>Connect with us<a href="http://feeds.feedburner.com/good/lbvp" class="rss" target="_blank"></a></h2>
-          <ul>
-            <li><a href="http://www.facebook.com/GOODHQ" class="facebook" target="_blank"></a></li>
-            <li><a href="http://twitter.com/good" class="twitter" target="_blank"></a></li>
-            <li><a href="https://plus.google.com/+goodmagazine" class="google" target="_blank"></a></li>
-            <li><a href="http://www.linkedin.com/company/good-worldwide-llc" class="linkedin" target="_blank"></a></li>
-            <li><a href="http://good.tumblr.com/" class="tumblr" target="_blank"></a></li>
-            <li><a href="http://pinterest.com/goodmagazine/" class="pinterest" target="_blank"></a></li>
-          </ul>
-        </div>
-      </div>
-    </footer>
-    <div class="sidebar_footer">
-      <div class="links">
+  <style>
+
+    html.controller-admin\/posts.action-index .main {
+      max-width: none;
+      padding: 0;
+    }
+
+    html.controller-admin\/posts.action-index .main nav.primary ul,
+    #admin-manage-posts {
+      margin: 0 auto;
+      max-width: 1600px;
+      min-width: 1080px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    html.controller-admin\/posts.action-index .main nav.primary {
+      padding: 0;
+      background: rgb(252, 252, 252);
+      border-bottom-color: rgb(221, 221, 221);
+      box-shadow: 0 0 0.35em rgba(0, 0, 0, 0.15);
+      margin-bottom: 40px;
+    }
+    html.controller-admin\/posts.action-index .main nav.primary a {
+      padding: 13px 30px 20px;
+      border-width: 0 1px 1px;
+      border-style: solid;
+      border-color: transparent;
+      margin-bottom: -10px;
+      font-size: 14px;
+    }
+    html.controller-admin\/posts.action-index .main nav.primary .active a {
+      background: white;
+      border-color: rgb(204, 204, 204);
+      border-bottom-left-radius  : 10px;
+      border-bottom-right-radius : 10px;
+    }
+
+    .filters {
+      margin-left: 20px;
+    }
+
+
+
+    /* =tip
+    ----------------------------------------------- */
+
+    .tip {
+      text-align: center;
+    }
+    .tip p {
+      font-size: 18px;
+    }
+
+    .tip h3 + p:before {
+      font-family: admin-icons;
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      font-size: 36px;
+      vertical-align: middle;
+      margin-right: 0.5em;
+    }
+
+    .tip#admin-flagged h3 + p:before {
+      content: "\e001"; /* @icon-flag */
+      color: rgb(255, 51, 51);
+    }
+
+    #admin-manage-posts div.tip .hide {
+      top: 10px;
+      right: 10px;
+      line-height: 1;
+    }
+    #admin-manage-posts div.tip .hide:after {
+      color: rgb(162, 166, 121);
+      font-size: 12px;
+    }
+    #admin-manage-posts div.tip .hide span {
+      /* @hidden-accessible */
+      position: absolute;
+      left: -9999px;
+    }
+    #admin-manage-posts div.tip a {
+      margin-left: 1.5em;
+      font-size: 12px;
+      color: rgb(51, 153, 255); /* @link-color */
+    }
+    #admin-manage-posts div.tip a:hover,
+    #admin-manage-posts div.tip a:active,
+    #admin-manage-posts div.tip a:focus {
+      text-decoration: underline;
+    }
+
+
+    /* =Toggle
+    ----------------------------------------------- */
+    /* KLUDGE: Attempt to make the checkboxes a consistent size */
+    #admin-manage-posts form.posts input[type="checkbox"] {
+      font-size: 12px;
+    }
+    #admin-manage-posts form.posts .toggle {
+      padding: 10px;
+    }
+    #admin-manage-posts form.posts .toggle span {
+      /* @hidden-accessible */
+      position: absolute;
+      left: -9999px;
+    }
+    #admin-manage-posts form.posts .batch-options .toggle {
+      margin-right: 5px;
+    }
+
+
+    /* =
+    ----------------------------------------------- */
+    #admin-manage-posts table.posts td.action a:hover>span,
+    #admin-manage-posts table.posts td.action a:active>span,
+    #admin-manage-posts table.posts td.action a:focus>span {
+      left: -50px; /* -1 x hover.width (140px) - button.width (41px) / 2 */
+    }
+
+    #admin-manage-posts table.posts td.action a>span {
+      width: 140px; /* This number is arbitrary. It happens to be wider than the widest label. */
+      top: -5px; /* Make space for the pointer */
+    }
+
+    #admin-manage-posts table.posts td.action a > span span {
+      border: 1px solid rgb(234, 234, 234);
+    }
+
+    #admin-manage-posts table.posts td.action a > span span:before {
+      content: "";
+      position: absolute;
+      bottom: -5px; 
+      left: 50%;
+      margin-left: -10px; /* pointer-width / 2 */
+      display: block;
+      background: url(images/pointer.svg) top no-repeat;
+      background-size: contain;
+      width: 20px;
+      height: 7px;
+    }
+
+    #admin-manage-posts table.posts {
+      border-bottom: 2px solid rgb(204, 204, 204);
+    }
+
+    #admin-manage-posts table.posts th.descending span {
+      color: black;
+    }
+    #admin-manage-posts table.posts th.descending span:after {
+      content: "";
+      display: inline-block;
+      background: url(images/descending.svg) right no-repeat;
+      background-size: contain;
+      width: 1em;
+      height: 1em;
+      margin-left: 0.5em;
+    }
+
+    .batch-options {
+      margin: 15px 10px;
+    }
+    .batch-options li {
+      display: inline;
+    }
+
+    html.controller-admin\/posts.action-index .spam_button {
+      margin: 0;
+      padding: 11px 12px 9px;
+      color: rgb(102, 102, 102);
+      font-weight: bold;
+    }
+
+    html.controller-admin\/posts.action-index .spam_button:before {
+      margin-right: 1em;
+      color: rgb(204, 204, 204);
+    }
+
+    #admin-manage-posts #pager {
+      margin-top: -55px;
+    }
+
+    #admin-manage-posts #pager form {
+      color: rgb(102, 102, 102);
+    }
+    #admin-manage-posts #pager form input {
+      background: rgb(250, 250, 250);
+      border: 1px solid rgb(218, 220, 224);
+      color: rgb(102, 102, 102);
+      padding: 5px 5px 3px;
+      margin-right: 0.25em;
+    }
+    #admin-manage-posts #pager form strong {
+      color: black;
+      margin-left: 0.25em;
+    }
+
+    #admin-manage-posts #pager .previous-next span a {
+      padding: 11px 12px 9px;
+    }
+
+    #admin-manage-posts #pager .previous-next {
+      margin-left: 1.5em;
+      margin-right: 0;
+    }
+
+
+    /* =Details
+    ----------------------------------------------- */
+    td > .source {
+      position: relative;
+    }
+    td > .source > h2 > a {
+      display: block;
+      padding: 10px;
+    }
+    td > .source .details {
+
+      /* Reset */
+      font-size: 16px;
+      color: black;
+      font-weight: normal;
+
+      margin-top: 0;
+      top: 2.1em;
+      position: absolute;
+      z-index: 1;
+      background: transparent;
+      box-sizing: border-box;
+      box-shadow: 0 0.25em 0.25em rgba(0, 0, 0, 0.05);
+      transition: opacity 0.2s;
+      padding-top: 0.4em;
+      left: -9999px;
+      opacity: 0;
+    }
+    td.author > .source .details {
+      top: 1.8em;
+    }
+    td > .source:hover  .details,
+    td > .source:active .details,
+    td > .source:focus  .details {
+      left: auto;
+      opacity: 1;
+    }
+
+    /* If the page is scripted, delay the hover effect */
+    td > .source.scripted:hover  .details,
+    td > .source.scripted:active .details,
+    td > .source.scripted:focus  .details {
+      left: -9999px;
+      opacity: 0;
+    }
+    td > .source.active:hover  .details,
+    td > .source.active:active .details,
+    td > .source.active:focus  .details {
+      left: auto;
+      opacity: 1;
+    }
+
+    td > .source .details > .container {
+      border: 1px solid rgb(204, 204, 204);
+      border-radius: 0.25em;
+    }
+    td > .source .details .container .container {
+      border: 0.25em solid rgb(239, 239, 239);
+      background: white;
+      padding: 0.375em; /* 6px / 16px */
+      padding-left: 4.75em;
+      border-radius: 0.25em;
+      position: relative;
+      min-height: 60px; /* image.height */
+
+      min-width: 300px;
+    }
+    td > .source .details .container .container:after {
+      content: "";
+      display: block;
+      width  : 0.6875em; /* 11px / @font-size */
+      height : 0.8125em; /* 13px / @font-size */
+      background: transparent url(images/source-pointer.svg) bottom no-repeat;
+      position: absolute;
+      top: -11px;
+      left: 2em;
+    }
+    td > .source .details img {
+      width: 60px;
+      left: 0.375em;
+      height: auto;
+      position: absolute;
+    }
+    td > .source .details h3 {
+      font-weight: bold;
+    }
+    td > .source .details .container > p.numbers {
+      color: rgb(153, 153, 153); /* @aluminum */
+      font-size: 12px;
+      display: inline;
+    }
+    td > .source .details .container > p.numbers strong {
+      font-weight: bold;
+    }
+    td > .source .details .container > p.numbers + p.numbers {
+      margin-left: 0.5em;
+      padding-left: 0.7em;
+      border-left: 1px solid rgb(217, 217, 217);
+    }
+
+
+
+
+    .details .link {
+      margin-top: 7px;
+    }
+    #admin-manage-posts table.posts td .details .link a {
+      background: rgb(250, 250, 250);
+      border: 1px solid rgb(218, 220, 224);
+      color: rgb(102, 102, 102);
+      padding: 7px 15px 5px;
+      display: block;
+      border-radius: 0.25em;
+    }
+    #admin-manage-posts table.posts td .details .link a:hover,
+    #admin-manage-posts table.posts td .details .link a:active,
+    #admin-manage-posts table.posts td .details .link a:focus {
+      color: rgb(51, 153, 255); /* @link-color */
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <div class="main">
+    <section class="page">
+      <nav class="primary">
         <ul>
-          <li><a href="/about">About</a></li>
-          <li><a href="/about/contact">Contact</a></li>
-          <li><a href="http://support.good.is/">Support</a></li>
-          <li><a href="/about/advertise">Advertise</a></li>
-          <li><a href="http://www.good.is/about/jobs">Jobs</a></li>
-          <li><a href="http://www.good.is/subscriptions">Subscriptions</a></li>
-          <li><a href="http://shop.good.is">Online Store</a></li>
-          <li><a href="http://www.goodcorps.com">GOOD/Corps</a></li>
-          <li><a href="http://m.good.is/?mobile_site=1">Mobile Site</a></li>
-          <li><a href="/about/privacy">Privacy</a></li>
-          <li><a href="/about/terms">Terms</a></li>
-          <li class="company"><a href="/">GOOD Worldwide, LLC © 2013</a></li>
+          <li class="active"><a href="">Posts</a></li>
+          <li><a href="">Users</a></li>
         </ul>
+      </nav>
+      <div id="admin-manage-posts">
+        <div class="tip" id="admin-flagged">
+          <h3>Tip</h3>
+          <p><strong>These posts have been flagged as spam.</strong> You can <strong>Unflag</strong> or <strong>Mark as Spam.</strong></p>
+        </div>
+        <h1>Posts</h1>
+        <script type="text/javascript">
+          // Allow user to hide the tip
+          (function() { 
+
+            // Find the tip
+            var tip = document.querySelector("#admin-manage-posts .tip");
+            if (tip) { 
+              var cookieName = "hide_tip_" + tip.id; 
+
+              // Create a hide button
+              var button = document.createElement("a");
+              button.className = "hide";
+              button.href = "#hide-tip";
+              button.innerHTML = "<span>Hide Tip</span>";
+              tip.appendChild(button); 
+
+              // When the button is pressed, hide the tip
+              button.addEventListener("click", function(e) {
+                e.preventDefault();
+                tip.style.display = "none"; 
+              }, false);
+            } 
+          })();
+
+          // Allow user to hide the tip
+          (function() { 
+
+            // Find the tip
+            var tip = document.querySelector("#admin-manage-posts .tip");
+            if (tip) { 
+              var cookieName = "hide_tip_" + tip.id; 
+
+              // Create a hide button
+              var button = document.createElement("a");
+              button.className = "hide-tip";
+              button.href = "#hide-tip";
+              button.innerHTML = "Hide Tip";
+              var paragraphs = tip.getElementsByTagName("p");
+              paragraphs[paragraphs.length - 1].appendChild(button); 
+
+              // When the button is pressed, hide the tip
+              button.addEventListener("click", function(e) {
+                e.preventDefault();
+                tip.style.display = "none"; 
+              }, false);
+            } 
+          })();
+        </script>
+        <div class="filters">
+          <h2>Show</h2>
+          <a href="">All Posts</a>
+          <a href="">Published Posts</a>
+          <a href="">Flagged Posts</a>
+          <a href="">Spam Posts</a>
+        </div>
+        <form class="posts">
+          <table class="posts">
+            <thead>
+              <tr>
+                <th></th>
+                <th>
+                  <span>Title</span>
+                </th>
+                <th>
+                  <span>Author</span>
+                </th>
+                <th class="descending">
+                  <span>Published</span>
+                </th>
+                <th>
+                  <span>Type</span>
+                </th>
+                <th>
+                  <span>Flaggings</span>
+                </th>
+                <th>
+                  <span>Last Flagged</span>
+                </th>
+                <th>
+                  <span>Flagged By</span>
+                </th>
+                <th colspan="3">
+                  <span>Actions</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="check">
+                  <label><input id="posts_" name="posts[]" type="checkbox" value="canada-vs-fiji-rugby-canada-vs-fiji-live-canada-vs-fiji-live-rugby" /></label>
+                </td>
+                <td class="long">
+                  <div class="source">
+                    <h2>
+                      <a href="">
+                        Canada vs Fiji Rugby, Canada vs Fiji live, Canada vs Fiji live Rugby,
+                      </a>
+                    </h2>
+                    <div class="details">
+                      <div class="container"><div class="container">
+                        <img src="http://images-3.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fbookmarks%2Fphotos%2F000%2F255%2F301%2Foriginal%2FBarca-demantapbet.jpg&amp;geometry=80x80%23" alt="" />
+                        <p class="numbers"><strong>3</strong> People Think It’s GOOD</p>
+                        <p class="numbers"><strong>0</strong> Comments</p>
+                        <p class="link">
+                          <a href="">
+                            URL Link: http://uptrees.net/2013/08/02/manifesto-02-elephants/
+                          </a>
+                        </p>
+                      </div><!-- /.container --></div><!-- /.container -->
+                    </div><!-- /.details -->
+                  </div>
+                </td>
+                <td class="author">
+                  <a class="source" href="">
+                    <h2>mlamimar</h2>
+                    <div class="details">
+                      <div class="container"><div class="container">
+                        <img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F009%2F355%2Foriginal%2F242205_10151103541353237_2013315091_o.jpg&amp;geometry=240x240%23" alt="" />
+                        <h3>mlamimar</h3>
+                        <p class="numbers"><strong>1</strong> Post</p>
+                        <p class="numbers"><strong>0</strong> Followers</p>
+                        <p class="numbers"><strong>1</strong> Following</p>
+                      </div><!-- /.container --></div><!-- /.container -->
+                    </div><!-- /.details -->
+                  </a>
+                </td>
+                <td class="date">
+                  <span>06&#47;05&#47;13 02:14 PM</span>
+                </td>
+                <td>
+                  <span>Link</span>
+                </td>
+                <td class="short">
+                  <span>1 flaggings</span>
+                </td>
+                <td class="date">
+                  <span>06&#47;05&#47;13 09:31 PM</span>
+                </td>
+                <td>
+                  <span>User</span>
+                </td>
+                <td class="action approve"><a href=""><span><span>Unflag</span></span></a></td>
+                <td class="action ban"><a href=""><span><span>Mark as Spam</span></span></a></td>
+                <td class="action edit"><a href=""><span><span>Edit</span></span></a></td>
+              </tr>
+              <tr>
+                <td class="check">
+                  <label><input id="posts_" name="posts[]" type="checkbox" value="watch-fast-and-furious-6-online--19" /></label>
+                </td>
+                <td class="long"><a href="">WATCH FAST AND FURIOUS 6 ONLINE</a></td>
+                <td class="author"><a href="">Gledgear19</a></td>
+                <td class="date">
+                  <span>06&#47;05&#47;13 12:39 PM</span>
+                </td>
+                <td>
+                  <span>Link</span>
+                </td>
+                <td class="short">
+                  <span>1 flaggings</span>
+                </td>
+                <td class="date">
+                  <span>06&#47;05&#47;13 08:17 PM</span>
+                </td>
+                <td>
+                  <span>User</span>
+                </td>
+                <td class="action approve"><a href=""><span><span>Unflag</span></span></a></td>
+                <td class="action ban"><a href=""><span><span>Mark as Spam</span></span></a></td>
+                <td class="action edit"><a href=""><span><span>Edit</span></span></a></td>
+              </tr>
+              <tr>
+                <td class="check">
+                  <label><input id="posts_" name="posts[]" type="checkbox" value="watch-after-earth-streaminggn" /></label>
+                </td>
+                <td class="long"><a href="">Watch After Earth Streaminggn</a></td>
+                <td class="author"><a href="">Afterendis</a></td>
+                <td class="date">
+                  <span>06&#47;05&#47;13 12:58 PM</span>
+                </td>
+                <td>
+                  <span>Link</span>
+                </td>
+                <td class="short">
+                  <span>1 flaggings</span>
+                </td>
+                <td class="date">
+                  <span>06&#47;05&#47;13 08:17 PM</span>
+                </td>
+                <td>
+                  <span>User</span>
+                </td>
+                <td class="action approve"><a href=""><span><span>Unflag</span></span></a></td>
+                <td class="action ban"><a href=""><span><span>Mark as Spam</span></span></a></td>
+                <td class="action edit"><a href=""><span><span>Edit</span></span></a></td>
+              </tr>
+              <tr>
+                <td class="check">
+                  <label><input id="posts_" name="posts[]" type="checkbox" value="watch-man-of-steel-oonline" /></label>
+                </td>
+                <td class="long"><a href="">Watch Man of Steel Oonline</a></td>
+                <td class="author"><a href="">Afterendis</a></td>
+                <td class="date">
+                  <span>06&#47;05&#47;13 01:09 PM</span>
+                </td>
+                <td>
+                  <span>Link</span>
+                </td>
+                <td class="short">
+                  <span>1 flaggings</span>
+                </td>
+                <td class="date">
+                  <span>06&#47;05&#47;13 08:17 PM</span>
+                </td>
+                <td>
+                  <span>User</span>
+                </td>
+                <td class="action approve"><a href=""><span><span>Unflag</span></span></a></td>
+                <td class="action ban"><a href=""><span><span>Mark as Spam</span></span></a></td>
+                <td class="action edit"><a href=""><span><span>Edit</span></span></a></td>
+              </tr>
+              <tr>
+                <td class="check">
+                  <label><input id="posts_" name="posts[]" type="checkbox" value="watch-man-of-steel-online-streaming--5" /></label>
+                </td>
+                <td class="long"><a href="">Watch Man of Steel online Streaming</a></td>
+                <td class="author"><a href="">Afterendis</a></td>
+                <td class="date">
+                  <span>06&#47;05&#47;13 12:59 PM</span>
+                </td>
+                <td>
+                  <span>Link</span>
+                </td>
+                <td class="short">
+                  <span>1 flaggings</span>
+                </td>
+                <td class="date">
+                  <span>06&#47;05&#47;13 08:16 PM</span>
+                </td>
+                <td>
+                  <span>User</span>
+                </td>
+                <td class="action approve"><a href=""><span><span>Unflag</span></span></a></td>
+                <td class="action ban"><a href=""><span><span>Mark as Spam</span></span></a></td>
+                <td class="action edit"><a href=""><span><span>Edit</span></span></a></td>
+              </tr>
+              <tr>
+                <td class="check">
+                  <label><input id="posts_" name="posts[]" type="checkbox" value="celebrity-income-snatcher-review" /></label>
+                </td>
+                <td class="long"><a href=""> Celebrity Income Snatcher Review</a></td>
+                <td class="author"><a href="">xindex</a></td>
+                <td class="date">
+                  <span>06&#47;05&#47;13 10:36 AM</span>
+                </td>
+                <td>
+                  <span>Link</span>
+                </td>
+                <td class="short">
+                  <span>1 flaggings</span>
+                </td>
+                <td class="date">
+                  <span>06&#47;05&#47;13 07:31 PM</span>
+                </td>
+                <td>
+                  <span>User</span>
+                </td>
+                <td class="action approve"><a href=""><span><span>Unflag</span></span></a></td>
+                <td class="action ban"><a href=""><span><span>Mark as Spam</span></span></a></td>
+                <td class="action edit"><a href=""><span><span>Edit</span></span></a></td>
+              </tr>
+              <tr>
+                <td class="check">
+                  <label><input id="posts_" name="posts[]" type="checkbox" value="bloomferments" /></label>
+                </td>
+                <td class="long"><a href="">BLOOMferments </a></td>
+                <td class="author"><a href="">Mariah-Kat</a></td>
+                <td class="date">
+                  <span>06&#47;05&#47;13 08:45 AM</span>
+                </td>
+                <td>
+                  <span>Link</span>
+                </td>
+                <td class="short">
+                  <span>1 flaggings</span>
+                </td>
+                <td class="date">
+                  <span>06&#47;05&#47;13 04:46 PM</span>
+                </td>
+                <td>
+                  <span>User</span>
+                </td>
+                <td class="action approve"><a href=""><span><span>Unflag</span></span></a></td>
+                <td class="action ban"><a href=""><span><span>Mark as Spam</span></span></a></td>
+                <td class="action edit"><a href=""><span><span>Edit</span></span></a></td>
+              </tr>
+              <tr>
+                <td class="check">
+                  <label><input id="posts_" name="posts[]" type="checkbox" value="tv-british-and-irish-lions-vs-force-live-rugby-stream" /></label>
+                </td>
+                <td class="long"><a href="">TV @British and Irish Lions vs Force live Rugby \\stream</a></td>
+                <td class="author"><a href="">sesbikal6353</a></td>
+                <td class="date">
+                  <span>06&#47;04&#47;13 10:24 PM</span>
+                </td>
+                <td>
+                  <span>Link</span>
+                </td>
+                <td class="short">
+                  <span>1 flaggings</span>
+                </td>
+                <td class="date">
+                  <span>06&#47;05&#47;13 12:11 PM</span>
+                </td>
+                <td>
+                  <span>User</span>
+                </td>
+                <td class="action approve"><a href=""><span><span>Unflag</span></span></a></td>
+                <td class="action ban"><a href=""><span><span>Mark as Spam</span></span></a></td>
+                <td class="action edit"><a href=""><span><span>Edit</span></span></a></td>
+              </tr>
+              <tr>
+                <td class="check">
+                  <label><input id="posts_" name="posts[]" type="checkbox" value="flipbook-a-brief-history-of-pretty-much-everything" /></label>
+                </td>
+                <td class="long"><a href="">Flipbook: A Brief History of Pretty Much Everything</a></td>
+                <td class="author"><a href="">Andrew Price</a></td>
+                <td class="date">
+                  <span>02&#47;12&#47;10 10:00 AM</span>
+                </td>
+                <td>
+                  <span>Article</span>
+                </td>
+                <td class="short">
+                  <span>1 flaggings</span>
+                </td>
+                <td class="date">
+                  <span>06&#47;04&#47;13 12:58 PM</span>
+                </td>
+                <td>
+                  <span>User</span>
+                </td>
+                <td class="action approve"><a href=""><span><span>Unflag</span></span></a></td>
+                <td class="action ban"><a href=""><span><span>Mark as Spam</span></span></a></td>
+                <td class="action edit"><a href=""><span><span>Edit</span></span></a></td>
+              </tr>
+              <tr>
+                <td class="check">
+                  <label><input id="posts_" name="posts[]" type="checkbox" value="gain-insane-strength-easily-by-using-the-supplement" /></label>
+                </td>
+                <td class="long"><a href="">Gain Insane Strength Easily by Using the Supplement!</a></td>
+                <td class="author"><a href="">Florenselant</a></td>
+                <td class="date">
+                  <span>06&#47;04&#47;13 05:26 AM</span>
+                </td>
+                <td>
+                  <span>Link</span>
+                </td>
+                <td class="short">
+                  <span>1 flaggings</span>
+                </td>
+                <td class="date">
+                  <span>06&#47;04&#47;13 12:27 PM</span>
+                </td>
+                <td>
+                  <span>User</span>
+                </td>
+                <td class="action approve"><a href=""><span><span>Unflag</span></span></a></td>
+                <td class="action ban"><a href=""><span><span>Mark as Spam</span></span></a></td>
+                <td class="action edit"><a href=""><span><span>Edit</span></span></a></td>
+              </tr>
+              <tr>
+                <td class="check">
+                  <label><input id="posts_" name="posts[]" type="checkbox" value="iq-derma-anti-wrinkle-serum" /></label>
+                </td>
+                <td class="long"><a href="">IQ Derma Anti Wrinkle Serum</a></td>
+                <td class="author"><a href="">sandradeon</a></td>
+                <td class="date">
+                  <span>06&#47;04&#47;13 03:27 AM</span>
+                </td>
+                <td>
+                  <span>Link</span>
+                </td>
+                <td class="short">
+                  <span>1 flaggings</span>
+                </td>
+                <td class="date">
+                  <span>06&#47;04&#47;13 11:20 AM</span>
+                </td>
+                <td>
+                  <span>User</span>
+                </td>
+                <td class="action approve"><a href=""><span><span>Unflag</span></span></a></td>
+                <td class="action ban"><a href=""><span><span>Mark as Spam</span></span></a></td>
+                <td class="action edit"><a href=""><span><span>Edit</span></span></a></td>
+              </tr>
+              <tr>
+                <td class="check">
+                  <label><input id="posts_" name="posts[]" type="checkbox" value="free-watch-japan-vs-australia-live-stream-soccer-game-2014-world-cup-qualifying-asia-group-two-online-tv-link" /></label>
+                </td>
+                <td class="long"><a href="">FREE WATCH Japan vs Australia live Stream Soccer Game 2014 World Cup Qualifying Asia Group Two Online TV Link </a></td>
+                <td class="author"><a href="">angel.mariya.9480</a></td>
+                <td class="date">
+                  <span>06&#47;04&#47;13 03:31 AM</span>
+                </td>
+                <td>
+                  <span>Link</span>
+                </td>
+                <td class="short">
+                  <span>1 flaggings</span>
+                </td>
+                <td class="date">
+                  <span>06&#47;04&#47;13 11:19 AM</span>
+                </td>
+                <td>
+                  <span>User</span>
+                </td>
+                <td class="action approve"><a href=""><span><span>Unflag</span></span></a></td>
+                <td class="action ban"><a href=""><span><span>Mark as Spam</span></span></a></td>
+                <td class="action edit"><a href=""><span><span>Edit</span></span></a></td>
+              </tr>
+              <tr>
+                <td class="check">
+                  <label><input id="posts_" name="posts[]" type="checkbox" value="disaster-quick-response-team-dqrt-saint-john-ambulance-brigade-delhi" /></label>
+                </td>
+                <td class="long"><a href="">Disaster Quick Response Team (DQRT) - Saint John Ambulance Brigade Delhi</a></td>
+                <td class="author"><a href="">sandradeon</a></td>
+                <td class="date">
+                  <span>06&#47;04&#47;13 03:38 AM</span>
+                </td>
+                <td>
+                  <span>Link</span>
+                </td>
+                <td class="short">
+                  <span>1 flaggings</span>
+                </td>
+                <td class="date">
+                  <span>06&#47;04&#47;13 11:19 AM</span>
+                </td>
+                <td>
+                  <span>User</span>
+                </td>
+                <td class="action approve"><a href=""><span><span>Unflag</span></span></a></td>
+                <td class="action ban"><a href=""><span><span>Mark as Spam</span></span></a></td>
+                <td class="action edit"><a href=""><span><span>Edit</span></span></a></td>
+              </tr>
+              <tr>
+                <td class="check">
+                  <label><input id="posts_" name="posts[]" type="checkbox" value="watch-now-after-earth-online-free" /></label>
+                </td>
+                <td class="long"><a href=""> WATCH NOW!!!After Earth Online Free</a></td>
+                <td class="author"><a href="">rajbvekoko</a></td>
+                <td class="date">
+                  <span>06&#47;04&#47;13 03:43 AM</span>
+                </td>
+                <td>
+                  <span>Link</span>
+                </td>
+                <td class="short">
+                  <span>1 flaggings</span>
+                </td>
+                <td class="date">
+                  <span>06&#47;04&#47;13 11:18 AM</span>
+                </td>
+                <td>
+                  <span>User</span>
+                </td>
+                <td class="action approve"><a href=""><span><span>Unflag</span></span></a></td>
+                <td class="action ban"><a href=""><span><span>Mark as Spam</span></span></a></td>
+                <td class="action edit"><a href=""><span><span>Edit</span></span></a></td>
+              </tr>
+              <tr>
+                <td class="check">
+                  <label><input id="posts_" name="posts[]" type="checkbox" value="leading-off-a-baseball-scraps-that-hurts" /></label>
+                </td>
+                <td class="long"><a href="">Leading Off: A Baseball scraps that hurts</a></td>
+                <td class="author"><a href="">zerenadarymple</a></td>
+                <td class="date">
+                  <span>06&#47;04&#47;13 03:44 AM</span>
+                </td>
+                <td>
+                  <span>Link</span>
+                </td>
+                <td class="short">
+                  <span>1 flaggings</span>
+                </td>
+                <td class="date">
+                  <span>06&#47;04&#47;13 11:18 AM</span>
+                </td>
+                <td>
+                  <span>User</span>
+                </td>
+                <td class="action approve"><a href=""><span><span>Unflag</span></span></a></td>
+                <td class="action ban"><a href=""><span><span>Mark as Spam</span></span></a></td>
+                <td class="action edit"><a href=""><span><span>Edit</span></span></a></td>
+              </tr>
+              <tr>
+                <td class="check">
+                  <label><input id="posts_" name="posts[]" type="checkbox" value="enjoy-japan-vs-australia-live-streaming-world-cup-qualifying-afc-hdq" /></label>
+                </td>
+                <td class="long"><a href="">Enjoy!!!Japan vs Australia live streaming World Cup Qualifying – AFC HDQ</a></td>
+                <td class="author"><a href="">rubbul7</a></td>
+                <td class="date">
+                  <span>06&#47;04&#47;13 03:47 AM</span>
+                </td>
+                <td>
+                  <span>Link</span>
+                </td>
+                <td class="short">
+                  <span>1 flaggings</span>
+                </td>
+                <td class="date">
+                  <span>06&#47;04&#47;13 11:18 AM</span>
+                </td>
+                <td>
+                  <span>User</span>
+                </td>
+                <td class="action approve"><a href=""><span><span>Unflag</span></span></a></td>
+                <td class="action ban"><a href=""><span><span>Mark as Spam</span></span></a></td>
+                <td class="action edit"><a href=""><span><span>Edit</span></span></a></td>
+              </tr>
+              <tr>
+                <td class="check">
+                  <label><input id="posts_" name="posts[]" type="checkbox" value="cpa-power-blast-best-online-course-about-using-bing-ads-to-generate-massive-cpa-commissions-fast-and-easy-fr" /></label>
+                </td>
+                <td class="long"><a href="">CPA Power Blast – Best Online Course about Using Bing Ads to generate massive CPA commissions Fast and Easy fr</a></td>
+                <td class="author"><a href="">EdwinPro5</a></td>
+                <td class="date">
+                  <span>06&#47;04&#47;13 03:54 AM</span>
+                </td>
+                <td>
+                  <span>Link</span>
+                </td>
+                <td class="short">
+                  <span>1 flaggings</span>
+                </td>
+                <td class="date">
+                  <span>06&#47;04&#47;13 11:17 AM</span>
+                </td>
+                <td>
+                  <span>User</span>
+                </td>
+                <td class="action approve"><a href=""><span><span>Unflag</span></span></a></td>
+                <td class="action ban"><a href=""><span><span>Mark as Spam</span></span></a></td>
+                <td class="action edit"><a href=""><span><span>Edit</span></span></a></td>
+              </tr>
+            </tbody>
+          </table>
+          <ul class="batch-options">
+            <li><button type="submit" class="spam_button approve">Unflag all checked</button></li>
+            <li><button type="submit" class="spam_button ban">Mark all checked as Spam</button></li>
+          </ul>
+        </form>
+        <div id="pager">
+          <nav class="pagination">
+            <form class="page-selector" method="get">
+              <input type="hidden" name="scope" value="flagged">
+              Showing page
+              <input name="page" value="1">
+              <em>of</em>
+              <strong>8</strong>
+              <input type="submit" value="Submit">
+            </form>
+            <div class="previous-next">
+              <span class="prev"><a href="">Prev</a></span>
+              <span class="next"><a href="">Next</a></span>
+            </div>
+          </nav>
+        </div>
       </div>
-    </div>
+    </section>
+  </div>
+
+<script type="text/javascript">
+  (function() { 
+
+    if (!document.querySelector) return;
+
+    var form = document.querySelector("#admin-manage-posts form.posts");
+
+    // Create a new checkbox and append it to first header cell in the table
+    var label = document.createElement("label");
+    label.className = "toggle";
+    form.querySelector("th").appendChild(label);
+
+    var button = document.createElement("input");
+    button.type = "checkbox";
+    label.appendChild(button);
+
+    var text = document.createElement("span");
+    text.innerHTML = "Check/Uncheck all";
+    label.appendChild(text);
+
+    // When the checkbox is pressed, toggle the other checkboxes in the table
+    button.addEventListener("change", function(e) {
+      var checkboxes = form.querySelectorAll("input[type=\"checkbox\"");
+
+      for (var index = 0; index < checkboxes.length; index++) {
+        if (checkboxes[index] !== button) {
+          checkboxes[index].checked = button.checked;
+        }
+      }
+    }, false);
+
+  })();
+
+
+  (function() { 
+
+    if (!document.querySelector) return;
+
+    var form = document.querySelector("#admin-manage-posts form.posts");
+    var batch = document.querySelector("#admin-manage-posts .batch-options");
+
+    // Create a new checkbox and append it to batch options
+    var item = document.createElement("li");
+    batch.insertBefore(item, batch.firstChild);
+
+    var label = document.createElement("label");
+    label.className = "toggle";
+    item.appendChild(label);
+
+    var button = document.createElement("input");
+    button.type = "checkbox";
+    label.appendChild(button);
+
+    var text = document.createElement("span");
+    text.innerHTML = "Check/Uncheck all";
+    label.appendChild(text);
+
+    // When the checkbox is pressed, toggle the other checkboxes in the table
+    button.addEventListener("change", function(e) {
+      var checkboxes = form.querySelectorAll("input[type=\"checkbox\"");
+
+      for (var index = 0; index < checkboxes.length; index++) {
+        if (checkboxes[index] !== button) {
+          checkboxes[index].checked = button.checked;
+        }
+      }
+    }, false);
+
+  })();
+</script>
+
+<script>
+
+(function() {
+
+  if (!document.body.addEventListener) return;
+
+  /* =DelayedHover
+  ----------------------------------------------- */
+  var DelayedHover = function(element, delay) {
+    if (!element) return;
+
+    var timer;
+    var active = true;
+    if (!delay) delay = 500;
+
+    function activate() {
+      if (active) return;
+      element.className += " active";
+      active = true;
+    };
+
+    function deactivate() {
+      if (!active) return;
+      element.className = element.className.replace(/ *active/g, "");
+      active = false;
+    };
+
+    deactivate();
+
+    element.addEventListener("mouseover", function(e) {
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(activate, delay);
+    }, false);
+
+    element.addEventListener("mouseout", function(e) {
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(deactivate, 1);
+    }, false);
+
+    element.addEventListener("click", function(e) {
+      if (timer) clearTimeout(timer);
+    }, false);
+
+    element.className += " scripted";
+  };
+
+  var sources = document.getElementsByClassName("source");
+  for (var index = 0; index < sources.length; index++) {
+    new DelayedHover(sources[index]);
+  }
+
+})();
+
+</script>
+
 </body>
 </html>
