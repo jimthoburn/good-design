@@ -298,6 +298,7 @@
 				        var mapOptions = {
 				          center: new google.maps.LatLng(-34.397, 150.644),
 				          zoom: 8,
+    					  scrollwheel: false, /* TBD: Disable the scrollwheel so folks won’t accidentally zoom while scrolling down the page */
 				          mapTypeId: google.maps.MapTypeId.ROADMAP
 				        };
 				        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
@@ -348,25 +349,25 @@
 					<ul class="headlines">
 						<li>
 							<h3>
-								<img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F128%2F383%2Foriginal%2FPhoto_on_2-4-13_at_3.08_PM__2.jpg&amp;geometry=240x240%23" width="50" alt="" />
+								<img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F128%2F383%2Foriginal%2FPhoto_on_2-4-13_at_3.08_PM__2.jpg&amp;geometry=240x240%23" width="25" alt="" />
 								Aldo commented
 							</h3>
 							<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 						</li>
 						<li>
 							<h3>
-								<img src="http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F053%2F493%2Foriginal%2F23259_502221495_2206_n.jpg&amp;geometry=240x240%23" width="50" alt="" />
-								Craig did this
+								<img src="http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F237%2F242%2Foriginal%2F173817_1474496941_1004623319_n.jpg&amp;geometry=240x240%23" width="25" alt="" />
+								<a href="">Marcelo Borges</a> rode <strong>5 miles</strong> and took <strong>2 trips</strong>
 							</h3>
-							<h4>Biked <strong>5</strong> miles</h4>
+							<p class="date">Oct 4, 2013</p>
 							<p>
-								<img src="images/3777137_7641d2e058_z.jpg" width="300" alt="" />
+								<img src="images/marcelo.jpg" width="350" alt="" />
 							</p>
 							<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 						</li>
 						<li>
 							<h3>
-								<img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F789%2F706%2Foriginal%2F68757_10150302296215416_2135631_n.jpg&amp;geometry=240x240%23" width="50" alt="" />
+								<img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F789%2F706%2Foriginal%2F68757_10150302296215416_2135631_n.jpg&amp;geometry=240x240%23" width="25" alt="" />
 								Paris wants to do this
 							</h3>
 							<p>Occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -374,7 +375,7 @@
 					</ul>
 					<section>
 						<h2>Add a Comment</h2>
-						<form action="/assets/html/prototype/prototype/" method="post" class="standard">
+						<form action="" method="post">
 							<p class="text required">
 								<label>
 									<span>Name</span><br />
@@ -398,7 +399,7 @@
 						You contributed 5 miles and 1 trip. Awesome!
 					</h2>
 					<h3>Add more details</h3>
-					<form action="record-confirm.html" method="post">
+					<form action="" method="post">
 						<p>
 							<label>
 								<span>Add an image</span><br />
