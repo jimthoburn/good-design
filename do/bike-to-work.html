@@ -28,6 +28,9 @@
 		<div class="container">
 
 			<section class="text action">
+
+				<p class="days-left"><strong>42</strong> days left</p>
+
 				<h1>
 					<img src="http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fimages%2Fattachments%2F000%2F449%2F428%2Foriginal%2F50-week18-001.jpg&amp;geometry=240x240%23" />
 					Bike to Work for May's Transportation Month
@@ -51,31 +54,70 @@
 				<section class="goal">
 					<h3>Goal</h3>
 					<p>Bike 3,000 miles by December 1, 2013</p>
-					<p><strong>42</strong> days left</p>
 					<p><strong>6</strong> days in</p>
 					<p>1,851 miles have been biked</p>
 				</section>
 
-				<section>
-					<h3>Description</h3>
-					<p>Commuting sucks. "Mega commuters" endure 90 minutes each way to punch the clock. More Americans fall into that category than there are residents of Copenhagen. Why point to that Danish city? It's got the busiest biking street in the Western world—the result of years of public pressure and infrastructure investment that reshaped commuting habits. The arguments for bike commuting are familiar: healthier for you and the environment; saves you tons of cash; often faster than driving or taking public transit. Here's another: it's an opportunity to see your city or town without looking through a pane of shatter-proof glass. Another: it's a lot of fun. In many places it can seem too dangerous to bike to work—no bike lanes and a gauntlet of taxi doors and four-wheeled aggression. A suggestion to mitigate those concerns: find at least one bike buddy. There's strength (and safety) in numbers. So go ahead and try it. This week, saddle up and ride a bike to work. It might become a habit.</p>
+				<section class="graph">
+					<h2>358 mi. biked</h2>
+					<h3>50 trips made</h3>
+
+					<table>
+						<thead>
+							<tr>
+								<th>Date</th>
+								<th>Member</th>
+								<th>Photo</th>
+								<th>Location</th>
+								<th>Miles Biked</th>
+								<th>Trips Taken</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>05/28/2013</td>
+								<td><a href="">Matthew Henry</a></td>
+								<td><img src="http://placehold.it/200" width="100" /></td>
+								<td>Los Angeles, California</td>
+								<td>3</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>05/28/2013</td>
+								<td><a href="">Matthew Henry</a></td>
+								<td><img src="http://placehold.it/200" width="100" /></td>
+								<td>Los Angeles, California</td>
+								<td>8</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>05/28/2013</td>
+								<td><a href="">Matthew Henry</a></td>
+								<td><img src="http://placehold.it/200" width="100" /></td>
+								<td>Los Angeles, California</td>
+								<td>5</td>
+								<td>1</td>
+							</tr>
+						</tbody>
+					</table>
 				</section>
 
-				<section class="text record">
+				<section class="record">
 					<h2>Did it? Record your action.</h2>
 
 					<form action="record.html" method="post">
 						<p>
+							I biked
 							<label>
 								<input type="text" style="width: 2em;" />
 								<span>miles</span>
 							</label>
-						</p>
-						<p>
+							and took
 							<label>
 								<input type="text" style="width: 2em;" />
 								<span>trips</span>
 							</label>
+							today.
 						</p>
 						<p>
 							<label>
@@ -83,8 +125,54 @@
 								<span>post privately (won't display your name on the public view)</span>
 							</label>
 						</p>
-						<p class="submit"><button class="submit">I did it</button></p>
+						<p class="submit"><button class="submit">Add My Impact</button></p>
 					</form>
+				</section>
+
+				<section class="description">
+					<h2>Why we care…</h2>
+					<p>Commuting sucks. "Mega commuters" endure 90 minutes each way to punch the clock. More Americans fall into that category than there are residents of Copenhagen. Why point to that Danish city? It's got the busiest biking street in the Western world—the result of years of public pressure and infrastructure investment that reshaped commuting habits. The arguments for bike commuting are familiar: healthier for you and the environment; saves you tons of cash; often faster than driving or taking public transit. Here's another: it's an opportunity to see your city or town without looking through a pane of shatter-proof glass. Another: it's a lot of fun. In many places it can seem too dangerous to bike to work—no bike lanes and a gauntlet of taxi doors and four-wheeled aggression. A suggestion to mitigate those concerns: find at least one bike buddy. There's strength (and safety) in numbers. So go ahead and try it. This week, saddle up and ride a bike to work. It might become a habit.</p>
+				</section>
+
+				<section class="map">
+					<h2>Where we did it…</h2>
+					<div id="map-canvas" style="height: 600px"></div>
+				    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+				    <script type="text/javascript">
+				      (function() {
+				        var mapOptions = {
+				          center: new google.maps.LatLng(-34.397, 150.644),
+				          zoom: 8,
+				          mapTypeId: google.maps.MapTypeId.ROADMAP
+				        };
+				        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+				      })();
+				    </script>
+				</section>
+
+				<section class="comments">
+					<h2>How we did it…</h2>
+					<ul class="headlines">
+						<li>
+							<h3>
+								<img src="http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F237%2F242%2Foriginal%2F173817_1474496941_1004623319_n.jpg&amp;geometry=240x240%23" width="25" alt="" />
+								<a href="">Marcelo Borges</a> rode <strong>5 miles</strong> and took <strong>2 trips</strong>
+							</h3>
+							<p class="date">Oct 4, 2013</p>
+							<p>
+								<img src="images/marcelo.jpg" width="350" alt="" />
+							</p>
+							<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+						</li>
+						<li>
+							<h3>
+								<img src="http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F237%2F242%2Foriginal%2F173817_1474496941_1004623319_n.jpg&amp;geometry=240x240%23" width="25" alt="" />
+								<a href="">Marcelo Borges</a> rode <strong>5 miles</strong> and took <strong>2 trips</strong>
+							</h3>
+							<p class="date">Oct 4, 2013</p>
+							<p>Cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						</li>
+					</ul>
 				</section>
 
 			</section>
