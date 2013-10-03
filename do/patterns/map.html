@@ -1,0 +1,41 @@
+<!doctype html>
+<html dir="ltr" lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>GOOD</title>
+	<link type="text/css" rel="stylesheet" href="../shared.css" />
+</head>
+<body>
+<div class="container">
+
+	<div id="content">
+		<div class="container">
+
+			<section class="text">
+
+				<section class="map">
+
+    				<div id="map-canvas" style="height: 600px"></div>
+				    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+				    <script type="text/javascript">
+				      (function() {
+				        var mapOptions = {
+				          center: new google.maps.LatLng(-34.397, 150.644),
+				          zoom: 8,
+				          mapTypeId: google.maps.MapTypeId.ROADMAP
+				        };
+				        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+				      })();
+				    </script>
+
+				</section>
+
+			</section>
+
+		</div><!-- /.container -->
+	</div><!-- /#content -->
+
+</div><!-- /.container -->
+</body>
+</html>
