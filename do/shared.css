@@ -246,7 +246,9 @@
 	/* =Text Sections
 	----------------------------------------------- */
 	.text > section,
-	.text > aside {
+	.text > aside,
+	.text > .body > section,
+	.text > .body > aside {
 
 		/* @separator */
 		margin-top: 2.95em;
@@ -255,7 +257,9 @@
 
 	}
 	.text > section:first-child,
-	.text > aside:first-child {
+	.text > aside:first-child,
+	.text > .body > section:first-child,
+	.text > .body > aside:first-child {
 		margin-top: 0;
 		border-top-width: 0;
 		padding-top: 0;
@@ -497,7 +501,7 @@
 	}
 
 	#content section.text {
-		max-width: 55em;
+		max-width: 80em;
 		margin-left: auto;
 		margin-right: auto;
 	}
@@ -672,6 +676,23 @@
 	}
 	article .tags h2 {
 		font-size: inherit;
+	}
+
+
+	/* =Layout
+	----------------------------------------------- */
+	.text.action:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+	.text.action > header {
+		float: left;
+		width: 20%;
+	}
+	.text.action > .body {
+		float: right;
+		width: 75%;
 	}
 
 
