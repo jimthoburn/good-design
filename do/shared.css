@@ -706,7 +706,13 @@
 	.related li + li {
 		margin-top: 1.5em;
 	}
-	.related li img {
+	.related li .image {
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		display: block;
+		width: 50px;
+		height: 50px;
 		position: absolute;
 		margin-top: -0.4em;
 		margin-left: -3em;
