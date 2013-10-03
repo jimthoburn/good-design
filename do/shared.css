@@ -104,6 +104,15 @@
 		line-height   : 1.16666666666667em; /* (@line-height x 1.75) / 2.25 */
 		margin-top    : 0.16666666666667em;
 	}
+	.text .body h1 {
+		font-size: 4.5em;
+		text-transform: uppercase;
+    	font-family: "Brandon Grot W01 Bold", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @brandon */
+	}
+	.text .body h2 {
+		font-size: 3em;
+		font-weight: bold;
+	}
 	h3 {
 		font-size: 1.5em;
 		line-height   : 1em; /* @line-height / 1.5 */
@@ -681,18 +690,20 @@
 
 	/* =Layout
 	----------------------------------------------- */
-	.text.action:after {
-		content: "";
-		display: table;
-		clear: both;
-	}
-	.text.action > header {
-		float: left;
-		width: 20%;
-	}
-	.text.action > .body {
-		float: right;
-		width: 75%;
+	@media (min-width: 30em) {
+		.text.action:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+		.text.action > header {
+			float: left;
+			width: 20%;
+		}
+		.text.action > .body {
+			float: right;
+			width: 75%;
+		}
 	}
 
 
