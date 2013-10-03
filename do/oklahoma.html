@@ -129,32 +129,66 @@
 					</table>
 				</section>
 
-				<section class="record">
+				<section class="record" id="quick">
 					<h2>Did it? Record your action.</h2>
 
 					<form action="#record" method="post">
 						<p>
-							I biked
+							I restored
 							<label>
 								<input type="text" style="width: 2em;" />
-								<span>miles</span>
+								<span>photos</span>
 							</label>
-							and took
+							and helped
 							<label>
 								<input type="text" style="width: 2em;" />
-								<span>trips</span>
+								<span>families</span>
 							</label>
 							today.
 						</p>
 						<p>
 							<label>
 								<input type="checkbox" checked="checked" />
-								<span>post privately (won't display your name on the public view)</span>
+								<span>Submit anonymously (won't display your name on the public view)</span>
 							</label>
 						</p>
 						<p class="submit"><button class="submit">Add My Impact</button></p>
 					</form>
 				</section>
+
+				<section class="record details" id="record">
+					<h2>
+						<img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F151%2F663%2Foriginal%2Fmichelle.jpeg&amp;geometry=240x240%23" width="50" alt="" />
+						You restored 3 miles and helped 1 family. Awesome!
+					</h2>
+					<h3>Add more details</h3>
+					<form action="" method="post">
+						<p>
+							<label>
+								<span>Add an image</span><br />
+								<input type="file" />
+							</label>
+						</p>
+						<p>
+							<label>
+								<span>Location</span><br />
+								<input type="text" />
+							</label>
+						</p>
+						<p>
+							<label>
+								<span>Tell us more</span><br />
+								<textarea></textarea>
+							</label>
+						</p>
+						<ul class="submit">
+							<li><button class="submit">Save</button></li>
+							<li><a href="record-confirm.html">Skip this</a></li>
+						</ul>
+					</form>
+				</section>
+
+				<script src="record.js"></script>
 
 				<section class="members">
 					<h2>154 people are in</h2>
@@ -406,38 +440,6 @@
 							<p class="submit"><button type="submit">Add Comment</button></p>
 						</form>
 					</section>
-				</section>
-
-				<section class="record" id="record">
-					<h2>
-						<img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F151%2F663%2Foriginal%2Fmichelle.jpeg&amp;geometry=240x240%23" width="50" alt="" />
-						You contributed 5 miles and 1 trip. Awesome!
-					</h2>
-					<h3>Add more details</h3>
-					<form action="" method="post">
-						<p>
-							<label>
-								<span>Add an image</span><br />
-								<input type="file" />
-							</label>
-						</p>
-						<p>
-							<label>
-								<span>Location</span><br />
-								<input type="text" />
-							</label>
-						</p>
-						<p>
-							<label>
-								<span>Tell us more</span><br />
-								<textarea></textarea>
-							</label>
-						</p>
-						<ul class="submit">
-							<li><button class="submit">Save</button></li>
-							<li><a href="record-confirm.html">Skip this</a></li>
-						</ul>
-					</form>
 				</section>
 
 				</div><!-- /.body -->
