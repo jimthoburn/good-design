@@ -695,8 +695,9 @@
 		margin-left: 0;
 		padding-left: 0;
 	}
-	.related ul {
+	.related {
 		margin-top: 1.5em;
+		margin-bottom: 3em;
 	}
 	.related li {
 		line-height: 1.5em;
@@ -709,6 +710,23 @@
 		position: absolute;
 		margin-top: -0.4em;
 		margin-left: -3em;
+	}
+
+
+	/* =Members
+	----------------------------------------------- */
+	.members ul,
+	.members li {
+		list-style: none;
+		margin-left: 0;
+		padding-left: 0;
+	}
+	.members li {
+		display: inline;
+		opacity: 0.5;
+	}
+	.members li.active {
+		opacity: 1;
 	}
 
 
