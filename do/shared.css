@@ -104,15 +104,6 @@
 		line-height   : 1.16666666666667em; /* (@line-height x 1.75) / 2.25 */
 		margin-top    : 0.16666666666667em;
 	}
-	.text .body h1 {
-		font-size: 4.5em;
-		text-transform: uppercase;
-    	font-family: "Brandon Grot W01 Bold", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @brandon */
-	}
-	.text .body h2 {
-		font-size: 3em;
-		font-weight: bold;
-	}
 	h3 {
 		font-size: 1.5em;
 		line-height   : 1em; /* @line-height / 1.5 */
@@ -148,12 +139,37 @@
 
 	dt {
 		margin-top: 0.75em;
-		font-variant: small-caps;
-		text-transform: lowercase;
+		font-weight: bold;
 	}
 	dd {
 		margin-left: 0;
 		padding-left: 0;
+	}
+
+	.action header dl:after {
+		/* @clearfix */
+		content: "";
+		display: table;
+		clear: both;
+	}
+	.action header dt,
+	.action header dd {
+		margin-top: 0;
+		-webkit-box-sizing : border-box;
+		-moz-box-sizing    : border-box;
+		box-sizing         : border-box;
+	}
+	.action header dt {
+		float: right;
+		clear: both;
+		width: 80%;
+		text-align: left;
+		padding-left: 1em;
+	}
+	.action header dd {
+		float: left;
+		width: 20%;
+		text-align: right;
 	}
 
 	table {
@@ -176,6 +192,7 @@
 		padding: 0;
 		margin-left: 0;
 		margin-right: 0;
+		font-style: italic;
 	}
 	blockquote p:first-child:before {
 		content: "“";
@@ -568,6 +585,26 @@
 		color: inherit;
 	}
 
+	#header {
+		text-align: right;
+	}
+	#header h2 {
+		float: left;
+	}
+	#header button {
+		padding: 0;
+		background: transparent;
+	}
+	#header ul,
+	#header li,
+	#header p,
+	#header form {
+		display: inline;
+	}
+	#header img {
+		vertical-align: middle;
+	}
+
 
 	/* =Footer
 	----------------------------------------------- */
@@ -598,6 +635,19 @@
 		#footer .legal {
 			margin-top: 0;
 		}
+	}
+
+
+	/* =Text Body
+	----------------------------------------------- */
+	.text .body h1 {
+		font-size: 4.5em;
+		text-transform: uppercase;
+    	font-family: "Brandon Grot W01 Bold", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @brandon */
+	}
+	.text .body h2 {
+		font-size: 3em;
+		font-weight: bold;
 	}
 
 
@@ -707,15 +757,23 @@
 	}
 
 
-	/* =Record
+	/* =Author
 	----------------------------------------------- */
-	h1 img {
-		float: left;
-		margin-right: 0.5em;
-	}
 	.author img {
 		vertical-align: middle;
 		margin-right: 0.5em;
+	}
+
+
+	/* =Record
+	----------------------------------------------- */
+	.record {
+		transition: opacity 0.2s;
+	}
+	.record.hidden {
+		opacity: 0;
+		position: absolute;
+		left: -9999px;
 	}
 
 
