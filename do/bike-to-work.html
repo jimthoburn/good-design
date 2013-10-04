@@ -379,18 +379,62 @@
 
 				<section class="map">
 					<h2>Where it's happening...</h2>
-					<div id="map-canvas" style="height: 600px"></div>
-				    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-				    <script type="text/javascript">
-				      (function() {
-				        var mapOptions = {
-				          center: new google.maps.LatLng(-34.397, 150.644),
-				          zoom: 8,
-    					  scrollwheel: false, /* TBD: Disable the scrollwheel so folks won’t accidentally zoom while scrolling down the page */
-				          mapTypeId: google.maps.MapTypeId.ROADMAP
-				        };
-				        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-				      })();
+					<div id="map" style="height: 600px"></div>
+				    <script src="https://maps.googleapis.com/maps/api/js?v=3&amp;sensor=false"></script>
+				    <script>
+
+						var mapOptions = {
+							zoom: 1,
+							mapTypeId: google.maps.MapTypeId.ROADMAP,
+					  		scrollwheel: false /* TBD: Disable the scrollwheel so folks won’t accidentally zoom while scrolling down the page */
+						}
+						var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+						var bound = new google.maps.LatLngBounds();
+
+						var addresses = [
+							"1 infinite loop cupertino ca 95014",
+							"Los Angeles, CA",
+							"New York, New York",
+							"Alberta",
+							"Mexico City",
+							"Chicago",
+							"Seattle"
+						];
+
+						// Create a new Geocoder
+						var geocoder = new google.maps.Geocoder();
+
+						function addMarker(address) {
+
+							// Locate the address using the Geocoder.
+							geocoder.geocode( { "address": address }, function(results, status) {
+
+							  // If the Geocoding was successful
+							  if (status == google.maps.GeocoderStatus.OK) {
+
+							    // Add a marker at the address.
+							    var marker = new google.maps.Marker({
+							      map: map,
+							      position: results[0].geometry.location
+							    });
+
+							    bound.extend(marker.getPosition());
+	  							map.fitBounds(bound);
+
+							  } else {
+							    try {
+							      console.error("Geocode was not successful for the following reason: " + status);
+							    } catch(e) {}
+							  }
+							});
+
+						};
+
+						for (var index = 0; index < addresses.length; index++) {
+							addMarker(addresses[index]);
+						}
+
 				    </script>
 				</section>
 

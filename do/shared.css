@@ -52,6 +52,12 @@
 		border-radius: 0.1em;
 	}
 
+	/* Reset for Google Maps */
+	.map img {
+		max-width: none;
+		border-radius: 0;
+	}
+
 	/* Older browsers sometimes render these inline */
 	header, footer, section, article, aside, nav, hgroup {
 		display: block;
@@ -299,7 +305,6 @@
 	-----------------------------------------------
 	-----------------------------------------------
 	----------------------------------------------- */
-
 
 	/* =Form
 	----------------------------------------------- */
