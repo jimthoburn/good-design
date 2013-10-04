@@ -756,6 +756,7 @@
 		font-size: 4.5em;
 		text-transform: uppercase;
     	font-family: "Brandon Grot W01 Bold", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @brandon */
+    	margin-top: 0.25em;
 	}
 	.text .body h2 {
 		font-size: 3em;
