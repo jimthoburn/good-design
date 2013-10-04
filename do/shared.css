@@ -656,6 +656,21 @@
 	}
 
 
+	/* =Graph
+	----------------------------------------------- */
+	.graph header {
+	}
+	.graph .meta {
+		text-align: right;
+	}
+	.graph .meta p {
+		display: inline;
+	}
+	.graph .meta p + p {
+		margin-left: 1.5em;
+	}
+
+
 	/* =Comments
 	----------------------------------------------- */
 	.comments,
