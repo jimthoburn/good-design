@@ -53,21 +53,32 @@
 						<dd>26</dd>
 					</dl>
 
+					<div class="share">
+						<h3>Share this story</h3>
+						<dl>
+							<dt>Shared to Facebook</dt>
+							<dd>954</dd>
+							<dt>Shared to Twitter</dt>
+							<dd>2K</dd>
+						</dl>
+					</div>
+
 					<nav>
+						<h3>This story is tagged…</h3>
 						<ul>
 							<li><a href="">Transportation</a></li>
 							<li><a href="">Cities</a></li>
 							<li><a href="">Living</a></li>
 							<li><a href="">Being a Better Citizen</a></li>
 						</ul>
-						<p>and <a href="">more…</a></p>
+						<p>&amp; <a href="">more…</a></p>
 					</nav>
 				</header>
 
 				<div class="body">
 
 				<h1>
-					Bike to Work for May's Transportation Month
+					Bike to Work for Biking Month
 				</h1>
 
 				<p class="time-left">26 days left</p>
@@ -116,10 +127,11 @@
 					</table>
 				</section>
 
-				<section class="record">
+				<section class="record" id="quick">
 					<h2>Did it? Record your action.</h2>
 
 					<form action="#record" method="post">
+						<img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F151%2F663%2Foriginal%2Fmichelle.jpeg&amp;geometry=240x240%23" width="50" alt="" />
 						<p>
 							I biked
 							<label>
@@ -135,19 +147,53 @@
 						</p>
 						<p>
 							<label>
-								<input type="checkbox" checked="checked" />
-								<span>post privately (won't display your name on the public view)</span>
+								<input type="checkbox" />
+								<span>Submit anonymously (won't display your name on the public view)</span>
 							</label>
 						</p>
 						<p class="submit"><button class="submit">Add My Impact</button></p>
 					</form>
 				</section>
 
+				<section class="record details" id="record">
+					<h2>
+						<img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F151%2F663%2Foriginal%2Fmichelle.jpeg&amp;geometry=240x240%23" width="50" alt="" />
+						You contributed 5 miles and 1 trip. Awesome!
+					</h2>
+					<h3>Add more details</h3>
+					<form action="" method="post">
+						<p>
+							<label>
+								<span>Add an image</span><br />
+								<input type="file" />
+							</label>
+						</p>
+						<p>
+							<label>
+								<span>Location</span><br />
+								<input type="text" />
+							</label>
+						</p>
+						<p>
+							<label>
+								<span>Tell us more</span><br />
+								<textarea></textarea>
+							</label>
+						</p>
+						<ul class="submit">
+							<li><button class="submit">Save</button></li>
+							<li><a href="record-confirm.html">Skip this</a></li>
+						</ul>
+					</form>
+				</section>
+
+				<script src="record.js"></script>
+
 				<section class="members">
 					<h2>154 people are in</h2>
 					<form style="margin: 1.5em 0 3em;">
 						<h6>I want to do this.</h6>
-						<p><button type="submit">Remind Me</button></p>
+						<p><button type="submit">Follow this action</button></p>
 					</form>
 					<ul>
 						<li class="active"><a href=""><img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F204%2F945%2Foriginal%2FScreen_Shot_2012-12-20_at_10.00.38_PM.png&amp;geometry=240x240%23" width="50" alt="" /></a></li>
@@ -285,12 +331,12 @@
 				</section>
 
 				<section class="description">
-					<h2>Why we care…</h2>
-					<p>Commuting sucks. "Mega commuters" endure 90 minutes each way to punch the clock. More Americans fall into that category than there are residents of Copenhagen. Why point to that Danish city? It's got the busiest biking street in the Western world—the result of years of public pressure and infrastructure investment that reshaped commuting habits. The arguments for bike commuting are familiar: healthier for you and the environment; saves you tons of cash; often faster than driving or taking public transit. Here's another: it's an opportunity to see your city or town without looking through a pane of shatter-proof glass. Another: it's a lot of fun. In many places it can seem too dangerous to bike to work—no bike lanes and a gauntlet of taxi doors and four-wheeled aggression. A suggestion to mitigate those concerns: find at least one bike buddy. There's strength (and safety) in numbers. So go ahead and try it. This week, saddle up and ride a bike to work. It might become a habit.</p>
+					<h2>Why do this:</h2>
+					<p>It's international Biking Month, so now's the perfect time to join others in ditching your car and hopping on your bike (or finally borrowing/buying one) and trying out your commute by a new mode of transportation. The arguments for bike commuting are familiar: healthier for you and the environment; saves you tons of cash; often faster than driving or taking public transit. Here's another: it's an opportunity to see your city or town without looking through a pane of shatter-proof glass. Another: it's a lot of fun. In many places it can seem too dangerous to bike to work—no bike lanes and a gauntlet of taxi doors and four-wheeled aggression. A suggestion to mitigate those concerns: find at least one bike buddy. There's strength (and safety) in numbers. So go ahead and try it. This week, saddle up and ride a bike to work. It might become a habit.</p>
 				</section>
 
 				<section class="map">
-					<h2>Where we did it…</h2>
+					<h2>Where it's happening...</h2>
 					<div id="map-canvas" style="height: 600px"></div>
 				    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 				    <script type="text/javascript">
@@ -307,12 +353,12 @@
 				</section>
 
 				<section class="comments">
-					<h2>How we did it…</h2>
+					<h2>Your stories...</h2>
 					<ul class="headlines">
 						<li>
 							<h3>
 								<img src="http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F237%2F242%2Foriginal%2F173817_1474496941_1004623319_n.jpg&amp;geometry=240x240%23" width="25" alt="" />
-								<a href="">Marcelo Borges</a> rode <strong>5 miles</strong> and took <strong>2 trips</strong>
+								<a href="">Paris Marron</a> rode <strong>5 miles</strong> and took <strong>2 trips</strong>
 							</h3>
 							<p class="date">Oct 4, 2013</p>
 							<p>
@@ -393,44 +439,12 @@
 					</section>
 				</section>
 
-				<section class="record" id="record">
-					<h2>
-						<img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F151%2F663%2Foriginal%2Fmichelle.jpeg&amp;geometry=240x240%23" width="50" alt="" />
-						You contributed 5 miles and 1 trip. Awesome!
-					</h2>
-					<h3>Add more details</h3>
-					<form action="" method="post">
-						<p>
-							<label>
-								<span>Add an image</span><br />
-								<input type="file" />
-							</label>
-						</p>
-						<p>
-							<label>
-								<span>Location</span><br />
-								<input type="text" />
-							</label>
-						</p>
-						<p>
-							<label>
-								<span>Tell us more</span><br />
-								<textarea></textarea>
-							</label>
-						</p>
-						<ul class="submit">
-							<li><button class="submit">Save</button></li>
-							<li><a href="record-confirm.html">Skip this</a></li>
-						</ul>
-					</form>
-				</section>
-
 				</div><!-- /.body -->
 
 				<div style="clear: both"></div><!-- KLUDGE -->
 
 				<aside>
-					<h2>Other Do’s you might like</h2>
+					<h2>Other things you might like to DO</h2>
 					<ul class="related">
 						<li>
 							<a href="http://www.good.is/posts/nyc-will-turn-12-000-old-parking-meters-into-bike-racks">
@@ -461,7 +475,7 @@
 				</aside>
 
 				<aside>
-					<h2>Related Things to Learn</h2>
+					<h2>Related things to LEARN</h2>
 					<ul class="related">
 						<li>
 							<a href="http://www.good.is/posts/why-biking-to-work-might-be-better-for-your-health-than-going-to-the-gym">
