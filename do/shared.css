@@ -671,16 +671,29 @@
 		margin-left: 1.5em;
 	}
 
-	.graph-container {
-		background-color: rgb(245, 245, 245);
+	.graph-image {
 		height: 100px;
 		position: relative;
 	}
-	.bike-to-work .graph-container  {
-		background-color: rgb(254, 245, 234);
+	.graph-image .progress {
+		height: 100%;
+		position: absolute;
+		width: 50%;
+		background-image: url(images/graph-bar.png);
+		background-repeat: repeat;
+		background-position: left;
 	}
-	.oklahoma .graph-container  {
-		background-color: rgb(254, 245, 234);
+	.graph-image .icon {
+		margin-top: -15px;
+		margin-right: -65px;
+		float: right;
+		background: white;
+		border: 4px solid black;
+		border-radius: 300px;
+		width: 122px;
+		height: 122px;
+		background-repeat: no-repeat;
+		background-position: center;
 	}
 
 
