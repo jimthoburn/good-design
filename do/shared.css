@@ -983,6 +983,19 @@
 	/* =Layout
 	----------------------------------------------- */
 	@media (min-width: 30em) {
+
+		#content > .container {
+			padding-left: 0;
+			padding-right: 0;
+		}
+		#content > .container > .text >  .body {
+			padding-left: 3em;
+			padding-right: 3em;
+			-webkit-box-sizing : border-box;
+			-moz-box-sizing    : border-box;
+			box-sizing         : border-box;
+		}
+
 		.text.action:after {
 			content: "";
 			display: table;
@@ -991,10 +1004,25 @@
 		.text.action > header {
 			float: left;
 			width: 20%;
+			background: white;
+			padding-left: 3em;
+			padding-right: 3em;
+			-webkit-box-sizing : border-box;
+			-moz-box-sizing    : border-box;
+			box-sizing         : border-box;
 		}
 		.text.action > .body {
 			float: right;
 			width: 75%;
+		}
+
+
+		.fixed .text.action > header {
+			position: fixed;
+			top: 0;
+		}
+		.fixed .text.action > .body {
+			margin-left: 25%;
 		}
 	}
 
@@ -1087,6 +1115,10 @@
  
     #footer {
       border-top: 1px solid #dadce0;
+      margin-left: 25%;
+	  -webkit-box-sizing : border-box;
+	  -moz-box-sizing    : border-box;
+	  box-sizing         : border-box;
     }
     .footer-content {
       display: block;
@@ -1098,7 +1130,6 @@
     }
  
     .footer-content {
-      width: 1065px;
       min-height: 50px;
       max-height: 115px;
       margin: 40px auto 70px;

@@ -35,3 +35,28 @@
 		detailed.className += " hidden";
 	}
 })();
+
+(function() {
+
+	var header = document.querySelector(".text.action > header");
+	if (!header) return;
+
+	var offset = header.offsetTop;
+
+	var fixed = false;
+
+	window.addEventListener("scroll", function(e) {
+		console.log("window.scrollY: " + window.scrollY);
+		console.log("offset: " + offset);
+		if (window.scrollY > offset) {
+			document.body.className += " fixed";
+			fixed = true;
+		} else {
+			document.body.className = document.body.className.replace(/fixed/g, "");
+			fixed = false;
+		}
+	});
+
+})();
+
+
