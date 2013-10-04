@@ -35,7 +35,7 @@
 	}
 	@media (min-width: 80em) {
 		body {
-			font-size: 125%;
+			font-size: 100%;
 		}
 	}
 
@@ -80,10 +80,7 @@
 		margin-bottom: 0;
 	}
 
-	/* For readability */
-	h1, h2, h3, h4, h5, h6, p, nav, dt, dd, li {
-		max-width: 33em;
-	}
+
 
 	/* Headlines
 	http://typecast.com/images/uploads/typographic-scale.png
@@ -111,7 +108,7 @@
 		margin-top    : 0.16666666666667em;
 	}
 	h3 {
-		font-size: 1.5em;
+		font-size: 14px;
 		line-height   : 1em; /* @line-height / 1.5 */
 		margin-top    : 1em;
 		margin-bottom : 0.5em;
@@ -145,7 +142,7 @@
 
 	dt {
 		margin-top: 0.75em;
-		font-weight: bold;
+		font-weight: normal;
 	}
 	dd {
 		margin-left: 0;
@@ -165,6 +162,11 @@
 		-moz-box-sizing    : border-box;
 		box-sizing         : border-box;
 	}
+
+	.action header dl {
+		font-size: 14px;
+	}
+
 	.action header dt {
 		float: right;
 		clear: both;
@@ -414,6 +416,7 @@
 	button {
 	    border-radius: 0.25em;
 	    padding: 0.85em 2.25em;
+	    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	    font-size: 0.875em; /* 14px / @font-size */
 	    font-weight: bold;
 	    text-align: center;
