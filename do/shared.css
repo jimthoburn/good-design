@@ -139,12 +139,36 @@
 
 	dt {
 		margin-top: 0.75em;
-		font-variant: small-caps;
-		text-transform: lowercase;
 	}
 	dd {
 		margin-left: 0;
 		padding-left: 0;
+	}
+
+	.action header dl:after {
+		/* @clearfix */
+		content: "";
+		display: table;
+		clear: both;
+	}
+	.action header dt,
+	.action header dd {
+		margin-top: 0;
+		-webkit-box-sizing : border-box;
+		-moz-box-sizing    : border-box;
+		box-sizing         : border-box;
+	}
+	.action header dt {
+		float: right;
+		clear: both;
+		width: 80%;
+		text-align: left;
+		padding-left: 1em;
+	}
+	.action header dd {
+		float: left;
+		width: 20%;
+		text-align: right;
 	}
 
 	table {
@@ -557,6 +581,26 @@
 	#header a {
 		text-decoration: none;
 		color: inherit;
+	}
+
+	#header {
+		text-align: right;
+	}
+	#header h2 {
+		float: left;
+	}
+	#header button {
+		padding: 0;
+		background: transparent;
+	}
+	#header ul,
+	#header li,
+	#header p,
+	#header form {
+		display: inline;
+	}
+	#header img {
+		vertical-align: middle;
 	}
 
 
