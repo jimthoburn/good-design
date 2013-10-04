@@ -66,8 +66,8 @@
 						<dd>164</dd>
 						<dt>Families Helped</dt>
 						<dd>48</dd>
-						<dt>Days Left To Contribute</dt>
-						<dd>87</dd>
+						<dt>Months Left To Contribute</dt>
+						<dd>3</dd>
 					</dl>
 					</div>
 
@@ -96,16 +96,49 @@
 
 				<div class="body">
 
+				<div class="header">
+
 				<h1>
 					Help Restore Photos Damaged in the Oklahoma Tornado
 				</h1>
 
+<<<<<<< HEAD
 				<p>Our Goal: <strong>1,000 Photos</strong> &nbsp; — &nbsp; Time Left: <strong>3 months left</strong></p>
 
 				<section class="graph">
 					<h2>Our Impact</h2>
 					<h2>164 photos restored</h2>
 					<h2>48 families helped</h2>
+=======
+				<dl class="meta">
+					<dt class="goal">Our Goal</dt>
+					<dd class="goal">1,000 photos</dd>
+					<dt class="time">Time Left</dt>
+					<dd class="time">3 months left</dd>
+				</dl>
+
+				</div><!-- /.header -->
+
+				<section class="impact">
+					<h2>Our Impact</h2>
+					<p>We are only <strong>833</strong> from reaching our goal. Feel free to share:</p>
+					<ul>
+						<li><a href="">Facebook</a></li>
+						<li><a href="">Twitter</a></li>
+					</ul>
+				</section>
+
+				<section class="graph">
+					<header>
+					<h2><strong>167</strong> of 1,000 <strong>photos restored</strong></h2>
+					<h3>50 families helped</h3>
+
+						<div class="meta">
+							<p class="remaining">3 months left</p>
+							<p class="deadline">Dec 21</p>
+						</div>
+					</header>
+>>>>>>> eecf39261aa0a903e8ec64e71acb428366ac6678
 
 					<table>
 						<thead>
@@ -136,6 +169,14 @@
 								<td>3</td>
 							</tr>
 							<tr>
+								<td>6/21/2013 16:03:00</td>
+								<td><a href="http://www.good.is/members/mayus-chavez">Mayus Chavez</a></td>
+								<td><img src="http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Favatars%2F2002219%2Foriginal%2F369621_752790900_1527235782_n.jpg%3F1356472488&geometry=240x240%23" width="100" /></td>
+								<td>New Orleans, Louisiana</td>
+								<td>3</td>
+								<td>1</td>
+							</tr>
+							<tr>
 								<td>5/23/2013 8:02:00</td>
 								<td><a href="http://www.good.is/members/wendi">Wendy Batt</a></td>
 								<td><img src="http://images-3.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F929%2F908%2Foriginal%2FIMG_1153.jpg&geometry=240x240%23" width="100" /></td>
@@ -143,6 +184,22 @@
 								<td>2</td>
 								<td>1</td>
 							</tr>
+							<tr>
+								<td>6/28/2013 8:41:00</td>
+								<td><a href="http://www.good.is/members/ingridkopp">Ingrid Kopp</a></td>
+								<td><img src="http://images-3.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Favatars%2F2002473%2Foriginal%2F1046952_300.jpg%3F1356543752&geometry=240x240%23" width="100" /></td>
+								<td>Omaha, Nebraska</td>
+								<td>12</td>
+								<td>3</td>
+							</tr>
+							<tr>
+								<td>8/1/2013 6:34:00</td>
+								<td><a href="http://www.good.is/members/michelle-a-lim">Michelle Lim</a></td>
+								<td><img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Favatars%2F2018930%2Foriginal%2FHeadshot.png%3F1359704896&geometry=240x240%23" width="100" /></td>
+								<td>Detroit, Michigan</td>
+								<td>2</td>
+								<td>1</td>
+							</tr>						
 						</tbody>
 					</table>
 				</section>
@@ -382,19 +439,69 @@
 
 
 				<section class="map">
-					<h2>Where it's happening…</h2>
-					<div id="map-canvas" style="height: 600px"></div>
-				    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-				    <script type="text/javascript">
-				      (function() {
-				        var mapOptions = {
-				          center: new google.maps.LatLng(-34.397, 150.644),
-				          zoom: 8,
-    					  scrollwheel: false, /* TBD: Disable the scrollwheel so folks won’t accidentally zoom while scrolling down the page */
-				          mapTypeId: google.maps.MapTypeId.ROADMAP
-				        };
-				        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-				      })();
+					<h2>Where it's happening...</h2>
+					<div id="map" style="height: 600px"></div>
+				    <script src="https://maps.googleapis.com/maps/api/js?v=3&amp;sensor=false"></script>
+				    <script>
+
+						var mapOptions = {
+							zoom: 1,
+							mapTypeId: google.maps.MapTypeId.ROADMAP,
+					  		scrollwheel: false /* TBD: Disable the scrollwheel so folks won’t accidentally zoom while scrolling down the page */
+						}
+						var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+						var bound = new google.maps.LatLngBounds();
+
+						var addresses = [
+							"San Onofre, CA",
+							"Wilder, Idaho",
+							"Corpus Christi, Texas",
+							"Raleigh, North Carolina",
+							"Beverly Hills, California",
+							"Washington ,DC",
+							"New Orleans, Louisiana",
+							"Oklahoma City, Oklahoma",
+							"Omaha, Nebraska",
+							"Brooklyn, New York",
+							"Fort Colins, Colorado",
+							"Missoula, Montana",
+							"Detroit, Michigan"	
+						];
+
+						// Create a new Geocoder
+						var geocoder = new google.maps.Geocoder();
+
+						function addMarker(address) {
+
+							// Locate the address using the Geocoder.
+							geocoder.geocode( { "address": address }, function(results, status) {
+
+							  // If the Geocoding was successful
+							  if (status == google.maps.GeocoderStatus.OK) {
+
+							    // Add a marker at the address.
+							    var marker = new google.maps.Marker({
+							      map: map,
+							      position: results[0].geometry.location
+							    });
+
+							    bound.extend(marker.getPosition());
+	  							map.fitBounds(bound);
+
+							  } else {
+							    try {
+							      console.error("Geocode was not successful for the following reason: " + status);
+							    } catch(e) {}
+							  }
+							});
+
+						};
+
+						for (var index = 0; index < addresses.length; index++) {
+							addMarker(addresses[index]);
+						}
+
 				    </script>
 				</section>
 
@@ -403,28 +510,66 @@
 					<ul class="headlines">
 						<li>
 							<h3>
-								<img src="http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F237%2F242%2Foriginal%2F173817_1474496941_1004623319_n.jpg&amp;geometry=240x240%23" width="25" alt="" />
-								<a href="">Marcelo Borges</a> rode <strong>5 miles</strong> and took <strong>2 trips</strong>
+								<img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Favatars%2F2000755%2Foriginal%2F850ddcaa4586e574dd436d599476f43e.png%3F1356025921&geometry=240x240%23" width="25" alt="Lina Rivastava" />
+								<a href="">Lina Rivastava</a> from New York, New York restored <strong>4 photos</strong> and helped <strong>2 families</strong> 
 							</h3>
-							<p class="date">Oct 4, 2013</p>
+							<p class="date">June 18, 2013</p>
 							<p>
-								<img src="images/marcelo.jpg" width="350" alt="" />
+								<img src="http://www.operationphotorescue.org/wp-content/gallery/volunteer-portfolio/857_30_08_08_12_13_29.jpg" width="350" alt="" />
 							</p>
-							<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+							<!-- <p>[Comment]</p> -->
 						</li>
 						<li>
 							<h3>
-								<img src="http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F237%2F242%2Foriginal%2F173817_1474496941_1004623319_n.jpg&amp;geometry=240x240%23" width="25" alt="" />
-								<a href="">Marcelo Borges</a> rode <strong>5 miles</strong> and took <strong>2 trips</strong>
+								<img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F118%2F178%2Foriginal%2Fjosh_pic1.jpg&geometry=240x240%23" width="25" alt="Josh Nesbit" />
+								<a href="">Josh Nesbit</a> restored <strong>26 photos</strong> and helped <strong>7 families</strong>
 							</h3>
-							<p class="date">Oct 4, 2013</p>
-							<p>Cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							<p class="date">June 6, 2013</p>
+							<p>
+								<img src="http://www.operationphotorescue.org/wp-content/gallery/volunteer-portfolio/812_10_05_08_2_03_36.jpg" width="350" alt="" />
+							</p>
+							<p>
+						<li>
+							<h3>
+								<img src="http://images-3.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F275%2F262%2Foriginal%2F260744_747238829_401488449_n.jpg&geometry=240x240%23" width="25" alt="Megan Mukuria" />
+								<a href="">Megan Mukuria</a> restored <strong>3 photos</strong> and helped <strong>1 family</strong>
+							</h3>
+							<p class="date">May 31, 2013</p>
+							<!-- <p>
+								<img src="[Photo URL]" width="350" alt="" />
+							</p>
+							<p>[Comment]</p> -->
+						</li>
+						<li>
+							<h3>
+								<img src="http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fpre.cloudfront.goodinc.com%2Fusers%2Fxlarge-1267751563-CJS-Black9.jpg&geometry=240x240%23" width="25" alt="Craig Shapiro" />
+								<a href="">Craig Shapiro</a> restored <strong>15 photos</strong> and helped <strong>4 families</strong>
+							</h3>
+							<p class="date">May 29, 2013</p>
+							<p>
+								<img src="http://www.operationphotorescue.org/wp-content/gallery/volunteer-portfolio/246_20_02_08_11_50_45_3.jpg" width="350" alt="" />
+							</p>
+							<!-- <p>[Comment]</p> -->
+						</li>
+						<li>
+							<h3>
+								<img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F289%2F239%2Foriginal%2Fphoto_%281%29.JPG&geometry=240x240%23" width="25" alt="Manasa Yeturu" />
+								<a href="">Manasa Yeturu</a> from Baker, Oregon restored <strong>9 photos</strong> and helped <strong>2 families</strong>
+							</h3>
+							<p class="date">May 25, 2013</p>
+							<p>
+								<img src="http://www.operationphotorescue.org/wp-content/gallery/volunteer-portfolio/260_19_02_08_10_38_36.jpg" width="350" alt="" />
+							</p>
+							<p>
+								<img src="http://www.operationphotorescue.org/wp-content/gallery/volunteer-portfolio/1114_10_08_08_4_09_08.jpg" width="350" alt="" />
+							</p>
+							<!-- <p>[Comment]</p> -->
 						</li>
 						<!-- TODO: Add more items…
 						<li>
 							<h3>
-								<img src="[Avatar URL]" alt="" />
-								<a href="">[Member Name]</a> rode <strong>[X] miles</strong> and took <strong>[X] trips</strong>
+								<img src="[Avatar URL]" width="25" alt="" />
+								<a href="">[Member Name]</a> restored <strong>[X] photos</strong> and helped <strong>[X] families</strong> from [location]
 							</h3>
 							<p class="date">[Date]</p>
 							<p>
@@ -464,6 +609,20 @@
 							</h3>
 							<p>Our whole art department is in! We have a hi-res scanner and Photoshop Gurus ready to help.</p>
 						</li>
+						<li>
+							<h3>
+								<img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Fimages%2Fassets%2Fdefault-avatar-red.png&geometry=240x240%23" width="25" alt="" />
+								Acampo Andy commented
+							</h3>
+							<p>Yes I would love to help! I have restored old and damaged photos for friends and family for years using photoshop. My heart goes out to those who have lost so much.</p>
+						</li>
+						<li>
+							<h3>
+								<img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F218%2F630%2Foriginal%2FTwitter_Photo.jpg&geometry=240x240%23" width="25" alt="" />
+								Wonderist commented
+							</h3>
+							<p>Reposted at the-wonderist.com - Love this idea and glad to see such a big response!</p>
+						</li>												
 					</ul>
 					<section>
 						<h2>Add a Comment</h2>

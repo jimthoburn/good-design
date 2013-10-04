@@ -92,15 +92,40 @@
 
 				<div class="body">
 
+				<div class="header">
+
 				<h1>
 					Bike to Work for Biking Month
 				</h1>
 
-				<p class="time-left">26 days left</p>
+				<dl class="meta">
+					<dt class="goal">Our Goal</dt>
+					<dd class="goal">1,000 miles</dd>
+					<dt class="time">Time Left</dt>
+					<dd class="time">26 days left</dd>
+				</dl>
+
+				</div><!-- /.header -->
+
+				<section class="impact">
+					<h2>Our Impact</h2>
+					<p>We are only <strong>2,642</strong> from reaching our goal. Feel free to share:</p>
+					<ul>
+						<li><a href="">Facebook</a></li>
+						<li><a href="">Twitter</a></li>
+					</ul>
+				</section>
 
 				<section class="graph">
-					<h2>358 miles biked</h2>
+					<header>
+					<h2><strong>358</strong> of 3,000 <strong>miles biked</strong></h2>
 					<h3>50 trips made</h3>
+
+						<div class="meta">
+							<p class="remaining">26 Days Left</p>
+							<p class="deadline">Oct 31</p>
+						</div>
+					</header>
 
 					<table>
 						<thead>
@@ -380,23 +405,67 @@
 
 				<section class="map">
 					<h2>Where it's happening...</h2>
-					<div id="map-canvas" style="height: 600px"></div>
-				    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-				    <script type="text/javascript">
-				      (function() {
-				        var mapOptions = {
-				          center: new google.maps.LatLng(-34.397, 150.644),
-				          zoom: 8,
-    					  scrollwheel: false, /* TBD: Disable the scrollwheel so folks won’t accidentally zoom while scrolling down the page */
-				          mapTypeId: google.maps.MapTypeId.ROADMAP
-				        };
-				        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-				      })();
+					<div id="map" style="height: 600px"></div>
+				    <script src="https://maps.googleapis.com/maps/api/js?v=3&amp;sensor=false"></script>
+				    <script>
+
+						var mapOptions = {
+							zoom: 1,
+							mapTypeId: google.maps.MapTypeId.ROADMAP,
+					  		scrollwheel: false /* TBD: Disable the scrollwheel so folks won’t accidentally zoom while scrolling down the page */
+						}
+						var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+						var bound = new google.maps.LatLngBounds();
+
+						var addresses = [
+							"1 infinite loop cupertino ca 95014",
+							"Los Angeles, CA",
+							"New York, New York",
+							"Alberta",
+							"Mexico City",
+							"Chicago",
+							"Seattle"
+						];
+
+						// Create a new Geocoder
+						var geocoder = new google.maps.Geocoder();
+
+						function addMarker(address) {
+
+							// Locate the address using the Geocoder.
+							geocoder.geocode( { "address": address }, function(results, status) {
+
+							  // If the Geocoding was successful
+							  if (status == google.maps.GeocoderStatus.OK) {
+
+							    // Add a marker at the address.
+							    var marker = new google.maps.Marker({
+							      map: map,
+							      position: results[0].geometry.location
+							    });
+
+							    bound.extend(marker.getPosition());
+	  							map.fitBounds(bound);
+
+							  } else {
+							    try {
+							      console.error("Geocode was not successful for the following reason: " + status);
+							    } catch(e) {}
+							  }
+							});
+
+						};
+
+						for (var index = 0; index < addresses.length; index++) {
+							addMarker(addresses[index]);
+						}
+
 				    </script>
 				</section>
 
 				<section class="comments">
-					<h2>Your stories...</h2>
+					<h2>Our stories...</h2>
 					<ul class="headlines">
 						<li>
 							<h3>
