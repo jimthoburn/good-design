@@ -406,21 +406,21 @@
 					<h2>Did You Contribute?</h2>
 
 					<form action="#record" method="post">
-						<p>
-							<img src="images/avatar.png" width="50" alt="" />
+						<img src="images/avatar.png" width="100" alt="" />
+						<p class="data">
 							Yes! I restored
 							<label>
-								<input type="text" style="width: 2em;" />
+								<input type="text" />
 								<span>photos</span>
 							</label>
 							and helped
 							<label>
-								<input type="text" style="width: 2em;" />
+								<input type="text" />
 								<span>families</span>
 							</label>
 							today.
 						</p>
-						<p>
+						<p class="privacy">
 							<label>
 								<input type="checkbox" checked="checked" />
 								<span>Submit anonymously (won't display your name on the public view)</span>
@@ -428,16 +428,16 @@
 						</p>
 						<p class="submit"><button class="submit">Add My Impact</button></p>
 					</form>
+					<span class="pointer"></span>
 				</section>
 
 				<section class="record details" id="record">
 					<h2>
-						<img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F151%2F663%2Foriginal%2Fmichelle.jpeg&amp;geometry=240x240%23" width="50" alt="" />
 						You restored 3 miles and helped 1 family. Awesome!
 					</h2>
-					<h3>Add more details</h3>
 					<form action="" method="post">
-						<p>
+						<h3>Share your story on good.is</h3>
+						<p class="image">
 							<label>
 								<span>Add an image</span><br />
 								<input type="file" />
@@ -460,6 +460,7 @@
 							<li><a href="record-confirm.html">Skip</a></li>
 						</ul>
 					</form>
+					<span class="pointer"></span>
 				</section>
 
 				<script src="record.js"></script>
