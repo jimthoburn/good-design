@@ -764,6 +764,15 @@
 
 	/* =Graph
 	----------------------------------------------- */
+	.text .graph h2 {
+		font-size: 60px;
+		color: rgb(153, 153, 153);
+		font-weight: normal;
+	}
+	.text .graph h2 strong {
+		font-weight: bold;
+		color: black;
+	}
 	.graph h3 {
 		font-size: 30px;
 	}
