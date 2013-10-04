@@ -149,6 +149,38 @@
 		padding-left: 0;
 	}
 
+	.action header .author img {
+		float: left;
+	}
+	.action header .author h4 {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	.action header .author h4 + p {
+		margin-top: 0;
+		color: rgb(153, 153, 153);
+	}
+	.action header .author {
+		margin-top: 1.5em;
+		border-top: 1px solid rgb(237, 237, 237);
+		padding-top: 1.5em;
+	}
+
+	.action header .author div {
+		background: rgb(249, 249, 249);
+		padding: 1em;
+		border: 1px solid rgb(243, 243, 243);
+		border-radius: 0.25em;
+	}
+
+	.action header .data {
+		margin: 1.5em 0;
+		padding: 1.5em 0;
+		border-width: 1px 0;
+		border-style: solid;
+		border-color: rgb(237, 237, 237);
+	}
+
 	.action header dl:after {
 		/* @clearfix */
 		content: "";
@@ -497,7 +529,16 @@
 		padding-right: 1.5em;
 	}
 
+	@media (min-width: 40em) {
+		#header > .container,
+		#content > .container,
+		.footer-content > .container {
+			padding-left: 3em;
+			padding-right: 3em;
+		}
+	}
 	/* On large screens, fill the available vertical space */
+	/*
 	@media (min-width: 40em) {
 		html, body {
 			height: 100%;
@@ -533,6 +574,7 @@
 			height: 1px;
 		}
 	}
+	*/
 
 	#content section.text {
 		max-width: 120em;
@@ -565,6 +607,7 @@
 
 	#header {
 		background: rgb(249, 249, 249);
+		border-bottom: 1px solid rgb(218, 220, 224);
 	}
 	#header .container {
 		padding-bottom: 1.5em;
