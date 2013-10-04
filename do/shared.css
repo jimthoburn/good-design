@@ -781,7 +781,7 @@
 		vertical-align: middle;
 		margin-right: 5px;
 	}
-	.graph-image .details li:last-child {
+	.graph-image .details li.more {
 		padding-left: 35px;
 	}
 
