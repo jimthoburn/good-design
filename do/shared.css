@@ -661,8 +661,6 @@
 
 	/* =Graph
 	----------------------------------------------- */
-	.graph header {
-	}
 	.graph .meta {
 		text-align: right;
 	}
@@ -671,6 +669,18 @@
 	}
 	.graph .meta p + p {
 		margin-left: 1.5em;
+	}
+
+	.graph-container {
+		background-color: rgb(245, 245, 245);
+		height: 100px;
+		position: relative;
+	}
+	.bike-to-work .graph-container  {
+		background-color: rgb(254, 245, 234);
+	}
+	.oklahoma .graph-container  {
+		background-color: rgb(254, 245, 234);
 	}
 
 
