@@ -816,6 +816,9 @@
 		position: relative;
 		z-index: 1;
 	}
+	.graph-image .icon.avatar {
+		background-size: contain;
+	}
 	.graph-image .group {
 		position: absolute;
 		height: 100%;

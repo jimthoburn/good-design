@@ -4,6 +4,8 @@
 	var detailed = document.getElementById("record");
 	if (quick && detailed) {
 
+		var avatar = false;
+
 		// Show the detailed form, when the quick form is submitted
 		(function() {
 			var form = quick.getElementsByTagName("form");
@@ -12,6 +14,20 @@
 				quick.className += " hidden";
 				detailed.className = detailed.className.replace(/hidden/g, "");
 				e.preventDefault();
+
+				// Show the user’s photo in place of the icon
+				if (!avatar) {
+					var icon = document.querySelector(".graph-image .icon");
+					console.log("icon: " + icon);
+					var image = quick.querySelector("img");
+					console.log("image: " + image);
+					if (icon && image) {
+						icon.style.backgroundImage = "url(" + image.src + ")";
+						icon.className += " avatar";
+					}
+				}
+
+
 			});
 		})();
 
@@ -46,8 +62,6 @@
 	var fixed = false;
 
 	window.addEventListener("scroll", function(e) {
-		console.log("window.scrollY: " + window.scrollY);
-		console.log("offset: " + offset);
 		if (window.scrollY > offset) {
 			document.body.className += " fixed";
 			fixed = true;
