@@ -108,17 +108,19 @@
 
 				<section class="impact">
 					<h2>Our Impact</h2>
+					<!--
 					<p>We are only <strong>833</strong> from reaching our goal. Feel free to share:</p>
 					<ul>
 						<li><a href="">Facebook</a></li>
 						<li><a href="">Twitter</a></li>
 					</ul>
+					-->
 				</section>
 
 				<section class="graph">
 					<header>
 					<h2><strong>167</strong> of 1,000 <strong>photos restored</strong></h2>
-					<h2>50 families helped</h2>
+					<h3>50 families helped</h3>
 
 						<div class="meta">
 							<p class="remaining">3 months left</p>
@@ -126,7 +128,7 @@
 						</div>
 					</header>
 
-					<div class="graph-image" style="background-color: rgb(254, 245, 234);">
+					<div class="graph-image" style="background-color: rgb(254, 245, 234);" id="graph">
 						<div class="progress" style="background-color: rgb(253, 224, 190); width: 50%;">
 
 							<div class="group" style="width: 33%; left: 0%;">
@@ -142,7 +144,9 @@
 
 							<div class="group" style="width: 33%; left: 33%;">
 
-								<div class="point" style="left: 20%;"></div>
+								<div class="point" style="left: 20%;">
+
+								</div>
 
 								<div class="point" style="left: 60%;"></div>
 							</div>
@@ -158,6 +162,64 @@
 						</div>
 					</div>
 
+					<script type="text/template" id="details-template">
+						<div class="details">
+							<h3>8 people added impact</h3>
+							<ul>
+								<li>
+									<a href="">
+										<img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F204%2F945%2Foriginal%2FScreen_Shot_2012-12-20_at_10.00.38_PM.png&amp;geometry=240x240%23" width="50" alt="" />
+										Viktor Venson
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<img src="http://images-3.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F860%2F698%2Foriginal%2FAttachment-1.jpg&amp;geometry=240x240%23" width="50" alt="" />
+										Liz Dwyer
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<img src="http://images-3.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F290%2F263%2Foriginal%2FGURqs7xn0AZGyW9qMcTE4tqjlXcR-NZ5QXkhr4W1Wt8.jpeg&amp;geometry=240x240%23" width="50" alt="" />
+										Bora Chang
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<img src="http://images-2.good.is/albums/crop?image_url=http%3A%2F%2Fpre.cloudfront.goodinc.com%2Fusers%2Fxlarge-1265739779-profile.pic.jpg&amp;geometry=240x240%23" width="50" alt="" />
+										Marian Goodell
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<img src="http://images-2.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Favatars%2F1140427%2Foriginal%2Fnirvan_icon_photo.jpeg%3F1347966316&amp;geometry=240x240%23" width="50" alt="" />
+										Jonny Miller
+									</a>
+								</li>
+								<li>&amp; <a href="">2 more…</a></li>
+							</ul>
+							<span></span>
+						</div>
+					</script>
+
+					<script>
+						(function() {
+							var graph    = document.getElementById("graph");
+							var template = document.getElementById("details-template");
+							if (graph && template) {
+								var points = graph.querySelectorAll(".point");
+								for (var index = 0; index < points.length; index++) {
+									console.log("point:" + points[index]);
+									var details = document.createElement("div");
+									details.innerHTML = template.innerHTML;
+									points[index].appendChild(details);
+								}
+							}
+
+						})();
+					</script>
+
+					<!--
 					<table style="margin-top: 200px;">
 						<thead>
 							<tr>
@@ -220,6 +282,8 @@
 							</tr>						
 						</tbody>
 					</table>
+					-->
+
 				</section>
 
 				<section class="record" id="quick">
@@ -523,7 +587,7 @@
 				    </script>
 				</section>
 
-				<section class="comments">
+				<section class="comments stories">
 					<h2>Our stories…</h2>
 					<ul class="headlines">
 						<li>
@@ -578,9 +642,11 @@
 							<p>
 								<img src="http://www.operationphotorescue.org/wp-content/gallery/volunteer-portfolio/260_19_02_08_10_38_36.jpg" width="350" alt="" />
 							</p>
+							<!--
 							<p>
 								<img src="http://www.operationphotorescue.org/wp-content/gallery/volunteer-portfolio/1114_10_08_08_4_09_08.jpg" width="350" alt="" />
 							</p>
+							-->
 							<!-- <p>[Comment]</p> -->
 						</li>
 						<!-- TODO: Add more items…
@@ -599,6 +665,7 @@
 					</ul>
 				</section>
 
+				<!--
 				<section class="comments">
 					<h2>Comments &amp; Activity</h2>
 					<ul class="headlines">
@@ -661,11 +728,13 @@
 						</form>
 					</section>
 				</section>
+				-->
 
 				</div><!-- /.body -->
 
 				<div style="clear: both"></div><!-- KLUDGE -->
 
+				<!--
 				<aside>
 					<h2>Other Dos you might like</h2>
 					<ul class="related">
@@ -727,6 +796,7 @@
 					</ul>
 					<p class="forward"><a href="">View More</a></p>
 				</aside>
+				-->
 
 			</section>
 
