@@ -608,6 +608,7 @@
 	#header {
 		background: rgb(249, 249, 249);
 		border-bottom: 1px solid rgb(218, 220, 224);
+		margin-bottom: 0;
 	}
 	#header .container {
 		padding-bottom: 1.5em;
@@ -1005,11 +1006,15 @@
 			float: left;
 			width: 20%;
 			background: white;
+			margin-top: -3em;
+			padding-top: 3em;
 			padding-left: 3em;
 			padding-right: 3em;
 			-webkit-box-sizing : border-box;
 			-moz-box-sizing    : border-box;
 			box-sizing         : border-box;
+
+			border-right: 1px solid rgb(218, 220, 224);
 		}
 		.text.action > .body {
 			float: right;
