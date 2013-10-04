@@ -563,8 +563,15 @@
 	/* =Header
 	----------------------------------------------- */
 
+	#header {
+		background: rgb(249, 249, 249);
+	}
+	#header .container {
+		padding-bottom: 1.5em;
+	}
 	#header h2 {
 		font-size: 1.25em;
+		margin: 0;
 	}
 	#header h2 strong {
 		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -575,6 +582,9 @@
 	}
 	#header h2 strong:after {
 		content: ")";
+	}
+	#header h2 img {
+		display: inline-block;
 	}
 
 	@media (min-width: 40em) {
@@ -611,6 +621,56 @@
 	}
 	#header img {
 		vertical-align: middle;
+	}
+
+	#header form {
+		position: relative;
+	}
+	#header form p {
+		margin: 0;
+	}
+	#header form button {
+		margin: 0;
+		position: absolute;
+		right: 0.75em;
+		top: 0;
+	}
+
+	#header ul,
+	#header li {
+		list-style: none;
+		margin-left: 0;
+		padding-left: 0;
+	}
+	#header ul {
+		border-width: 0 1px;
+		border-style: solid;
+		border-color: rgb(239, 239, 239);
+		margin: 0 1.5em;
+		padding: 0.7em 1em;
+		vertical-align: middle;
+	}
+	#header li {
+		margin: 0;
+	}
+	#header li a {
+		color: rgb(153, 153, 153);
+		font-weight: bold;
+		padding: 0 1em;
+	}
+	#header .do {
+		margin-left: 1.5em;
+	}
+	#header .do a {
+		display: inline-block;
+		background: rgb(135, 233, 184);
+		line-height: 40px;
+		width: 40px;
+		border-radius: 100px;
+		text-align: center;
+		color: white;
+		font-size: 16px;
+		font-weight: bold;
 	}
 
 
