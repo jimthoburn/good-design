@@ -972,11 +972,11 @@
 	.comments.stories ul:after {
 		content: "";
 		display: block;
-		background: rgba(255, 255, 255, 1) url(images/arrow.svg) center no-repeat;
+		background: rgba(255, 255, 255, 0.6) url(images/arrow.svg) center no-repeat;
 		background-size: 70% auto;
 		width: 100px;
 		height: 100%;
-		opacity: 0.1;
+		opacity: 0.3;
 		position: absolute;
 		right: 0;
 		top: 0;
