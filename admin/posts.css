@@ -381,6 +381,13 @@
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
       margin-bottom: -1px;
+      transition: color 0.2s;
+    }
+
+    #admin-manage-posts .filters a:hover,
+    #admin-manage-posts .filters a:active,
+    #admin-manage-posts .filters a:focus {
+      color: rgb(51, 153, 255); /* @link-color */
     }
 
     #admin-manage-posts .filters .active a {
@@ -456,6 +463,13 @@
       line-height: normal;
       vertical-align: middle;
       margin-left: 10px;
+      transition: background-color 0.2s;
+    }
+
+    #admin-manage-posts .filters form .submit input:hover,
+    #admin-manage-posts .filters form .submit input:active,
+    #admin-manage-posts .filters form .submit input:focus {
+      background-color: rgb(51, 153, 255); /* @link-color */
     }
 
     html.controller-admin\/posts.action-index .main {
