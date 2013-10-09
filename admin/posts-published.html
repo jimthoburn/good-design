@@ -36,25 +36,38 @@
 
         <div class="filters">
           <h2>Show</h2>
-          <a href="index.html">All Posts</a>
-          <a class="active" href="posts-published.html">Published Posts</a>
-          <a href="posts-flagged.html">Flagged Posts</a>
-          <a href="posts-spam.html">Spam Posts</a>
+          <ul>
+            <li><a href="index.html">All Posts</a></li>
+            <li class="active"><a href="posts-published.html">Published Posts</a></li>
+            <li><a href="posts-flagged.html">Flagged Posts</a></li>
+            <li><a href="posts-spam.html">Spam Posts</a></li>
+          </ul>
  
           <form>
-            <label>Published between</label>
-            <input placeholder="Start Date (MM/DD/YYYY)" type="text" value="09/01/2012" />
-            <label>and</label>
-            <input placeholder="End Date (MM/DD/YYYY)" type="text" value="09/30/2013" />
-            <select>
-              <option>Post Type</option>
-              <option>All</option>
-              <option>Article</option>
-              <option>Link</option>
-              <option>Do</option>
-            </select>
-            <input placeholder="Post title or contributors" type="text" />
-            <input type="submit" value="Search" />
+            <span class="select">
+              <label>View</label>
+              <select>
+                <option>All Types</option>
+                <option>Article</option>
+                <option>Link</option>
+                <option>Do</option>
+              </select>
+            </span>
+            <span class="date">
+              <label>published</label>
+              <input placeholder="MM/DD/YYYY" type="text" value="09/01/2012" />
+            </span>
+            <span class="date">
+              <label>to</label>
+              <input placeholder="MM/DD/YYYY" type="text" value="09/30/2013" />
+            </span>
+            <span class="keywords">
+              <label>and</label>
+              <input placeholder="Enter post title or contributors" type="text" />
+            </span>
+            <span class="submit">
+              <input type="submit" value="Search" />
+            </span>
           </form>
         </div>
         <!--
@@ -1049,6 +1062,7 @@
             </tbody>
           </table>
           <ul class="batch-options">
+            <li><button type="submit" class="spam_button flag">Flag all checked</button></li>
             <li><button type="submit" class="spam_button ban">Mark all checked as Spam</button></li>
           </ul>
         </form>
