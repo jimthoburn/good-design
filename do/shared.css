@@ -966,6 +966,21 @@
 		margin-right: 0.5em;
 	}
 
+	.comments.stories {
+		position: relative;
+	}
+	.comments.stories ul:after {
+		content: "";
+		display: block;
+		background: rgba(255, 255, 255, 0.6) url(images/arrow.svg) center no-repeat;
+		background-size: 70% auto;
+		width: 100px;
+		height: 100%;
+		opacity: 0.3;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
 	.comments.stories ul {
 		padding: 1em 0;
 		white-space: nowrap;
