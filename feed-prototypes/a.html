@@ -1,0 +1,914 @@
+<!doctype html>
+<html dir="ltr" lang="en" class="controller-posts action-index logged-in">
+<head>
+  <meta charset="utf-8" />
+  <title>GOOD | For You</title>
+
+  <!--
+  <link href="http://good.is/assets/application-ce6757b62e11e6b6a8a8a3dbd0ea7af2.css" rel="stylesheet" type="text/css" />
+  -->
+
+  <link href="a.css" rel="stylesheet" type="text/css" />
+
+  <style>
+
+    /* For IE */
+    a img {
+      border-width: 0;
+    }
+
+    /* For older browsers */
+    section, article, nav, header, footer {
+      display: block;
+    }
+
+
+    .takeover {
+        border-bottom-width: 0 !important;
+    }
+    .takeover > section {
+      margin-top: 0 !important;
+    }
+    .takeover h1 {
+      margin-top: 40px !important;
+      margin-bottom: 22px !important;  /* 40px - carousel-margin (18px) */
+      font-size: 24px !important;
+    }
+    .personalized.feed h1 {
+      font-size: 24px !important;
+      border-bottom: 3px solid rgb(153, 153, 153);
+      padding-bottom: 12px;
+    }
+    .personalized.feed h1 a {
+      color: rgb(153, 153, 153);
+      font-weight: normal;
+    }
+    .personalized.feed h1 a:hover,
+    .personalized.feed h1 a:active,
+    .personalized.feed h1 a:focus {
+      color: rgb(113, 179, 247); /* @link-color */
+    }
+    .personalized.feed h1 a:before {
+      content: "/ ";
+      color: rgb(230, 230, 230);
+    }
+    .main {
+      background: transparent !important;
+    }
+    .feed-item {
+      margin: 24px 0;
+      border-bottom: 3px solid rgb(153, 153, 153);
+    }
+
+    .feed .more a {
+        margin-top: 3em;
+        display: block;
+        font-weight: bold;
+        font-size: 1.125em; /* 18px / @font-size */
+        background-color: rgb(249, 249, 249); /* @mercury */
+        border: 1px solid rgb(225, 225, 225);
+        text-align: center;
+        padding: 0.5em;
+        color: rgb(102, 102, 102); /* @steel */
+    }
+
+    /* =Footer
+      ----------------------------------------------- */
+      body > .footer {
+        background: transparent url(images/footer.png) left no-repeat;
+        height: 130px;
+        width: 70em;
+        margin-left: auto;
+        margin-right: auto;
+        border-top: 1px solid rgb(221, 221, 221); /* @silver */
+        padding: 1.5em 0;
+        margin: 4.5em auto 0;
+      }
+  </style>
+
+  <!--[if lte IE 8]>
+    <script src="modernizr.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <header>
+    <section>
+        <div class="logo">
+            <a href="a.html">GOOD</a>
+        </div>
+
+        <div id="logged-out-actions"></div>
+
+        <div class="actions">
+            <form action="a.html" class="search collapsed" method="get">
+                <div style="margin:0;padding:0;display:inline">
+                    
+                </div><input autocomplete="off" class="ui-autocomplete-input"
+                data-search-route="/search" id="q" name="q" placeholder=
+                "What are you looking for?" type="text"><span class=
+                "ui-helper-hidden-accessible"></span><button name="button"
+                type="submit">Search</button><label>find topics, members, or
+                keywords...</label>
+            </form>
+
+            <div id="action_buttons">
+                <a class="explore" href="a.html">Explore</a>
+                <a class="post" href="a.html">Post</a>
+            </div>
+
+            <div id="login_js">
+                <a class="avatar" href="a.html"><img alt="" src=
+                "http://image-cache.good.is/avatars/1851962/original/Matt2.jpeg?1346285103"></a>
+
+                <ul class="dropdown">
+                    <li>
+                        <a href="a.html">View Profile</a>
+                    </li>
+
+                    <li>
+                        <a href="a.html">Manage Account</a>
+                    </li>
+
+                    <li>
+                        <a href="a.html">Find &amp; Invite Friends</a>
+                    </li>
+
+                    <li>
+                        <a class="logout" href="a.html">Log Out</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="notifications_js">
+                <a class="notification_count" href=
+                "/members/jimthoburn/todos"><strong>1</strong></a>
+
+                <section class="dropdown">
+                    <header>
+                        <h1>To Do List</h1><a href="a.html"
+                        id="view_all">view all</a>
+                    </header>
+
+                    <ul class="">
+                        <li>
+                            <article>
+                                <h2><a href="a.html">Work / live like Ben Franklin for a week</a></h2>
+
+                                <div class="meta">
+                                    <span class=
+                                    "location">Anywhere</span><span class=
+                                    "date"></span>
+                                </div>
+                            </article>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </section>
+  </header>
+
+  <div class="personalized takeover">
+
+    <section>
+      <h1>Staff Picks</h1>
+    </section>
+
+  </div>
+
+  <section class="carousel">
+    <div class="container">
+
+      <div class="placeholder" style="background: transparent url(images/a/carousel.png) center no-repeat; height: 334px;"></div>
+
+    </div><!-- /.container -->
+  </section>
+
+  <div class="main">
+    <div class="right-sidebar">
+        <div class="right-sidebar-top">
+            <img src="images/a/ibm.png" width="300" height="600" alt="" />
+        </div>
+    </div>
+
+    <section class="page">
+        <div class="spinner">
+            <div class="outer"></div>
+
+            <div class="inner"></div>
+        </div>
+
+        <div class="personalized feed" style="display: block;">
+            <h1><span>For You</span> <a href="a.html">Popular</a> <a href="a.html">Newest</a></h1>
+
+            <div class="personalized posts">
+                <ul class="feed">
+
+                    <li class="feed-item post js-loaded">
+                        <article>
+                            <div class="authorship">
+                                <span class="avatars"><a href=
+                                ""><img alt="GOOD HQ" src=
+                                "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F276%2F924%2Foriginal%2FMarian.jpg&amp;geometry=240x240%23"></a></span>
+                                <span class="authors"><a href=
+                                "">Marian Goodell</a> wrote</span> <time datetime=
+                                "2013-09-09T17:27:02Z" pubdate=
+                                "pubdate">5h</time>
+                            </div>
+
+                            <div class="content">
+                                <div class="comments_count">
+                                    <a class="comments" href="a.html">
+                                        1 comments
+                                    </a>
+                                </div>
+                                <a class="cropped image" href="a.html">
+                                    <span>
+                                        <img alt="" src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fpre.cloudfront.goodinc.com%2Fposts%2F13769295004970457484_838ce590cc.jpg&amp;geometry=240x240%23">
+                                    </span>
+                                </a>
+                                <h3><a href="a.html">What Burning Man Can Teach Us About Reinventing Society </a></h3>
+                            </div>
+
+                            <div class="drawer">
+                                <div class="actions">
+                                    <a class="its-good" href="a.html">It's GOOD</a>
+                                </div>
+
+                                <div class="voters">
+                                    <p><strong>15 people</strong> think
+                                    this is good</p>
+
+                                    <div class="avatars">
+                                        <a href=
+                                        ""
+                                        title="Chris Marshall"><img alt=
+                                        "Chris Marshall" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F012%2F278%2Foriginal%2Fchris1.jpg&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Keanna Sheu"><img alt=
+                                        "Keanna Sheu" src=
+                                        "http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F007%2F538%2Foriginal%2Fphoto.JPG&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Emily Friedman"><img alt=
+                                        "Emily Friedman" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F005%2F920%2Foriginal%2FGOOD_photo.jpg&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Casey Dennehy"><img alt=
+                                        "Casey Dennehy" src=
+                                        "http://images-3.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F863%2F982%2Foriginal%2FDSCN0233.JPG&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Andrew Vasco"><img alt=
+                                        "Andrew Vasco" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F861%2F740%2Foriginal%2FPassportPhotoSheet.jpg&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Eli Kaufman"><img alt=
+                                        "Eli Kaufman" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Favatars%2F1666030%2Foriginal%2Fphoto.JPG%3F1346116889&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Jared Moscow"><img alt=
+                                        "Jared Moscow" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Favatars%2F1589038%2Foriginal%2F28152_1386574992081_1985447_n.jpg%3F1346870928&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Emily Howard"><img alt=
+                                        "Emily Howard" src=
+                                        "http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Favatars%2F1319777%2Foriginal%2Fprofile.jpeg%3F1347897338&amp;geometry=240x240%23"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+
+                    <li class="feed-item post js-loaded">
+                        <article>
+                            <div class="authorship">
+                                <span class="avatars"><a href=
+                                ""><img alt="GOOD HQ" src=
+                                "http://images-2.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F312%2F707%2Foriginal%2FProfile_pic.jpg&amp;geometry=240x240%23"></a></span>
+                                <span class="authors"><a href=
+                                "">Jonny Miller</a> shared</span> <time datetime=
+                                "2013-09-09T17:27:02Z" pubdate=
+                                "pubdate">5h</time>
+                            </div>
+
+                            <div class="content">
+                                <div class="comments_count">
+                                    <a class="comments" href="a.html">
+                                        6 comments
+                                    </a>
+                                </div>
+                                <a class="cropped image" href="a.html">
+                                    <span>
+                                        <img alt="" src="http://images-2.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fbookmarks%2Fphotos%2F000%2F248%2F081%2Foriginal%2Ftitle-square.jpg&amp;geometry=240x240%23">
+                                    </span>
+                                </a>
+                                <h3><a href="a.html">11 Untranslatable Words From Other Cultures</a></h3>
+                            </div>
+
+                            <div class="drawer">
+                                <div class="actions">
+                                    <a class="its-good" href="a.html">It's GOOD</a>
+                                </div>
+
+                                <div class="voters">
+                                    <p><strong>12 people</strong> think
+                                    this is good</p>
+
+                                    <div class="avatars">
+                                        <a href=
+                                        ""
+                                        title="Chris Marshall"><img alt=
+                                        "Chris Marshall" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F012%2F278%2Foriginal%2Fchris1.jpg&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Keanna Sheu"><img alt=
+                                        "Keanna Sheu" src=
+                                        "http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F007%2F538%2Foriginal%2Fphoto.JPG&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Emily Friedman"><img alt=
+                                        "Emily Friedman" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F005%2F920%2Foriginal%2FGOOD_photo.jpg&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Casey Dennehy"><img alt=
+                                        "Casey Dennehy" src=
+                                        "http://images-3.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F863%2F982%2Foriginal%2FDSCN0233.JPG&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Andrew Vasco"><img alt=
+                                        "Andrew Vasco" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F861%2F740%2Foriginal%2FPassportPhotoSheet.jpg&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Eli Kaufman"><img alt=
+                                        "Eli Kaufman" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Favatars%2F1666030%2Foriginal%2Fphoto.JPG%3F1346116889&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Jared Moscow"><img alt=
+                                        "Jared Moscow" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Favatars%2F1589038%2Foriginal%2F28152_1386574992081_1985447_n.jpg%3F1346870928&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Emily Howard"><img alt=
+                                        "Emily Howard" src=
+                                        "http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Favatars%2F1319777%2Foriginal%2Fprofile.jpeg%3F1347897338&amp;geometry=240x240%23"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+
+                    <li class="feed-item post js-loaded">
+                        <article>
+                            <div class="authorship">
+                                <span class="avatars"><a href=
+                                ""><img alt="GOOD HQ" src=
+                                "http://images-2.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Favatars%2F1863044%2Foriginal%2Fforgood130x130.jpg%3F1347929303&amp;geometry=240x240%23"></a></span>
+                                <span class="authors"><a href=
+                                "">Viktor Venson</a> shared</span> <time datetime=
+                                "2013-09-09T17:27:02Z" pubdate=
+                                "pubdate">5h</time>
+                            </div>
+
+                            <div class="content">
+                                <div class="comments_count">
+                                    <a class="comments" href="a.html">
+                                        6 comments
+                                    </a>
+                                </div>
+                                <a class="cropped image" href="a.html">
+                                    <span>
+                                        <img alt="" src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fpre.cloudfront.goodinc.com%2Fposts%2F1376943252bulb2.jpg&amp;geometry=240x240%23">
+                                    </span>
+                                </a>
+                                <h3><a href="a.html">Innovation Is Dead, Long Live Innovation</a></h3>
+                            </div>
+
+                            <div class="drawer">
+                                <div class="actions">
+                                    <a class="its-good" href="a.html">It's GOOD</a>
+                                </div>
+
+                                <div class="voters">
+                                    <p><strong>23 people</strong> think
+                                    this is good</p>
+
+                                    <div class="avatars">
+                                        <a href=
+                                        ""
+                                        title="Chris Marshall"><img alt=
+                                        "Chris Marshall" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F012%2F278%2Foriginal%2Fchris1.jpg&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Keanna Sheu"><img alt=
+                                        "Keanna Sheu" src=
+                                        "http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F007%2F538%2Foriginal%2Fphoto.JPG&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Emily Friedman"><img alt=
+                                        "Emily Friedman" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F005%2F920%2Foriginal%2FGOOD_photo.jpg&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Casey Dennehy"><img alt=
+                                        "Casey Dennehy" src=
+                                        "http://images-3.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F863%2F982%2Foriginal%2FDSCN0233.JPG&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Andrew Vasco"><img alt=
+                                        "Andrew Vasco" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F861%2F740%2Foriginal%2FPassportPhotoSheet.jpg&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Eli Kaufman"><img alt=
+                                        "Eli Kaufman" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Favatars%2F1666030%2Foriginal%2Fphoto.JPG%3F1346116889&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Jared Moscow"><img alt=
+                                        "Jared Moscow" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Favatars%2F1589038%2Foriginal%2F28152_1386574992081_1985447_n.jpg%3F1346870928&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Emily Howard"><img alt=
+                                        "Emily Howard" src=
+                                        "http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Favatars%2F1319777%2Foriginal%2Fprofile.jpeg%3F1347897338&amp;geometry=240x240%23"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+
+                    <li class="feed-item post js-loaded">
+                        <article>
+                            <div class="authorship">
+                                <span class="avatars"><a href=
+                                ""><img alt="GOOD HQ" src=
+                                "http://images-2.good.is/albums/crop?image_url=http%3A%2F%2Fpre.cloudfront.goodinc.com%2Fusers%2Flarge-1314887615-IMG_2359.JPG&amp;geometry=240x240%23"></a></span>
+                                <span class="authors"><a href=
+                                "">Bora Chang</a> shared</span> <time datetime=
+                                "2013-09-09T17:27:02Z" pubdate=
+                                "pubdate">5h</time>
+                            </div>
+
+                            <div class="content">
+                                <div class="comments_count">
+                                    <a class="comments" href="a.html">
+                                        6 comments
+                                    </a>
+                                </div>
+                                <a class="cropped image" href="a.html">
+                                    <span>
+                                        <img alt="" src="http://images-2.good.is/albums/crop?image_url=http%3A%2F%2Fpre.cloudfront.goodinc.com%2Fposts%2F1375922376NJ1.jpg&amp;geometry=240x240%23">
+                                    </span>
+                                </a>
+                                <h3><a href="a.html">Why There’s No Easy Solution to America’s Food Deserts</a></h3>
+                            </div>
+
+                            <div class="drawer">
+                                <div class="actions">
+                                    <a class="its-good" href="a.html">It's GOOD</a>
+                                </div>
+
+                                <div class="voters">
+                                    <p><strong>23 people</strong> think
+                                    this is good</p>
+
+                                    <div class="avatars">
+                                        <a href=
+                                        ""
+                                        title="Chris Marshall"><img alt=
+                                        "Chris Marshall" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F012%2F278%2Foriginal%2Fchris1.jpg&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Keanna Sheu"><img alt=
+                                        "Keanna Sheu" src=
+                                        "http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F007%2F538%2Foriginal%2Fphoto.JPG&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Emily Friedman"><img alt=
+                                        "Emily Friedman" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F005%2F920%2Foriginal%2FGOOD_photo.jpg&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Casey Dennehy"><img alt=
+                                        "Casey Dennehy" src=
+                                        "http://images-3.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F863%2F982%2Foriginal%2FDSCN0233.JPG&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Andrew Vasco"><img alt=
+                                        "Andrew Vasco" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F861%2F740%2Foriginal%2FPassportPhotoSheet.jpg&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Eli Kaufman"><img alt=
+                                        "Eli Kaufman" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Favatars%2F1666030%2Foriginal%2Fphoto.JPG%3F1346116889&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Jared Moscow"><img alt=
+                                        "Jared Moscow" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Favatars%2F1589038%2Foriginal%2F28152_1386574992081_1985447_n.jpg%3F1346870928&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Emily Howard"><img alt=
+                                        "Emily Howard" src=
+                                        "http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Favatars%2F1319777%2Foriginal%2Fprofile.jpeg%3F1347897338&amp;geometry=240x240%23"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+
+                    <li class="feed-item post js-loaded">
+                        <article>
+                            <div class="authorship">
+                                <span class="avatars"> New in <a href="a.html">Business</a></span> <time datetime=
+                                "2013-09-09T17:27:02Z" pubdate=
+                                "pubdate">5h</time>
+                            </div>
+
+                            <div class="content">
+                                <div class="comments_count">
+                                    <a class="comments" href="a.html">
+                                        6 comments
+                                    </a>
+                                </div>
+                                <a class="cropped image" href="a.html">
+                                    <span>
+                                        <img alt="" src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fbookmarks%2Fphotos%2F000%2F247%2F718%2Foriginal%2Fmolly2-300x224.jpg&amp;geometry=240x240%23">
+                                    </span>
+                                </a>
+                                <h3><a href="a.html">The Crucial Role Of Empathy In Development</a></h3>
+                            </div>
+
+                            <div class="drawer">
+                                <div class="actions">
+                                    <a class="its-good" href="a.html">It's GOOD</a>
+                                </div>
+
+                                <div class="voters">
+                                    <p><strong>23 people</strong> think
+                                    this is good</p>
+
+                                    <div class="avatars">
+                                        <a href=
+                                        ""
+                                        title="Chris Marshall"><img alt=
+                                        "Chris Marshall" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F012%2F278%2Foriginal%2Fchris1.jpg&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Keanna Sheu"><img alt=
+                                        "Keanna Sheu" src=
+                                        "http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F007%2F538%2Foriginal%2Fphoto.JPG&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Emily Friedman"><img alt=
+                                        "Emily Friedman" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F005%2F920%2Foriginal%2FGOOD_photo.jpg&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Casey Dennehy"><img alt=
+                                        "Casey Dennehy" src=
+                                        "http://images-3.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F863%2F982%2Foriginal%2FDSCN0233.JPG&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Andrew Vasco"><img alt=
+                                        "Andrew Vasco" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F861%2F740%2Foriginal%2FPassportPhotoSheet.jpg&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Eli Kaufman"><img alt=
+                                        "Eli Kaufman" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Favatars%2F1666030%2Foriginal%2Fphoto.JPG%3F1346116889&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Jared Moscow"><img alt=
+                                        "Jared Moscow" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Favatars%2F1589038%2Foriginal%2F28152_1386574992081_1985447_n.jpg%3F1346870928&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Emily Howard"><img alt=
+                                        "Emily Howard" src=
+                                        "http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Favatars%2F1319777%2Foriginal%2Fprofile.jpeg%3F1347897338&amp;geometry=240x240%23"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+
+                    <li class="feed-item comment js-loaded">
+
+                        <article>
+                            <div class="authorship">
+                                <span class="avatars"><a href="/members/meghaneneal"><img alt=
+                                "" src=
+                                "http://images-2.good.is/albums/crop?image_url=http%3A%2F%2Fpre.cloudfront.goodinc.com%2Fusers%2Fxlarge-1265739779-profile.pic.jpg&amp;geometry=240x240%23"></a></span>
+                                <span class="authors"><a href="a.html">Liz Dwyer</a> commented on</span> <time datetime="2013-09-08T21:30:32Z"
+                                pubdate="pubdate">4d</time>
+                                <hr>
+                            </div>
+
+                            <div class="content">
+                                <a class="cropped image" href=
+                                "">
+                                <span><img alt=
+                                ""
+                                src=
+                                "http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fbookmarks%2Fphotos%2F000%2F250%2F439%2Foriginal%2Ftumblr_ms5y1huETW1sgcd2go1_500.jpg&amp;geometry=240x240%23"></span></a>
+
+                                <h3><a href=
+                                "/posts/why-i-m-tangled-up-in-blue-how-music-you-hear-as-a-child-stays-with-you">
+                                What Happens to Schools When They Close? These Heartbreaking Photos Tell the Tale</a><a class="see_all" href=
+                                "/posts/why-i-m-tangled-up-in-blue-how-music-you-hear-as-a-child-stays-with-you#good_comments_container">See
+                                all responses</a></h3>
+                            </div>
+
+                            <p class="caption">That's very cool that you do this. My mom's old high school was closed and abandoned in 1972. In the mid 1980s it was turned into apartments, which are actually pretty nice....</p>
+                        </article>
+
+                    </li>
+
+                    <li class="feed-item post js-loaded">
+                        <article>
+                            <div class="authorship">
+                                <span class="avatars"><a href=
+                                ""><img alt="GOOD HQ" src=
+                                "http://images-2.good.is/albums/crop?image_url=http%3A%2F%2Fpre.cloudfront.goodinc.com%2Fusers%2Fxlarge-1265739779-profile.pic.jpg&amp;geometry=240x240%23"></a></span>
+                                <span class="authors"><a href=
+                                "">Liz Dwyer</a> wants to do this</span> <time datetime=
+                                "2013-09-09T17:27:02Z" pubdate=
+                                "pubdate">5h</time>
+                            </div>
+
+                            <div class="content">
+                                <div class="comments_count">
+                                    <a class="comments" href="a.html">
+                                        Join the Discussion
+                                    </a>
+                                </div>
+                                <a class="cropped image" href="a.html">
+                                    <span>
+                                        <img alt="" src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fimages%2Fattachments%2F000%2F489%2F718%2Foriginal%2FScreen_Shot_2013-08-14_at_2.09.48_PM.png&amp;geometry=240x240%23">
+                                    </span>
+                                </a>
+                                <h3><a href="a.html">Take the United Nations Global Survey for a Better World</a></h3>
+                            </div>
+
+                            <div class="todo_actions">
+                                <div class="todo_status">
+                                    <div class="primary_box icon doit">
+                                        <input class="primary doit" data-authenticated=""
+                                        data-post_slug=
+                                        "attend-this-panel-transmedia-storytelling-for-good-on-monday-sept-23"
+                                        type="submit" value="Do it">
+                                    </div>
+
+                                    <div class="avatars">
+                                        <a href="a.html" title="allah"><img alt="allah" src=
+                                        "http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Fimages%2Fassets%2Fdefault-avatar-red.png&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Krishna Kumar"><img alt="Krishna Kumar" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F283%2F901%2Foriginal%2F623693_100005035512337_346042045_n.jpg&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Gabriela Bhaskar "><img alt="Gabriela Bhaskar " src=
+                                        "http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F247%2F021%2Foriginal%2FGabriela_Bhaskar-.jpg&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Gillian Salit"><img alt="Gillian Salit" src=
+                                        "http://images-2.good.is/albums/crop?image_url=http%3A%2F%2Fpre.cloudfront.goodinc.com%2Fusers%2Flarge-1320861293-IMG_0398.JPG&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="GOOD HQ"><img alt="GOOD HQ" src=
+                                        "http://images-3.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Favatars%2F1312564%2Foriginal%2Fgood-hq.png%3F1347669717&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Alessandra Rizzotti"><img alt="Alessandra Rizzotti" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F154%2F289%2Foriginal%2F310244_10100394937159595_3097420_n.jpg&amp;geometry=240x240%23"></a>
+                                    </div>
+
+                                    <div class="number_of_doers">
+                                        6 others are in
+                                    </div>
+
+                                    <div class="secondary_box icon done">
+                                        <input class="secondary done" data-authenticated=""
+                                        data-post_slug=
+                                        "attend-this-panel-transmedia-storytelling-for-good-on-monday-sept-23"
+                                        style="display: none;" type="submit" value="Done">
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+
+                    <li class="feed-item follow follow-user js-loaded">
+                        <article>
+                            <div class="authorship">
+                                <span class="authors"><a href="a.html">Joel Arquillos</a> started following</span> <time datetime=
+                                "2013-09-02T00:48:30Z" pubdate="pubdate">1w</time>
+                                <hr>
+                            </div>
+
+                            <div class="content">
+                                <a class="cropped image" href=
+                                ""><span><img alt="fundersandfounders"
+                                src=
+                                "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F276%2F924%2Foriginal%2FMarian.jpg&amp;geometry=240x240%23"></span></a>
+
+                                <h3><a href=
+                                "">Marian Goodell</a></h3>
+
+                                <div class="introduction">
+                                    I am the Director of Business and Communications for Burning Man.
+                                </div><a class="follow-button" data-authenticated="" id=
+                                "follow_button_137903794171753"></a>
+                            </div>
+                        </article>
+                    </li>
+
+                    <li class="feed-item follow follow-user js-loaded">
+                        <article>
+                            <div class="authorship">
+                                <span class="authors"><a href="a.html">Joel Arquillos</a> started following</span> <time datetime=
+                                "2013-09-02T00:48:30Z" pubdate="pubdate">1w</time>
+                                <hr>
+                            </div>
+
+                            <div class="content">
+                                <a class="cropped image" href=
+                                ""><span><img alt="fundersandfounders"
+                                src=
+                                "http://images-3.good.is/albums/crop?image_url=http%3A%2F%2Fpre.cloudfront.goodinc.com%2Fposts%2F1378527139pushforgood-aqua.jpg&amp;geometry=240x240%23"></span></a>
+
+                                <h3><a href=
+                                "">Education</a></h3>
+
+                                <div class="introduction">
+                                    5,964 Posts
+                                </div><a class="follow-button" data-authenticated="" id=
+                                "follow_button_137903794171753"></a>
+                            </div>
+                        </article>
+                    </li>
+
+                    <li class="feed-item post js-loaded">
+                        <article>
+                            <div class="authorship">
+                                <span class="avatars"><a href=
+                                ""><img alt="GOOD HQ" src=
+                                "http://images-2.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F280%2F534%2Foriginal%2FMTPhoto.jpg&amp;geometry=240x240%23"></a></span>
+                                <span class="authors"><a href=
+                                "">Meghan Talarowski</a> wrote</span> <time datetime=
+                                "2013-09-09T17:27:02Z" pubdate=
+                                "pubdate">5h</time>
+                            </div>
+
+                            <div class="content">
+                                <div class="comments_count">
+                                    <a class="comments" href="a.html">
+                                        6 comments
+                                    </a>
+                                </div>
+                                <a class="cropped image" href="a.html">
+                                    <span>
+                                        <img alt="" src="http://images-3.good.is/albums/crop?image_url=http%3A%2F%2Fpre.cloudfront.goodinc.com%2Fposts%2F1378394406img_4177-e13672533935894.jpg&amp;geometry=240x240%23">
+                                    </span>
+                                </a>
+                                <h3><a href="a.html">Bench Bombing: One Simple Way to Transform Public Space</a></h3>
+                            </div>
+
+                            <div class="drawer">
+                                <div class="actions">
+                                    <a class="its-good" href="a.html">It's GOOD</a>
+                                </div>
+
+                                <div class="voters">
+                                    <p><strong>23 people</strong> think
+                                    this is good</p>
+
+                                    <div class="avatars">
+                                        <a href=
+                                        ""
+                                        title="Chris Marshall"><img alt=
+                                        "Chris Marshall" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F012%2F278%2Foriginal%2Fchris1.jpg&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Keanna Sheu"><img alt=
+                                        "Keanna Sheu" src=
+                                        "http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F007%2F538%2Foriginal%2Fphoto.JPG&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Emily Friedman"><img alt=
+                                        "Emily Friedman" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F005%2F920%2Foriginal%2FGOOD_photo.jpg&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Casey Dennehy"><img alt=
+                                        "Casey Dennehy" src=
+                                        "http://images-3.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F863%2F982%2Foriginal%2FDSCN0233.JPG&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Andrew Vasco"><img alt=
+                                        "Andrew Vasco" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F861%2F740%2Foriginal%2FPassportPhotoSheet.jpg&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Eli Kaufman"><img alt=
+                                        "Eli Kaufman" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Favatars%2F1666030%2Foriginal%2Fphoto.JPG%3F1346116889&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Jared Moscow"><img alt=
+                                        "Jared Moscow" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Favatars%2F1589038%2Foriginal%2F28152_1386574992081_1985447_n.jpg%3F1346870928&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Emily Howard"><img alt=
+                                        "Emily Howard" src=
+                                        "http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Favatars%2F1319777%2Foriginal%2Fprofile.jpeg%3F1347897338&amp;geometry=240x240%23"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+
+                    <li class="feed-item post js-loaded">
+                        <article>
+                            <div class="authorship">
+                                <span class="avatars"><a href=
+                                ""><img alt="GOOD HQ" src=
+                                "http://images-2.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Favatars%2F1920653%2Foriginal%2Fcfee_twitter_button_new_master_454.png%3F1353439800&amp;geometry=240x240%23"></a></span>
+                                <span class="authors"><a href=
+                                "">Chris Thinnes</a> wrote</span> <time datetime=
+                                "2013-09-09T17:27:02Z" pubdate=
+                                "pubdate">5h</time>
+                            </div>
+
+                            <div class="content">
+                                <div class="comments_count">
+                                    <a class="comments" href="a.html">
+                                        6 comments
+                                    </a>
+                                </div>
+                                <a class="cropped image" href="a.html">
+                                    <span>
+                                        <img alt="" src="http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fpre.cloudfront.goodinc.com%2Fposts%2F1378513757shutterstock_141101548.jpg&amp;geometry=240x240%23">
+                                    </span>
+                                </a>
+                                <h3><a href="a.html">The Real Education Reform Choice: Democracy or a Doctrine of Repression</a></h3>
+                            </div>
+
+                            <div class="drawer">
+                                <div class="actions">
+                                    <a class="its-good" href="a.html">It's GOOD</a>
+                                </div>
+
+                                <div class="voters">
+                                    <p><strong>23 people</strong> think
+                                    this is good</p>
+
+                                    <div class="avatars">
+                                        <a href=
+                                        ""
+                                        title="Chris Marshall"><img alt=
+                                        "Chris Marshall" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F012%2F278%2Foriginal%2Fchris1.jpg&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Keanna Sheu"><img alt=
+                                        "Keanna Sheu" src=
+                                        "http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F007%2F538%2Foriginal%2Fphoto.JPG&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Emily Friedman"><img alt=
+                                        "Emily Friedman" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F005%2F920%2Foriginal%2FGOOD_photo.jpg&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Casey Dennehy"><img alt=
+                                        "Casey Dennehy" src=
+                                        "http://images-3.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F863%2F982%2Foriginal%2FDSCN0233.JPG&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Andrew Vasco"><img alt=
+                                        "Andrew Vasco" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F861%2F740%2Foriginal%2FPassportPhotoSheet.jpg&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Eli Kaufman"><img alt=
+                                        "Eli Kaufman" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Favatars%2F1666030%2Foriginal%2Fphoto.JPG%3F1346116889&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Jared Moscow"><img alt=
+                                        "Jared Moscow" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Favatars%2F1589038%2Foriginal%2F28152_1386574992081_1985447_n.jpg%3F1346870928&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Emily Howard"><img alt=
+                                        "Emily Howard" src=
+                                        "http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Favatars%2F1319777%2Foriginal%2Fprofile.jpeg%3F1347897338&amp;geometry=240x240%23"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+
+                    <li class="feed-item post js-loaded">
+                        <article>
+                            <div class="authorship">
+                                <span class="avatars"><a href=
+                                ""><img alt="GOOD HQ" src=
+                                "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fpre.cloudfront.goodinc.com%2Fusers%2Flarge-1335582289-profile.jpg&amp;geometry=240x240%23"></a></span>
+                                <span class="authors"><a href=
+                                "">Henri Nyakarundi</a> wrote</span> <time datetime=
+                                "2013-09-09T17:27:02Z" pubdate=
+                                "pubdate">5h</time>
+                            </div>
+
+                            <div class="content">
+                                <div class="comments_count">
+                                    <a class="comments" href="a.html">
+                                        6 comments
+                                    </a>
+                                </div>
+                                <a class="cropped image" href="a.html">
+                                    <span>
+                                        <img alt="" src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fimages%2Fattachments%2F000%2F496%2F245%2Foriginal%2Fpic2.jpg&amp;geometry=240x240%23">
+                                    </span>
+                                </a>
+                                <h3><a href="a.html">Help Our Mobile Charging Kiosk Get Into The Philips Innovation Fellows Competition</a></h3>
+                            </div>
+
+                            <div class="drawer">
+                                <div class="actions">
+                                    <a class="its-good" href="a.html">It's GOOD</a>
+                                </div>
+
+                                <div class="voters">
+                                    <p><strong>23 people</strong> think
+                                    this is good</p>
+
+                                    <div class="avatars">
+                                        <a href=
+                                        ""
+                                        title="Chris Marshall"><img alt=
+                                        "Chris Marshall" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F012%2F278%2Foriginal%2Fchris1.jpg&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Keanna Sheu"><img alt=
+                                        "Keanna Sheu" src=
+                                        "http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F007%2F538%2Foriginal%2Fphoto.JPG&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Emily Friedman"><img alt=
+                                        "Emily Friedman" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F005%2F920%2Foriginal%2FGOOD_photo.jpg&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Casey Dennehy"><img alt=
+                                        "Casey Dennehy" src=
+                                        "http://images-3.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F863%2F982%2Foriginal%2FDSCN0233.JPG&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Andrew Vasco"><img alt=
+                                        "Andrew Vasco" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F861%2F740%2Foriginal%2FPassportPhotoSheet.jpg&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Eli Kaufman"><img alt=
+                                        "Eli Kaufman" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Favatars%2F1666030%2Foriginal%2Fphoto.JPG%3F1346116889&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Jared Moscow"><img alt=
+                                        "Jared Moscow" src=
+                                        "http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Favatars%2F1589038%2Foriginal%2F28152_1386574992081_1985447_n.jpg%3F1346870928&amp;geometry=240x240%23"></a><a href="a.html"
+                                        title="Emily Howard"><img alt=
+                                        "Emily Howard" src=
+                                        "http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Favatars%2F1319777%2Foriginal%2Fprofile.jpeg%3F1347897338&amp;geometry=240x240%23"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+
+                </ul>
+
+                <p class="more"><a href="a.html">Load More Stories</a></p>
+
+            </div>
+        </div>
+
+        <div class="done feed" style="display: none;">
+            <div class="no_todos">
+                <h1>You have nothing to do</h1>
+
+                <p>You haven't taken on any to-dos yet.</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="footer"></div>
+
+</body>
+</html>
