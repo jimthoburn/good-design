@@ -3,6 +3,11 @@
   .main {
     overflow: visible;
   }
+  .main:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 
   button {
     cursor: pointer;
