@@ -114,12 +114,21 @@
     margin-left: 1em;
   }
   .feed article .body > form button {
-    background: rgb(138, 227, 154);
+    background-color: rgb(138, 227, 154);
     color: white;
     font-size: 14px;
     font-weight: bold;
     line-height: 40px;
-    padding: 0 2em;
+    padding: 0;
+    transition: background-color 0.2s;
+    min-width: 6em;
+    text-align: center;
+  }
+  .feed article .body > form button:hover,
+  .feed article .body > form button:active,
+  .feed article .body > form button:focus {
+    background-color: rgb(108, 231, 180);
+    background-color: rgb(88, 198, 144);
   }
   .feed article .body h2,
   .feed article .body > h3 {
@@ -463,7 +472,7 @@
   .feed .tags li a:hover,
   .feed .tags li a:active,
   .feed .tags li a:focus {
-    color: rgb(113, 179, 247); /* @link-color */
+    color: black;
   }
   .feed .social h3 {
     font-family: inherit;
@@ -758,7 +767,6 @@
     margin-top: 0;
   }
   .feed article.following .person button {
-    padding: 0 2.25em;
     font-size: 0.875em; /* 14px / @font-size */
     line-height: 40px;
     font-weight: bold;
@@ -767,6 +775,7 @@
     color: white;
     transition: all 0.2s;
     border-width: 0;
+    min-width: 8em;
   }
   .feed article.following .person button:hover,
   .feed article.following .person button:active,

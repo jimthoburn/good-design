@@ -59,5 +59,63 @@
 })();
 
 
+(function() {
+
+  if (!document.body.addEventListener || !document.body.querySelector) return;
+
+/*  =ToggleButton
+  ----------------------------------------------- */
+  var ToggleButton = function(element, labels) {
+
+    if (!element) return;
+
+    var button = element.getElementsByTagName("button");
+    if (button.length > 0) button = button[0];
+
+    var cursor = 0;
+
+    function toggle() {
+      cursor++;
+      if (cursor > labels.length - 1) cursor = 0;
+      button.innerHTML = labels[cursor];
+    }
+
+    element.addEventListener("submit", function(e) { e.preventDefault(); }, false);
+    button.addEventListener("click", function(e) {
+      toggle();
+      e.preventDefault();
+    }, false);
+
+  }
+
+  var articles = document.getElementsByTagName("article");
+  for (var index = 0; index < articles.length; index++) {
+
+    var form = articles[index].querySelector(".body form");
+    if (form) {
+      new ToggleButton(form, ["<span>Do It</span>", "<span>To Do</span>", "<span>Done</span>"]);
+    }
+
+    /*
+    form = articles[index].querySelector(".source .details form");
+    if (form) {
+      new ToggleButton(form, "Following", "Follow");
+    }
+
+    forms = articles[index].querySelectorAll(".object form");
+    for (var j = 0; j < forms.length; j++) {
+      new ToggleButton(forms[j], "Following", "Follow");
+    }
+    */
+
+    forms = articles[index].querySelectorAll(".person form");
+    for (var j = 0; j < forms.length; j++) {
+      new ToggleButton(forms[j], ["Follow", "Following"]);
+    }
+
+  }
+
+})();
+
 
 
