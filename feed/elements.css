@@ -683,7 +683,7 @@
   .feed article.following .person + .person {
     margin-top: 0.75em;
   }
-  .feed li:hover article.following .person {
+  .feed article.following .person:hover {
     background: white;
     border-color: rgb(153, 153, 153); /* @aluminum */
   }
