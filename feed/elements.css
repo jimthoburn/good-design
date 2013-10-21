@@ -12,6 +12,10 @@
     cursor: pointer;
   }
 
+  .feed article {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
 
 /* =Article
   ----------------------------------------------- */
@@ -129,6 +133,11 @@
   .feed article .body > h3 a {
     font-weight: bold;
   }
+  .feed article .body > h3 a:hover,
+  .feed article .body > h3 a:active,
+  .feed article .body > h3 a:focus {
+    color: black;
+  }
   .feed article h2 {
     margin: 0;
     font-size: 1.5em; /* 24px / @font-size */
@@ -181,11 +190,16 @@
   }
   .feed .source .summary a {
     position: relative;
-    display: block;
+    display: inline-block;
     padding: 1.45454545454545em; /* 16px / 11px */
     transition: all 0.2s;
     color: rgb(153, 153, 153); /* @aluminum */
+  }
+  .feed .source .summary a:first-child {
     margin-left: -1.45454545454545em; /* padding */
+  }
+  .feed .source .summary a + a {
+    margin-left: -2.9090909090909em;
   }
   .feed .source .summary a span {
     font-weight: bold;
@@ -198,7 +212,7 @@
   .feed .source .summary a:focus  span {
     color: rgb(113, 179, 247); /* @link-color */
   }
-  .feed .source .summary.has-image a {
+  .feed .source .summary.has-image a:first-child {
     padding-left: 7.63636363636364em; /* 84px / 11px */
     border-left-width: 0;
     margin-left: 0;
@@ -768,3 +782,10 @@
     color: rgb(153, 153, 153);
     font-weight: bold;
   }
+  .feed article.following .more a:hover,
+  .feed article.following .more a:active,
+  .feed article.following .more a:focus {
+    color: rgb(113, 179, 247); /* @link-color */
+  }
+
+
