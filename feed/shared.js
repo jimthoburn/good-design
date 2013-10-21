@@ -78,13 +78,31 @@
       cursor++;
       if (cursor > labels.length - 1) cursor = 0;
       button.innerHTML = labels[cursor];
-    }
+    };
 
     element.addEventListener("submit", function(e) { e.preventDefault(); }, false);
-    button.addEventListener("click", function(e) {
-      toggle();
-      e.preventDefault();
-    }, false);
+
+    var span;
+    if (labels.length > 2) {
+      span = document.createElement("span");
+      button.parentNode.appendChild(span);
+      for (var index = 1; index < labels.length; index++) {
+        var temp = button.cloneNode(true);
+        temp.innerHTML = labels[index]
+        span.appendChild(temp);
+        /*
+        temp.addEventListener("click", function(e) {
+          activate(e);
+          e.preventDefault();
+        }, false);
+        */
+      }
+    } else {
+      button.addEventListener("click", function(e) {
+        toggle();
+        e.preventDefault();
+      }, false);
+    }
 
   }
 
@@ -93,7 +111,7 @@
 
     var form = articles[index].querySelector(".body form");
     if (form) {
-      new ToggleButton(form, ["<span>Do It</span>", "<span>To Do</span>", "<span>Done</span>"]);
+      new ToggleButton(form, ["Do It", "To Do", "Done"]);
     }
 
     /*

@@ -130,6 +130,20 @@
     background-color: rgb(108, 231, 180);
     background-color: rgb(88, 198, 144);
   }
+  .feed article .body > form {
+    position: relative;
+  }
+  .feed article .body > form button {
+    display: block;
+  }
+  .feed article .body > form button + span {
+    position: absolute;
+    top: 0;
+    left: -9999px;
+  }
+  .feed article .body > form:hover button + span {
+    left: auto;
+  }
   .feed article .body h2,
   .feed article .body > h3 {
     display: inline;
