@@ -294,6 +294,7 @@
   .feed .source .details > .container {
     border: 1px solid rgb(204, 204, 204);
     border-radius: 0.25em;
+    line-height: 1.5;
   }
   .feed .source .details .container .container {
     border: 0.25em solid rgb(239, 239, 239);
