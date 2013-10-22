@@ -245,7 +245,7 @@
     height: auto;
     border-width: 0 1px 1px;
     border-style: solid;
-    border-color: rgb(218, 220, 224);
+    border-color: rgb(221, 223, 227); /* @silver-blue */
     vertical-align: top;
     margin-right: 0.25em;
     position: absolute;
@@ -421,7 +421,7 @@
   ----------------------------------------------- */
   .feed .social {
     margin-top: 1em;
-    border-top: 1px solid rgb(243, 243, 243);
+    border-top: 1px solid rgb(243, 243, 243); /* @bright-silver */
     padding-top: 1em;
   }
   .feed .social > p,
@@ -647,7 +647,7 @@
   }
   .social .details ul {
     margin-top: 0;
-    border-top: 1px solid rgb(243, 243, 243);
+    border-top: 1px solid rgb(243, 243, 243); /* @bright-silver */
   }
   .social .details ul,
   .social .details li {
@@ -695,12 +695,12 @@
   }
   .feed article.following .person {
     margin-left: 2em;
-    padding: 0.625em; /* 10px / 16px */
+    padding: 1.25em; /* 20px / 16px */
     border-radius: 0.25em;
     position: relative;
     border: 1px solid rgb(243, 243, 243); /* @bright-silver */
     background: rgb(249, 249, 249);
-    min-height: 5.125em; /* image.height + (padding x 2) + (border-width x 2) */
+    min-height: 5.125em; /* image.height + padding + (border-width x 2) */
 
     max-width: 36.25em; /* 580px / @font-size */
     box-sizing: border-box;
@@ -718,7 +718,9 @@
     border-color: rgb(153, 153, 153); /* @aluminum */
   }
   .feed article.following .person img {
+    border: 1px solid rgb(221, 223, 227); /* @silver-blue */
     width: 3.75em; /* 60px / @font-size  */
+    top: 0.625em;
     left: 0.625em;
     height: auto;
     position: absolute;
