@@ -159,7 +159,7 @@
   .feed article .body > h3 a:hover,
   .feed article .body > h3 a:active,
   .feed article .body > h3 a:focus {
-    color: black;
+    color: rgb(113, 179, 247);
   }
   .feed article h2 {
     margin: 0;
@@ -486,7 +486,7 @@
   .feed .tags li a:hover,
   .feed .tags li a:active,
   .feed .tags li a:focus {
-    color: black;
+    color: rgb(113, 179, 247);
   }
   .feed .social h3 {
     font-family: inherit;
@@ -525,7 +525,7 @@
   .feed .social h3 a:hover,
   .feed .social h3 a:active,
   .feed .social h3 a:focus {
-    color: black !important;
+    color: rgb(113, 179, 247) !important;
   }
   .feed .social h3 a:before {
     content: "";
@@ -651,7 +651,7 @@
     padding: 0 1em;
     margin-bottom: 0;
     font-weight: bold;
-    color: black;
+    color: rgb(0,0,0) !important;
   }
   .social .details ul {
     margin-top: 0;
@@ -738,7 +738,7 @@
     margin-top: 0;
     margin-bottom: -0.25em;
     font-family: inherit;
-    font-size: inherit;
+    font-size: 16px;
     font-weight: bold;
     color: black;
     transition: 0.2s;
