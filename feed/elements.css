@@ -587,8 +587,13 @@
     margin-left: 0;
     padding-left: 0;
   }
+  .feed .tags ul {
+    margin-left: 0.75em;
+  }
   .feed .tags li {
     display: inline;
+  }
+  .feed .tags li + li {
     margin-left: 1em;
   }
   .feed .tags li a {
