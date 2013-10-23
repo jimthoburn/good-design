@@ -181,9 +181,18 @@
     margin-left: 1.25em; /* 20px / @font-size */
     margin-top: -0.625em;
   }
+  .feed article .body > .todo_actions,
   .feed article .body > form {
     float: right;
     margin-left: 1em;
+  }
+  .feed article .body > .todo_actions {
+    padding-top: 0;
+    border-width: 0;
+    margin-top: 0;
+  }
+  .todo_actions .todo_status .icon.primary_box {
+    position: static;
   }
   .featured-action-beta article button,
   .feed article .body > form button {
@@ -523,7 +532,7 @@
     display: inline-block;
   }
   .featured-action-beta article .social {
-    margin-top: -2em;
+    margin-top: -1.5em;
     float: right;
   }
   .featured-action-beta article .social > p,
@@ -624,7 +633,7 @@
   .feed .social h3 a:focus {
     color: rgb(113, 179, 247) !important;
   }
-  .featured-action-beta article a:before,
+  .featured-action-beta article .social h3 a:before,
   .feed .social h3 a:before {
     content: "";
     display: inline-block;
@@ -987,13 +996,22 @@
     margin-top: 1.5em;
   }
 
+  .featured-action-beta .todo_actions {
+    margin-top: 1.5em;
+    padding-top: 0;
+    border-top-width: 0;
+  }
+  .featured-action-beta .todo_actions .todo_status .icon {
+    margin-left: 0;
+  }
+
   .featured-action-beta article .body > a > img {
     border: 5px solid rgb(203, 238, 218);
     width: 100px;
     height: auto;
     border-radius: 200px;
+    margin: 0 auto 1.5em;
     display: block;
-    margin: 0 auto 1.5em auto;
   }
   .featured-action-beta article h2 {
     font-size: 20px;
@@ -1002,6 +1020,7 @@
   }
   .featured-action-beta article a {
     color: black;
+    display: block;
   }
   .featured-action-beta article a h2:hover,
   .featured-action-beta article a h2:active,
