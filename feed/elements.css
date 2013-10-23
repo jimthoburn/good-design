@@ -138,6 +138,7 @@
     float: right;
     margin-left: 1em;
   }
+  .featured-action-beta article button,
   .feed article .body > form button {
     background-color: rgb(138, 227, 154);
     color: white;
@@ -149,23 +150,30 @@
     min-width: 6em;
     text-align: center;
   }
+  .featured-action-beta article button:hover,
+  .featured-action-beta article button:active,
+  .featured-action-beta article button:focus,
   .feed article .body > form button:hover,
   .feed article .body > form button:active,
   .feed article .body > form button:focus {
     background-color: rgb(108, 231, 180);
     background-color: rgb(88, 198, 144);
   }
+  .featured-action-beta article form,
   .feed article .body > form {
     position: relative;
   }
+  .featured-action-beta article form button,
   .feed article .body > form button {
     display: block;
   }
+  .featured-action-beta article form button + span,
   .feed article .body > form button + span {
     position: absolute;
     top: 0;
     left: -9999px;
   }
+  .featured-action-beta article form:hover button + span,
   .feed article .body > form:hover button + span {
     left: auto;
   }
@@ -457,10 +465,21 @@
     border-top: 1px solid rgb(243, 243, 243); /* @bright-silver */
     padding-top: 1em;
   }
+  .featured-action-beta article .social > p,
+  .featured-action-beta article .social > div,
+  .featured-action-beta article .social > form,
   .feed .social > p,
   .feed .social > div,
   .feed .social > form {
     display: inline-block;
+  }
+  .featured-action-beta article .social {
+    margin-top: -2em;
+    float: right;
+  }
+  .featured-action-beta article .social > p,
+  .featured-action-beta article .social > div {
+    margin-left: 0.75em;
   }
   .feed .social > p,
   .feed .social > div {
@@ -519,6 +538,7 @@
     font-size: inherit;
     display: inline;
   }
+  .featured-action-beta article h3 a,
   .feed .social h3 a {
     color: rgb(153, 153, 153); /* @aluminum */
     transition: opacity 0.2s, color 0.2s;
@@ -547,11 +567,15 @@
     color: rgb(153, 153, 153); /* @aluminum */
   }
 
+  .featured-action-beta article h3 a:hover,
+  .featured-action-beta article h3 a:active,
+  .featured-action-beta article h3 a:focus,
   .feed .social h3 a:hover,
   .feed .social h3 a:active,
   .feed .social h3 a:focus {
     color: rgb(113, 179, 247) !important;
   }
+  .featured-action-beta article a:before,
   .feed .social h3 a:before {
     content: "";
     display: inline-block;
@@ -562,6 +586,8 @@
     background-size: contain;
     opacity: 0.6;
   }
+
+  .featured-action-beta article .dos h3 a:before,
   .feed .dos      h3 a:before {
     background-image: url(images/dos.png);
     width: 13px;
@@ -572,6 +598,7 @@
     width: 12px;
     height: 8px;
   }
+  .featured-action-beta article .comments h3 a:before,
   .feed .comments h3 a:before {
     background-image: url(images/comments.png);
     width: 15px;
@@ -850,6 +877,10 @@
     clear: both;
   }
 
+  html.controller-tags.action-show .sticky-header {
+    margin-bottom: 32px;
+  }
+
   .takeover .feed article.article .body > a > img {
     height: 240px;
     width: auto;
@@ -858,13 +889,13 @@
 
   .takeover .feed article.article .body > a.has-image h2 {
     font-size: 36px;
-    margin-left: 5em;
+    margin-left: 5.27777777777778em; /* 190px / 16px */
   }
 
   .takeover .feed article.article .body > a.has-image ~ .social,
   .takeover .feed article.comment .body > a.has-image ~ .social {
     margin-top: 3em;
-    margin-left: 11.25em; /* 180px / 16px */
+    margin-left: 11.875em; /* 190px / 16px */
   }
 
   .takeover .feed .source .summary.has-image a:first-child {
@@ -875,6 +906,57 @@
     width: 30px;
     height: auto;
     border-width: 1px;
+  }
+
+
+/* =Hub Feature (Do)
+  ----------------------------------------------- */
+  html.controller-tags.action-show .takeover .featured-action-beta {
+    width: 300px;
+    display: inline;
+    float: right;
+    padding-left: 20px;
+    margin-right: -321px;
+  }
+  html.controller-tags.action-show .takeover .featured-action-beta > h3 {
+    line-height: 36px;
+    color: rgb(42, 43, 44);
+    font-family: Helvetica;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 32px;
+  }
+
+  .featured-action-beta article {
+    background: rgb(246, 255, 250);
+    border: 6px solid rgb(233, 249, 240);
+    padding: 14px;
+  }
+
+  .featured-action-beta article form {
+    margin-top: 1.5em;
+  }
+
+  .featured-action-beta article .body > a > img {
+    border: 5px solid rgb(203, 238, 218);
+    width: 100px;
+    height: auto;
+    border-radius: 200px;
+    display: block;
+    margin: 0 auto 1.5em auto;
+  }
+  .featured-action-beta article h2 {
+    font-size: 20px;
+    font-family: "FreightText Light", "FreightTextLight", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @freight */
+    line-height: 1.25em;
+  }
+  .featured-action-beta article a {
+    color: black;
+  }
+  .featured-action-beta article a h2:hover,
+  .featured-action-beta article a h2:active,
+  .featured-action-beta article a h2:focus {
+    color: rgb(113, 179, 247); /* @link-color */
   }
 
 
