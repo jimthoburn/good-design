@@ -350,15 +350,19 @@
     top: 2.1em;
     position: absolute;
     z-index: 1;
-    background: white;
     width: 400px; /* 400px / @font-size */
     box-sizing: border-box;
-    box-shadow: 0 0.25em 0.25em rgba(0, 0, 0, 0.05);
     left: -9999px;
     opacity: 0;
     transition: opacity 0.2s;
     padding-top: 0.4em;
   }
+
+  /* Attempt to line the hover box up with the image (which is a little smaller in the takeover area). */
+  .takeover .feed .source .details {
+    margin-left: -40px;
+  }
+
   .feed .source:hover  .details,
   .feed .source:active .details,
   .feed .source:focus  .details {
@@ -381,28 +385,32 @@
   }
 
   .feed .source .details > .container {
-    border: 1px solid rgb(204, 204, 204);
-    border-radius: 0.25em;
     line-height: 1.5;
   }
   .feed .source .details .container .container {
-    border: 0.25em solid rgb(239, 239, 239);
     background: white;
     padding: 0.375em; /* 6px / 16px */
     padding-left: 4.75em;
-    border-radius: 0.25em;
     position: relative;
+
+    border: 1px solid black;
+    box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.125);
   }
   .feed .source .details .container .container:after {
-    content: "";
     display: block;
-    width  : 0.6875em; /* 11px / @font-size */
-    height : 0.8125em; /* 13px / @font-size */
-    background: transparent url(images/source-pointer.svg) bottom no-repeat;
+
+
+    content: "";
+    background: url(images/pointer.png);
     position: absolute;
     top: -11px;
-    left: 2em;
+    left: 30px;
+    margin-left: -10px;
+    width: 20px;
+    height: 13px;
   }
+
+
   .feed .source .details img {
     width: 3.75em; /* 60px / @font-size  */
     left: 0.375em;
@@ -746,6 +754,7 @@
     border: 1px solid black;
     width: 200px;
     transition: opacity 0.2s;
+    box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.125);
   }
   .social .details > span {
     background: url(images/pointer.png);
@@ -781,11 +790,13 @@
     font-size: 13px;
     display: block;
     padding-right: 1em;
+    color: rgb(102, 102, 102); /* @steel */
   }
-  .social .details li a:hover,
-  .social .details li a:active,
-  .social .details li a:focus {
+  .social .details li a[href]:hover,
+  .social .details li a[href]:active,
+  .social .details li a[href]:focus {
     background: rgb(249, 249, 249);
+    color: black;
   }
   .social .details li img {
     width: 30px;
