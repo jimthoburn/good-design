@@ -16,6 +16,31 @@
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
+  html.controller-users.action-todos #user-feed-beta .started > h2 {
+    line-height: 36px;
+    color: rgb(42, 43, 44);
+    font-family: Helvetica;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: capitalize;
+    line-height: 30px;
+    padding-left: 40px;
+  }
+
+  html.controller-users.action-todos #user-feed-beta .started > h2 {
+    background-position: 2px -2013px;
+    background-image: url(http://www.good.is/assets/sprites/global-s7cca2e59e8-0d733058f8d642a83128e9be2273996d.png);
+    background-repeat: no-repeat;
+  }
+
+  html.controller-users.action-todos #user-feed-beta .started li:first-child {
+    margin-top: 35px;
+  }
+
+  html.controller-posts.action-popular .posts .feed li:first-child {
+    margin-top: 32px;
+  }
+
 
 /* =Article
   ----------------------------------------------- */
