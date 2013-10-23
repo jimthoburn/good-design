@@ -41,6 +41,20 @@
     margin-top: 32px;
   }
 
+  html.controller-tags.action-show .takeover > section {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-bottom: 0;
+  }
+
+  html.controller-tags.action-show .toolbar {
+    margin-bottom: 32px;
+  }
+
+  html.controller-tags.action-show .takeover .carousel {
+    padding-bottom: 0;
+  }
+
 
 /* =Article
   ----------------------------------------------- */
