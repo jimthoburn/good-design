@@ -446,15 +446,16 @@
     margin-top: 0;
   }
   .feed .source .details button {
-    border-radius: 0.25em;
-    padding: 0.85em 2.25em;
-    font-size: 0.875em; /* 14px / @font-size */
     font-weight: bold;
     text-align: center;
     background-color: rgb(135, 233, 184);
     color: white;
     transition: all 0.2s;
     border-width: 0;
+
+    font-size: 12px;
+    line-height: 36px;
+    width: 80px;
   }
   .feed .source .details button:hover,
   .feed .source .details button:active,
@@ -890,15 +891,16 @@
     margin-top: 0;
   }
   .feed article.following .person button {
-    font-size: 0.875em; /* 14px / @font-size */
-    line-height: 40px;
     font-weight: bold;
     text-align: center;
     background-color: rgb(135, 233, 184);
     color: white;
     transition: all 0.2s;
     border-width: 0;
-    min-width: 8em;
+
+    font-size: 12px;
+    line-height: 36px;
+    width: 80px;
   }
   .feed article.following .person button:hover,
   .feed article.following .person button:active,
