@@ -16,6 +16,34 @@
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
+  html.controller-tags.action-show .page, 
+  html.controller-tags.action-show .right-sidebar {
+    padding-top: 30px;
+  }
+
+  html.controller-users.action-todos .page, 
+  html.controller-users.action-todos .right-sidebar {
+    padding-top: 30px;
+  }
+
+  html.controller-posts.action-index .page, 
+  html.controller-posts.action-index .right-sidebar {
+    padding-top: 40px;
+  }
+
+  html.controller-posts.action-popular .page, 
+  html.controller-posts.action-popular .right-sidebar {
+    padding-top: 40px;
+  }
+
+  html.controller-posts.action-index .takeover>section {
+    margin-top: 40px;
+  }
+
+  html.controller-posts.action-index .takeover h1 {
+    margin: 0 auto 30px;
+  }
+
   html.controller-users.action-todos #user-feed-beta .started > h2 {
     line-height: 36px;
     color: rgb(42, 43, 44);
