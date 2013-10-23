@@ -836,3 +836,47 @@
   }
 
 
+/* =Hub Feature
+  ----------------------------------------------- */
+  html.controller-tags.action-show .takeover > section {
+    overflow: visible;
+  }
+  html.controller-tags.action-show .takeover article section {
+    margin-top: 0;
+  }
+  html.controller-tags.action-show .takeover > section:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .takeover .feed article.article .body > a > img {
+    height: 240px;
+    width: auto;
+    margin-left: -84px;
+  }
+
+  .takeover .feed article.article .body > a.has-image h2 {
+    font-size: 36px;
+    margin-left: 5em;
+  }
+
+  .takeover .feed article.article .body > a.has-image ~ .social,
+  .takeover .feed article.comment .body > a.has-image ~ .social {
+    margin-top: 3em;
+    margin-left: 11.25em; /* 180px / 16px */
+  }
+
+  .takeover .feed .source .summary.has-image a:first-child {
+    padding-left: 45px;
+  }
+  .takeover .feed .source .summary img {
+    margin-top: 8px;
+    width: 30px;
+    height: auto;
+    border-width: 1px;
+  }
+
+
+
+
