@@ -21,6 +21,8 @@
     padding-top: 30px;
   }
 
+  html.controller-users.action-show .page,
+  html.controller-users.action-show .right-sidebar,
   html.controller-users.action-todos .page, 
   html.controller-users.action-todos .right-sidebar {
     padding-top: 30px;
@@ -44,6 +46,7 @@
     margin: 0 auto 30px;
   }
 
+  html.controller-users.action-show #user-feed > h2,
   html.controller-users.action-todos #user-feed-beta .started > h2 {
     line-height: 36px;
     color: rgb(42, 43, 44);
@@ -52,16 +55,17 @@
     font-weight: bold;
     text-transform: capitalize;
     line-height: 30px;
-    padding-left: 40px;
   }
 
   html.controller-users.action-todos #user-feed-beta .started > h2 {
     background-position: 2px -2013px;
     background-image: url(http://www.good.is/assets/sprites/global-s7cca2e59e8-0d733058f8d642a83128e9be2273996d.png);
     background-repeat: no-repeat;
+    padding-left: 40px;
   }
 
-  html.controller-users.action-todos #user-feed-beta .started li:first-child {
+  html.controller-users.action-show #user-feed .feed > li:first-child,
+  html.controller-users.action-todos #user-feed-beta .started .feed > li:first-child {
     margin-top: 35px;
   }
 
@@ -151,6 +155,7 @@
     height: 6.25em; /* 100px / @font-size */
     width: auto;
     float: left;
+    border: 1px solid rgb(221, 223, 227); /* @silver-blue */
   }
   .feed article.article .body > a.has-image h2,
   .feed article.comment .body > a.has-image h2 {
@@ -452,19 +457,20 @@
 /* =Comment
   ----------------------------------------------- */
   .feed article .comment {
-    margin-top: 1.25em;
+    margin-top: 1.5em;
     max-width: 36.25em; /* 580px / @font-size */
     box-sizing: border-box;
     padding-right: 2em;
     padding-left: 3em;
     border-bottom: 1px solid rgb(221, 223, 227); /* @silver-blue */
-    padding-bottom: 1em;
+    padding-bottom: 1.5em;
+    padding-top: 1em;
   }
   .feed article .body + .comment {
     border-top: 1px solid rgb(221, 223, 227); /* @silver-blue */
-    padding-top: 1em;
   }
   .feed article .comment + .comment {
+    margin-top: 0;
     padding-left: 6em;
   }
   .feed article .comment .author {
@@ -476,6 +482,7 @@
     margin-right: 0.375em;
   }
   .feed article .comment .author img {
+    border: 1px solid rgb(221, 223, 227); /* @silver-blue */
     width: 2.5em; /* 30px / 12px */
     height: auto;
     vertical-align: middle;
@@ -794,6 +801,7 @@
   }
   .feed article.following .person {
     padding: 1.25em; /* 20px / 16px */
+    padding-right: 0.625em; /* 10px / @font-size */
     border-radius: 0.25em;
     position: relative;
     border: 1px solid rgb(243, 243, 243); /* @bright-silver */
@@ -1002,5 +1010,21 @@
   }
 
 
+/* TEMP: Override the image borders */
+/*
+.feed article .comment .author img {
+  border-width: 0;
+}
+.feed article.following .person img {
+  border-width: 0;
+}
+.feed .source .summary img {
+  border-width: 0;
+}
+.feed article.article .body > a > img,
+.feed article.comment .body > a > img {
+  border-width: 0;
+}
+*/
 
 
