@@ -1,19 +1,17 @@
 
 
-
-
 /* =Global
   -----------------------------------------------
   These are adjustments to the base styles
   ----------------------------------------------- */
 
   /* Use "Helvetica Neue" as the default font (consider doing this throughout the site) */
-  .post-summary {
+  .activity-item {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
   /* Give all buttons a pointer cursor (consider doing this throughout the site) */
-  .post-summary button {
+  .activity-item button {
     cursor: pointer;
   }
 
@@ -29,6 +27,13 @@
 
 
 
+
+/* =Elements
+  -----------------------------------------------
+  -----------------------------------------------
+  ----------------------------------------------- */
+
+
 /* =Buttons
   ----------------------------------------------- */
 
@@ -36,7 +41,7 @@
   .todo_actions .todo_status .icon.primary_box {
     position: static;
   }
-  .feed .post-summary .todo_actions {
+  .feed .activity-item .todo_actions {
     float: right;
     margin-left: 1em;
     padding-top: 0;
@@ -45,16 +50,16 @@
   }
 
   /* Follow */
-  .post-summary .source .details form {
+  .activity-item .source .details form {
     margin-top: 0;
     position: absolute;
     top   : 0.625em; /* source-details.padding */
     right : 0.625em;
   }
-  .post-summary .source .details form p {
+  .activity-item .source .details form p {
     margin-top: 0;
   }
-  .post-summary .source .details button {
+  .activity-item .source .details button {
     font-weight: bold;
     text-align: center;
     background-color: rgb(135, 233, 184);
@@ -65,12 +70,12 @@
     line-height: 36px;
     width: 80px;
   }
-  .post-summary .source .details button:hover,
-  .post-summary .source .details button:active,
-  .post-summary .source .details button:focus {
+  .activity-item .source .details button:hover,
+  .activity-item .source .details button:active,
+  .activity-item .source .details button:focus {
     background-color: rgb(115, 213, 164);
   }
-  .post-summary.following .person button {
+  .activity-item.following .person button {
     font-weight: bold;
     text-align: center;
     background-color: rgb(135, 233, 184);
@@ -81,156 +86,37 @@
     line-height: 36px;
     width: 80px;
   }
-  .post-summary.following .person button:hover,
-  .post-summary.following .person button:active,
-  .post-summary.following .person button:focus {
+  .activity-item.following .person button:hover,
+  .activity-item.following .person button:active,
+  .activity-item.following .person button:focus {
     background-color: rgb(84, 218, 151);
   }
-
-
 
 
 /* =Links
   ----------------------------------------------- */
   /* More */
-  .post-summary > .more {
+  .activity-item > .more {
     margin-left: 0.625em; /* 10px / 16px */
     margin-top: 1.5em;
   }
-  .post-summary > .more a {
+  .activity-item > .more a {
     color: rgb(153, 153, 153);
     font-weight: bold;
     font-size: 0.875em; /* 14px / @font-size */
   }
-  .post-summary > .more a:hover,
-  .post-summary > .more a:active,
-  .post-summary > .more a:focus {
+  .activity-item > .more a:hover,
+  .activity-item > .more a:active,
+  .activity-item > .more a:focus {
     color: rgb(113, 179, 247); /* @link-color */
   }
 
 
-
-/* =Post Summary
-  -----------------------------------------------
-  These are items for the feed
+/* =Hover Box
   ----------------------------------------------- */
-  .post-summary {
-    border-top: 1px solid rgb(221, 223, 227); /* @silver-blue */
-    color: rgb(153, 153, 153); /* @aluminum */
-    position: relative;
-    padding-top    : 3.375em; /* 56px / @font-size */
-    padding-bottom : 2.5em;   /* 40px / @font-size */
-    padding-left   : 5.25em;  /* 84px / @font-size */
-  }
-  .post-summary a {
-    color: rgb(102, 102, 102); /* @steel */
-    text-decoration: none;
-    transition: all 0.2s;
-  }
-  .post-summary a:hover,
-  .post-summary a:active,
-  .post-summary a:focus {
-    color: rgb(113, 179, 247); /* @link-color */
-  }
-  .post-summary .body {
-    max-width: 36.25em; /* 580px / @font-size */
-    box-sizing: border-box;
-  }
-  .post-summary.link .body {
-    padding       : 1.25em;  /* 20px / @font-size */
-    padding-right : 0.625em; /* 10px / @font-size */
-    border: 0.0625em solid rgb(243, 243, 243); /* @bright-silver */
-    background: rgb(249, 249, 249);
-    border-radius: 0.25em;
-    transition: background-color 0.2s, border-color 0.2s;
-  }
-  .post-summary .body:after {
-    /* @clearfix */
-    content: "";
-    display: table;
-    clear: both;
-  }
-  .post-summary .body > a {
-    color: black;
-  }
-  .post-summary .body a h2 {
-    transition: color 0.2s;
-    line-height: 1.25em; /* 30px / 24px */
 
-    margin-right: 0.25em; /* Add a little space between the h2 and h3 */
-  }
-  .post-summary .body a:hover   h2,
-  .post-summary .body a:active  h2,
-  .post-summary .body a:focus   h2 {
-    color: rgb(113, 179, 247); /* @link-color */
-  }
-  .post-summary.article .body > a > img,
-  .post-summary.comment .body > a > img {
-    height: 6.25em; /* 100px / @font-size */
-    width: auto;
-    float: left;
-    border: 1px solid rgb(221, 223, 227); /* @silver-blue */
-  }
-  .post-summary.article .body > a.has-image h2,
-  .post-summary.comment .body > a.has-image h2 {
-    display: block;
-    margin-left: 5em; /* image.width + 1.25em / font-size (24px) */
-  }
-  .post-summary.article .body > a.has-image ~ h3,
-  .post-summary.comment .body > a.has-image ~ h3 {
-    margin-top: 0.5em;
-    display: block;
-    margin-left: 10em; /* image.width + 1.25em / font-size (12px) */
-  }
-  .post-summary.article .body > a.has-image ~ .social,
-  .post-summary.comment .body > a.has-image ~ .social {
-    margin-left: 7.5em; /* image.width + 1.25em */
-  }
-  .post-summary.link .body > a > img {
-    float: right;
-    height: 3.625em; /* 58px / @font-size */
-    width: auto;
-    background: rgb(243, 243, 243); /* @bright-silver */
-    padding: 0.0625em;
-    margin-left: 1.25em; /* 20px / @font-size */
-    margin-top: -0.625em;
-  }
-  .post-summary .body > a > h2,
-  .post-summary .body > h3 {
-    display: inline;
-  }
-  .post-summary .body > h3 {
-    font-size: 0.75em; /* 12px / @font-size */
-    color: rgb(153, 153, 153); /* @aluminum */
-    white-space: nowrap;
-  }
-  .post-summary .body > h3 a {
-    font-weight: bold;
-  }
-  .post-summary .body > h3 a:hover,
-  .post-summary .body > h3 a:active,
-  .post-summary .body > h3 a:focus {
-    color: rgb(113, 179, 247);
-  }
-  .post-summary h2 {
-    margin: 0;
-    font-size: 1.5em; /* 24px / @font-size */
-    font-family: "FreightText Light", "FreightTextLight", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @freight */
-  }
-  .post-summary .time {
-    position: absolute;
-    top: 1.33333333333333em; /* 16px / 12px */
-    right: 1.66666666666667em; /* 20px / 12px */
-    color: rgb(204, 204, 204);
-    font-size: 0.75em;
-  }
-
-
-
-
-/* =Source Summary (Hover Target)
-  ----------------------------------------------- */
-  .post-summary .source .summary {
+  /* Summary */
+  .activity-item .source .summary {
     margin-top: 0;
     font-size: 0.75em; /* 12px / @font-size */
     font-weight: normal;
@@ -238,36 +124,36 @@
     top: 0;
     left: 0;
   }
-  .post-summary .source .summary a {
+  .activity-item .source .summary a {
     position: relative;
     display: inline-block;
     padding: 1.33333333333333em; /* 16px / link.font-size */
     transition: all 0.2s;
     color: rgb(153, 153, 153); /* @aluminum */
   }
-  .post-summary .source .summary a:first-child {
+  .activity-item .source .summary a:first-child {
     margin-left: -1.33333333333333em; /* link.padding */
   }
-  .post-summary .source .summary a + a {
+  .activity-item .source .summary a + a {
     margin-left: -2.66666666666666em; /* link.padding x 2 */
   }
-  .post-summary .source .summary a span {
+  .activity-item .source .summary a span {
     font-weight: bold;
     transition: color 0.2s;
     color: rgb(102, 102, 102);
     margin-right: 0.375em;
   }
-  .post-summary .source .summary a:hover  span,
-  .post-summary .source .summary a:active span,
-  .post-summary .source .summary a:focus  span {
+  .activity-item .source .summary a:hover  span,
+  .activity-item .source .summary a:active span,
+  .activity-item .source .summary a:focus  span {
     color: rgb(113, 179, 247); /* @link-color */
   }
-  .post-summary .source .summary.has-image a:first-child {
+  .activity-item .source .summary.has-image a:first-child {
     padding-left: 7em; /* 84px / link.font-size */
     border-left-width: 0;
     margin-left: 0;
   }
-  .post-summary .source .summary img {
+  .activity-item .source .summary img {
     width: 5em; /* 60px / link.font-size */
     height: auto;
     border-width: 0 1px 1px;
@@ -280,12 +166,8 @@
     left: 0;
   }
 
-
-
-
-/* =Source Details (Hover Box)
-  ----------------------------------------------- */
-  .post-summary .source .details {
+  /* Details */
+  .activity-item .source .details {
     margin-top: 0;
     top: 2.1em;
     position: absolute;
@@ -299,35 +181,35 @@
   }
 
   /* Attempt to line the hover box up with the image (which is a little smaller in the takeover area). */
-  .takeover .post-summary .source .details {
+  .takeover .activity-item .source .details {
     margin-left: -40px;
   }
 
-  .post-summary .source:hover  .details,
-  .post-summary .source:active .details,
-  .post-summary .source:focus  .details {
+  .activity-item .source:hover  .details,
+  .activity-item .source:active .details,
+  .activity-item .source:focus  .details {
     left: auto;
     opacity: 1;
   }
 
   /* If the page is scripted, delay the hover effect */
-  .post-summary .source.scripted:hover  .details,
-  .post-summary .source.scripted:active .details,
-  .post-summary .source.scripted:focus  .details {
+  .activity-item .source.scripted:hover  .details,
+  .activity-item .source.scripted:active .details,
+  .activity-item .source.scripted:focus  .details {
     left: -9999px;
     opacity: 0;
   }
-  .post-summary .source.active:hover  .details,
-  .post-summary .source.active:active .details,
-  .post-summary .source.active:focus  .details {
+  .activity-item .source.active:hover  .details,
+  .activity-item .source.active:active .details,
+  .activity-item .source.active:focus  .details {
     left: auto;
     opacity: 1;
   }
 
-  .post-summary .source .details > .container {
+  .activity-item .source .details > .container {
     line-height: 1.5;
   }
-  .post-summary .source .details > .container .container {
+  .activity-item .source .details > .container .container {
     background: white;
     padding: 0.625em; /* 10px / 16px */
     padding-left: 5em;
@@ -335,7 +217,7 @@
     border: 1px solid black;
     box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.125);
   }
-  .post-summary .source .details .container .container:after {
+  .activity-item .source .details .container .container:after {
     display: block;
     content: "";
     background: url(images/pointer.png);
@@ -346,13 +228,13 @@
     width: 20px;
     height: 13px;
   }
-  .post-summary .source .details img {
+  .activity-item .source .details img {
     width: 3.75em; /* 60px / @font-size  */
     left: 0.625em; /* 10px / 16px */
     height: auto;
     position: absolute;
   }
-  .post-summary .source .details h3 {
+  .activity-item .source .details h3 {
     font-size: inherit;
     font-weight: bold;
     color: black;
@@ -360,18 +242,18 @@
     margin-bottom: 0;
     transition: color 0.2s;
   }
-  .post-summary .source .details a:hover h3,
-  .post-summary .source .details a:hover h3,
-  .post-summary .source .details a:hover h3 {
+  .activity-item .source .details a:hover h3,
+  .activity-item .source .details a:hover h3,
+  .activity-item .source .details a:hover h3 {
     color: rgb(113, 179, 247); /* @link-color */
   }
-  .post-summary .source .details a p {
+  .activity-item .source .details a p {
     margin-top: 0;
     font-size: 0.75em; /* 12px / @font-size */
     color: rgb(153, 153, 153); /* @aluminum */
     margin-bottom: 0;
   }
-  .post-summary .source .details .container > p {
+  .activity-item .source .details .container > p {
     margin-top: 0.75em;
     margin-bottom: 0.75em;
     border-top: 1px solid rgb(221, 223, 227); /* @silver-blue */
@@ -380,157 +262,7 @@
     font-size: 0.8125em; /* 13px / @font-size */
   }
 
-
-
-
-/* =Comment
-  ----------------------------------------------- */
-  .post-summary .comment {
-    margin-top: 1.5em;
-    max-width: 36.25em; /* 580px / @font-size */
-    box-sizing: border-box;
-    padding-right: 2em;
-    padding-left: 3em;
-    border-bottom: 1px solid rgb(221, 223, 227); /* @silver-blue */
-    padding-bottom: 1.5em;
-    padding-top: 1em;
-  }
-  .post-summary .body + .comment {
-    border-top: 1px solid rgb(221, 223, 227); /* @silver-blue */
-  }
-  .post-summary .comment + .comment {
-    margin-top: 0;
-    padding-left: 6em;
-  }
-  .post-summary .comment .author {
-    font-size: 0.75em; /* 12px / @font-size */
-    color: rgb(153, 153, 153); /* @aluminum */
-  }
-  .post-summary .comment .author a {
-    font-weight: bold;
-    margin-right: 0.375em;
-  }
-  .post-summary .comment .author img {
-    border: 1px solid rgb(221, 223, 227); /* @silver-blue */
-    width: 2.5em; /* 30px / 12px */
-    height: auto;
-    vertical-align: middle;
-    margin-right: 1.25em;
-    margin-left: -4em;
-  }
-  .post-summary .comment p {
-    color: black;
-    font-size: 0.875em; /* 14px / @font-size */
-    line-height: 20px;
-  }
-  .post-summary .comment p + p {
-    margin-top: 10px;
-  }
-  .post-summary .comment p a {
-    color: rgb(102, 153, 204);
-  }
-  .post-summary .comment p a:hover,
-  .post-summary .comment p a:active,
-  .post-summary .comment p a:focus {
-    color: rgb(113, 179, 247); /* @link-color */
-  }
-
-
-
-
-/* =Social
-  ----------------------------------------------- */
-  .social {
-    margin-top: 1em;
-    border-top: 1px solid rgb(243, 243, 243); /* @bright-silver */
-    padding-top: 1em;
-  }
-  .social > p,
-  .social > div,
-  .social > form {
-    display: inline-block;
-  }
-  .social > p,
-  .social > div {
-    margin-right: 0.75em;
-  }
-  .social h3 {
-    font-family: inherit;
-    font-weight: inherit;
-    font-size: inherit;
-    display: inline;
-  }
-  .social h3 a {
-    color: rgb(153, 153, 153); /* @aluminum */
-    transition: opacity 0.2s, color 0.2s;
-    font-size: 0.75em;
-  }
-  .social h3 a:hover,
-  .social h3 a:active,
-  .social h3 a:focus {
-    color: rgb(113, 179, 247) !important;
-  }
-  .social h3 a:before {
-    content: "";
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 0.375em;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    opacity: 0.6;
-  }
-  .social .dos h3 a:before {
-    background-image: url(images/dos.png);
-    width: 13px;
-    height: 13px;
-  }
-  .social .votes h3 a:before {
-    background-image: url(images/votes.png);
-    width: 12px;
-    height: 8px;
-  }
-  .social .comments h3 a:before {
-    background-image: url(images/comments.png);
-    width: 15px;
-    height: 15px;
-  }
-
-
-  /* Light up the social icons for the article, when hovering over it */
-
-  /* Off */
-  .feed:hover .social h3 a {
-    color: rgb(190, 190, 190);
-  }
-  .feed:hover .dos h3 a:before {
-    background-image: url(images/dos-off.png);
-  }
-  .feed:hover .votes h3 a:before {
-    background-image: url(images/votes-off.png);
-  }
-  .feed:hover .comments h3 a:before {
-    background-image: url(images/comments-off.png);
-  }
-
-  /* Over */
-  .feed li:hover .social h3 a {
-    color: rgb(153, 153, 153); /* @aluminum */
-  }
-  .feed li:hover .dos h3 a:before {
-    background-image: url(images/dos.png);
-  }
-  .feed li:hover .votes h3 a:before {
-    background-image: url(images/votes.png);
-  }
-  .feed li:hover .comments h3 a:before {
-    background-image: url(images/comments.png);
-  }
-
-
-
-
-/* =Social Details (Hover Box)
+  /* =Social Details (Hover Box)
   ----------------------------------------------- */
   .social .numbers {
     position: relative;
@@ -632,14 +364,292 @@
 
 
 
+/* =Units
+  -----------------------------------------------
+  -----------------------------------------------
+  ----------------------------------------------- */
+
+
+/* =Activity Item
+  -----------------------------------------------
+  These are individual items for the feed:
+
+  * Articles
+  * Links
+  * Dos
+  * Notifications
+  * Replies
+  * Comments
+  * Follows
+  ----------------------------------------------- */
+  .activity-item {
+    border-top: 1px solid rgb(221, 223, 227); /* @silver-blue */
+    color: rgb(153, 153, 153); /* @aluminum */
+    position: relative;
+    padding-top    : 3.375em; /* 56px / @font-size */
+    padding-bottom : 2.5em;   /* 40px / @font-size */
+    padding-left   : 5.25em;  /* 84px / @font-size */
+  }
+  .activity-item a {
+    color: rgb(102, 102, 102); /* @steel */
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .activity-item a:hover,
+  .activity-item a:active,
+  .activity-item a:focus {
+    color: rgb(113, 179, 247); /* @link-color */
+  }
+  .activity-item .body {
+    max-width: 36.25em; /* 580px / @font-size */
+    box-sizing: border-box;
+  }
+  .activity-item.link .body {
+    padding       : 1.25em;  /* 20px / @font-size */
+    padding-right : 0.625em; /* 10px / @font-size */
+    border: 0.0625em solid rgb(243, 243, 243); /* @bright-silver */
+    background: rgb(249, 249, 249);
+    border-radius: 0.25em;
+    transition: background-color 0.2s, border-color 0.2s;
+  }
+  .activity-item .body:after {
+    /* @clearfix */
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .activity-item .body > a {
+    color: black;
+  }
+  .activity-item .body a h2 {
+    transition: color 0.2s;
+    line-height: 1.25em; /* 30px / 24px */
+
+    margin-right: 0.25em; /* Add a little space between the h2 and h3 */
+  }
+  .activity-item .body a:hover   h2,
+  .activity-item .body a:active  h2,
+  .activity-item .body a:focus   h2 {
+    color: rgb(113, 179, 247); /* @link-color */
+  }
+  .activity-item.article .body > a > img,
+  .activity-item.comment .body > a > img {
+    height: 6.25em; /* 100px / @font-size */
+    width: auto;
+    float: left;
+    border: 1px solid rgb(221, 223, 227); /* @silver-blue */
+  }
+  .activity-item.article .body > a.has-image h2,
+  .activity-item.comment .body > a.has-image h2 {
+    display: block;
+    margin-left: 5em; /* image.width + 1.25em / font-size (24px) */
+  }
+  .activity-item.article .body > a.has-image ~ h3,
+  .activity-item.comment .body > a.has-image ~ h3 {
+    margin-top: 0.5em;
+    display: block;
+    margin-left: 10em; /* image.width + 1.25em / font-size (12px) */
+  }
+  .activity-item.article .body > a.has-image ~ .social,
+  .activity-item.comment .body > a.has-image ~ .social {
+    margin-left: 7.5em; /* image.width + 1.25em */
+  }
+  .activity-item.link .body > a > img {
+    float: right;
+    height: 3.625em; /* 58px / @font-size */
+    width: auto;
+    background: rgb(243, 243, 243); /* @bright-silver */
+    padding: 0.0625em;
+    margin-left: 1.25em; /* 20px / @font-size */
+    margin-top: -0.625em;
+  }
+  .activity-item .body > a > h2,
+  .activity-item .body > h3 {
+    display: inline;
+  }
+  .activity-item .body > h3 {
+    font-size: 0.75em; /* 12px / @font-size */
+    color: rgb(153, 153, 153); /* @aluminum */
+    white-space: nowrap;
+  }
+  .activity-item .body > h3 a {
+    font-weight: bold;
+  }
+  .activity-item .body > h3 a:hover,
+  .activity-item .body > h3 a:active,
+  .activity-item .body > h3 a:focus {
+    color: rgb(113, 179, 247);
+  }
+  .activity-item h2 {
+    margin: 0;
+    font-size: 1.5em; /* 24px / @font-size */
+    font-family: "FreightText Light", "FreightTextLight", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @freight */
+  }
+  .activity-item .time {
+    position: absolute;
+    top: 1.33333333333333em; /* 16px / 12px */
+    right: 1.66666666666667em; /* 20px / 12px */
+    color: rgb(204, 204, 204);
+    font-size: 0.75em;
+  }
+
+
+
+/* =Comment
+  ----------------------------------------------- */
+  .activity-item .comment {
+    margin-top: 1.5em;
+    max-width: 36.25em; /* 580px / @font-size */
+    box-sizing: border-box;
+    padding-right: 2em;
+    padding-left: 3em;
+    border-bottom: 1px solid rgb(221, 223, 227); /* @silver-blue */
+    padding-bottom: 1.5em;
+    padding-top: 1em;
+  }
+  .activity-item .body + .comment {
+    border-top: 1px solid rgb(221, 223, 227); /* @silver-blue */
+  }
+  .activity-item .comment + .comment {
+    margin-top: 0;
+    padding-left: 6em;
+  }
+  .activity-item .comment .author {
+    font-size: 0.75em; /* 12px / @font-size */
+    color: rgb(153, 153, 153); /* @aluminum */
+  }
+  .activity-item .comment .author a {
+    font-weight: bold;
+    margin-right: 0.375em;
+  }
+  .activity-item .comment .author img {
+    border: 1px solid rgb(221, 223, 227); /* @silver-blue */
+    width: 2.5em; /* 30px / 12px */
+    height: auto;
+    vertical-align: middle;
+    margin-right: 1.25em;
+    margin-left: -4em;
+  }
+  .activity-item .comment p {
+    color: black;
+    font-size: 0.875em; /* 14px / @font-size */
+    line-height: 20px;
+  }
+  .activity-item .comment p + p {
+    margin-top: 10px;
+  }
+  .activity-item .comment p a {
+    color: rgb(102, 153, 204);
+  }
+  .activity-item .comment p a:hover,
+  .activity-item .comment p a:active,
+  .activity-item .comment p a:focus {
+    color: rgb(113, 179, 247); /* @link-color */
+  }
+
+
+
+
+/* =Social
+  ----------------------------------------------- */
+  .social {
+    margin-top: 1em;
+    border-top: 1px solid rgb(243, 243, 243); /* @bright-silver */
+    padding-top: 1em;
+  }
+  .social > p,
+  .social > div,
+  .social > form {
+    display: inline-block;
+  }
+  .social > p,
+  .social > div {
+    margin-right: 0.75em;
+  }
+  .social h3 {
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    display: inline;
+  }
+  .social h3 a {
+    color: rgb(153, 153, 153); /* @aluminum */
+    transition: opacity 0.2s, color 0.2s;
+    font-size: 0.75em;
+  }
+  .social h3 a:hover,
+  .social h3 a:active,
+  .social h3 a:focus {
+    color: rgb(113, 179, 247) !important;
+  }
+  .social h3 a:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.375em;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.6;
+  }
+  .social .dos h3 a:before {
+    background-image: url(images/dos.png);
+    width: 13px;
+    height: 13px;
+  }
+  .social .votes h3 a:before {
+    background-image: url(images/votes.png);
+    width: 12px;
+    height: 8px;
+  }
+  .social .comments h3 a:before {
+    background-image: url(images/comments.png);
+    width: 15px;
+    height: 15px;
+  }
+
+
+  /* Light up the social icons for the article, when hovering over it */
+
+  /* Off */
+  .feed:hover .social h3 a {
+    color: rgb(190, 190, 190);
+  }
+  .feed:hover .dos h3 a:before {
+    background-image: url(images/dos-off.png);
+  }
+  .feed:hover .votes h3 a:before {
+    background-image: url(images/votes-off.png);
+  }
+  .feed:hover .comments h3 a:before {
+    background-image: url(images/comments-off.png);
+  }
+
+  /* Over */
+  .feed li:hover .social h3 a {
+    color: rgb(153, 153, 153); /* @aluminum */
+  }
+  .feed li:hover .dos h3 a:before {
+    background-image: url(images/dos.png);
+  }
+  .feed li:hover .votes h3 a:before {
+    background-image: url(images/votes.png);
+  }
+  .feed li:hover .comments h3 a:before {
+    background-image: url(images/comments.png);
+  }
+
+
+
+
 /* =Tags
   ----------------------------------------------- */
-  .post-summary .tags {
+  .activity-item .tags {
     margin-top: -1.125em;
     float: right;
     margin-right: 0.625em;
   }
-  .post-summary .tags h3 {
+  .activity-item .tags h3 {
     background: transparent url(images/tag.png) center no-repeat;
     width: 15px;
     height: 10px;
@@ -650,31 +660,31 @@
     text-indent: -9999px;
     overflow: hidden;
   }
-  .post-summary .tags ul {
+  .activity-item .tags ul {
     font-size: 0.75em; /* 12px / @font-size */
     display: inline;
   }
-  .post-summary .tags ul,
-  .post-summary .tags li {
+  .activity-item .tags ul,
+  .activity-item .tags li {
     list-style: none;
     margin-left: 0;
     padding-left: 0;
   }
-  .post-summary .tags ul {
+  .activity-item .tags ul {
     margin-left: 0.75em;
   }
-  .post-summary .tags li {
+  .activity-item .tags li {
     display: inline;
   }
-  .post-summary .tags li + li {
+  .activity-item .tags li + li {
     margin-left: 1em;
   }
-  .post-summary .tags li a {
+  .activity-item .tags li a {
     color: rgb(153, 153, 153); /* @aluminum */
   }
-  .post-summary .tags li a:hover,
-  .post-summary .tags li a:active,
-  .post-summary .tags li a:focus {
+  .activity-item .tags li a:hover,
+  .activity-item .tags li a:active,
+  .activity-item .tags li a:focus {
     color: rgb(113, 179, 247);
   }
 
@@ -683,12 +693,12 @@
     opacity: 0;
     transition: opacity 0.2s;
   }
-  .feed .post-summary:hover .tags {
+  .feed .activity-item:hover .tags {
     opacity: 1;
   }
 
   /* Show a triangle in the corner of the article, when hovering over it */
-  .post-summary:after {
+  .activity-item:after {
     content: "";
     background: transparent url(images/corner.png) top right no-repeat;
     width: 15px;
@@ -699,12 +709,12 @@
     opacity: 0;
     transition: opacity 0.2s;
   }
-  .post-summary:hover:after {
+  .activity-item:hover:after {
     opacity: 1;
   }
 
   /* Light up the content of the article, when hovering over it */
-  .post-summary.link:hover .body {
+  .activity-item.link:hover .body {
     background: white;
     border-color: rgb(153, 153, 153); /* @aluminum */
   }
@@ -714,7 +724,7 @@
 
 /* =Following
   ----------------------------------------------- */
-  .post-summary.following .person {
+  .activity-item.following .person {
     padding: 1.25em; /* 20px / 16px */
     padding-right: 0.625em; /* 10px / @font-size */
     border-radius: 0.25em;
@@ -728,17 +738,17 @@
 
     transition: background-color 0.2s, border-color 0.2s;
   }
-  .post-summary.following .person.has-image {
+  .activity-item.following .person.has-image {
     padding-left: 5em; /* image.width + (padding x 2) */
   }
-  .post-summary.following .person + .person {
+  .activity-item.following .person + .person {
     margin-top: 0.75em;
   }
-  .post-summary.following .person:hover {
+  .activity-item.following .person:hover {
     background: white;
     border-color: rgb(153, 153, 153); /* @aluminum */
   }
-  .post-summary.following .person img {
+  .activity-item.following .person img {
     border: 1px solid rgb(221, 223, 227); /* @silver-blue */
     width: 3.75em; /* 60px / @font-size  */
     top: 0.625em;
@@ -746,10 +756,10 @@
     height: auto;
     position: absolute;
   }
-  .post-summary.following .person a {
+  .activity-item.following .person a {
     display: block;
   }
-  .post-summary.following .person h2 {
+  .activity-item.following .person h2 {
     margin-top: 0;
     margin-bottom: -0.25em;
     font-family: inherit;
@@ -758,12 +768,12 @@
     color: black;
     transition: 0.2s;
   }
-  .post-summary.following .person a:hover  h2,
-  .post-summary.following .person a:active h2,
-  .post-summary.following .person a:focus  h2 {
+  .activity-item.following .person a:hover  h2,
+  .activity-item.following .person a:active h2,
+  .activity-item.following .person a:focus  h2 {
     color: rgb(113, 179, 247); /* @link-color */
   }
-  .post-summary.following .person a p {
+  .activity-item.following .person a p {
     margin-top: 0.75em;
     font-size: 0.75em; /* 12px / @font-size */
     color: rgb(153, 153, 153); /* @aluminum */
@@ -771,12 +781,12 @@
     display: inline-block;
     line-height: 1;
   }
-  .post-summary.following .person a p + p {
+  .activity-item.following .person a p + p {
     border-left: 1px solid rgb(216, 216, 216);
     padding-left: 0.9em;
     margin-left: 0.6em;
   }
-  .post-summary.following .person > p {
+  .activity-item.following .person > p {
     margin-top: 1.25em;
     margin-bottom: 1.25em;
     border-top: 1px solid rgb(221, 223, 227); /* @silver-blue */
@@ -785,14 +795,14 @@
     color: black;
     font-size: 0.875em; /* 14px / @font-size */
   }
-  .post-summary.following .person form {
+  .activity-item.following .person form {
     margin-top: 0;
     margin-bottom: 0;
     position: absolute;
     top   : 0.75em;
     right : 0.75em;
   }
-  .post-summary.following .person form p {
+  .activity-item.following .person form p {
     margin-top: 0;
   }
 
@@ -816,24 +826,24 @@
     margin-bottom: 32px;
   }
 
-  .takeover .post-summary.article .body > a > img {
+  .takeover .activity-item.article .body > a > img {
     height: 240px;
     width: auto;
     margin-left: -84px;
   }
-  .takeover .post-summary.article .body > a.has-image h2 {
+  .takeover .activity-item.article .body > a.has-image h2 {
     font-size: 36px;
     margin-left: 5.27777777777778em; /* 190px / 16px */
   }
-  .takeover .post-summary.article .body > a.has-image ~ .social,
-  .takeover .post-summary.comment .body > a.has-image ~ .social {
+  .takeover .activity-item.article .body > a.has-image ~ .social,
+  .takeover .activity-item.comment .body > a.has-image ~ .social {
     margin-top: 3em;
     margin-left: 11.875em; /* 190px / 16px */
   }
-  .takeover .post-summary .source .summary.has-image a:first-child {
+  .takeover .activity-item .source .summary.has-image a:first-child {
     padding-left: 45px;
   }
-  .takeover .post-summary .source .summary img {
+  .takeover .activity-item .source .summary img {
     margin-top: 8px;
     width: 30px;
     height: auto;
