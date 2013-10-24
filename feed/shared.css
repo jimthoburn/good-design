@@ -33,6 +33,20 @@
   -----------------------------------------------
   ----------------------------------------------- */
 
+  .activity-item h2 {
+    margin: 0;
+    font-size: 1.5em; /* 24px / @font-size */
+    font-family: "FreightText Light", "FreightTextLight", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @freight */
+  }
+
+  .activity-item .time {
+    position: absolute;
+    top: 1.33333333333333em; /* 16px / 12px */
+    right: 1.66666666666667em; /* 20px / 12px */
+    color: rgb(204, 204, 204);
+    font-size: 0.75em;
+  }
+
 
 /* =Buttons
   ----------------------------------------------- */
@@ -95,6 +109,7 @@
 
 /* =Links
   ----------------------------------------------- */
+
   /* More */
   .activity-item > .more {
     margin-left: 0.625em; /* 10px / 16px */
@@ -109,6 +124,196 @@
   .activity-item > .more a:active,
   .activity-item > .more a:focus {
     color: rgb(113, 179, 247); /* @link-color */
+  }
+
+
+/* =Comment
+  ----------------------------------------------- */
+  .activity-item .comment {
+    margin-top: 1.5em;
+    max-width: 36.25em; /* 580px / @font-size */
+    box-sizing: border-box;
+    padding-right: 2em;
+    padding-left: 3em;
+    border-bottom: 1px solid rgb(221, 223, 227); /* @silver-blue */
+    padding-bottom: 1.5em;
+    padding-top: 1em;
+  }
+  .activity-item .body + .comment {
+    border-top: 1px solid rgb(221, 223, 227); /* @silver-blue */
+  }
+  .activity-item .comment + .comment {
+    margin-top: 0;
+    padding-left: 6em;
+  }
+  .activity-item .comment .author {
+    font-size: 0.75em; /* 12px / @font-size */
+    color: rgb(153, 153, 153); /* @aluminum */
+  }
+  .activity-item .comment .author a {
+    font-weight: bold;
+    margin-right: 0.375em;
+  }
+  .activity-item .comment .author img {
+    border: 1px solid rgb(221, 223, 227); /* @silver-blue */
+    width: 2.5em; /* 30px / 12px */
+    height: auto;
+    vertical-align: middle;
+    margin-right: 1.25em;
+    margin-left: -4em;
+  }
+  .activity-item .comment p {
+    color: black;
+    font-size: 0.875em; /* 14px / @font-size */
+    line-height: 20px;
+  }
+  .activity-item .comment p + p {
+    margin-top: 10px;
+  }
+  .activity-item .comment p a {
+    color: rgb(102, 153, 204);
+  }
+  .activity-item .comment p a:hover,
+  .activity-item .comment p a:active,
+  .activity-item .comment p a:focus {
+    color: rgb(113, 179, 247); /* @link-color */
+  }
+
+
+/* =Social
+  ----------------------------------------------- */
+  .social {
+    margin-top: 1em;
+    border-top: 1px solid rgb(243, 243, 243); /* @bright-silver */
+    padding-top: 1em;
+  }
+  .social > p,
+  .social > div,
+  .social > form {
+    display: inline-block;
+  }
+  .social > p,
+  .social > div {
+    margin-right: 0.75em;
+  }
+  .social h3 {
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    display: inline;
+  }
+  .social h3 a {
+    color: rgb(153, 153, 153); /* @aluminum */
+    transition: opacity 0.2s, color 0.2s;
+    font-size: 0.75em;
+  }
+  .social h3 a:hover,
+  .social h3 a:active,
+  .social h3 a:focus {
+    color: rgb(113, 179, 247) !important;
+  }
+  .social h3 a:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.375em;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.6;
+  }
+  .social .dos h3 a:before {
+    background-image: url(images/dos.png);
+    width: 13px;
+    height: 13px;
+  }
+  .social .votes h3 a:before {
+    background-image: url(images/votes.png);
+    width: 12px;
+    height: 8px;
+  }
+  .social .comments h3 a:before {
+    background-image: url(images/comments.png);
+    width: 15px;
+    height: 15px;
+  }
+
+
+/* =Tags
+  ----------------------------------------------- */
+  .activity-item .tags {
+    margin-top: -1.125em;
+    float: right;
+    margin-right: 0.625em;
+  }
+  .activity-item .tags h3 {
+    background: transparent url(images/tag.png) center no-repeat;
+    width: 15px;
+    height: 10px;
+    display: inline-block;
+    vertical-align: middle;
+
+    /* @hidden-accessible */
+    text-indent: -9999px;
+    overflow: hidden;
+  }
+  .activity-item .tags ul {
+    font-size: 0.75em; /* 12px / @font-size */
+    display: inline;
+  }
+  .activity-item .tags ul,
+  .activity-item .tags li {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .activity-item .tags ul {
+    margin-left: 0.75em;
+  }
+  .activity-item .tags li {
+    display: inline;
+  }
+  .activity-item .tags li + li {
+    margin-left: 1em;
+  }
+  .activity-item .tags li a {
+    color: rgb(153, 153, 153); /* @aluminum */
+  }
+  .activity-item .tags li a:hover,
+  .activity-item .tags li a:active,
+  .activity-item .tags li a:focus {
+    color: rgb(113, 179, 247);
+  }
+
+  /* Only show the tags for one article at a time, in a feed */
+  .feed:hover .tags {
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .feed .activity-item:hover .tags {
+    opacity: 1;
+  }
+
+  /* Show a triangle in the corner of the article, when hovering over it */
+  .activity-item:after {
+    content: "";
+    background: transparent url(images/corner.png) top right no-repeat;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .activity-item:hover:after {
+    opacity: 1;
+  }
+
+  /* Light up the content of the article, when hovering over it */
+  .activity-item.link:hover .body {
+    background: white;
+    border-color: rgb(153, 153, 153); /* @aluminum */
   }
 
 
@@ -261,6 +466,7 @@
     color: rgb(102, 102, 102); /* @steel */
     font-size: 0.8125em; /* 13px / @font-size */
   }
+
 
   /* =Social Details (Hover Box)
   ----------------------------------------------- */
@@ -480,246 +686,6 @@
   .activity-item .body > h3 a:focus {
     color: rgb(113, 179, 247);
   }
-  .activity-item h2 {
-    margin: 0;
-    font-size: 1.5em; /* 24px / @font-size */
-    font-family: "FreightText Light", "FreightTextLight", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @freight */
-  }
-  .activity-item .time {
-    position: absolute;
-    top: 1.33333333333333em; /* 16px / 12px */
-    right: 1.66666666666667em; /* 20px / 12px */
-    color: rgb(204, 204, 204);
-    font-size: 0.75em;
-  }
-
-
-
-/* =Comment
-  ----------------------------------------------- */
-  .activity-item .comment {
-    margin-top: 1.5em;
-    max-width: 36.25em; /* 580px / @font-size */
-    box-sizing: border-box;
-    padding-right: 2em;
-    padding-left: 3em;
-    border-bottom: 1px solid rgb(221, 223, 227); /* @silver-blue */
-    padding-bottom: 1.5em;
-    padding-top: 1em;
-  }
-  .activity-item .body + .comment {
-    border-top: 1px solid rgb(221, 223, 227); /* @silver-blue */
-  }
-  .activity-item .comment + .comment {
-    margin-top: 0;
-    padding-left: 6em;
-  }
-  .activity-item .comment .author {
-    font-size: 0.75em; /* 12px / @font-size */
-    color: rgb(153, 153, 153); /* @aluminum */
-  }
-  .activity-item .comment .author a {
-    font-weight: bold;
-    margin-right: 0.375em;
-  }
-  .activity-item .comment .author img {
-    border: 1px solid rgb(221, 223, 227); /* @silver-blue */
-    width: 2.5em; /* 30px / 12px */
-    height: auto;
-    vertical-align: middle;
-    margin-right: 1.25em;
-    margin-left: -4em;
-  }
-  .activity-item .comment p {
-    color: black;
-    font-size: 0.875em; /* 14px / @font-size */
-    line-height: 20px;
-  }
-  .activity-item .comment p + p {
-    margin-top: 10px;
-  }
-  .activity-item .comment p a {
-    color: rgb(102, 153, 204);
-  }
-  .activity-item .comment p a:hover,
-  .activity-item .comment p a:active,
-  .activity-item .comment p a:focus {
-    color: rgb(113, 179, 247); /* @link-color */
-  }
-
-
-
-
-/* =Social
-  ----------------------------------------------- */
-  .social {
-    margin-top: 1em;
-    border-top: 1px solid rgb(243, 243, 243); /* @bright-silver */
-    padding-top: 1em;
-  }
-  .social > p,
-  .social > div,
-  .social > form {
-    display: inline-block;
-  }
-  .social > p,
-  .social > div {
-    margin-right: 0.75em;
-  }
-  .social h3 {
-    font-family: inherit;
-    font-weight: inherit;
-    font-size: inherit;
-    display: inline;
-  }
-  .social h3 a {
-    color: rgb(153, 153, 153); /* @aluminum */
-    transition: opacity 0.2s, color 0.2s;
-    font-size: 0.75em;
-  }
-  .social h3 a:hover,
-  .social h3 a:active,
-  .social h3 a:focus {
-    color: rgb(113, 179, 247) !important;
-  }
-  .social h3 a:before {
-    content: "";
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 0.375em;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    opacity: 0.6;
-  }
-  .social .dos h3 a:before {
-    background-image: url(images/dos.png);
-    width: 13px;
-    height: 13px;
-  }
-  .social .votes h3 a:before {
-    background-image: url(images/votes.png);
-    width: 12px;
-    height: 8px;
-  }
-  .social .comments h3 a:before {
-    background-image: url(images/comments.png);
-    width: 15px;
-    height: 15px;
-  }
-
-
-  /* Light up the social icons for the article, when hovering over it */
-
-  /* Off */
-  .feed:hover .social h3 a {
-    color: rgb(190, 190, 190);
-  }
-  .feed:hover .dos h3 a:before {
-    background-image: url(images/dos-off.png);
-  }
-  .feed:hover .votes h3 a:before {
-    background-image: url(images/votes-off.png);
-  }
-  .feed:hover .comments h3 a:before {
-    background-image: url(images/comments-off.png);
-  }
-
-  /* Over */
-  .feed li:hover .social h3 a {
-    color: rgb(153, 153, 153); /* @aluminum */
-  }
-  .feed li:hover .dos h3 a:before {
-    background-image: url(images/dos.png);
-  }
-  .feed li:hover .votes h3 a:before {
-    background-image: url(images/votes.png);
-  }
-  .feed li:hover .comments h3 a:before {
-    background-image: url(images/comments.png);
-  }
-
-
-
-
-/* =Tags
-  ----------------------------------------------- */
-  .activity-item .tags {
-    margin-top: -1.125em;
-    float: right;
-    margin-right: 0.625em;
-  }
-  .activity-item .tags h3 {
-    background: transparent url(images/tag.png) center no-repeat;
-    width: 15px;
-    height: 10px;
-    display: inline-block;
-    vertical-align: middle;
-
-    /* @hidden-accessible */
-    text-indent: -9999px;
-    overflow: hidden;
-  }
-  .activity-item .tags ul {
-    font-size: 0.75em; /* 12px / @font-size */
-    display: inline;
-  }
-  .activity-item .tags ul,
-  .activity-item .tags li {
-    list-style: none;
-    margin-left: 0;
-    padding-left: 0;
-  }
-  .activity-item .tags ul {
-    margin-left: 0.75em;
-  }
-  .activity-item .tags li {
-    display: inline;
-  }
-  .activity-item .tags li + li {
-    margin-left: 1em;
-  }
-  .activity-item .tags li a {
-    color: rgb(153, 153, 153); /* @aluminum */
-  }
-  .activity-item .tags li a:hover,
-  .activity-item .tags li a:active,
-  .activity-item .tags li a:focus {
-    color: rgb(113, 179, 247);
-  }
-
-  /* Only show the tags for one article at a time, in a feed */
-  .feed:hover .tags {
-    opacity: 0;
-    transition: opacity 0.2s;
-  }
-  .feed .activity-item:hover .tags {
-    opacity: 1;
-  }
-
-  /* Show a triangle in the corner of the article, when hovering over it */
-  .activity-item:after {
-    content: "";
-    background: transparent url(images/corner.png) top right no-repeat;
-    width: 15px;
-    height: 15px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    opacity: 0;
-    transition: opacity 0.2s;
-  }
-  .activity-item:hover:after {
-    opacity: 1;
-  }
-
-  /* Light up the content of the article, when hovering over it */
-  .activity-item.link:hover .body {
-    background: white;
-    border-color: rgb(153, 153, 153); /* @aluminum */
-  }
-
-
 
 
 /* =Following
@@ -807,9 +773,7 @@
   }
 
 
-
-
-/* =Hub Feature
+/* =Feature
   ----------------------------------------------- */
   html.controller-tags.action-show .takeover > section {
     overflow: visible;
@@ -851,9 +815,7 @@
   }
 
 
-
-
-/* =Hub Feature (Do)
+/* =Feature (Do)
   ----------------------------------------------- */
   html.controller-tags.action-show .takeover .featured-action-beta {
     width: 300px;
@@ -928,7 +890,47 @@
 
 
 
-/* =Feed Pages
+/* =Pages
+  -----------------------------------------------
+  -----------------------------------------------
+  ----------------------------------------------- */
+
+
+/* =Feed
+  ----------------------------------------------- */
+
+  /* Light up the social icons for the article, when hovering over it */
+
+  /* Off */
+  .feed:hover .social h3 a {
+    color: rgb(190, 190, 190);
+  }
+  .feed:hover .dos h3 a:before {
+    background-image: url(images/dos-off.png);
+  }
+  .feed:hover .votes h3 a:before {
+    background-image: url(images/votes-off.png);
+  }
+  .feed:hover .comments h3 a:before {
+    background-image: url(images/comments-off.png);
+  }
+
+  /* Over */
+  .feed li:hover .social h3 a {
+    color: rgb(153, 153, 153); /* @aluminum */
+  }
+  .feed li:hover .dos h3 a:before {
+    background-image: url(images/dos.png);
+  }
+  .feed li:hover .votes h3 a:before {
+    background-image: url(images/votes.png);
+  }
+  .feed li:hover .comments h3 a:before {
+    background-image: url(images/comments.png);
+  }
+
+
+/* =Layout
   -----------------------------------------------
   These are adjustments to the layout near the top of the page.
   ----------------------------------------------- */
