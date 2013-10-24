@@ -1,5 +1,10 @@
 
+
+
+
 /* =Global
+  -----------------------------------------------
+  These are adjustments to the base styles
   ----------------------------------------------- */
 
   /* Clear the “.main” container without an overflow (so that hover content will appear properly) */
@@ -23,43 +28,59 @@
   }
 
 
+
+
 /* =Feed Pages
   -----------------------------------------------
-  These are recommended adjustments to the layout near the top of the page.
-
-  (These rules override the ones in application.css)
+  These are adjustments to the layout near the top of the page.
   ----------------------------------------------- */
+
+  /* Hub */
   html.controller-tags.action-show .page, 
   html.controller-tags.action-show .right-sidebar {
     padding-top: 30px;
   }
+  html.controller-tags.action-show .toolbar {
+    margin-bottom: 32px;
+  }
+  html.controller-tags.action-show .takeover .carousel {
+    padding-bottom: 0;
+  }
+  html.controller-tags.action-show .takeover > section {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-bottom: 0;
+  }
 
+  /* For You */
+  html.controller-posts.action-index .page, 
+  html.controller-posts.action-index .right-sidebar {
+    padding-top: 40px;
+  }
+  html.controller-posts.action-index .takeover>section {
+    margin-top: 40px;
+  }
+  html.controller-posts.action-index .takeover h1 {
+    margin: 0 auto 30px;
+  }
+
+  /* Popular */
+  html.controller-posts.action-popular .page, 
+  html.controller-posts.action-popular .right-sidebar {
+    padding-top: 40px;
+  }
+  html.controller-posts.action-popular .posts .feed li:first-child {
+    margin-top: 32px;
+  }
+
+  /* Member */
   html.controller-users.action-show .page,
   html.controller-users.action-show .right-sidebar,
   html.controller-users.action-todos .page, 
   html.controller-users.action-todos .right-sidebar {
     padding-top: 30px;
   }
-
-  html.controller-posts.action-index .page, 
-  html.controller-posts.action-index .right-sidebar {
-    padding-top: 40px;
-  }
-
-  html.controller-posts.action-popular .page, 
-  html.controller-posts.action-popular .right-sidebar {
-    padding-top: 40px;
-  }
-
-  html.controller-posts.action-index .takeover>section {
-    margin-top: 40px;
-  }
-
-  html.controller-posts.action-index .takeover h1 {
-    margin: 0 auto 30px;
-  }
-
-  html.controller-users.action-show #user-feed > h2,
+  html.controller-users.action-show  #user-feed > h2,
   html.controller-users.action-todos #user-feed-beta .started > h2 {
     line-height: 36px;
     color: rgb(42, 43, 44);
@@ -69,36 +90,18 @@
     text-transform: capitalize;
     line-height: 30px;
   }
-
   html.controller-users.action-todos #user-feed-beta .started > h2 {
     background-position: 2px -2013px;
     background-image: url(http://www.good.is/assets/sprites/global-s7cca2e59e8-0d733058f8d642a83128e9be2273996d.png);
     background-repeat: no-repeat;
     padding-left: 40px;
   }
-
   html.controller-users.action-show #user-feed .feed > li:first-child,
   html.controller-users.action-todos #user-feed-beta .started .feed > li:first-child {
     margin-top: 35px;
   }
 
-  html.controller-posts.action-popular .posts .feed li:first-child {
-    margin-top: 32px;
-  }
 
-  html.controller-tags.action-show .takeover > section {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    padding-bottom: 0;
-  }
-
-  html.controller-tags.action-show .toolbar {
-    margin-bottom: 32px;
-  }
-
-  html.controller-tags.action-show .takeover .carousel {
-    padding-bottom: 0;
-  }
 
 
 /* =Articles
@@ -303,7 +306,7 @@
   }
 
 
-/* =Source
+/* =Source Summary (Hover Target)
   ----------------------------------------------- */
   .feed .source .summary {
     margin-top: 0;
@@ -356,7 +359,7 @@
   }
 
 
-/* =Source Details
+/* =Source Details (Hover Box)
   ----------------------------------------------- */
   .feed .source .details {
     margin-top: 0;
@@ -405,14 +408,11 @@
     padding: 0.625em; /* 10px / 16px */
     padding-left: 5em;
     position: relative;
-
     border: 1px solid black;
     box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.125);
   }
   .feed .source .details .container .container:after {
     display: block;
-
-
     content: "";
     background: url(images/pointer.png);
     position: absolute;
@@ -563,58 +563,6 @@
   .feed .social > div {
     margin-right: 0.75em;
   }
-  .feed .tags {
-    margin-top: -1.25em;
-    float: right;
-    margin-right: 0.625em;
-  }
-
-  .feed:hover .tags {
-    opacity: 0;
-    transition: opacity 0.2s;
-  }
-  .feed li:hover .tags {
-    opacity: 1;
-  }
-
-  .feed .body .tags h3 {
-    background: transparent url(images/tag.png) center no-repeat;
-    width: 15px;
-    height: 10px;
-    display: inline-block;
-    vertical-align: middle;
-
-    /* @hidden-accessible */
-    text-indent: -9999px;
-    overflow: hidden;
-  }
-  .feed .tags ul {
-    font-size: 0.75em; /* 12px / @font-size */
-    display: inline;
-  }
-  .feed .tags ul,
-  .feed .tags li {
-    list-style: none;
-    margin-left: 0;
-    padding-left: 0;
-  }
-  .feed .tags ul {
-    margin-left: 0.75em;
-  }
-  .feed .tags li {
-    display: inline;
-  }
-  .feed .tags li + li {
-    margin-left: 1em;
-  }
-  .feed .tags li a {
-    color: rgb(153, 153, 153); /* @aluminum */
-  }
-  .feed .tags li a:hover,
-  .feed .tags li a:active,
-  .feed .tags li a:focus {
-    color: rgb(113, 179, 247);
-  }
   .feed .social h3 {
     font-family: inherit;
     font-weight: inherit;
@@ -628,21 +576,7 @@
     font-size: 0.75em;
   }
 
-  .feed article:after {
-    content: "";
-    background: transparent url(images/corner.png) top right no-repeat;
-    width: 15px;
-    height: 15px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    opacity: 0;
-    transition: opacity 0.2s;
-  }
-  .feed li:hover article:after {
-    opacity: 1;
-  }
-
+  /* Light up the social icons for the article, when hovering over it */
   .feed:hover .social h3 a {
     color: rgb(190, 190, 190);
   }
@@ -708,6 +642,9 @@
     background-image: url(images/comments.png);
   }
 
+
+/* =Social Details (Hover Box)
+  ----------------------------------------------- */
   .social .numbers {
     position: relative;
   }
@@ -739,7 +676,6 @@
     left: auto;
     opacity: 1;
   }
-
   .social .details {
     position: relative;
     background: white;
@@ -807,12 +743,80 @@
   }
 
 
+/* =Tags
+  ----------------------------------------------- */
+  .feed .tags {
+    margin-top: -1.25em;
+    float: right;
+    margin-right: 0.625em;
+  }
+  .feed .tags h3 {
+    background: transparent url(images/tag.png) center no-repeat;
+    width: 15px;
+    height: 10px;
+    display: inline-block;
+    vertical-align: middle;
+
+    /* @hidden-accessible */
+    text-indent: -9999px;
+    overflow: hidden;
+  }
+  .feed .tags ul {
+    font-size: 0.75em; /* 12px / @font-size */
+    display: inline;
+  }
+  .feed .tags ul,
+  .feed .tags li {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .feed .tags ul {
+    margin-left: 0.75em;
+  }
+  .feed .tags li {
+    display: inline;
+  }
+  .feed .tags li + li {
+    margin-left: 1em;
+  }
+  .feed .tags li a {
+    color: rgb(153, 153, 153); /* @aluminum */
+  }
+  .feed .tags li a:hover,
+  .feed .tags li a:active,
+  .feed .tags li a:focus {
+    color: rgb(113, 179, 247);
+  }
+
+  /* Only show the tags for the article, when hovering over it */
+  .feed:hover .tags {
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .feed li:hover .tags {
+    opacity: 1;
+  }
+
+  /* Show a triangle in the corner of the article, when hovering over it */
+  .feed article:after {
+    content: "";
+    background: transparent url(images/corner.png) top right no-repeat;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .feed li:hover article:after {
+    opacity: 1;
+  }
+
+
 /* =Following
   ----------------------------------------------- */
-  .feed article.following h3.source {
-    display: table;
-    margin-bottom: 1.5em;
-  }
   .feed article.following .person {
     padding: 1.25em; /* 20px / 16px */
     padding-right: 0.625em; /* 10px / @font-size */
@@ -911,7 +915,6 @@
   .feed article.following .person button:focus {
     background-color: rgb(84, 218, 151);
   }
-
   .feed article > .more {
     margin-left: 0.625em; /* 10px / 16px */
     margin-top: 1.5em;
