@@ -1,5 +1,4 @@
 
-
 /* =Global
   ----------------------------------------------- */
 
@@ -13,18 +12,22 @@
     clear: both;
   }
 
-  /* Give all buttons a pointer cursor, throughout the site. */
-  button {
+  /* Give all buttons a pointer cursor (consider doing this throughout the site) */
+  .feed button {
     cursor: pointer;
   }
 
-  /* Consider using "Helvetica Neue" throughout the site. */
+  /* Use "Helvetica Neue" as the default font (consider doing this throughout the site) */
   .feed article {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
 
 /* =Feed Pages
+  -----------------------------------------------
+  These are recommended adjustments to the layout near the top of the page.
+
+  (These rules override the ones in application.css)
   ----------------------------------------------- */
   html.controller-tags.action-show .page, 
   html.controller-tags.action-show .right-sidebar {
@@ -705,29 +708,6 @@
     background-image: url(images/comments.png);
   }
 
-  /*
-  .feed .votes    a:hover:before,
-  .feed .votes    a:active:before,
-  .feed .votes    a:focus:before {
-    background-image: url(images/votes.png);
-  }
-  .feed .comments a:hover:before,
-  .feed .comments a:active:before,
-  .feed .comments a:focus:before {
-    background-image: url(images/comments.png);
-  }
-  */
-
-  /* Preload */
-  /*
-  .feed .votes    a abbr:before {
-    background-image: url(images/votes-off.png);
-  }
-  .feed .comments a abbr:before {
-    background-image: url(images/comments-off.png);
-  }
-  */
-
   .social .numbers {
     position: relative;
   }
@@ -1053,23 +1033,5 @@
   .featured-action-beta article a h2:focus {
     color: rgb(113, 179, 247); /* @link-color */
   }
-
-
-/* TEMP: Override the image borders */
-/*
-.feed article .comment .author img {
-  border-width: 0;
-}
-.feed article.following .person img {
-  border-width: 0;
-}
-.feed .source .summary img {
-  border-width: 0;
-}
-.feed article.article .body > a > img,
-.feed article.comment .body > a > img {
-  border-width: 0;
-}
-*/
 
 
