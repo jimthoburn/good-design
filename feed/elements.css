@@ -1,4 +1,9 @@
 
+
+/* =Global
+  ----------------------------------------------- */
+
+  /* Clear the “.main” container without an overflow (so that hover content will appear properly) */
   .main {
     overflow: visible;
   }
@@ -8,14 +13,19 @@
     clear: both;
   }
 
+  /* Give all buttons a pointer cursor, throughout the site. */
   button {
     cursor: pointer;
   }
 
+  /* Consider using "Helvetica Neue" throughout the site. */
   .feed article {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
+
+/* =Feed Pages
+  ----------------------------------------------- */
   html.controller-tags.action-show .page, 
   html.controller-tags.action-show .right-sidebar {
     padding-top: 30px;
@@ -88,7 +98,7 @@
   }
 
 
-/* =Article
+/* =Articles
   ----------------------------------------------- */
   .feed article a {
     color: rgb(102, 102, 102); /* @steel */
@@ -116,7 +126,7 @@
     max-width: 36.25em; /* 580px / @font-size */
     box-sizing: border-box;
   }
-  .feed article.link    .body {
+  .feed article.link .body {
     padding       : 1.25em;  /* 20px / @font-size */
     padding-right : 0.625em; /* 10px / @font-size */
     border: 0.0625em solid rgb(243, 243, 243); /* @bright-silver */
@@ -409,8 +419,6 @@
     width: 20px;
     height: 13px;
   }
-
-
   .feed .source .details img {
     width: 3.75em; /* 60px / @font-size  */
     left: 0.625em; /* 10px / 16px */
