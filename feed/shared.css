@@ -180,39 +180,191 @@
   }
 
 
+/* =Source (Author / Tag)
+  ----------------------------------------------- */
+  .activity-item .source .summary {
+    margin-top: 0;
+    font-size: 0.75em; /* 12px / @font-size */
+    font-weight: normal;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .activity-item .source .summary a {
+    position: relative;
+    display: inline-block;
+    padding: 1.33333333333333em; /* 16px / link.font-size */
+    transition: all 0.2s;
+    color: rgb(153, 153, 153); /* @aluminum */
+  }
+  .activity-item .source .summary a:first-child {
+    margin-left: -1.33333333333333em; /* link.padding */
+  }
+  .activity-item .source .summary a + a {
+    margin-left: -2.66666666666666em; /* link.padding x 2 */
+  }
+  .activity-item .source .summary a span {
+    font-weight: bold;
+    transition: color 0.2s;
+    color: rgb(102, 102, 102);
+    margin-right: 0.375em;
+  }
+  .activity-item .source .summary a:hover  span,
+  .activity-item .source .summary a:active span,
+  .activity-item .source .summary a:focus  span {
+    color: rgb(113, 179, 247); /* @link-color */
+  }
+  .activity-item .source .summary.has-image a:first-child {
+    padding-left: 7em; /* 84px / link.font-size */
+    border-left-width: 0;
+    margin-left: 0;
+  }
+  .activity-item .source .summary img {
+    width: 5em; /* 60px / link.font-size */
+    height: auto;
+    border-width: 0 1px 1px;
+    border-style: solid;
+    border-color: rgb(221, 223, 227); /* @silver-blue */
+    vertical-align: top;
+    margin-right: 0.25em;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+
+  /* Details */
+  .activity-item .source .details > .container {
+    line-height: 1.5;
+  }
+  .activity-item .source .details img {
+    width: 3.75em; /* 60px / @font-size  */
+    left: 0.625em; /* 10px / 16px */
+    height: auto;
+    position: absolute;
+  }
+  .activity-item .source .details h3 {
+    font-size: inherit;
+    font-weight: bold;
+    color: black;
+    margin-top: 0;
+    margin-bottom: 0;
+    transition: color 0.2s;
+  }
+  .activity-item .source .details a:hover h3,
+  .activity-item .source .details a:hover h3,
+  .activity-item .source .details a:hover h3 {
+    color: rgb(113, 179, 247); /* @link-color */
+  }
+  .activity-item .source .details a p {
+    margin-top: 0;
+    font-size: 0.75em; /* 12px / @font-size */
+    color: rgb(153, 153, 153); /* @aluminum */
+    margin-bottom: 0;
+  }
+  .activity-item .source .details .container > p {
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+    border-top: 1px solid rgb(221, 223, 227); /* @silver-blue */
+    padding-top: 0.75em;
+    color: rgb(102, 102, 102); /* @steel */
+    font-size: 0.8125em; /* 13px / @font-size */
+  }
+
+
+  /* Hover */
+  .activity-item .source .details {
+    margin-top: 0;
+    top: 2.1em;
+    position: absolute;
+    z-index: 1;
+    width: 350px;
+    box-sizing: border-box;
+    left: -9999px;
+    opacity: 0;
+    transition: opacity 0.2s;
+    padding-top: 0.4em;
+  }
+  .activity-item .source .details > .container .container {
+    background: white;
+    padding: 0.625em; /* 10px / 16px */
+    padding-left: 5em;
+    position: relative;
+    border: 1px solid black;
+    box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.125);
+  }
+  .activity-item .source .details > .container .container:after {
+    display: block;
+    content: "";
+    background: url(images/pointer.png);
+    position: absolute;
+    top: -11px;
+    left: 30px;
+    margin-left: -10px;
+    width: 20px;
+    height: 13px;
+  }
+
+  /* Attempt to line the hover box up with the image (which is a little smaller in the takeover area). */
+  .takeover .activity-item .source .details {
+    margin-left: -40px;
+  }
+
+  .activity-item .source:hover  .details,
+  .activity-item .source:active .details,
+  .activity-item .source:focus  .details {
+    left: auto;
+    opacity: 1;
+  }
+
+  /* If the page is scripted, delay the hover effect */
+  .activity-item .source.scripted:hover  .details,
+  .activity-item .source.scripted:active .details,
+  .activity-item .source.scripted:focus  .details {
+    left: -9999px;
+    opacity: 0;
+  }
+  .activity-item .source.active:hover  .details,
+  .activity-item .source.active:active .details,
+  .activity-item .source.active:focus  .details {
+    left: auto;
+    opacity: 1;
+  }
+
+
 /* =Social
   ----------------------------------------------- */
-  .social {
+  .activity-item .social {
     margin-top: 1em;
     border-top: 1px solid rgb(243, 243, 243); /* @bright-silver */
     padding-top: 1em;
   }
-  .social > p,
-  .social > div,
-  .social > form {
+  .activity-item .social > p,
+  .activity-item .social > div,
+  .activity-item .social > form {
     display: inline-block;
   }
-  .social > p,
-  .social > div {
+  .activity-item .social > p,
+  .activity-item .social > div {
     margin-right: 0.75em;
   }
-  .social h3 {
+  .activity-item .social h3 {
     font-family: inherit;
     font-weight: inherit;
     font-size: inherit;
     display: inline;
   }
-  .social h3 a {
+  .activity-item .social h3 a {
     color: rgb(153, 153, 153); /* @aluminum */
     transition: opacity 0.2s, color 0.2s;
     font-size: 0.75em;
   }
-  .social h3 a:hover,
-  .social h3 a:active,
-  .social h3 a:focus {
+  .activity-item .social h3 a:hover,
+  .activity-item .social h3 a:active,
+  .activity-item .social h3 a:focus {
     color: rgb(113, 179, 247) !important;
   }
-  .social h3 a:before {
+  .activity-item .social h3 a:before {
     content: "";
     display: inline-block;
     vertical-align: middle;
@@ -222,20 +374,123 @@
     background-size: contain;
     opacity: 0.6;
   }
-  .social .dos h3 a:before {
+  .activity-item .social .dos h3 a:before {
     background-image: url(images/dos.png);
     width: 13px;
     height: 13px;
   }
-  .social .votes h3 a:before {
+  .activity-item .social .votes h3 a:before {
     background-image: url(images/votes.png);
     width: 12px;
     height: 8px;
   }
-  .social .comments h3 a:before {
+  .activity-item .social .comments h3 a:before {
     background-image: url(images/comments.png);
     width: 15px;
     height: 15px;
+  }
+
+
+  /* Details */
+  .activity-item .social .details h4 {
+    font-size: 12px;
+    line-height: 30px;
+    padding: 0 1em;
+    margin-bottom: 0;
+    font-weight: bold;
+    color: rgb(0, 0, 0) !important;
+  }
+  .activity-item .social .details ul {
+    margin-top: 0;
+    border-top: 1px solid rgb(243, 243, 243); /* @bright-silver */
+  }
+  .activity-item .social .details ul,
+  .activity-item .social .details li {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .activity-item .social .details li {
+    line-height: 30px;
+  }
+  .activity-item .social .details li a {
+    font-size: 13px;
+    display: block;
+    padding-right: 1em;
+    color: rgb(102, 102, 102); /* @steel */
+  }
+  .activity-item .social .details li a[href]:hover,
+  .activity-item .social .details li a[href]:active,
+  .activity-item .social .details li a[href]:focus {
+    background: rgb(249, 249, 249);
+    color: black;
+  }
+  .activity-item .social .details li img {
+    width: 30px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+  .activity-item .social .details li.more a {
+    padding-left: 38px;
+    position: relative;
+  }
+  .activity-item .social .details li.more a span {
+    position: absolute;
+    left: 12px;
+  }
+
+
+  /* Hover */
+  .activity-item .numbers {
+    position: relative;
+  }
+  .activity-item .numbers > div {
+    position: absolute;
+    z-index: 9999;
+    left: -9999px;
+    opacity: 0;
+    margin-left: -95px; /* (details.width / 2) - (icon.width / 2) */
+    padding-top: 14px;
+  }
+  .activity-item .numbers:hover  > div,
+  .activity-item .numbers:active > div,
+  .activity-item .numbers:focus  > div {
+    left: auto;
+    opacity: 1;
+  }
+  .activity-item .numbers .details {
+    position: relative;
+    background: white;
+    white-space: nowrap;
+    border: 1px solid black;
+    width: 200px;
+    transition: opacity 0.2s;
+    box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.125);
+  }
+  .activity-item .numbers .details:after {
+    content: "";
+    background: url(images/pointer.png);
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    margin-left: -10px;
+    width: 20px;
+    height: 13px;
+  }
+
+  /* If the page is scripted, delay the hover effect */
+  .activity-item .numbers.scripted:hover  > div,
+  .activity-item .numbers.scripted:active > div,
+  .activity-item .numbers.scripted:focus  > div {
+    left: -9999px;
+    opacity: 0;
+  }
+  .activity-item .numbers.active:hover  > div,
+  .activity-item .numbers.active:active > div,
+  .activity-item .numbers.active:focus  > div {
+    left: auto;
+    opacity: 1;
   }
 
 
@@ -295,7 +550,7 @@
   }
 
   /* Show a triangle in the corner of the article, when hovering over it */
-  .activity-item:after {
+  .feed .activity-item:after {
     content: "";
     background: transparent url(images/corner.png) top right no-repeat;
     width: 15px;
@@ -306,7 +561,7 @@
     opacity: 0;
     transition: opacity 0.2s;
   }
-  .activity-item:hover:after {
+  .feed .activity-item:hover:after {
     opacity: 1;
   }
 
@@ -314,257 +569,6 @@
   .activity-item.link:hover .body {
     background: white;
     border-color: rgb(153, 153, 153); /* @aluminum */
-  }
-
-
-/* =Hover Box
-  ----------------------------------------------- */
-
-  /* Summary */
-  .activity-item .source .summary {
-    margin-top: 0;
-    font-size: 0.75em; /* 12px / @font-size */
-    font-weight: normal;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  .activity-item .source .summary a {
-    position: relative;
-    display: inline-block;
-    padding: 1.33333333333333em; /* 16px / link.font-size */
-    transition: all 0.2s;
-    color: rgb(153, 153, 153); /* @aluminum */
-  }
-  .activity-item .source .summary a:first-child {
-    margin-left: -1.33333333333333em; /* link.padding */
-  }
-  .activity-item .source .summary a + a {
-    margin-left: -2.66666666666666em; /* link.padding x 2 */
-  }
-  .activity-item .source .summary a span {
-    font-weight: bold;
-    transition: color 0.2s;
-    color: rgb(102, 102, 102);
-    margin-right: 0.375em;
-  }
-  .activity-item .source .summary a:hover  span,
-  .activity-item .source .summary a:active span,
-  .activity-item .source .summary a:focus  span {
-    color: rgb(113, 179, 247); /* @link-color */
-  }
-  .activity-item .source .summary.has-image a:first-child {
-    padding-left: 7em; /* 84px / link.font-size */
-    border-left-width: 0;
-    margin-left: 0;
-  }
-  .activity-item .source .summary img {
-    width: 5em; /* 60px / link.font-size */
-    height: auto;
-    border-width: 0 1px 1px;
-    border-style: solid;
-    border-color: rgb(221, 223, 227); /* @silver-blue */
-    vertical-align: top;
-    margin-right: 0.25em;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
-  /* Details */
-  .activity-item .source .details {
-    margin-top: 0;
-    top: 2.1em;
-    position: absolute;
-    z-index: 1;
-    width: 350px;
-    box-sizing: border-box;
-    left: -9999px;
-    opacity: 0;
-    transition: opacity 0.2s;
-    padding-top: 0.4em;
-  }
-
-  /* Attempt to line the hover box up with the image (which is a little smaller in the takeover area). */
-  .takeover .activity-item .source .details {
-    margin-left: -40px;
-  }
-
-  .activity-item .source:hover  .details,
-  .activity-item .source:active .details,
-  .activity-item .source:focus  .details {
-    left: auto;
-    opacity: 1;
-  }
-
-  /* If the page is scripted, delay the hover effect */
-  .activity-item .source.scripted:hover  .details,
-  .activity-item .source.scripted:active .details,
-  .activity-item .source.scripted:focus  .details {
-    left: -9999px;
-    opacity: 0;
-  }
-  .activity-item .source.active:hover  .details,
-  .activity-item .source.active:active .details,
-  .activity-item .source.active:focus  .details {
-    left: auto;
-    opacity: 1;
-  }
-
-  .activity-item .source .details > .container {
-    line-height: 1.5;
-  }
-  .activity-item .source .details > .container .container {
-    background: white;
-    padding: 0.625em; /* 10px / 16px */
-    padding-left: 5em;
-    position: relative;
-    border: 1px solid black;
-    box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.125);
-  }
-  .activity-item .source .details .container .container:after {
-    display: block;
-    content: "";
-    background: url(images/pointer.png);
-    position: absolute;
-    top: -11px;
-    left: 30px;
-    margin-left: -10px;
-    width: 20px;
-    height: 13px;
-  }
-  .activity-item .source .details img {
-    width: 3.75em; /* 60px / @font-size  */
-    left: 0.625em; /* 10px / 16px */
-    height: auto;
-    position: absolute;
-  }
-  .activity-item .source .details h3 {
-    font-size: inherit;
-    font-weight: bold;
-    color: black;
-    margin-top: 0;
-    margin-bottom: 0;
-    transition: color 0.2s;
-  }
-  .activity-item .source .details a:hover h3,
-  .activity-item .source .details a:hover h3,
-  .activity-item .source .details a:hover h3 {
-    color: rgb(113, 179, 247); /* @link-color */
-  }
-  .activity-item .source .details a p {
-    margin-top: 0;
-    font-size: 0.75em; /* 12px / @font-size */
-    color: rgb(153, 153, 153); /* @aluminum */
-    margin-bottom: 0;
-  }
-  .activity-item .source .details .container > p {
-    margin-top: 0.75em;
-    margin-bottom: 0.75em;
-    border-top: 1px solid rgb(221, 223, 227); /* @silver-blue */
-    padding-top: 0.75em;
-    color: rgb(102, 102, 102); /* @steel */
-    font-size: 0.8125em; /* 13px / @font-size */
-  }
-
-
-  /* =Social Details (Hover Box)
-  ----------------------------------------------- */
-  .social .numbers {
-    position: relative;
-  }
-  .social .numbers > div {
-    position: absolute;
-    z-index: 9999;
-    left: -9999px;
-    opacity: 0;
-    margin-left: -95px; /* (details.width / 2) - (icon.width / 2) */
-    padding-top: 14px;
-  }
-  .social .numbers:hover  > div,
-  .social .numbers:active > div,
-  .social .numbers:focus  > div {
-    left: auto;
-    opacity: 1;
-  }
-
-  /* If the page is scripted, delay the hover effect */
-  .social .numbers.scripted:hover  > div,
-  .social .numbers.scripted:active > div,
-  .social .numbers.scripted:focus  > div {
-    left: -9999px;
-    opacity: 0;
-  }
-  .social .numbers.active:hover  > div,
-  .social .numbers.active:active > div,
-  .social .numbers.active:focus  > div {
-    left: auto;
-    opacity: 1;
-  }
-  .social .details {
-    position: relative;
-    background: white;
-    white-space: nowrap;
-    border: 1px solid black;
-    width: 200px;
-    transition: opacity 0.2s;
-    box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.125);
-  }
-  .social .details > span {
-    background: url(images/pointer.png);
-    position: absolute;
-    top: -11px;
-    left: 50%;
-    margin-left: -10px;
-    width: 20px;
-    height: 13px;
-  }
-  .social .details h4 {
-    font-size: 12px;
-    line-height: 30px;
-    padding: 0 1em;
-    margin-bottom: 0;
-    font-weight: bold;
-    color: rgb(0,0,0) !important;
-  }
-  .social .details ul {
-    margin-top: 0;
-    border-top: 1px solid rgb(243, 243, 243); /* @bright-silver */
-  }
-  .social .details ul,
-  .social .details li {
-    list-style: none;
-    margin-left: 0;
-    padding-left: 0;
-  }
-  .social .details li {
-    line-height: 30px;
-  }
-  .social .details li a {
-    font-size: 13px;
-    display: block;
-    padding-right: 1em;
-    color: rgb(102, 102, 102); /* @steel */
-  }
-  .social .details li a[href]:hover,
-  .social .details li a[href]:active,
-  .social .details li a[href]:focus {
-    background: rgb(249, 249, 249);
-    color: black;
-  }
-  .social .details li img {
-    width: 30px;
-    height: auto;
-    vertical-align: middle;
-    margin-right: 5px;
-  }
-  .social .details li.more a {
-    padding-left: 38px;
-    position: relative;
-  }
-  .social .details li.more a span {
-    position: absolute;
-    left: 12px;
   }
 
 
@@ -902,30 +906,30 @@
   /* Light up the social icons for the article, when hovering over it */
 
   /* Off */
-  .feed:hover .social h3 a {
+  .feed:hover .activity-item .social h3 a {
     color: rgb(190, 190, 190);
   }
-  .feed:hover .dos h3 a:before {
+  .feed:hover .activity-item .social .dos h3 a:before {
     background-image: url(images/dos-off.png);
   }
-  .feed:hover .votes h3 a:before {
+  .feed:hover .activity-item .social .votes h3 a:before {
     background-image: url(images/votes-off.png);
   }
-  .feed:hover .comments h3 a:before {
+  .feed:hover .activity-item .social .comments h3 a:before {
     background-image: url(images/comments-off.png);
   }
 
   /* Over */
-  .feed li:hover .social h3 a {
+  .feed li:hover .activity-item .social h3 a {
     color: rgb(153, 153, 153); /* @aluminum */
   }
-  .feed li:hover .dos h3 a:before {
+  .feed li:hover .activity-item .social .dos h3 a:before {
     background-image: url(images/dos.png);
   }
-  .feed li:hover .votes h3 a:before {
+  .feed li:hover .activity-item .social .votes h3 a:before {
     background-image: url(images/votes.png);
   }
-  .feed li:hover .comments h3 a:before {
+  .feed li:hover .activity-item .social .comments h3 a:before {
     background-image: url(images/comments.png);
   }
 
