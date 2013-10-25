@@ -57,7 +57,7 @@
   }
   .feed .activity-item .todo_actions {
     float: right;
-    margin-left: 1em;
+    margin-left: 1.5em;
     padding-top: 0;
     border-width: 0;
     margin-top: 0;
@@ -180,7 +180,7 @@
   }
 
 
-/* =Source (Author / Tag)
+/* =Source
   ----------------------------------------------- */
   .activity-item .source .summary {
     margin-top: 0;
@@ -310,25 +310,29 @@
     margin-left: -40px;
   }
 
-  .activity-item .source:hover  .details,
-  .activity-item .source:active .details,
-  .activity-item .source:focus  .details {
-    left: auto;
-    opacity: 1;
+  @media (min-width: 40em) { /* @small-screen */
+    .activity-item .source:hover  .details,
+    .activity-item .source:active .details,
+    .activity-item .source:focus  .details {
+      left: auto;
+      opacity: 1;
+    }
   }
 
-  /* If the page is scripted, delay the hover effect */
-  .activity-item .source.scripted:hover  .details,
-  .activity-item .source.scripted:active .details,
-  .activity-item .source.scripted:focus  .details {
-    left: -9999px;
-    opacity: 0;
-  }
-  .activity-item .source.active:hover  .details,
-  .activity-item .source.active:active .details,
-  .activity-item .source.active:focus  .details {
-    left: auto;
-    opacity: 1;
+  @media (min-width: 40em) { /* @small-screen */
+    /* If the page is scripted, delay the hover effect */
+    .activity-item .source.scripted:hover  .details,
+    .activity-item .source.scripted:active .details,
+    .activity-item .source.scripted:focus  .details {
+      left: -9999px;
+      opacity: 0;
+    }
+    .activity-item .source.active:hover  .details,
+    .activity-item .source.active:active .details,
+    .activity-item .source.active:focus  .details {
+      left: auto;
+      opacity: 1;
+    }
   }
 
 
@@ -453,11 +457,13 @@
     margin-left: -95px; /* (details.width / 2) - (icon.width / 2) */
     padding-top: 14px;
   }
-  .activity-item .numbers:hover  > div,
-  .activity-item .numbers:active > div,
-  .activity-item .numbers:focus  > div {
-    left: auto;
-    opacity: 1;
+  @media (min-width: 40em) { /* @small-screen */
+    .activity-item .numbers:hover  > div,
+    .activity-item .numbers:active > div,
+    .activity-item .numbers:focus  > div {
+      left: auto;
+      opacity: 1;
+    }
   }
   .activity-item .numbers .details {
     position: relative;
@@ -479,27 +485,34 @@
     height: 13px;
   }
 
-  /* If the page is scripted, delay the hover effect */
-  .activity-item .numbers.scripted:hover  > div,
-  .activity-item .numbers.scripted:active > div,
-  .activity-item .numbers.scripted:focus  > div {
-    left: -9999px;
-    opacity: 0;
-  }
-  .activity-item .numbers.active:hover  > div,
-  .activity-item .numbers.active:active > div,
-  .activity-item .numbers.active:focus  > div {
-    left: auto;
-    opacity: 1;
+  @media (min-width: 40em) { /* @small-screen */
+    /* If the page is scripted, delay the hover effect */
+    .activity-item .numbers.scripted:hover  > div,
+    .activity-item .numbers.scripted:active > div,
+    .activity-item .numbers.scripted:focus  > div {
+      left: -9999px;
+      opacity: 0;
+    }
+    .activity-item .numbers.active:hover  > div,
+    .activity-item .numbers.active:active > div,
+    .activity-item .numbers.active:focus  > div {
+      left: auto;
+      opacity: 1;
+    }
   }
 
 
 /* =Tags
   ----------------------------------------------- */
   .activity-item .tags {
-    margin-top: -1.125em;
-    float: right;
-    margin-right: 0.625em;
+    margin-top: 1em;
+  }
+  @media (min-width: 40em) { /* @small-screen */
+    .activity-item .tags {
+      margin-top: -1.125em;
+      float: right;
+      margin-right: 0.625em;
+    }
   }
   .activity-item .tags h3 {
     background: transparent url(images/tag.png) center no-repeat;
@@ -584,21 +597,27 @@
   -----------------------------------------------
   These are individual items for the feed:
 
-  * Articles
-  * Links
-  * Dos
-  * Notifications
-  * Replies
-  * Comments
-  * Follows
+  Articles
+  Links
+  Dos
+  Notifications
+  Replies
+  Comments
+  Follows
+
   ----------------------------------------------- */
   .activity-item {
     border-top: 1px solid rgb(221, 223, 227); /* @silver-blue */
     color: rgb(153, 153, 153); /* @aluminum */
     position: relative;
-    padding-top    : 3.375em; /* 56px / @font-size */
+    padding-top    : 5em;
     padding-bottom : 2.5em;   /* 40px / @font-size */
-    padding-left   : 5.25em;  /* 84px / @font-size */
+  }
+  @media (min-width: 40em) { /* @small-screen */
+    .activity-item {
+      padding-top  : 3.375em; /* 56px / @font-size */
+      padding-left : 5.25em;  /* 84px / @font-size */
+    }
   }
   .activity-item a {
     color: rgb(102, 102, 102); /* @steel */
@@ -660,10 +679,19 @@
     display: block;
     margin-left: 10em; /* image.width + 1.25em / font-size (12px) */
   }
+
   .activity-item.article .body > a.has-image ~ .social,
   .activity-item.comment .body > a.has-image ~ .social {
-    margin-left: 7.5em; /* image.width + 1.25em */
+    clear: both;
   }
+  @media (min-width: 40em) { /* @small-screen */
+    .activity-item.article .body > a.has-image ~ .social,
+    .activity-item.comment .body > a.has-image ~ .social {
+      clear: none;
+      margin-left: 7.5em; /* image.width + 1.25em */
+    }
+  }
+
   .activity-item.link .body > a > img {
     float: right;
     height: 3.625em; /* 58px / @font-size */
@@ -680,7 +708,7 @@
   .activity-item .body > h3 {
     font-size: 0.75em; /* 12px / @font-size */
     color: rgb(153, 153, 153); /* @aluminum */
-    white-space: nowrap;
+    line-height: 1.3em;
   }
   .activity-item .body > h3 a {
     font-weight: bold;
