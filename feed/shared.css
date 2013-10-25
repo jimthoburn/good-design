@@ -37,6 +37,7 @@
     margin: 0;
     font-size: 1.5em; /* 24px / @font-size */
     font-family: "FreightText Light", "FreightTextLight", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @freight */
+    font-weight: normal;
   }
 
   .activity-item .time {
@@ -520,6 +521,7 @@
     height: 10px;
     display: inline-block;
     vertical-align: middle;
+    margin: 0;
 
     /* @hidden-accessible */
     text-indent: -9999px;
@@ -930,6 +932,12 @@
 
 /* =Feed
   ----------------------------------------------- */
+  .feed,
+  .feed > li {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
 
   /* Light up the social icons for the article, when hovering over it */
 
