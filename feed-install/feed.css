@@ -1,0 +1,241 @@
+
+
+
+/* =Elements
+  -----------------------------------------------
+  -----------------------------------------------
+  ----------------------------------------------- */
+
+  /* Use "Helvetica Neue" as the default font (consider doing this throughout the site) */
+  .activity-list {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  /* Set a base font size and line height for the activity list */
+  .activity-list {
+    font-size: 1em;       /* @font-size (16px) */
+    line-height: 1.25em;  /* @line-height (20px) */
+  }
+
+  .activity-list section,
+  .activity-list article {
+    margin-top: 1.25em; /* @line-height */
+  }
+  .activity-list p {
+    margin-top: 0.625em; /* @line-height / 2 */
+    margin-bottom: 0.625em; /* @line-height / 2 */
+  }
+
+  /* Links */
+  .activity-list a {
+    color: rgb(102, 102, 102); /* @steel */
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .activity-list a:hover,
+  .activity-list a:active,
+  .activity-list a:focus {
+    color: rgb(113, 179, 247); /* @link-color */
+  }
+
+  .activity-list h2 img,
+  .activity-list p img {
+    vertical-align: middle;
+    margin-right: 0.25em;
+  }
+  .activity-list .comment h2,
+  .activity-list .follow h2 {
+    font-family: inherit;
+    font-size: inherit;
+  }
+  .activity-list .follow h2 {
+    font-weight: bold;
+  }
+
+  /* Headlines */
+  .activity-list h2 {
+    margin: 0;
+    font-size: 1.5em; /* 24px / @font-size */
+    font-family: "FreightText Light", "FreightTextLight", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @freight */
+    font-weight: normal;
+  }
+
+  /* Timestamp */
+  .source + .time {
+    color: rgb(204, 204, 204);
+    font-size: 0.75em;
+  }
+
+
+/* =Buttons
+  ----------------------------------------------- */
+
+  /* Give all buttons a pointer cursor (consider doing this throughout the site) */
+  .activity-list button {
+    cursor: pointer;
+  }
+
+  /* Do It */
+  .todo_actions .todo_status .icon.primary_box {
+    position: static;
+  }
+  .feed .activity-list .todo_actions {
+    float: right;
+    margin-left: 1.5em;
+    padding-top: 0;
+    border-width: 0;
+    margin-top: 0;
+  }
+
+  /* Follow */
+  .activity-list .follow button {
+    font-weight: bold;
+    text-align: center;
+    background-color: rgb(135, 233, 184);
+    color: white;
+    transition: all 0.2s;
+    border-width: 0;
+    font-size: 12px;
+    line-height: 36px;
+    width: 80px;
+  }
+  .activity-list .follow button:hover,
+  .activity-list .follow button:active,
+  .activity-list .follow button:focus {
+    background-color: rgb(84, 218, 151);
+  }
+
+
+/* =Links
+  ----------------------------------------------- */
+
+
+
+
+/* =Units
+  -----------------------------------------------
+  -----------------------------------------------
+  ----------------------------------------------- */
+
+
+/* =Post Summary
+  ----------------------------------------------- */
+
+
+/* =Comment
+  ----------------------------------------------- */
+  .activity-list .comment {
+    max-width: 36.25em; /* 580px / @font-size */
+    box-sizing: border-box;
+    padding-right: 2em;
+    padding-left: 3em;
+  }
+  .activity-list .comment,
+  .activity-list .comment + .more {
+    margin-top: 1.25em; /* @line-height */
+    border-top: 1px solid rgb(221, 223, 227); /* @silver-blue */
+    padding-top: 1.25em; /* @line-height */
+  }
+
+
+/* =Follow (topic or person)
+  ----------------------------------------------- */
+  .activity-list .follow {
+    max-width: 36.25em; /* 580px / @font-size */
+    box-sizing: border-box;
+    padding-right: 2em;
+    padding-left: 3em;
+  }
+  .activity-list .follow,
+  .activity-list .follow + .more {
+    margin-top: 1.25em; /* @line-height */
+    border-top: 1px solid rgb(221, 223, 227); /* @silver-blue */
+    padding-top: 1.25em; /* @line-height */
+  }
+
+
+/* =Source
+  ----------------------------------------------- */
+
+
+/* =Social
+  ----------------------------------------------- */
+
+
+/* =Tags
+  ----------------------------------------------- */
+  .activity-list .tags h3 {
+    background: transparent url(images/tag.svg) center no-repeat;
+    width: 15px;
+    height: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+
+    /* @hidden-accessible */
+    text-indent: -9999px;
+    overflow: hidden;
+  }
+  .activity-list .tags ul {
+    font-size: 0.75em; /* 12px / @font-size */
+    display: inline;
+  }
+  .activity-list .tags ul,
+  .activity-list .tags li {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .activity-list .tags ul {
+    margin-left: 0.75em;
+  }
+  .activity-list .tags li {
+    display: inline;
+  }
+  .activity-list .tags li + li {
+    margin-left: 1em;
+  }
+  .activity-list .tags li a {
+    color: rgb(153, 153, 153); /* @aluminum */
+  }
+  .activity-list .tags li a:hover,
+  .activity-list .tags li a:active,
+  .activity-list .tags li a:focus {
+    color: rgb(113, 179, 247);
+  }
+
+
+/* =Hover
+  ----------------------------------------------- */
+
+
+
+
+/* =Activity List
+  -----------------------------------------------
+  -----------------------------------------------
+  ----------------------------------------------- */
+  ul.activity-list,
+  ul.activity-list > li {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  section.activity-list,
+  ul.activity-list > li {
+    border-top: 1px solid rgb(221, 223, 227); /* @silver-blue */
+    color: rgb(153, 153, 153); /* @aluminum */
+    position: relative;
+    padding-top    : 5em;
+    padding-bottom : 2.5em;   /* 40px / @font-size */
+  }
+  @media (min-width: 40em) { /* @small-screen */
+    section.activity-list,
+    ul.activity-list > li {
+      padding-top  : 3.375em; /* 56px / @font-size */
+      padding-left : 5.25em;  /* 84px / @font-size */
+    }
+  }
+
+
