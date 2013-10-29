@@ -1,85 +1,70 @@
 
 
+
+
 /* =Elements
   -----------------------------------------------
   -----------------------------------------------
   ----------------------------------------------- */
 
   /* Use "Helvetica Neue" as the default font (consider doing this throughout the site) */
-  .activity-list {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  .activity-item {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* $helvetica */
   }
 
   /* Set a base font size and line height for the activity list */
-  .activity-list {
+  .activity-item {
     font-size: 1em;       /* $font-size (16px) */
     line-height: 1.25em;  /* $line-height (20px) */
     color: black;
   }
 
-  .activity-list section,
-  .activity-list article {
+  .activity-item section,
+  .activity-item article {
     margin-top: 1.25em; /* $line-height */
   }
-  .activity-list p {
+  .activity-item p {
     margin-top: 0.625em; /* $line-height / 2 */
     margin-bottom: 0.625em; /* $line-height / 2 */
   }
 
   /* Links */
-  .activity-list a {
+  .activity-item a {
     color: rgb(102, 102, 102); /* $steel */
     color: rgb(102, 153, 204);
     text-decoration: none;
     transition: all 0.2s;
   }
-  .activity-list a:hover,
-  .activity-list a:active,
-  .activity-list a:focus {
+  .activity-item a:hover,
+  .activity-item a:active,
+  .activity-item a:focus {
     color: rgb(113, 179, 247); /* $link-color */
   }
-  .activity-list a.follow-button {
+  .activity-item a.follow-button {
     color: white; /* Restore the base style */
   }
 
   /* Headlines */
-  .activity-list h2 {
+  .activity-item h2 {
     margin: 0;
     font-size: 1.5em; /* 24px / $font-size */
     line-height: 1.25em; /* 30px / 24px */
     font-family: "FreightText Light", "FreightTextLight", "Helvetica Neue", Helvetica, Arial, sans-serif; /* $freight */
     font-weight: normal;
   }
-  .activity-list .comment h2,
-  .activity-list .follow h2 {
+  .activity-item .comment h2,
+  .activity-item .follow h2 {
     font-family: inherit;
     font-size: inherit;
   }
-  .activity-list .follow h2 {
+  .activity-item .follow h2 {
     font-weight: bold;
-  }
-
-  /* Images */
-  .activity-list .has-image:after {
-    /* $clearfix */
-    content: "";
-    display: table;
-    clear: both;
-  }
-  .activity-list .has-image img {
-    margin-right: 0.5em;
-    float: left;
-  }
-  .activity-list .link h2 img {
-    margin-right: 0;
-    float: right;
-    margin-left: 0.5em;
   }
 
   /* Timestamp */
   .source + .time {
     color: rgb(204, 204, 204);
-    font-size: 0.75em;
+    font-size: 0.75em; /* 12px / $font-size */
     margin: 0;
     position: absolute;
     top: 1.66666666666667em; /* 20px / 12px */
@@ -96,7 +81,7 @@
   ----------------------------------------------- */
 
   /* Give all buttons a pointer cursor (consider doing this throughout the site) */
-  .activity-list button {
+  .activity-item button {
     cursor: pointer;
   }
 
@@ -104,47 +89,32 @@
   .todo_actions .todo_status .icon.primary_box {
     position: static;
   }
-  .activity-list .todo_actions {
-    float: right;
-    margin-left: 1.5em;
+  .activity-item .todo_actions {
+    margin-top: 1.25em; /* $line-height */
     padding-top: 0;
     border-width: 0;
-    margin-top: 0;
   }
 
   /* Follow */
-  .activity-list .follow button {
-    font-weight: bold;
-    text-align: center;
-    background-color: rgb(135, 233, 184);
-    color: white;
-    transition: all 0.2s;
-    border-width: 0;
-    font-size: 12px;
-    line-height: 36px;
-    width: 80px;
-  }
-  .activity-list .follow button:hover,
-  .activity-list .follow button:active,
-  .activity-list .follow button:focus {
-    background-color: rgb(84, 218, 151);
+  .follow-button {
+    margin-top: 1.25em; /* $line-height */
   }
 
 
 /* =More Link
   ----------------------------------------------- */
-  .activity-list .more {
-    margin-left: 0.625em; /* 10px / $font-size */
+  .activity-item .more {
+    padding-left: 0.625em; /* 10px / $font-size */
     margin-top: 1.5em;
   }
-  .activity-list .more a {
+  .activity-item .more a {
     color: rgb(153, 153, 153); /* $aluminum */
     font-weight: bold;
     font-size: 0.875em; /* 14px / $font-size */
   }
-  .activity-list .more a:hover,
-  .activity-list .more a:active,
-  .activity-list .more a:focus {
+  .activity-item .more a:hover,
+  .activity-item .more a:active,
+  .activity-item .more a:focus {
     color: rgb(113, 179, 247); /* $link-color */
   }
 
@@ -159,38 +129,86 @@
 
 /* =Post
   ----------------------------------------------- */
+  .activity-item .post h2 img {
+    float: left;
+    margin-right: 0.5em;
+  }
+  .activity-item .post.link h2 img {
+    float: right;
+    margin-right: 0;
+    margin-left: 0.5em;
+  }
+  .activity-item .post h2 small {
+    font-size: 12px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* $helvetica */
+  }
+  .activity-item .post h2 small a {
+    font-weight: bold;
+  }
 
 
 /* =Comment
   ----------------------------------------------- */
-  .activity-list .comment {
-    max-width: 36.25em; /* 580px / $font-size */
-    box-sizing: border-box;
-    padding-right: 2em;
-    padding-left: 3em;
+  .activity-item .comment {
+    padding-left: 2.5em; /* @line-height x 2 */
   }
-  .activity-list .comment,
-  .activity-list .comment + .more {
+  .activity-item .comment,
+  .activity-item .comment + .more {
     margin-top: 1.25em; /* $line-height */
     border-top: 1px solid rgb(221, 223, 227); /* $silver-blue */
     padding-top: 1.25em; /* $line-height */
   }
-  .activity-list .comment + .comment {
-    margin-top: 0;
+  .activity-item .comment + .comment {
     padding-left: 5em; /* @line-height x 4 */
+  }
+
+  .activity-item .comment h2 {
+    font-size: 0.75em; /* 12px / $font-size */
+    color: rgb(153, 153, 153); /* $aluminum */
+  }
+  .activity-item .comment h2 a {
+    font-weight: bold;
+    margin-right: 0.375em;
+  }
+  .activity-item .comment h2 img {
+    border: 1px solid rgb(221, 223, 227); /* $silver-blue */
+    vertical-align: middle;
+    margin-right: 0.5em;
+
+    margin-left: -3.33333333333333em; /* (@line-height x 2) / 12px */
+  }
+  .activity-item .comment p {
+    color: black;
+    font-size: 0.875em; /* 14px / $font-size */
+    max-width: 33em;
+  }
+  .activity-item .comment p a {
+    color: rgb(102, 153, 204);
+  }
+  .activity-item .comment p a:hover,
+  .activity-item .comment p a:active,
+  .activity-item .comment p a:focus {
+    color: rgb(113, 179, 247); /* $link-color */
   }
 
 
 /* =Follow (topic or person)
   ----------------------------------------------- */
-  .activity-list .follow {
+  .activity-item .follow {
     max-width: 36.25em; /* 580px / $font-size */
     box-sizing: border-box;
     padding-right: 2em;
     padding-left: 3em;
   }
-  .activity-list .follow,
-  .activity-list .follow + .more {
+  .activity-item .follow h2 img {
+    float: left;
+    margin-right: 0.5em;
+  }
+  .activity-item .follow .meta {
+    color: rgb(153, 153, 153); /* $aluminum */
+  }
+  .activity-item .follow,
+  .activity-item .follow + .more {
     margin-top: 1.25em; /* $line-height */
     border-top: 1px solid rgb(221, 223, 227); /* $silver-blue */
     padding-top: 1.25em; /* $line-height */
@@ -199,40 +217,59 @@
 
 /* =Source
   ----------------------------------------------- */
-  .activity-list .source {
+  /*
+  .activity-item li {
+    position: relative;
+  }
+  .activity-item li .source {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  */
+  .activity-item .source {
     margin-top: 0;
+    font-size: 0.75em; /* 12px / $font-size */
+    color: rgb(153, 153, 153); /* $aluminum */
+  }
+  .activity-item .source img {
+    vertical-align: middle;
+    margin-right: 0.75em;
+  }
+  .activity-item .source a {
+    font-weight: bold;
   }
 
 
 /* =Meta (votes, dos, and comments)
   ----------------------------------------------- */
-  .activity-list .meta {
+  .activity-item .meta {
     margin-top: 1em;
     border-top: 1px solid rgb(243, 243, 243); /* $bright-silver */
     padding-top: 1em;
   }
-  .activity-list .meta:after {
+  .activity-item .meta:after {
     /* $clearfix */
     content: "";
     display: table;
     clear: both;
   }
-  .activity-list .meta p {
+  .activity-item .meta p {
     margin-top: 0;
     display: inline-block;
     margin-right: 0.75em;
   }
-  .activity-list .meta p a {
+  .activity-item .meta p a {
     color: rgb(153, 153, 153); /* $aluminum */
     transition: opacity 0.2s, color 0.2s;
-    font-size: 0.75em;
+    font-size: 0.75em; /* 12px / $font-size */
   }
-  .activity-list .meta p a:hover,
-  .activity-list .meta p a:active,
-  .activity-list .meta p a:focus {
+  .activity-item .meta p a:hover,
+  .activity-item .meta p a:active,
+  .activity-item .meta p a:focus {
     color: rgb(113, 179, 247);
   }
-  .activity-list .meta p a:before {
+  .activity-item .meta p a:before {
     content: "";
     display: inline-block;
     vertical-align: middle;
@@ -242,17 +279,17 @@
     background-size: contain;
     opacity: 0.6;
   }
-  .activity-list .meta .dos a:before {
+  .activity-item .meta .dos a:before {
     background-image: url(images/do.svg);
     width: 13px;
     height: 13px;
   }
-  .activity-list .meta .votes a:before {
+  .activity-item .meta .votes a:before {
     background-image: url(images/vote.svg);
     width: 12px;
     height: 8px;
   }
-  .activity-list .meta .comments a:before {
+  .activity-item .meta .comments a:before {
     background-image: url(images/comment.svg);
     width: 15px;
     height: 15px;
@@ -261,12 +298,12 @@
 
 /* =Tags
   ----------------------------------------------- */
-  .activity-list .tags {
+  .activity-item .tags {
     margin: 0;
     display: inline;
     float: right;
   }
-  .activity-list .tags h3 {
+  .activity-item .tags h3 {
     background: transparent url(images/tag.svg) center no-repeat;
     width: 15px;
     height: 10px;
@@ -278,40 +315,45 @@
     text-indent: -9999px;
     overflow: hidden;
   }
-  .activity-list .tags ul {
+  .activity-item .tags ul {
     font-size: 0.75em; /* 12px / $font-size */
     display: inline;
   }
-  .activity-list .tags ul,
-  .activity-list .tags li {
+  .activity-item .tags ul,
+  .activity-item .tags li {
     list-style: none;
     margin-left: 0;
     padding-left: 0;
   }
-  .activity-list .tags ul {
+  .activity-item .tags ul {
     margin-left: 0.75em;
   }
-  .activity-list .tags li {
+  .activity-item .tags li {
     display: inline;
   }
-  .activity-list .tags li + li {
+  .activity-item .tags li + li {
     margin-left: 1em;
   }
-  .activity-list .tags li a {
+  .activity-item .tags li a {
     color: rgb(153, 153, 153); /* $aluminum */
   }
-  .activity-list .tags li a:hover,
-  .activity-list .tags li a:active,
-  .activity-list .tags li a:focus {
+  .activity-item .tags li a:hover,
+  .activity-item .tags li a:active,
+  .activity-item .tags li a:focus {
     color: rgb(113, 179, 247);
   }
 
 
-/* =Hover
+/* =Activity Item
   ----------------------------------------------- */
+  .activity-item {
+    border-top: 1px solid rgb(221, 223, 227); /* $silver-blue */
+    position: relative;
+    padding: 1.25em; /* @line-height */
+  }
 
   /* Show a triangle in the corner of the article, when hovering over it */
-  .activity-list li:after {
+  .activity-item:after {
     content: "";
     background: transparent url(images/corner.svg) top right no-repeat;
     width: 15px;
@@ -322,14 +364,12 @@
     opacity: 0;
     transition: opacity 0.2s;
   }
-  .activity-list li:hover:after {
+  .activity-item:hover:after {
     opacity: 1;
   }
 
 
 /* =Activity List
-  -----------------------------------------------
-  -----------------------------------------------
   ----------------------------------------------- */
   ul.activity-list,
   ul.activity-list > li {
@@ -338,23 +378,5 @@
     padding-left: 0;
   }
 
-  section.activity-list,
-  ul.activity-list > li {
-    border-top: 1px solid rgb(221, 223, 227); /* $silver-blue */
-    position: relative;
-    padding: 1.25em; /* @line-height */
-  }
-  .disabled section.activity-list,
-  .disabled ul.activity-list > li {
-    padding-top    : 5em;
-    padding-bottom : 2.5em;   /* 40px / $font-size */
-  }
-  @media (min-width: 40em) { /* $larger-screen */
-    .disabled section.activity-list,
-    .disabled ul.activity-list > li {
-      padding-top  : 3.375em; /* 56px / $font-size */
-      padding-left : 5.25em;  /* 84px / $font-size */
-    }
-  }
 
 
