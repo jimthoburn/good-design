@@ -45,19 +45,19 @@
   }
 
   /* Headlines */
-  .activity-item h2 {
+  .activity-item h3 {
     margin: 0;
     font-size: 1.5em; /* 24px / $font-size */
     line-height: 1.25em; /* 30px / 24px */
     font-family: "FreightText Light", "FreightTextLight", "Helvetica Neue", Helvetica, Arial, sans-serif; /* $freight */
     font-weight: normal;
   }
-  .activity-item .comment h2,
-  .activity-item .follow h2 {
+  .activity-item .comment h3,
+  .activity-item .follow  h3 {
     font-family: inherit;
     font-size: inherit;
   }
-  .activity-item .follow h2 {
+  .activity-item .follow h3 {
     font-weight: bold;
   }
 
@@ -129,20 +129,20 @@
 
 /* =Post
   ----------------------------------------------- */
-  .activity-item .post h2 img {
+  .activity-item .post h3 img {
     float: left;
     margin-right: 0.5em;
   }
-  .activity-item .post.link h2 img {
+  .activity-item .link h3 img {
     float: right;
     margin-right: 0;
     margin-left: 0.5em;
   }
-  .activity-item .post h2 small {
+  .activity-item .post h3 small {
     font-size: 12px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* $helvetica */
   }
-  .activity-item .post h2 small a {
+  .activity-item .post h3 small a {
     font-weight: bold;
   }
 
@@ -162,15 +162,15 @@
     padding-left: 5em; /* @line-height x 4 */
   }
 
-  .activity-item .comment h2 {
+  .activity-item .comment h3 {
     font-size: 0.75em; /* 12px / $font-size */
     color: rgb(153, 153, 153); /* $aluminum */
   }
-  .activity-item .comment h2 a {
+  .activity-item .comment h3 a {
     font-weight: bold;
     margin-right: 0.375em;
   }
-  .activity-item .comment h2 img {
+  .activity-item .comment h3 img {
     border: 1px solid rgb(221, 223, 227); /* $silver-blue */
     vertical-align: middle;
     margin-right: 0.5em;
@@ -200,7 +200,7 @@
     padding-right: 2em;
     padding-left: 3em;
   }
-  .activity-item .follow h2 img {
+  .activity-item .follow h3 img {
     float: left;
     margin-right: 0.5em;
   }
@@ -303,7 +303,7 @@
     display: inline;
     float: right;
   }
-  .activity-item .tags h3 {
+  .activity-item .tags h4 {
     background: transparent url(images/tag.svg) center no-repeat;
     width: 15px;
     height: 10px;
@@ -352,7 +352,7 @@
     padding: 1.25em; /* @line-height */
   }
 
-  /* Show a triangle in the corner of the article, when hovering over it */
+  /* Show a triangle in the corner of the item, when hovering over it */
   .activity-item:after {
     content: "";
     background: transparent url(images/corner.svg) top right no-repeat;
