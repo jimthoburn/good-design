@@ -14,7 +14,7 @@
 
   /* Set a base font size and line height for the activity list */
   .activity-item {
-    font-size: 1em;       /* $font-size (16px) */
+    font-size: 1em;       /* $font-size   (16px) */
     line-height: 1.25em;  /* $line-height (20px) */
     color: black;
   }
@@ -24,8 +24,8 @@
     margin-top: 1.25em; /* $line-height */
   }
   .activity-item p {
-    margin-top: 0.625em; /* $line-height / 2 */
-    margin-bottom: 0.625em; /* $line-height / 2 */
+    margin-top    : 0.625em; /* $line-height / 2 */
+    margin-bottom : 0.625em;
   }
 
   /* Links */
@@ -269,17 +269,12 @@
     display: inline-block;
     margin-right: 0.75em;
   }
-  .activity-item .meta p a {
+  .activity-item .meta p abbr {
     color: rgb(153, 153, 153); /* $aluminum */
     transition: opacity 0.2s, color 0.2s;
     font-size: 0.75em; /* 12px / $font-size */
   }
-  .activity-item .meta p a:hover,
-  .activity-item .meta p a:active,
-  .activity-item .meta p a:focus {
-    color: rgb(113, 179, 247);
-  }
-  .activity-item .meta p a:before {
+  .activity-item .meta p abbr:before {
     content: "";
     display: inline-block;
     vertical-align: middle;
@@ -289,17 +284,17 @@
     background-size: contain;
     opacity: 0.6;
   }
-  .activity-item .meta .dos a:before {
+  .activity-item .meta .dos abbr:before {
     background-image: url(images/do.svg);
     width: 13px;
     height: 13px;
   }
-  .activity-item .meta .votes a:before {
+  .activity-item .meta .votes abbr:before {
     background-image: url(images/vote.svg);
     width: 12px;
     height: 8px;
   }
-  .activity-item .meta .comments a:before {
+  .activity-item .meta .comments abbr:before {
     background-image: url(images/comment.svg);
     width: 15px;
     height: 15px;
