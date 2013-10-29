@@ -61,21 +61,6 @@
     font-weight: bold;
   }
 
-  /* Timestamp */
-  .source + .time {
-    color: rgb(204, 204, 204);
-    font-size: 0.75em; /* 12px / $font-size */
-    margin: 0;
-    position: absolute;
-    top: 1.66666666666667em; /* 20px / 12px */
-    right: 1.66666666666667em; /* 20px / 12px */
-  }
-
-  /* Meta */
-  .follow > a:first-child p {
-    color: rgb(153, 153, 153); /* $aluminum */
-  }
-
 
 /* =Buttons
   ----------------------------------------------- */
@@ -86,13 +71,23 @@
   }
 
   /* Do It */
-  .todo_actions .todo_status .icon.primary_box {
+  .activity-item .todo_actions .todo_status .icon.primary_box {
     position: static;
   }
   .activity-item .todo_actions {
     margin-top: 1.25em; /* $line-height */
     padding-top: 0;
     border-width: 0;
+  }
+
+  .featured-do .todo_actions {
+    margin-top: 1.25em; /* $line-height */
+    margin-left: 1.25em;
+    padding-top: 0;
+    border-width: 0;
+  }
+  .featured-do .todo_actions .todo_status .icon.primary_box {
+    position: static;
   }
 
   /* Follow */
@@ -131,11 +126,12 @@
   ----------------------------------------------- */
   .activity-item .post h3 img {
     float: left;
-    margin-right: 0.5em; /* $image-margin */
+    border-right: 0.75em solid white; /* $image-margin */
   }
   .activity-item .post h3 small {
     font-size: 12px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* $helvetica */
+    margin-left: 0.5em;
   }
   .activity-item .post h3 small a {
     font-weight: bold;
@@ -144,16 +140,27 @@
 
 /* =Link
   ----------------------------------------------- */
+
+  /* The links images are smaller, so we want the meta data to appear after them */
+  .activity-item .link .has-image:after {
+    /* $clearfix */
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  /* Link images should appear on the right, instead of the left */
   .activity-item .link h3 img {
     float: right;
     margin-right: 0;
-    margin-left: 0.5em; /* $image-margin */
+    margin-left: 0.75em; /* $image-margin */
   }
+
   .activity-item .link,
   .activity-item .follow {
     padding       : 1.25em;  /* 20px / $font-size */
     border: 0.0625em solid rgb(243, 243, 243); /* $bright-silver */
-    background: rgb(249, 249, 249);
+    background: rgb(249, 249, 249); /* $silver */
     border-radius: 0.25em;
     transition: background-color 0.2s, border-color 0.2s;
   }
@@ -170,10 +177,9 @@
   ----------------------------------------------- */
   .activity-item .follow h3 img {
     float: left;
-    margin-right: 0.5em; /* $image-margin */
-  }
-  .activity-item .follow .meta {
-    color: rgb(153, 153, 153); /* $aluminum */
+    border-right-width: 0.75em; /* $image-margin */
+    border-right-style: solid;
+    border-right-color: rgb(249, 249, 249); /* $silver */
   }
   .activity-item .follow,
   .activity-item .follow + .more {
@@ -206,7 +212,7 @@
   }
   .activity-item .comment h3 img {
     vertical-align: middle;
-    margin-right: 0.5em; /* $image-margin */
+    margin-right: 0.5em;
 
     margin-left: -3.33333333333333em; /* (@line-height x 2) / 12px */
   }
@@ -227,27 +233,30 @@
 
 /* =Source
   ----------------------------------------------- */
-  /*
-  .activity-item li {
-    position: relative;
-  }
-  .activity-item li .source {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  */
   .activity-item .source {
     margin-top: 0;
     font-size: 0.75em; /* 12px / $font-size */
     color: rgb(153, 153, 153); /* $aluminum */
   }
   .activity-item .source img {
-    vertical-align: middle;
+    vertical-align: top;
+    margin-top: -1.66666666666667em; /* $line-height / 12px */
+    margin-left: -1.66666666666667em;
     margin-right: 0.75em;
+    border-color: rgb(221, 223, 227); /* $silver-blue */
+    border-style: solid;
+    border-width: 0 1px 1px 1px;
   }
   .activity-item .source a {
     font-weight: bold;
+  }
+  .activity-item .source + .time {
+    color: rgb(204, 204, 204);
+    font-size: 0.75em; /* 12px / $font-size */
+    margin: 0;
+    position: absolute;
+    top: 1.66666666666667em; /* 20px / 12px */
+    right: 1.66666666666667em; /* 20px / 12px */
   }
 
 
@@ -258,23 +267,38 @@
     border-top: 1px solid rgb(243, 243, 243); /* $bright-silver */
     padding-top: 1em;
   }
+  .featured-do .meta {
+    margin-top: 1.5em;
+    border-top-width: 0;
+    padding-top: 0;
+    display: inline;
+    float: right;
+  }
   .activity-item .meta:after {
     /* $clearfix */
     content: "";
     display: table;
     clear: both;
   }
+
   .activity-item .meta p {
     margin-top: 0;
     display: inline-block;
     margin-right: 0.75em;
-  }
-  .activity-item .meta p abbr {
     color: rgb(153, 153, 153); /* $aluminum */
+    transition: color 0.2s;
+  }
+
+  /* Icons */
+  .meta .dos      abbr,
+  .meta .votes    abbr,
+  .meta .comments abbr {
     transition: opacity 0.2s, color 0.2s;
     font-size: 0.75em; /* 12px / $font-size */
   }
-  .activity-item .meta p abbr:before {
+  .meta .dos      abbr:before,
+  .meta .votes    abbr:before,
+  .meta .comments abbr:before {
     content: "";
     display: inline-block;
     vertical-align: middle;
@@ -284,17 +308,17 @@
     background-size: contain;
     opacity: 0.6;
   }
-  .activity-item .meta .dos abbr:before {
+  .meta .dos abbr:before {
     background-image: url(images/do.svg);
     width: 13px;
     height: 13px;
   }
-  .activity-item .meta .votes abbr:before {
+  .meta .votes abbr:before {
     background-image: url(images/vote.svg);
     width: 12px;
     height: 8px;
   }
-  .activity-item .meta .comments abbr:before {
+  .meta .comments abbr:before {
     background-image: url(images/comment.svg);
     width: 15px;
     height: 15px;
@@ -376,11 +400,45 @@
 
 /* =Activity List
   ----------------------------------------------- */
+  ul.activity-list {
+    margin-top: 1.25em; /* $line-height */
+  }
   ul.activity-list,
   ul.activity-list > li {
     list-style: none;
     margin-left: 0;
     padding-left: 0;
+  }
+
+
+/* =Featured Do
+  ----------------------------------------------- */
+  .featured-do {
+    background: rgb(246, 255, 250);
+    border: 6px solid rgb(233, 249, 240);
+    padding: 14px;
+  }
+  .featured-do h3 {
+    font-size: 20px;
+    font-family: "FreightText Light", "FreightTextLight", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @freight */
+    line-height: 1.25em;
+  }
+  .featured-do h3 a {
+    color: black;
+    display: block;
+  }
+  .featured-do h3 a:hover,
+  .featured-do h3 a:active,
+  .featured-do h3 a:focus {
+    color: rgb(113, 179, 247); /* @link-color */
+  }
+  .featured-do h3 img {
+    border: 5px solid rgb(203, 238, 218);
+    width: 100px;
+    height: auto;
+    border-radius: 200px;
+    margin: 0 auto 1.5em;
+    display: block;
   }
 
 
