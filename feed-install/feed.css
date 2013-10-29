@@ -185,6 +185,15 @@
   .activity-item .follow + .more {
     margin-top: 1.25em; /* $line-height */
   }
+  .activity-item .follow .meta {
+    font-size: 0.75em; /* 12px / $font-size */
+  }
+  .activity-item .follow .description {
+    border-top: 1px solid rgb(243, 243, 243); /* $bright-silver */
+    font-family: "FreightText Light", "Helvetica Neue", Helvetica, Arial, sans-serif; /* @freight */
+    padding-top: 0.625em; /* @line-height / 2 */
+    margin-bottom: 0;
+  }
 
 
 /* =Comment
@@ -262,15 +271,13 @@
 
 /* =Meta (votes, dos, and comments)
   ----------------------------------------------- */
-  .activity-item .meta {
-    margin-top: 1em;
+  .activity-item .post .meta {
+    margin-top: 0.625em;
     border-top: 1px solid rgb(243, 243, 243); /* $bright-silver */
-    padding-top: 1em;
+    padding-top: 0.625em;
   }
   .featured-do .meta {
     margin-top: 1.5em;
-    border-top-width: 0;
-    padding-top: 0;
     display: inline;
     float: right;
   }
@@ -283,6 +290,7 @@
 
   .activity-item .meta p {
     margin-top: 0;
+    margin-bottom: 0;
     display: inline-block;
     margin-right: 0.75em;
     color: rgb(153, 153, 153); /* $aluminum */
