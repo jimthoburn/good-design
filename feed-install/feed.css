@@ -30,7 +30,6 @@
 
   /* Links */
   .activity-item a {
-    color: rgb(102, 102, 102); /* $steel */
     color: rgb(102, 153, 204);
     text-decoration: none;
     transition: all 0.2s;
@@ -55,10 +54,61 @@
   .activity-item .comment h3,
   .activity-item .follow  h3 {
     font-family: inherit;
+  }
+  .activity-item .follow  h3 {
     font-size: inherit;
   }
   .activity-item .follow h3 {
     font-weight: bold;
+  }
+  .activity-item h3 a {
+    color: inherit;
+  }
+  .activity-item h3 a:hover,
+  .activity-item h3 a:hover,
+  .activity-item h3 a:hover {
+    color: rgb(113, 179, 247); /* $link-color */
+  }
+
+  /* Icons */
+  .meta .dos      abbr,
+  .meta .votes    abbr,
+  .meta .comments abbr {
+    transition: opacity 0.2s, color 0.2s;
+    font-size: 0.75em; /* 12px / $font-size */
+  }
+  .meta .dos      abbr:before,
+  .meta .votes    abbr:before,
+  .meta .comments abbr:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.375em;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.6;
+  }
+  .meta .dos abbr:before {
+    background-image: url(images/do.svg);
+    width: 13px;
+    height: 13px;
+  }
+  .meta .votes abbr:before {
+    background-image: url(images/vote.svg);
+    width: 12px;
+    height: 8px;
+  }
+  .meta .comments abbr:before {
+    background-image: url(images/comment.svg);
+    width: 15px;
+    height: 15px;
+  }
+
+  /* Time */
+  .activity-item .time {
+    color: rgb(204, 204, 204);
+    font-size: 0.75em; /* 12px / $font-size */
   }
 
 
@@ -129,12 +179,8 @@
     border-right: 0.75em solid white; /* $image-margin */
   }
   .activity-item .post h3 small {
-    font-size: 12px;
+    font-size: 0.5em; /* 12px / 24px */
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* $helvetica */
-    margin-left: 0.5em;
-  }
-  .activity-item .post h3 small a {
-    font-weight: bold;
   }
 
 
@@ -194,6 +240,9 @@
     padding-top: 0.625em; /* @line-height / 2 */
     margin-bottom: 0;
   }
+  .activity-item .follow .has-image + .meta + .description {
+    margin-left: 4.5em;
+  }
 
 
 /* =Comment
@@ -211,12 +260,7 @@
     padding-left: 5em; /* @line-height x 4 */
   }
 
-  .activity-item .comment h3 {
-    font-size: 0.75em; /* 12px / $font-size */
-    color: rgb(153, 153, 153); /* $aluminum */
-  }
   .activity-item .comment h3 a {
-    font-weight: bold;
     margin-right: 0.375em;
   }
   .activity-item .comment h3 img {
@@ -228,7 +272,6 @@
   .activity-item .comment p {
     color: black;
     font-size: 0.875em; /* 14px / $font-size */
-    max-width: 33em;
   }
   .activity-item .comment p a {
     color: rgb(102, 153, 204);
@@ -243,33 +286,21 @@
 /* =Source
   ----------------------------------------------- */
   .activity-item .source {
-    margin-top: 0;
     font-size: 0.75em; /* 12px / $font-size */
     color: rgb(153, 153, 153); /* $aluminum */
   }
-  .activity-item .source img {
-    vertical-align: top;
-    margin-top: -1.66666666666667em; /* $line-height / 12px */
-    margin-left: -1.66666666666667em;
-    margin-right: 0.75em;
-    border-color: rgb(221, 223, 227); /* $silver-blue */
-    border-style: solid;
-    border-width: 0 1px 1px 1px;
-  }
   .activity-item .source a {
     font-weight: bold;
+    color: rgb(102, 102, 102); /* $steel */
   }
-  .activity-item .source + .time {
-    color: rgb(204, 204, 204);
-    font-size: 0.75em; /* 12px / $font-size */
-    margin: 0;
-    position: absolute;
-    top: 1.66666666666667em; /* 20px / 12px */
-    right: 1.66666666666667em; /* 20px / 12px */
+  .activity-item .source a:hover,
+  .activity-item .source a:hover,
+  .activity-item .source a:hover {
+    color: rgb(113, 179, 247); /* $link-color */
   }
 
 
-/* =Meta (votes, dos, and comments)
+/* =Meta
   ----------------------------------------------- */
   .activity-item .post .meta {
     margin-top: 0.625em;
@@ -281,7 +312,7 @@
     display: inline;
     float: right;
   }
-  .activity-item .meta:after {
+  .activity-item .post .meta:after {
     /* $clearfix */
     content: "";
     display: table;
@@ -295,41 +326,6 @@
     margin-right: 0.75em;
     color: rgb(153, 153, 153); /* $aluminum */
     transition: color 0.2s;
-  }
-
-  /* Icons */
-  .meta .dos      abbr,
-  .meta .votes    abbr,
-  .meta .comments abbr {
-    transition: opacity 0.2s, color 0.2s;
-    font-size: 0.75em; /* 12px / $font-size */
-  }
-  .meta .dos      abbr:before,
-  .meta .votes    abbr:before,
-  .meta .comments abbr:before {
-    content: "";
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 0.375em;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    opacity: 0.6;
-  }
-  .meta .dos abbr:before {
-    background-image: url(images/do.svg);
-    width: 13px;
-    height: 13px;
-  }
-  .meta .votes abbr:before {
-    background-image: url(images/vote.svg);
-    width: 12px;
-    height: 8px;
-  }
-  .meta .comments abbr:before {
-    background-image: url(images/comment.svg);
-    width: 15px;
-    height: 15px;
   }
 
 
@@ -387,6 +383,7 @@
     border-top: 1px solid rgb(221, 223, 227); /* $silver-blue */
     position: relative;
     padding: 1.25em; /* @line-height */
+    padding-top: 1em;
   }
 
   /* Show a triangle in the corner of the item, when hovering over it */
@@ -403,6 +400,42 @@
   }
   .activity-item:hover:after {
     opacity: 1;
+  }
+
+  /* OPTIONAL: Move the primary source up and to the left a little */
+  .activity-item > .source:first-child {
+    margin-left: -1.66666666666667em; /* $line-height / 12px */
+  }
+  .activity-item > .source.has-image:first-child {
+    margin-left: 0;
+    margin-bottom: -2em; /* This is arbitrary */
+  }
+  .activity-item > .source:first-child {
+    margin-top: 0;
+  }
+  .activity-item > .source:first-child img {
+    vertical-align: top;
+    margin-top: -1.33333333333333em; /* 16px / 12px */
+    margin-left: -1.66666666666667em; /* 20px / 12px */
+    margin-right: 0.75em;
+    border-color: rgb(221, 223, 227); /* $silver-blue */
+    border-style: solid;
+    border-width: 0 1px 1px 1px;
+  }
+
+  /* OPTIONAL: Position the time in the top right corner */
+  .activity-item > .source:first-child + .time {
+    margin: 0;
+    position: absolute;
+    top: 1.33333333333333em; /* 16px / 12px */
+    right: 1.66666666666667em; /* 20px / 12px */
+  }
+
+  /* OPTIONAL: Attempt to line the content up with the source */
+  .activity-item .post,
+  .activity-item .comment,
+  .activity-item .follow {
+    margin-left: 3.5em;
   }
 
 
@@ -432,13 +465,7 @@
     line-height: 1.25em;
   }
   .featured-do h3 a {
-    color: black;
     display: block;
-  }
-  .featured-do h3 a:hover,
-  .featured-do h3 a:active,
-  .featured-do h3 a:focus {
-    color: rgb(113, 179, 247); /* @link-color */
   }
   .featured-do h3 img {
     border: 5px solid rgb(203, 238, 218);
