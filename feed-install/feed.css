@@ -240,6 +240,8 @@
     padding-top: 0.625em; /* @line-height / 2 */
     margin-bottom: 0;
   }
+
+  /* OPTIONAL: Line the description up with the headline */
   .activity-item .follow .has-image + .meta + .description {
     margin-left: 4.5em;
   }
@@ -318,14 +320,12 @@
     display: table;
     clear: both;
   }
-
   .activity-item .meta p {
     margin-top: 0;
     margin-bottom: 0;
     display: inline-block;
     margin-right: 0.75em;
     color: rgb(153, 153, 153); /* $aluminum */
-    transition: color 0.2s;
   }
 
 
@@ -469,8 +469,6 @@
   }
   .featured-do h3 img {
     border: 5px solid rgb(203, 238, 218);
-    width: 100px;
-    height: auto;
     border-radius: 200px;
     margin: 0 auto 1.5em;
     display: block;
