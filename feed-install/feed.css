@@ -131,12 +131,7 @@
   ----------------------------------------------- */
   .activity-item .post h3 img {
     float: left;
-    margin-right: 0.5em;
-  }
-  .activity-item .link h3 img {
-    float: right;
-    margin-right: 0;
-    margin-left: 0.5em;
+    margin-right: 0.5em; /* $image-margin */
   }
   .activity-item .post h3 small {
     font-size: 12px;
@@ -144,6 +139,45 @@
   }
   .activity-item .post h3 small a {
     font-weight: bold;
+  }
+
+
+/* =Link
+  ----------------------------------------------- */
+  .activity-item .link h3 img {
+    float: right;
+    margin-right: 0;
+    margin-left: 0.5em; /* $image-margin */
+  }
+  .activity-item .link,
+  .activity-item .follow {
+    padding       : 1.25em;  /* 20px / $font-size */
+    border: 0.0625em solid rgb(243, 243, 243); /* $bright-silver */
+    background: rgb(249, 249, 249);
+    border-radius: 0.25em;
+    transition: background-color 0.2s, border-color 0.2s;
+  }
+
+  /* Light up the content of the link, when hovering over it */
+  .activity-item .link:hover,
+  .activity-item .follow:hover {
+    /*background: white;*/
+    /*border-color: rgb(153, 153, 153);*/ /* $aluminum */
+  }
+
+
+/* =Follow (topic or person)
+  ----------------------------------------------- */
+  .activity-item .follow h3 img {
+    float: left;
+    margin-right: 0.5em; /* $image-margin */
+  }
+  .activity-item .follow .meta {
+    color: rgb(153, 153, 153); /* $aluminum */
+  }
+  .activity-item .follow,
+  .activity-item .follow + .more {
+    margin-top: 1.25em; /* $line-height */
   }
 
 
@@ -171,9 +205,8 @@
     margin-right: 0.375em;
   }
   .activity-item .comment h3 img {
-    border: 1px solid rgb(221, 223, 227); /* $silver-blue */
     vertical-align: middle;
-    margin-right: 0.5em;
+    margin-right: 0.5em; /* $image-margin */
 
     margin-left: -3.33333333333333em; /* (@line-height x 2) / 12px */
   }
@@ -189,29 +222,6 @@
   .activity-item .comment p a:active,
   .activity-item .comment p a:focus {
     color: rgb(113, 179, 247); /* $link-color */
-  }
-
-
-/* =Follow (topic or person)
-  ----------------------------------------------- */
-  .activity-item .follow {
-    max-width: 36.25em; /* 580px / $font-size */
-    box-sizing: border-box;
-    padding-right: 2em;
-    padding-left: 3em;
-  }
-  .activity-item .follow h3 img {
-    float: left;
-    margin-right: 0.5em;
-  }
-  .activity-item .follow .meta {
-    color: rgb(153, 153, 153); /* $aluminum */
-  }
-  .activity-item .follow,
-  .activity-item .follow + .more {
-    margin-top: 1.25em; /* $line-height */
-    border-top: 1px solid rgb(221, 223, 227); /* $silver-blue */
-    padding-top: 1.25em; /* $line-height */
   }
 
 
