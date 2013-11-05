@@ -1,0 +1,20 @@
+a:-webkit-any-link {
+color: #1f73ff;
+cursor: auto;
+}
+
+
+p, li, td, code, blockquote {
+font-size: 12px;
+line-height: 320%;
+}
+
+.header .header_top img {
+max-height: 211px;
+max-width: 100%;
+
+}
+
+.header_bottom {
+color: rgb(177, 177, 177);
+}
