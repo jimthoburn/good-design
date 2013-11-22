@@ -54,6 +54,11 @@
     new DelayedHover(numbers[index]);
   }
 
+  var tags = document.querySelectorAll(".tags li");
+  for (var index = 0; index < tags.length; index++) {
+    new DelayedHover(tags[index]);
+  }
+
   //new DelayedHover(document.getElementById("account"), 50);
 
 })();
@@ -109,7 +114,7 @@
   var articles = document.getElementsByTagName("article");
   for (var index = 0; index < articles.length; index++) {
 
-    var form = articles[index].querySelector(".body form");
+    var form = articles[index].querySelector(".body .todo_actions form");
     if (form) {
       new ToggleButton(form, ["Do It", "To Do", "Done"]);
     }
@@ -127,6 +132,11 @@
     */
 
     forms = articles[index].querySelectorAll(".person form");
+    for (var j = 0; j < forms.length; j++) {
+      new ToggleButton(forms[j], ["Follow", "Following"]);
+    }
+
+    forms = articles[index].querySelectorAll(".details form");
     for (var j = 0; j < forms.length; j++) {
       new ToggleButton(forms[j], ["Follow", "Following"]);
     }
