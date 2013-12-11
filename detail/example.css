@@ -1,0 +1,92 @@
+
+
+/* =Elements
+  -----------------------------------------------
+  -----------------------------------------------
+  ----------------------------------------------- */
+
+  /* Body */
+  html.controller-posts.action-show .page .post article .body {
+    line-height: 1.5em;
+    font-size: inherit;
+  }
+
+  /* Headlines */
+  html.controller-posts.action-show .page .post article .body h2 {
+    font-weight: bold;
+    margin-bottom: 0.375em;
+  }
+
+  /* Paragraphs  */
+  html.controller-posts.action-show .page .post article .body p {
+    margin-bottom: 1.5em;
+  }
+
+  /* Lists  */
+  html.controller-posts.action-show .page .post article .body ol,
+  html.controller-posts.action-show .page .post article .body ul {
+    margin: 0 0 1.5em 2.67em;
+    line-height: 1.86em;
+    list-style-type: decimal;
+  }
+
+  /* Figures */
+  html.controller-posts.action-show .page .post article .body figure .image {
+    background: rgb(249, 249, 249);
+    border: 1px solid rgb(218, 220, 224); /* $blue_gray */
+  }
+  html.controller-posts.action-show .page .post article .body figure img {
+    margin: 0 auto;
+  }
+  html.controller-posts.action-show .page .post article .body figcaption {
+    font-size: 0.75em;
+    line-height: 1.33333333333333;
+    padding: 1.86em 0;
+    border-bottom: 1px solid rgb(218, 220, 224); /* $blue_gray */
+    margin-bottom: 1.86em;
+  }
+
+  /* Blockquotes */
+  html.controller-posts.action-show .page .post article .body blockquote {
+
+    /* reset */
+    font-size: inherit;
+    line-height: inherit;
+
+    color: black;
+    font-family: Georgia;
+    border-left-width: 2px;
+    padding: 0 35px 0 33px;
+    margin: 35px 50px 35px 0;
+  }
+
+
+/* =Shims
+  -----------------------------------------------
+  -----------------------------------------------
+  ----------------------------------------------- */
+
+  html.controller-posts.action-show .page .post article .body > div {
+    margin-bottom: 1.5em;
+  }
+
+
+/* =Layout
+  -----------------------------------------------
+  -----------------------------------------------
+  ----------------------------------------------- */
+  .post-content.piece > a > .image {
+    display: inline;
+    float: left;
+    margin-right: 36px;
+    margin-bottom: 48px;
+  }
+  .post-content.piece h1 {
+    padding-top: 16px;
+  }
+  .post-content.piece .body {
+    clear: both;
+    margin-bottom: 3em;
+  }
+
+
