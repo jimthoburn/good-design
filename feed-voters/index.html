@@ -11,18 +11,24 @@
   <style>
 
     /* KLUDGE: Override styles in application.css */
-    .meta .dos a,
-    .meta .votes a,
-    .meta .comments a {
-      font-size: 0.75em;
-    }
     .meta .dos abbr,
     .meta .votes abbr,
     .meta .comments abbr {
       font-size: inherit;
     }
+    .meta .dos > a,
+    .meta .votes > a,
+    .meta .comments > a,
+    .meta .dos > abbr,
+    .meta .votes > abbr,
+    .meta .comments > abbr {
+      font-size: 0.75em;
+    }
     .activity-item section.tags li+li {
       margin-left: 0;
+    }
+    .activity-item section.tags ul {
+      margin-left: 0.25em;
     }
 
     .activity-item .tags             a,
@@ -31,6 +37,7 @@
       padding: 0.5em 0.75em;
       border: 1px solid rgb(243, 243, 243); /* @bright-silver */
       transition: border-color 0.2s;
+      border-radius: 0.25em;
     }
 
     body:hover .activity-item .tags             a,
@@ -143,8 +150,8 @@
       z-index: 9999;
       left: -9999px;
       opacity: 0;
-      margin-left: -95px; /* (details.width / 2) - (icon.width / 2) */
-      padding-top: 14px;
+      margin-left: -80px; /* (details.width / 2) - (icon.width / 2) */
+      padding-top: 16px;
     }
     @media (min-width: 40em) { /* @small-screen */
       .activity-item .votes:hover  > div,
@@ -542,6 +549,19 @@
                       <a href="&#47;posts&#47;build-your-own-legoscope"><span class="image"><img src="http:&#47;&#47;images-3.good.is&#47;albums&#47;crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fbookmarks%2Fphotos%2F000%2F231%2F658%2Foriginal%2Fsddefault.jpg&amp;geometry=60x60%23" alt="" width="60" height="60" /></span> Build your own &quot;LegoScope&quot;</a>&nbsp; <small class="source">via <a href="http://www.youtube.com/watch?v=h4BeK9J9KLo" target="_blank">youtube.com</a></small>
                     </h3>
                                     <div class="meta">
+                                      <section class="votes">
+                                          <a href=""><abbr data-title="No votes yet">0</abbr></a>
+                                          <div>
+                                            <div class="details">
+                                              <h4>Think it’s good?</h4>
+                                              <div class="drawer">
+                                                <div class="actions">
+                                                  <a class="its-good" href="">It's GOOD</a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </section>
                                         <section class="tags">
                                             <h4>
                           <span>Tags</span>
