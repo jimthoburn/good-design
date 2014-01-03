@@ -1,0 +1,1295 @@
+<!doctype html>
+<html dir="ltr" lang="en" class="controller-tags action-show">
+<head>
+  <meta charset="utf-8" />
+  <title>Feed | GOOD</title>
+
+  <link rel="stylesheet" type="text/css" href="http://www.good.is/assets/application-496037b28e39f330f4639a29faa33691.css" />
+  <link type="text/css" rel="stylesheet" href="feed.css" />
+  <link href="http://www.good.is/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+  <style>
+
+    /* KLUDGE: Override styles in application.css */
+    .meta .dos a,
+    .meta .votes a,
+    .meta .comments a {
+      font-size: 0.75em;
+    }
+    .meta .dos abbr,
+    .meta .votes abbr,
+    .meta .comments abbr {
+      font-size: inherit;
+    }
+    .activity-item section.tags li+li {
+      margin-left: 0;
+    }
+
+    .activity-item .tags             a,
+    .activity-item .meta > p       > a,
+    .activity-item .meta > section > a {
+      padding: 0.5em 0.75em;
+      border: 1px solid rgb(243, 243, 243); /* @bright-silver */
+      transition: border-color 0.2s;
+    }
+
+    body:hover .activity-item .tags             a,
+    body:hover .activity-item .meta > p       > a,
+    body:hover .activity-item .meta > section > a {
+      border-color: transparent;
+    }
+
+    body:hover .activity-item:hover .tags             a,
+    body:hover .activity-item:hover .meta > p       > a,
+    body:hover .activity-item:hover .meta > section > a {
+      border-color: rgb(243, 243, 243); /* @bright-silver */
+    }
+
+    .activity-item .meta > p,
+    .activity-item .meta > section {
+      margin-top: 0;
+      margin-bottom: 0;
+      display: inline-block;
+      color: rgb(153, 153, 153);
+
+      margin-right: 0; /* Reset */
+    }
+
+    /* Details */
+    .activity-item .meta .details h4 {
+      font-size: 12px;
+      line-height: 30px;
+      padding: 0 1em;
+      margin-bottom: 0;
+      font-weight: bold;
+      color: rgb(0, 0, 0) !important;
+    }
+    .activity-item .meta .details ul {
+      margin-top: 0;
+      border-top: 1px solid rgb(243, 243, 243); /* @bright-silver */
+    }
+    .activity-item .meta .details ul,
+    .activity-item .meta .details li {
+      list-style: none;
+      margin-left: 0;
+      padding-left: 0;
+    }
+    .activity-item .meta .details li {
+      line-height: 30px;
+    }
+    .activity-item .meta .details li a {
+      font-size: 13px;
+      display: block;
+      padding-right: 1em;
+      color: rgb(102, 102, 102); /* @steel */
+    }
+    .activity-item .meta .details li a[href]:hover,
+    .activity-item .meta .details li a[href]:active,
+    .activity-item .meta .details li a[href]:focus {
+      background: rgb(249, 249, 249);
+      color: black;
+    }
+    .activity-item .meta .details li img {
+      width: 30px;
+      height: auto;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+    .activity-item .meta .details li.more {
+
+      /* Reset styles in application.css */
+      margin-top: 0;
+    }
+    .activity-item .meta .details li.more a {
+      padding-left: 38px;
+      position: relative;
+
+      /* Reset styles in application.css */
+      font-weight: normal;
+    }
+    .activity-item .meta .details li.more a span {
+      position: absolute;
+      left: 12px;
+    }
+
+    /* KLUDGE: Override the drawer styles */
+    .activity-item .meta .details .drawer {
+      border-top: 1px solid rgb(243, 243, 243);
+      text-align: center;
+      padding-right: 0;
+      height: auto;
+      padding-bottom: 8px;
+    }
+    .activity-item .meta .details .drawer .actions {
+      float: none;
+      display: inline-block;
+      margin-right: 0;
+      position: relative;
+    }
+
+    /* Reset styles intended for the meta numbers */
+    .activity-item .meta .details .drawer .actions a:hover,
+    .activity-item .meta .details .drawer .actions a:active,
+    .activity-item .meta .details .drawer .actions a:focus {
+      color: white;
+    }
+
+    /* Hover */
+    .activity-item .votes {
+      position: relative;
+    }
+    .activity-item .votes > div {
+      position: absolute;
+      z-index: 9999;
+      left: -9999px;
+      opacity: 0;
+      margin-left: -95px; /* (details.width / 2) - (icon.width / 2) */
+      padding-top: 14px;
+    }
+    @media (min-width: 40em) { /* @small-screen */
+      .activity-item .votes:hover  > div,
+      .activity-item .votes:active > div,
+      .activity-item .votes:focus  > div {
+        left: auto;
+        opacity: 1;
+      }
+    }
+    .activity-item .votes .details {
+      position: relative;
+      background: white;
+      white-space: nowrap;
+      border: 1px solid black;
+      width: 200px;
+      transition: opacity 0.2s;
+      box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.125);
+    }
+    .activity-item .votes .details:after {
+      content: "";
+      background: url(images/pointer.png);
+      position: absolute;
+      top: -11px;
+      left: 50%;
+      margin-left: -10px;
+      width: 20px;
+      height: 13px;
+    }
+
+    @media (min-width: 40em) { /* @small-screen */
+      /* If the page is scripted, delay the hover effect */
+      .activity-item .votes.scripted:hover  > div,
+      .activity-item .votes.scripted:active > div,
+      .activity-item .votes.scripted:focus  > div {
+        left: -9999px;
+        opacity: 0;
+      }
+      .activity-item .votes.active:hover  > div,
+      .activity-item .votes.active:active > div,
+      .activity-item .votes.active:focus  > div {
+        left: auto;
+        opacity: 1;
+      }
+    }
+
+  </style>
+
+</head>
+
+<body>
+    <header>
+      <section>
+        <div class="logo"><a href="">GOOD</a></div><div id="logged-out-actions"></div>
+        <div class="actions"><form accept-charset="UTF-8" action="/" class="search collapsed" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div><input data-search-route="/search" id="q" name="q" placeholder="What are you looking for?" type="text" /><button name="button" type="submit">Search</button><label>find topics, members, or keywords...</label>
+                <div id="search_error">We couldn't find any suggestions matching your keyword</div>
+                <div class="header-spinner">
+                  <div class="outer"></div>
+                  <div class="inner"></div>
+                </div></form><div id="action_buttons"><a href="" class="explore">Explore</a><a href="" class="post" data-authenticated="" data-redirect="/posts/new" data-track-event="Clicked Post" data-track-target="post" id="submission_form_button">Post</a></div>
+          <div id="login_js"></div>
+          <div id="notifications_js"></div>
+        </div>
+      </section>
+    </header>
+
+    <div class="takeover">
+        <section id="topic-header">
+            <header>
+                <h1>science
+          </h1><a href="/posts/new" class="add" data-authenticated="" data-contribute_from="science" id="topic_submission_form_button">Add to this topic</a>
+            </header>
+            <nav>
+                <a data-authenticated="" id="follow_button_138877758709623"></a>
+                <div class="counts">
+                    <a href="/science" class="current">
+                        <dfn><abbr title="Posts count">Posts</abbr></dfn>998</a><a href="/science/followers"><dfn><abbr title="Followers count">Followers</abbr></dfn>44</a>
+                </div>
+            </nav>
+        </section>
+        <section>
+            <div class="featured-do-container">
+                <h3>Together Let’s…</h3>
+                <ul>
+                    <li>
+                        <section class="activity-item featured-do" data-slug="create-a-motto-for-world-ms-day" data-title="Create a Motto for World MS Day">
+                            <section>
+                                <h3 class=" has-image">
+                      <a href="&#47;posts&#47;create-a-motto-for-world-ms-day" data-track-event="Clicked Featured Do" data-track-target="post title" data-track-topic="Create a Motto for World MS Day"><span class="image"><img src="http:&#47;&#47;images-1.good.is&#47;albums&#47;crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fimages%2Fattachments%2F000%2F458%2F321%2Foriginal%2FScreen_Shot_2013-05-29_at_10.44.16_AM.png&amp;geometry=100x100%23" alt="" width="100" height="100" data-track-target="post image" /></span> Create a Motto for World MS Day</a>
+                    </h3>
+                                <div class="meta">
+                                    <p class="dos">
+                                        <a href="">
+                                          <abbr title="169 people want to do this">169</abbr>
+                                        </a>
+                                    </p>
+                                    <p class="comments">
+                                        <a href="&#47;posts&#47;create-a-motto-for-world-ms-day#discuss" data-track-event="Clicked Featured Do" data-track-target="post comments" data-track-topic="Create a Motto for World MS Day"><abbr title="20 people commented">20</abbr></a>
+                                    </p>
+                                </div>
+                                <div class="todo_actions">
+                    <div class="todo_status">
+                      <div class="primary_box icon doit">
+                        <input type="submit" value="Do it" class="primary doit">
+                      </div>
+                    </div>
+                  </div>
+                            </section>
+                        </section>
+                    </li>
+                </ul>
+            </div>
+            <div class="sticky-header">
+                <h1>GOOD HQ Suggests</h1>
+                <h2>A selection of what's good now.</h2>
+            </div>
+            <div class="carousel">
+                <div class="sticky_posts topic">
+                    <div class="sticky">
+                        <ul>
+                            <li>
+                                <section class="activity-item featured" data-slug="push-for-good-this-week-s-guide-to-crowdfunding-creative-progress15" data-title="Push for Good: This Week's Guide to Crowdfunding Creative Progress">
+                                    <p class="source has-image">
+                                        <a href="&#47;members&#47;alessandra-rizzotti" data-track-event="Clicked Featured Topic Post" data-track-target="post contributor" data-track-topic="Alessandra Rizzotti">
+                                            <img src="http:&#47;&#47;images-1.good.is&#47;albums&#47;crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F154%2F289%2Foriginal%2F310244_10100394937159595_3097420_n.jpg&amp;geometry=60x60%23"
+                                            alt="" width="30" height="30" />Alessandra Rizzotti</a> wrote an article</p>
+                                    <p class="time">
+                                        <time pubdate="pubdate" datetime="2013-06-08T16:25:00Z"><abbr title="29 weeks ago">29 w</abbr>
+                                        </time>
+                                    </p>
+                                    <section class="post">
+                                        <h3 class=" has-image">
+                                          <a href="&#47;posts&#47;push-for-good-this-week-s-guide-to-crowdfunding-creative-progress15" data-track-event="Clicked Featured Topic Post" data-track-target="post title" data-track-topic="Push for Good: This Week's Guide to Crowdfunding Creative Progress"><span class="image"><img src="http:&#47;&#47;images-3.good.is&#47;albums&#47;crop?image_url=http%3A%2F%2Fpre.cloudfront.goodinc.com%2Fposts%2F1370669922pushforgood-lavendar.jpg&amp;geometry=240x240%23" alt="" width="240" height="240" data-track-target="post image" /></span> Push for Good: This Week's Guide to Crowdfunding Creative Progress</a>
+                                        </h3>
+                                        <div class="meta">
+                                            <section class="votes">
+                                              <a href=""><abbr title="16 people think this is good">16</abbr></a>
+                                              <div>
+                                                <div class="details">
+                                                  <h4>16 people think this is good</h4>
+                                                  <ul>
+                                                    <li>
+                                                      <a href="">
+                                                        <img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F234%2F610%2Foriginal%2Fimage.jpg&amp;geometry=240x240%23" width="50" alt="">
+                                                        Kerry Shaw
+                                                      </a>
+                                                    </li>
+                                                    <li>
+                                                      <a href="">
+                                                        <img src="http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Fimages%2Fassets%2Fdefault-avatar-blue.png&amp;geometry=240x240%23" width="50" alt="">
+                                                        CicLAvia
+                                                      </a>
+                                                    </li>
+                                                    <li>
+                                                      <a href="">
+                                                        <img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Fimages%2Fassets%2Fdefault-avatar-red.png&amp;geometry=240x240%23" width="50" alt="">
+                                                        Uprooted
+                                                      </a>
+                                                    </li>
+                                                    <li>
+                                                      <a href="">
+                                                        <img src="http://images-2.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F288%2F888%2Foriginal%2F273286_100002066311659_2101586935_n.jpg&amp;geometry=240x240%23" width="50" alt="">
+                                                        Jack Benter
+                                                      </a>
+                                                    </li>
+                                                    <li>
+                                                      <a href="">
+                                                        <img src="http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F116%2F006%2Foriginal%2F6528_107021141358_480764_n.jpg&amp;geometry=240x240%23" width="50" alt="">
+                                                        Zak Slobig
+                                                      </a>
+                                                    </li>
+                                                    <li class="more"><a href="/posts/[slug]#voters"><span>&amp;</span> 11 more…</a></li>
+                                                  </ul>
+                                                  <div class="drawer">
+                                                    <div class="actions">
+                                                      <a class="its-good" href="">It's GOOD</a>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </section>
+
+                                            <p class="comments" style="width: 100px; /* KLUDGE: Work around an apparent rendering bug in WebKit */">
+                                                <a href="&#47;posts&#47;push-for-good-this-week-s-guide-to-crowdfunding-creative-progress15#discuss" data-track-event="Clicked Featured Topic Post" data-track-target="post comments" data-track-topic="Push for Good: This Week's Guide to Crowdfunding Creative Progress"><abbr title="1 person commented">1</abbr>
+                                                </a>
+                                            </p>
+
+                                            <section class="tags">
+                                                <h4>
+                                                  <span>Tags</span>
+                                                </h4>
+                                                <ul>
+                                                    <li>
+                                                        <a href="&#47;push-for-good" data-track-event="Clicked Featured Topic Post" data-track-target="post topic" data-track-topic="push-for-good">Push For Good</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="&#47;science" data-track-event="Clicked Featured Topic Post" data-track-target="post topic" data-track-topic="science">Science</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="&#47;design" data-track-event="Clicked Featured Topic Post" data-track-target="post topic" data-track-topic="design">Design</a>
+                                                    </li>
+                                                </ul>
+                                            </section>
+                                        </div>
+                                    </section>
+                                </section>
+                                <div class="feed-edit-controls" data-slug="push-for-good-this-week-s-guide-to-crowdfunding-creative-progress15">
+                                    <div class="edit_feed_item" data-slug="push-for-good-this-week-s-guide-to-crowdfunding-creative-progress15" data-type="Article"></div>
+                                    <div class="delete_feed_item" data-slug="push-for-good-this-week-s-guide-to-crowdfunding-creative-progress15"></div>
+                                    <div class="flag_feed_item"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="main">
+        <div class="right-sidebar">
+            <div class="right-sidebar-top">
+                <div id="backbone_138877758736616"></div>
+            </div>
+            <div class="ad top" id="top_ad_138877758709311" style="width: 300px; height: 600px;"></div>
+            <div class="feedback">
+                <ul>
+                    <li><a href="/explore" id="learn_more">Learn more</a>
+                    </li>
+                    <li><a href="mailto:beta@goodinc.com" id="feedback">Send us your feedback</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="ad upper" id="upper_ad_138877758709463" style="width: 300px; height: 250px;"></div>
+            <div class="fb-recommendations" data-width="300" data-height="300" data-header="true"></div>
+            <div class="ad middle" id="middle_ad_138877758709589" style="width: 300px; height: 600px;"></div>
+            <div class="ad middlepromo" id="middlepromo_ad_138877758709594" style="width: 300px; height: 125px;"></div>
+            <div class="ad lower" id="lower_ad_138877758709598" style="width: 300px; height: 250px;"></div>
+        </div>
+        <section class="page">
+            <div id="topic">
+                <div class="toolbar">
+                    <div class="title">
+                        <h1>More to learn and do</h1><a href="/posts/new" class="add" data-authenticated="" id="topic_share_your_own">Share your own</a>
+                    </div>
+                    <ul class="filters">
+                        <li>Popular</li>
+                        <li><a href="/science?scope=newest">Newest</a>
+                        </li>
+                        <li>
+                            <a href="/rss/category/science" class="rss"></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="posts">
+                    <ul class="feed">
+                        <li>
+                            <section class="activity-item" data-slug="uncharted-territory-scientists-discover-new-and-incredible-species" data-title="Uncharted Territory: Scientists Discover New and Incredible Species">
+                                <p class="source has-image">
+                                    <a href="&#47;members&#47;gorongosanationalpark">
+                                        <img src="http:&#47;&#47;images-1.good.is&#47;albums&#47;crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F220%2F971%2Foriginal%2FG.N.P.logoCMYK_eng.png&amp;geometry=60x60%23"
+                                        alt="" width="60" height="60" />Gorongosa National Park</a> shared a link</p>
+                                <p class="time">
+                                    <time pubdate="pubdate" datetime="2013-06-11T17:13:42Z"><abbr title="29 weeks ago">29 w</abbr>
+                                    </time>
+                                </p>
+                                <section class="post link">
+                                    <h3 class=" has-image">
+                      <a href="&#47;posts&#47;uncharted-territory-scientists-discover-new-and-incredible-species"><span class="image"><img src="http:&#47;&#47;images-4.good.is&#47;albums&#47;crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fbookmarks%2Fphotos%2F000%2F232%2F081%2Foriginal%2Fgorongosa_08_blog.jpeg&amp;geometry=60x60%23" alt="" width="60" height="60" /></span> Uncharted Territory: Scientists Discover New and Incredible Species</a>&nbsp; <small class="source">via <a href="http://www.gorongosa.org/blog/bush-diaries/uncharted-territory-scientists-discover-new-and-incredible-species" target="_blank">gorongosa.org</a></small>
+                    </h3>
+                                    <div class="meta">
+                                        <section class="votes">
+                                          <a href=""><abbr data-title="2 people think this is good">2</abbr></a>
+                                          <div>
+                                            <div class="details">
+                                              <h4>2 people think this is good</h4>
+                                              <ul>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F234%2F610%2Foriginal%2Fimage.jpg&amp;geometry=240x240%23" width="50" alt="">
+                                                    Kerry Shaw
+                                                  </a>
+                                                </li>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Fimages%2Fassets%2Fdefault-avatar-blue.png&amp;geometry=240x240%23" width="50" alt="">
+                                                    CicLAvia
+                                                  </a>
+                                                </li>
+                                              </ul>
+                                              <div class="drawer">
+                                                <div class="actions">
+                                                  <a class="its-good" href="">It's GOOD</a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </section>
+                                        <section class="tags">
+                                            <h4>
+                          <span>Tags</span>
+                        </h4>
+                                            <ul>
+                                                <li>
+                                                    <a href="&#47;environment">Environment</a>
+                                                </li>
+                                                <li>
+                                                    <a href="&#47;science">Science</a>
+                                                </li>
+                                                <li>
+                                                    <a href="&#47;nature">Nature</a>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+                                </section>
+                            </section>
+                            <div class="feed-edit-controls" data-slug="uncharted-territory-scientists-discover-new-and-incredible-species">
+                                <div class="edit_feed_item" data-slug="uncharted-territory-scientists-discover-new-and-incredible-species" data-type="Bookmark"></div>
+                                <div class="delete_feed_item" data-slug="uncharted-territory-scientists-discover-new-and-incredible-species"></div>
+                                <div class="flag_feed_item"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <section class="activity-item" data-slug="watch-celine-cousteau-on-rehabilitating-coral-reef-off-central-america" data-title="Watch: Celine Cousteau on Rehabilitating Coral Reef off Central America">
+                                <p class="source has-image">
+                                    <a href="&#47;members&#47;slobig">
+                                        <img src="http:&#47;&#47;images-4.good.is&#47;albums&#47;crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F116%2F006%2Foriginal%2Fzach_%281%29.jpeg&amp;geometry=60x60%23"
+                                        alt="" width="60" height="60" />Zachary Slobig</a> shared a link</p>
+                                <p class="time">
+                                    <time pubdate="pubdate" datetime="2013-06-11T19:03:26Z"><abbr title="29 weeks ago">29 w</abbr>
+                                    </time>
+                                </p>
+                                <section class="post link">
+                                    <h3 class=" has-image play-button-overlay-60">
+                      <a href="&#47;posts&#47;watch-celine-cousteau-on-rehabilitating-coral-reef-off-central-america"><span class="image"><img src="http:&#47;&#47;images-3.good.is&#47;albums&#47;crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fbookmarks%2Fphotos%2F000%2F232%2F122%2Foriginal%2Fsddefault.jpg&amp;geometry=60x60%23" alt="" width="60" height="60" /></span> Watch: Celine Cousteau on Rehabilitating Coral Reef off Central America</a>&nbsp; <small class="source">via <a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=WEbBhGrUNr0" target="_blank">youtube.com</a></small>
+                    </h3>
+                                    <div class="meta">
+                                        <section class="votes">
+                                          <a href=""><abbr data-title="1 person thinks this is good">1</abbr></a>
+                                          <div>
+                                            <div class="details">
+                                              <h4>1 person thinks this is good</h4>
+                                              <ul>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F234%2F610%2Foriginal%2Fimage.jpg&amp;geometry=240x240%23" width="50" alt="">
+                                                    Kerry Shaw
+                                                  </a>
+                                                </li>
+                                              </ul>
+                                              <div class="drawer">
+                                                <div class="actions">
+                                                  <a class="its-good" href="">It's GOOD</a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </section>
+                                        <section class="tags">
+                                            <h4>
+                          <span>Tags</span>
+                        </h4>
+                                            <ul>
+                                                <li>
+                                                    <a href="&#47;environment">Environment</a>
+                                                </li>
+                                                <li>
+                                                    <a href="&#47;science">Science</a>
+                                                </li>
+                                                <li>
+                                                    <a href="&#47;exploration">Exploration</a>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+                                </section>
+                            </section>
+                            <div class="feed-edit-controls" data-slug="watch-celine-cousteau-on-rehabilitating-coral-reef-off-central-america">
+                                <div class="edit_feed_item" data-slug="watch-celine-cousteau-on-rehabilitating-coral-reef-off-central-america" data-type="Bookmark"></div>
+                                <div class="delete_feed_item" data-slug="watch-celine-cousteau-on-rehabilitating-coral-reef-off-central-america"></div>
+                                <div class="flag_feed_item"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <section class="activity-item" data-slug="build-your-own-legoscope" data-title="Build your own &quot;LegoScope&quot;">
+                                <p class="source has-image">
+                                    <a href="&#47;members&#47;thinkingintermsof">
+                                        <img src="http:&#47;&#47;images-2.good.is&#47;albums&#47;crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F995%2F972%2Foriginal%2F3671098_300.jpg&amp;geometry=60x60%23"
+                                        alt="" width="60" height="60" />Zak Long</a> shared a link</p>
+                                <p class="time">
+                                    <time pubdate="pubdate" datetime="2013-06-10T21:30:58Z"><abbr title="29 weeks ago">29 w</abbr>
+                                    </time>
+                                </p>
+                                <section class="post link">
+                                    <h3 class=" has-image play-button-overlay-60">
+                      <a href="&#47;posts&#47;build-your-own-legoscope"><span class="image"><img src="http:&#47;&#47;images-3.good.is&#47;albums&#47;crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fbookmarks%2Fphotos%2F000%2F231%2F658%2Foriginal%2Fsddefault.jpg&amp;geometry=60x60%23" alt="" width="60" height="60" /></span> Build your own &quot;LegoScope&quot;</a>&nbsp; <small class="source">via <a href="http://www.youtube.com/watch?v=h4BeK9J9KLo" target="_blank">youtube.com</a></small>
+                    </h3>
+                                    <div class="meta">
+                                        <section class="tags">
+                                            <h4>
+                          <span>Tags</span>
+                        </h4>
+                                            <ul>
+                                                <li>
+                                                    <a href="&#47;exploration">Exploration</a>
+                                                </li>
+                                                <li>
+                                                    <a href="&#47;education">Education</a>
+                                                </li>
+                                                <li>
+                                                    <a href="&#47;diy">Diy</a>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+                                </section>
+                            </section>
+                            <div class="feed-edit-controls" data-slug="build-your-own-legoscope">
+                                <div class="edit_feed_item" data-slug="build-your-own-legoscope" data-type="Bookmark"></div>
+                                <div class="delete_feed_item" data-slug="build-your-own-legoscope"></div>
+                                <div class="flag_feed_item"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <section class="activity-item" data-slug="push-for-good-this-week-s-guide-to-crowdfunding-creative-progress15" data-title="Push for Good: This Week's Guide to Crowdfunding Creative Progress">
+                                <p class="source has-image">
+                                    <a href="&#47;members&#47;alessandra-rizzotti">
+                                        <img src="http:&#47;&#47;images-1.good.is&#47;albums&#47;crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F154%2F289%2Foriginal%2F310244_10100394937159595_3097420_n.jpg&amp;geometry=60x60%23"
+                                        alt="" width="60" height="60" />Alessandra Rizzotti</a> wrote an article</p>
+                                <p class="time">
+                                    <time pubdate="pubdate" datetime="2013-06-08T16:25:00Z"><abbr title="29 weeks ago">29 w</abbr>
+                                    </time>
+                                </p>
+                                <section class="post">
+                                    <h3 class=" has-image">
+                      <a href="&#47;posts&#47;push-for-good-this-week-s-guide-to-crowdfunding-creative-progress15"><span class="image"><img src="http:&#47;&#47;images-3.good.is&#47;albums&#47;crop?image_url=http%3A%2F%2Fpre.cloudfront.goodinc.com%2Fposts%2F1370669922pushforgood-lavendar.jpg&amp;geometry=100x100%23" alt="" width="100" height="100" /></span> Push for Good: This Week's Guide to Crowdfunding Creative Progress</a>
+                    </h3>
+                                    <div class="meta">
+                                        <section class="votes">
+                                          <a href=""><abbr data-title="16 people think this is good">16</abbr></a>
+                                          <div>
+                                            <div class="details">
+                                              <h4>16 people think this is good</h4>
+                                              <ul>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F234%2F610%2Foriginal%2Fimage.jpg&amp;geometry=240x240%23" width="50" alt="">
+                                                    Kerry Shaw
+                                                  </a>
+                                                </li>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Fimages%2Fassets%2Fdefault-avatar-blue.png&amp;geometry=240x240%23" width="50" alt="">
+                                                    CicLAvia
+                                                  </a>
+                                                </li>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Fimages%2Fassets%2Fdefault-avatar-red.png&amp;geometry=240x240%23" width="50" alt="">
+                                                    Uprooted
+                                                  </a>
+                                                </li>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-2.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F288%2F888%2Foriginal%2F273286_100002066311659_2101586935_n.jpg&amp;geometry=240x240%23" width="50" alt="">
+                                                    Jack Benter
+                                                  </a>
+                                                </li>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F116%2F006%2Foriginal%2F6528_107021141358_480764_n.jpg&amp;geometry=240x240%23" width="50" alt="">
+                                                    Zak Slobig
+                                                  </a>
+                                                </li>
+                                                <li class="more"><a href="/posts/[slug]#voters"><span>&amp;</span> 11 more…</a></li>
+                                              </ul>
+                                              <div class="drawer">
+                                                <div class="actions">
+                                                  <a class="its-good" href="">It's GOOD</a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </section>
+                                        <p class="comments">
+                                            <a href="&#47;posts&#47;push-for-good-this-week-s-guide-to-crowdfunding-creative-progress15#discuss"><abbr title="1 person commented">1</abbr></a>
+                                        </p>
+                                        <section class="tags">
+                                            <h4>
+                          <span>Tags</span>
+                        </h4>
+                                            <ul>
+                                                <li>
+                                                    <a href="&#47;push-for-good">Push For Good</a>
+                                                </li>
+                                                <li>
+                                                    <a href="&#47;science">Science</a>
+                                                </li>
+                                                <li>
+                                                    <a href="&#47;design">Design</a>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+                                </section>
+                            </section>
+                            <div class="feed-edit-controls" data-slug="push-for-good-this-week-s-guide-to-crowdfunding-creative-progress15">
+                                <div class="edit_feed_item" data-slug="push-for-good-this-week-s-guide-to-crowdfunding-creative-progress15" data-type="Article"></div>
+                                <div class="delete_feed_item" data-slug="push-for-good-this-week-s-guide-to-crowdfunding-creative-progress15"></div>
+                                <div class="flag_feed_item"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <section class="activity-item" data-slug="what-does-it-take-to-preserve-the-most-biodiverse-floral-kingdom-on-earth" data-title="Let's Preserve The Most Biodiverse Floral Kingdom on Earth">
+                                <p class="source has-image">
+                                    <a href="&#47;members&#47;evan-eifler">
+                                        <img src="http:&#47;&#47;images-3.good.is&#47;albums&#47;crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F245%2F819%2Foriginal%2FProf_pic.jpg&amp;geometry=60x60%23"
+                                        alt="" width="60" height="60" />Evan Eifler</a> wrote an article</p>
+                                <p class="time">
+                                    <time pubdate="pubdate" datetime="2013-06-08T15:15:00Z"><abbr title="29 weeks ago">29 w</abbr>
+                                    </time>
+                                </p>
+                                <section class="post">
+                                    <h3 class=" has-image">
+                      <a href="&#47;posts&#47;what-does-it-take-to-preserve-the-most-biodiverse-floral-kingdom-on-earth"><span class="image"><img src="http:&#47;&#47;images-2.good.is&#47;albums&#47;crop?image_url=http%3A%2F%2Fpre.cloudfront.goodinc.com%2Fposts%2F1370662009ScreenShot2013-06-07at7.47.35PM.png&amp;geometry=100x100%23" alt="" width="100" height="100" /></span> Let's Preserve The Most Biodiverse Floral Kingdom on Earth</a>
+                    </h3>
+                                    <div class="meta">
+                                        <section class="votes">
+                                          <a href=""><abbr data-title="14 people think this is good">14</abbr></a>
+                                          <div>
+                                            <div class="details">
+                                              <h4>14 people think this is good</h4>
+                                              <ul>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F234%2F610%2Foriginal%2Fimage.jpg&amp;geometry=240x240%23" width="50" alt="">
+                                                    Kerry Shaw
+                                                  </a>
+                                                </li>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Fimages%2Fassets%2Fdefault-avatar-blue.png&amp;geometry=240x240%23" width="50" alt="">
+                                                    CicLAvia
+                                                  </a>
+                                                </li>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Fimages%2Fassets%2Fdefault-avatar-red.png&amp;geometry=240x240%23" width="50" alt="">
+                                                    Uprooted
+                                                  </a>
+                                                </li>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-2.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F288%2F888%2Foriginal%2F273286_100002066311659_2101586935_n.jpg&amp;geometry=240x240%23" width="50" alt="">
+                                                    Jack Benter
+                                                  </a>
+                                                </li>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F116%2F006%2Foriginal%2F6528_107021141358_480764_n.jpg&amp;geometry=240x240%23" width="50" alt="">
+                                                    Zak Slobig
+                                                  </a>
+                                                </li>
+                                                <li class="more"><a href="/posts/[slug]#voters"><span>&amp;</span> 9 more…</a></li>
+                                              </ul>
+                                              <div class="drawer">
+                                                <div class="actions">
+                                                  <a class="its-good" href="">It's GOOD</a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </section>
+                                        <p class="comments">
+                                            <a href="&#47;posts&#47;what-does-it-take-to-preserve-the-most-biodiverse-floral-kingdom-on-earth#discuss"><abbr title="1 person commented">1</abbr></a>
+                                        </p>
+                                        <section class="tags">
+                                            <h4>
+                          <span>Tags</span>
+                        </h4>
+                                            <ul>
+                                                <li>
+                                                    <a href="&#47;push-for-good">Push For Good</a>
+                                                </li>
+                                                <li>
+                                                    <a href="&#47;environment">Environment</a>
+                                                </li>
+                                                <li>
+                                                    <a href="&#47;science">Science</a>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+                                </section>
+                            </section>
+                            <div class="feed-edit-controls" data-slug="what-does-it-take-to-preserve-the-most-biodiverse-floral-kingdom-on-earth">
+                                <div class="edit_feed_item" data-slug="what-does-it-take-to-preserve-the-most-biodiverse-floral-kingdom-on-earth" data-type="Article"></div>
+                                <div class="delete_feed_item" data-slug="what-does-it-take-to-preserve-the-most-biodiverse-floral-kingdom-on-earth"></div>
+                                <div class="flag_feed_item"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <section class="activity-item" data-slug="revolution-in-material-apparel" data-title="Revolution In Material Apparel">
+                                <p class="source has-image">
+                                    <a href="&#47;members&#47;rima-revolution">
+                                        <img src="http:&#47;&#47;images-4.good.is&#47;albums&#47;crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Fimages%2Fassets%2Fdefault-avatar-red.png&amp;geometry=60x60%23" alt="" width="60" height="60" />RIMA REVOLUTION</a> shared a link</p>
+                                <p class="time">
+                                    <time pubdate="pubdate" datetime="2013-06-09T07:09:25Z"><abbr title="29 weeks ago">29 w</abbr>
+                                    </time>
+                                </p>
+                                <section class="post link">
+                                    <h3 class=" has-image">
+                      <a href="&#47;posts&#47;revolution-in-material-apparel"><span class="image"><img src="http:&#47;&#47;images-1.good.is&#47;albums&#47;crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fbookmarks%2Fphotos%2F000%2F231%2F012%2Foriginal%2F00011c.jpeg&amp;geometry=60x60%23" alt="" width="60" height="60" /></span> Revolution In Material Apparel</a>&nbsp; <small class="source">via <a href="https://www.facebook.com/RIMAHQ" target="_blank">facebook.com</a></small>
+                    </h3>
+                                    <div class="meta">
+                                        <section class="votes">
+                                          <a href=""><abbr data-title="2 people think this is good">2</abbr></a>
+                                          <div>
+                                            <div class="details">
+                                              <h4>2 people think this is good</h4>
+                                              <ul>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F234%2F610%2Foriginal%2Fimage.jpg&amp;geometry=240x240%23" width="50" alt="">
+                                                    Kerry Shaw
+                                                  </a>
+                                                </li>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Fimages%2Fassets%2Fdefault-avatar-blue.png&amp;geometry=240x240%23" width="50" alt="">
+                                                    CicLAvia
+                                                  </a>
+                                                </li>
+                                              </ul>
+                                              <div class="drawer">
+                                                <div class="actions">
+                                                  <a class="its-good" href="">It's GOOD</a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </section>
+                                        <section class="tags">
+                                            <h4>
+                          <span>Tags</span>
+                        </h4>
+                                            <ul>
+                                                <li>
+                                                    <a href="&#47;design">Design</a>
+                                                </li>
+                                                <li>
+                                                    <a href="&#47;science">Science</a>
+                                                </li>
+                                                <li>
+                                                    <a href="&#47;politics">Politics</a>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+                                </section>
+                            </section>
+                            <div class="feed-edit-controls" data-slug="revolution-in-material-apparel">
+                                <div class="edit_feed_item" data-slug="revolution-in-material-apparel" data-type="Bookmark"></div>
+                                <div class="delete_feed_item" data-slug="revolution-in-material-apparel"></div>
+                                <div class="flag_feed_item"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <section class="activity-item" data-slug="mit-made-a-game-where-you-experience-a-gradually-decreasing-lightspeed-and-you-can-play-it" data-title="MIT made a game where you experience a gradually decreasing lightspeed, and you can play it">
+                                <p class="source has-image">
+                                    <a href="&#47;members&#47;bjgraham">
+                                        <img src="http:&#47;&#47;images-1.good.is&#47;albums&#47;crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Favatars%2F1460127%2Foriginal%2FBlake_J._Graham-1.jpg%3F1353963526&amp;geometry=60x60%23"
+                                        alt="" width="60" height="60" />Blake Graham</a> shared a link</p>
+                                <p class="time">
+                                    <time pubdate="pubdate" datetime="2013-06-08T21:47:47Z"><abbr title="29 weeks ago">29 w</abbr>
+                                    </time>
+                                </p>
+                                <section class="post link">
+                                    <h3 class=" has-image">
+                      <a href="&#47;posts&#47;mit-made-a-game-where-you-experience-a-gradually-decreasing-lightspeed-and-you-can-play-it"><span class="image"><img src="http:&#47;&#47;images-3.good.is&#47;albums&#47;crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fbookmarks%2Fphotos%2F000%2F230%2F929%2Foriginal%2Fspeedoflight3.jpg&amp;geometry=60x60%23" alt="" width="60" height="60" /></span> MIT made a game where you experience a gradually decreasing lightspeed, and you can play it</a>&nbsp; <small class="source">via <a href="http://theairspace.net/commentary/the-speed-of-light-slowed/" target="_blank">theairspace.net</a></small>
+                    </h3>
+                                    <div class="meta">
+                                        <section class="votes">
+                                          <a href=""><abbr data-title="6 people think this is good">6</abbr></a>
+                                          <div>
+                                            <div class="details">
+                                              <h4>6 people think this is good</h4>
+                                              <ul>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F234%2F610%2Foriginal%2Fimage.jpg&amp;geometry=240x240%23" width="50" alt="">
+                                                    Kerry Shaw
+                                                  </a>
+                                                </li>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Fimages%2Fassets%2Fdefault-avatar-blue.png&amp;geometry=240x240%23" width="50" alt="">
+                                                    CicLAvia
+                                                  </a>
+                                                </li>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Fimages%2Fassets%2Fdefault-avatar-red.png&amp;geometry=240x240%23" width="50" alt="">
+                                                    Uprooted
+                                                  </a>
+                                                </li>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-2.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F288%2F888%2Foriginal%2F273286_100002066311659_2101586935_n.jpg&amp;geometry=240x240%23" width="50" alt="">
+                                                    Jack Benter
+                                                  </a>
+                                                </li>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F116%2F006%2Foriginal%2F6528_107021141358_480764_n.jpg&amp;geometry=240x240%23" width="50" alt="">
+                                                    Zak Slobig
+                                                  </a>
+                                                </li>
+                                                <li class="more"><a href="/posts/[slug]#voters"><span>&amp;</span> 1 more…</a></li>
+                                              </ul>
+                                              <div class="drawer">
+                                                <div class="actions">
+                                                  <a class="its-good" href="">It's GOOD</a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </section>
+                                        <section class="tags">
+                                            <h4>
+                          <span>Tags</span>
+                        </h4>
+                                            <ul>
+                                                <li>
+                                                    <a href="&#47;culture">Culture</a>
+                                                </li>
+                                                <li>
+                                                    <a href="&#47;science">Science</a>
+                                                </li>
+                                                <li>
+                                                    <a href="&#47;technology">Technology</a>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+                                </section>
+                            </section>
+                            <div class="feed-edit-controls" data-slug="mit-made-a-game-where-you-experience-a-gradually-decreasing-lightspeed-and-you-can-play-it">
+                                <div class="edit_feed_item" data-slug="mit-made-a-game-where-you-experience-a-gradually-decreasing-lightspeed-and-you-can-play-it" data-type="Bookmark"></div>
+                                <div class="delete_feed_item" data-slug="mit-made-a-game-where-you-experience-a-gradually-decreasing-lightspeed-and-you-can-play-it"></div>
+                                <div class="flag_feed_item"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <section class="activity-item" data-slug="treepeople-s-ecological-restoration-team-to-the-rescue" data-title="TreePeople’s Ecological Restoration Team to the Rescue">
+                                <p class="source has-image">
+                                    <a href="&#47;members&#47;treepeople">
+                                        <img src="http:&#47;&#47;images-2.good.is&#47;albums&#47;crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Favatars%2F1873296%2Foriginal%2FTP_Stacked_Green_logo2.jpg%3F1348689840&amp;geometry=60x60%23"
+                                        alt="" width="60" height="60" />TreePeople</a> shared a link</p>
+                                <p class="time">
+                                    <time pubdate="pubdate" datetime="2013-06-07T17:24:35Z"><abbr title="30 weeks ago">30 w</abbr>
+                                    </time>
+                                </p>
+                                <section class="post link">
+                                    <h3 class=" has-image">
+                      <a href="&#47;posts&#47;treepeople-s-ecological-restoration-team-to-the-rescue"><span class="image"><img src="http:&#47;&#47;images-1.good.is&#47;albums&#47;crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fbookmarks%2Fphotos%2F000%2F230%2F355%2Foriginal%2FTidy_Tips_Lady_Bug_crop.jpg&amp;geometry=60x60%23" alt="" width="60" height="60" /></span> TreePeople’s Ecological Restoration Team to the Rescue</a>&nbsp; <small class="source">via <a href="http://ow.ly/lOCdg" target="_blank">ow.ly</a></small>
+                    </h3>
+                                    <div class="meta">
+                                        <section class="votes">
+                                          <a href=""><abbr data-title="4 people think this is good">4</abbr></a>
+                                          <div>
+                                            <div class="details">
+                                              <h4>4 people think this is good</h4>
+                                              <ul>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F234%2F610%2Foriginal%2Fimage.jpg&amp;geometry=240x240%23" width="50" alt="">
+                                                    Kerry Shaw
+                                                  </a>
+                                                </li>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Fimages%2Fassets%2Fdefault-avatar-blue.png&amp;geometry=240x240%23" width="50" alt="">
+                                                    CicLAvia
+                                                  </a>
+                                                </li>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Fimages%2Fassets%2Fdefault-avatar-red.png&amp;geometry=240x240%23" width="50" alt="">
+                                                    Uprooted
+                                                  </a>
+                                                </li>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-2.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F288%2F888%2Foriginal%2F273286_100002066311659_2101586935_n.jpg&amp;geometry=240x240%23" width="50" alt="">
+                                                    Jack Benter
+                                                  </a>
+                                                </li>
+                                              </ul>
+                                              <div class="drawer">
+                                                <div class="actions">
+                                                  <a class="its-good" href="">It's GOOD</a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </section>
+                                        <p class="comments">
+                                            <a href="&#47;posts&#47;treepeople-s-ecological-restoration-team-to-the-rescue#discuss"><abbr title="1 person commented">1</abbr></a>
+                                        </p>
+                                        <section class="tags">
+                                            <h4>
+                          <span>Tags</span>
+                        </h4>
+                                            <ul>
+                                                <li>
+                                                    <a href="&#47;goodcitizen--2">#Goodcitizen</a>
+                                                </li>
+                                                <li>
+                                                    <a href="&#47;park">Park</a>
+                                                </li>
+                                                <li>
+                                                    <a href="&#47;parks">Parks</a>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+                                </section>
+                            </section>
+                            <div class="feed-edit-controls" data-slug="treepeople-s-ecological-restoration-team-to-the-rescue">
+                                <div class="edit_feed_item" data-slug="treepeople-s-ecological-restoration-team-to-the-rescue" data-type="Bookmark"></div>
+                                <div class="delete_feed_item" data-slug="treepeople-s-ecological-restoration-team-to-the-rescue"></div>
+                                <div class="flag_feed_item"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <section class="activity-item" data-slug="buzz-aldrin-gets-blinded-by-science-with-thomas-dolby" data-title="Buzz Aldrin Gets Blinded By Science With Thomas Dolby">
+                                <p class="source has-image">
+                                    <a href="&#47;members&#47;lizdwyer">
+                                        <img src="http:&#47;&#47;images-2.good.is&#47;albums&#47;crop?image_url=http%3A%2F%2Fpre.cloudfront.goodinc.com%2Fusers%2Fxlarge-1265739779-profile.pic.jpg&amp;geometry=60x60%23" alt="" width="60" height="60" />Liz Dwyer</a> shared a link</p>
+                                <p class="time">
+                                    <time pubdate="pubdate" datetime="2013-06-06T18:15:09Z"><abbr title="30 weeks ago">30 w</abbr>
+                                    </time>
+                                </p>
+                                <section class="post link">
+                                    <h3 class=" has-image play-button-overlay-60">
+                      <a href="&#47;posts&#47;buzz-aldrin-gets-blinded-by-science-with-thomas-dolby"><span class="image"><img src="http:&#47;&#47;images-3.good.is&#47;albums&#47;crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fbookmarks%2Fphotos%2F000%2F229%2F703%2Foriginal%2Fsddefault.jpg&amp;geometry=60x60%23" alt="" width="60" height="60" /></span> Buzz Aldrin Gets Blinded By Science With Thomas Dolby</a>&nbsp; <small class="source">via <a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=BpRgY9GXLO0" target="_blank">youtube.com</a></small>
+                    </h3>
+                                    <div class="meta">
+                                        <section class="votes">
+                                          <a href=""><abbr data-title="4 people think this is good">4</abbr></a>
+                                          <div>
+                                            <div class="details">
+                                              <h4>4 people think this is good</h4>
+                                              <ul>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F234%2F610%2Foriginal%2Fimage.jpg&amp;geometry=240x240%23" width="50" alt="">
+                                                    Kerry Shaw
+                                                  </a>
+                                                </li>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Fimages%2Fassets%2Fdefault-avatar-blue.png&amp;geometry=240x240%23" width="50" alt="">
+                                                    CicLAvia
+                                                  </a>
+                                                </li>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Fimages%2Fassets%2Fdefault-avatar-red.png&amp;geometry=240x240%23" width="50" alt="">
+                                                    Uprooted
+                                                  </a>
+                                                </li>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-2.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F288%2F888%2Foriginal%2F273286_100002066311659_2101586935_n.jpg&amp;geometry=240x240%23" width="50" alt="">
+                                                    Jack Benter
+                                                  </a>
+                                                </li>
+                                              </ul>
+                                              <div class="drawer">
+                                                <div class="actions">
+                                                  <a class="its-good" href="">It's GOOD</a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </section>
+                                        <p class="comments">
+                                            <a href="&#47;posts&#47;buzz-aldrin-gets-blinded-by-science-with-thomas-dolby#discuss"><abbr title="2 people commented">2</abbr></a>
+                                        </p>
+                                        <section class="tags">
+                                            <h4>
+                          <span>Tags</span>
+                        </h4>
+                                            <ul>
+                                                <li>
+                                                    <a href="&#47;science">Science</a>
+                                                </li>
+                                                <li>
+                                                    <a href="&#47;technology">Technology</a>
+                                                </li>
+                                                <li>
+                                                    <a href="&#47;education">Education</a>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+                                </section>
+                            </section>
+                            <div class="feed-edit-controls" data-slug="buzz-aldrin-gets-blinded-by-science-with-thomas-dolby">
+                                <div class="edit_feed_item" data-slug="buzz-aldrin-gets-blinded-by-science-with-thomas-dolby" data-type="Bookmark"></div>
+                                <div class="delete_feed_item" data-slug="buzz-aldrin-gets-blinded-by-science-with-thomas-dolby"></div>
+                                <div class="flag_feed_item"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <section class="activity-item" data-slug="turn-bubbah-into-cute-plush-dolls" data-title="Turn Bubbah into cute plush dolls! ">
+                                <p class="source has-image">
+                                    <a href="&#47;members&#47;ilovebubbah">
+                                        <img src="http:&#47;&#47;images-4.good.is&#47;albums&#47;crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F245%2F320%2Foriginal%2Fphoto.jpg&amp;geometry=60x60%23" alt=""
+                                        width="60" height="60" />Jessica Fisher</a> shared something to do</p>
+                                <p class="time">
+                                    <time pubdate="pubdate" datetime="2013-06-07T12:58:26Z"><abbr title="30 weeks ago">30 w</abbr>
+                                    </time>
+                                </p>
+                                <section class="post do">
+                                    <h3 class=" has-image">
+                      <a href="&#47;posts&#47;turn-bubbah-into-cute-plush-dolls"><span class="image"><img src="http:&#47;&#47;images-1.good.is&#47;albums&#47;crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Factions%2Fphotos%2F000%2F230%2F209%2Foriginal%2Fhqdefault.jpg&amp;geometry=100x100%23" alt="" width="100" height="100" /></span> Turn Bubbah into cute plush dolls! </a>
+                    </h3>
+                                    <div class="meta">
+                                        <p class="dos">
+                                            <a href="">
+                                              <abbr title="1 person wants to do this">1</abbr>
+                                            </a>
+                                        </p>
+                                        <section class="tags">
+                                            <h4>
+                          <span>Tags</span>
+                        </h4>
+                                            <ul>
+                                                <li>
+                                                    <a href="&#47;design">Design</a>
+                                                </li>
+                                                <li>
+                                                    <a href="&#47;science">Science</a>
+                                                </li>
+                                                <li>
+                                                    <a href="&#47;art">Art</a>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+                                    <div class="todo_actions">
+                    <div class="todo_status">
+                      <div class="primary_box icon doit">
+                        <input type="submit" value="Do it" class="primary doit">
+                      </div>
+                    </div>
+                  </div>
+                                </section>
+                            </section>
+                            <div class="fb_invite_container">
+                                <span class="fb_invite_todo">It's on your <strong>To-Do List</strong>! Get your friends involved too.</span><span class="fb_invite_done">Comment and share your experience, and invite friends to <strong>Do It</strong> too!</span>
+                                <div class="close"></div>
+                            </div>
+                            <div class="feed-edit-controls" data-slug="turn-bubbah-into-cute-plush-dolls">
+                                <div class="edit_feed_item" data-slug="turn-bubbah-into-cute-plush-dolls" data-type="Action"></div>
+                                <div class="delete_feed_item" data-slug="turn-bubbah-into-cute-plush-dolls"></div>
+                                <div class="flag_feed_item"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <section class="activity-item" data-slug="incredible-detailed-map-shows-what-antarctica-will-look-like-when-all-the-ice-melts" data-title="Incredible Detailed Map Shows What Antarctica Will Look Like When All the Ice Melts">
+                                <p class="source has-image">
+                                    <a href="&#47;members&#47;meghaneneal">
+                                        <img src="http:&#47;&#47;images-3.good.is&#47;albums&#47;crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F001%2F388%2F711%2Foriginal%2FScreen_Shot_2013-06-04_at_4.55.27_PM.png&amp;geometry=60x60%23"
+                                        alt="" width="60" height="60" />Meghan Neal</a> shared a link</p>
+                                <p class="time">
+                                    <time pubdate="pubdate" datetime="2013-06-06T22:28:29Z"><abbr title="30 weeks ago">30 w</abbr>
+                                    </time>
+                                </p>
+                                <section class="post link">
+                                    <h3 class=" has-image">
+                      <a href="&#47;posts&#47;incredible-detailed-map-shows-what-antarctica-will-look-like-when-all-the-ice-melts"><span class="image"><img src="http:&#47;&#47;images-2.good.is&#47;albums&#47;crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fbookmarks%2Fphotos%2F000%2F229%2F779%2Foriginal%2Fslider-antarctica-nasa-map-ice_68194_600x450.jpg&amp;geometry=60x60%23" alt="" width="60" height="60" /></span> Incredible Detailed Map Shows What Antarctica Will Look Like When All the Ice Melts</a>&nbsp; <small class="source">via <a href="http://news.nationalgeographic.com/news/2013/06/130605-nasa-map-sunken-mountains-antarctica-ice/" target="_blank">nationalgeographic.com</a></small>
+                    </h3>
+                                    <div class="meta">
+                                        <section class="votes">
+                                          <a href=""><abbr data-title="4 people think this is good">4</abbr></a>
+                                          <div>
+                                            <div class="details">
+                                              <h4>4 people think this is good</h4>
+                                              <ul>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F234%2F610%2Foriginal%2Fimage.jpg&amp;geometry=240x240%23" width="50" alt="">
+                                                    Kerry Shaw
+                                                  </a>
+                                                </li>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-1.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Fimages%2Fassets%2Fdefault-avatar-blue.png&amp;geometry=240x240%23" width="50" alt="">
+                                                    CicLAvia
+                                                  </a>
+                                                </li>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-4.good.is/albums/crop?image_url=http%3A%2F%2Fimage-cache.good.is%2Fimages%2Fassets%2Fdefault-avatar-red.png&amp;geometry=240x240%23" width="50" alt="">
+                                                    Uprooted
+                                                  </a>
+                                                </li>
+                                                <li>
+                                                  <a href="">
+                                                    <img src="http://images-2.good.is/albums/crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F288%2F888%2Foriginal%2F273286_100002066311659_2101586935_n.jpg&amp;geometry=240x240%23" width="50" alt="">
+                                                    Jack Benter
+                                                  </a>
+                                                </li>
+                                              </ul>
+                                              <div class="drawer">
+                                                <div class="actions">
+                                                  <a class="its-good" href="">It's GOOD</a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </section>
+                                        <section class="tags">
+                                            <h4>
+                          <span>Tags</span>
+                        </h4>
+                                            <ul>
+                                                <li>
+                                                    <a href="&#47;science">Science</a>
+                                                </li>
+                                                <li>
+                                                    <a href="&#47;climate-change">Climate Change</a>
+                                                </li>
+                                                <li>
+                                                    <a href="&#47;map">Map</a>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+                                </section>
+                            </section>
+                            <div class="feed-edit-controls" data-slug="incredible-detailed-map-shows-what-antarctica-will-look-like-when-all-the-ice-melts">
+                                <div class="edit_feed_item" data-slug="incredible-detailed-map-shows-what-antarctica-will-look-like-when-all-the-ice-melts" data-type="Bookmark"></div>
+                                <div class="delete_feed_item" data-slug="incredible-detailed-map-shows-what-antarctica-will-look-like-when-all-the-ice-melts"></div>
+                                <div class="flag_feed_item"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <section class="activity-item" data-slug="be-citizen-scientists-and-fund-space-telescopes" data-title="Be Citizen Scientists and Fund Space Telescopes">
+                                <p class="source has-image">
+                                    <a href="&#47;members&#47;philvox">
+                                        <img src="http:&#47;&#47;images-3.good.is&#47;albums&#47;crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Fusers%2Favatars%2F002%2F244%2F897%2Foriginal%2F157538_580667252_658670390_n.jpg&amp;geometry=60x60%23"
+                                        alt="" width="60" height="60" />Phil Vox</a> shared something to do</p>
+                                <p class="time">
+                                    <time pubdate="pubdate" datetime="2013-06-06T22:50:11Z"><abbr title="30 weeks ago">30 w</abbr>
+                                    </time>
+                                </p>
+                                <section class="post do">
+                                    <h3 class=" has-image">
+                      <a href="&#47;posts&#47;be-citizen-scientists-and-fund-space-telescopes"><span class="image"><img src="http:&#47;&#47;images-1.good.is&#47;albums&#47;crop?image_url=http%3A%2F%2Fs3.amazonaws.com%2Fproduction.calumet.good.is%2Factions%2Fphotos%2F000%2F229%2F785%2Foriginal%2Fhqdefault.jpg&amp;geometry=100x100%23" alt="" width="100" height="100" /></span> Be Citizen Scientists and Fund Space Telescopes</a>
+                    </h3>
+                                    <div class="meta">
+                                        <section class="tags">
+                                            <h4>
+                          <span>Tags</span>
+                        </h4>
+                                            <ul>
+                                                <li>
+                                                    <a href="&#47;science">Science</a>
+                                                </li>
+                                                <li>
+                                                    <a href="&#47;science-and-technology">Science And Techn...</a>
+                                                </li>
+                                                <li>
+                                                    <a href="&#47;animation">Animation</a>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+                                    <div class="todo_actions">
+                    <div class="todo_status">
+                      <div class="primary_box icon doit">
+                        <input type="submit" value="Do it" class="primary doit">
+                      </div>
+                    </div>
+                  </div>
+                                </section>
+                            </section>
+                            <div class="fb_invite_container">
+                                <span class="fb_invite_todo">It's on your <strong>To-Do List</strong>! Get your friends involved too.</span><span class="fb_invite_done">Comment and share your experience, and invite friends to <strong>Do It</strong> too!</span>
+                                <div class="close"></div>
+                            </div>
+                            <div class="feed-edit-controls" data-slug="be-citizen-scientists-and-fund-space-telescopes">
+                                <div class="edit_feed_item" data-slug="be-citizen-scientists-and-fund-space-telescopes" data-type="Action"></div>
+                                <div class="delete_feed_item" data-slug="be-citizen-scientists-and-fund-space-telescopes"></div>
+                                <div class="flag_feed_item"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="spinner">
+                <div class="outer"></div>
+                <div class="inner"></div>
+            </div>
+        </section>
+    </div>
+
+  <!-- NOTE: This will be the same “fixed position” footer that we’re currently using on feed pages. -->
+  <footer>
+    <div class="footer-content">
+      <div class="links">
+        <h2>Where people share what's good to learn and do. <a href="" class="join" data-authenticated="register">Join our community</a></h2>
+        <ul>
+          <li><a href="">About</a></li>
+          <li><a href="">Contact</a></li>
+          <li><a href="">Support</a></li>
+          <li><a href="">Advertise</a></li>
+          <li><a href="">Jobs</a></li>
+          <li><a href="">Subscriptions</a></li>
+          <li><a href="">Online Store</a></li>
+          <li><a href="">GOOD/Corps</a></li>
+          <li><a href="">Mobile Site</a></li>
+          <li><a href="">Privacy</a></li>
+          <li><a href="">Terms</a></li>
+        </ul>
+      </div>
+      <div class="social">
+        <h2>Connect with us<a href="" class="rss" target="_blank"></a></h2>
+        <ul>
+          <li><a href="" class="facebook" target="_blank"></a></li>
+          <li><a href="" class="twitter" target="_blank"></a></li>
+          <li><a href="" class="google" target="_blank"></a></li>
+          <li><a href="" class="linkedin" target="_blank"></a></li>
+          <li><a href="" class="tumblr" target="_blank"></a></li>
+          <li><a href="" class="pinterest" target="_blank"></a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="shared.js"></script>
+
+</body>
+</html>
