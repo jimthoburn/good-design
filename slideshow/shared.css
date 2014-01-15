@@ -16,6 +16,10 @@
       color: rgb(153, 153, 153);
     }
 
+    a img {
+      border-width: 0;
+    }
+
     header {
       position: relative;
       margin: 0;
@@ -164,12 +168,12 @@
     html:hover nav a {
       opacity: 0;
     }
-    html:hover .image:hover a {
+    html:hover .image:hover nav a {
       opacity: 1;
     }
-    html:hover .image:hover a:hover,
-    html:hover .image:hover a:active,
-    html:hover .image:hover a:focus {
+    html:hover .image:hover nav a:hover,
+    html:hover .image:hover nav a:active,
+    html:hover .image:hover nav a:focus {
       opacity: 0.6;
     }
 
