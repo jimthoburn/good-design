@@ -2,6 +2,7 @@
 <html dir="ltr" lang="en">
 <head>
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Education Experts Talk High Expectations | College Summit on GOOD</title>
 
   <style>
@@ -22,21 +23,51 @@
     a:focus {
       color: rgb(153, 153, 153);
     }
-    img {
-      max-width: 100%;
-      height: auto;
-    }
 
     header {
       position: relative;
+      margin: 0;
+      border-bottom: 1px solid rgb(38, 38, 38);
     }
     header h2 {
-      float: left;
       padding: 1.5em;
+      box-sizing: border-box;
       font-size: inherit;
-      border-right: 1px solid rgb(38, 38, 38);
-      margin: 0 1.5em 0 0;
+      border-bottom: 1px solid rgb(38, 38, 38);
     }
+
+    header h1 {
+      padding-left: 1em; /* logo-padding(1.5em) / font-size(1.5em) */
+      padding-right: 1em;
+    }
+    header .by {
+      padding-left: 2em; /* logo-padding(1.5em) / font-size(0.75em) */
+      padding-right: 2em;
+    }
+
+    @media (min-width: 30em) {
+      header {
+        padding-left: 8.5em;
+        padding-right: 6em;
+      }
+      header h2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        border-bottom-width: 0;
+        border-right: 1px solid rgb(38, 38, 38);
+        margin: 0;
+      }
+      header h1 {
+        padding-top: 0.75em;
+        padding-left: 0;
+      }
+      header .by {
+        padding-left: 0;
+      }
+    }
+
     header h2 a,
     header h2 img {
       display: block;
@@ -48,12 +79,11 @@
     }
     header h1 {
       margin: 0;
-      font-size: inherit;
-      padding-top: 1.5em;
-      line-height: 1;
+      font-size: 1.5em;
+      line-height: 1.1;
     }
     header .by {
-      margin-top: 0;
+      margin-top: 0.25em;
       font-size: 0.75em;
     }
     header .by a {
@@ -61,19 +91,19 @@
     }
     header .back {
       position: absolute;
+      z-index: 9999;
       margin: 0;
       top: 1.5em;
       right: 1.5em;
     }
     header .back a {
-      background: rgb(12, 12, 12);
       display: block;
       border: 1px solid rgb(102, 102, 102);
       padding: 0;
       width: 2em;
       height: 2em;
       border-radius: 0.25em;
-      background: url(images/close.png) center no-repeat;
+      background: rgb(12, 12, 12) url(images/close.png) center no-repeat;
       background-size: 40% auto;
     }
     header .back a:hover,
@@ -86,15 +116,6 @@
       position: absolute;
       left: -9999px;
     }
-    header .number {
-      margin-top: 0;
-      clear: both;
-      border-top: 1px solid rgb(38, 38, 38);
-      padding-top: 1em;
-      text-align: center;
-      color: rgb(239, 239, 239);
-      font-weight: bold;
-    }
     header a {
       text-decoration: none;
     }
@@ -102,6 +123,14 @@
     header a:active,
     header a:focus {
       color: rgb(153, 153, 153);
+    }
+
+    .number {
+      margin-top: 0;
+      padding-top: 1em;
+      text-align: center;
+      color: rgb(239, 239, 239);
+      font-weight: bold;
     }
 
     .image {
@@ -119,29 +148,46 @@
       top: 0;
       display: block;
       height: 100%;
+      background: black;
+      background: rgba(0, 0, 0, 0.5);
+      background-repeat: no-repeat;
+      background-position: center;
 
       /* @hidden-accessible-text */
       text-indent: -9999px;
       overflow: hidden;
-      width: 5%;
+      width: 6%;
     }
     nav .next a {
       right: 0;
-      background: transparent url(images/next.png) center no-repeat;
+      background-image: url(images/next.png);
       background-size: 60% auto;
     }
     nav .previous a {
       left: 0;
-      background: transparent url(images/previous.png) center no-repeat;
+      background-image: url(images/previous.png);
       background-size: 60% auto;
     }
+
+    html:hover nav a {
+      opacity: 0;
+    }
+    html:hover .image:hover a {
+      opacity: 1;
+    }
+    html:hover .image:hover a:hover,
+    html:hover .image:hover a:active,
+    html:hover .image:hover a:focus {
+      opacity: 0.6;
+    }
+
     figure {
       background: black;
       text-align: center;
       margin: 0;
     }
     figure img {
-      max-width: 90%;
+      max-width: 100%;
       height: auto;
       display: block;
       margin-left: auto;
@@ -151,16 +197,28 @@
     .text {
       color: rgb(153, 153, 153);
       max-width: 56.25em; /* image-width(900px) / font-size(16px) */
-      padding: 1.5em 6em 6em;
+      padding: 1.5em;
       margin: 0 auto;
       box-sizing: border-box;
       border-width: 0 1px;
       border-color: black;
       border-style: solid;
     }
+    .text p:first-child {
+      margin-top: 0;
+    }
+
+    @media (min-width: 30em) {
+      .text {
+        padding: 3em;
+      }
+    }
 
     .content {
       background: rgb(25, 25, 25);
+    }
+    .ads {
+      text-align: center;
     }
     .ads h2 {
       color: rgb(102, 102, 102);
@@ -169,6 +227,14 @@
       font-size: 0.6875em; /* 11px / font-size(16px) */
       margin-top: 1.5em;
       margin-bottom: 0.375em;
+    }
+
+    @media (min-width: 30em) and (max-width: 59.9em) {
+      .ads section {
+        display: inline-block;
+        vertical-align: top;
+        margin: 1.5em;
+      }
     }
 
     @media (min-width: 60em) {
@@ -180,7 +246,6 @@
         top: 0;
         right: 0;
         padding: 0 1.875em;
-        text-align: center;
       }
     }
 
@@ -198,8 +263,9 @@
       <p class="by">by <a href="">Nikhil Swaminathan</a></p>
       <p class="back"><a href=""><span>Back to the article</span></a></p>
 
-      <p class="number">3 of 29</p>
     </header>
+
+    <p class="number">3 of 29</p>
 
     <div class="image">
       <nav>
@@ -232,15 +298,19 @@
 
   <div class="ads">
 
-    <h2>Advertisement</h2>
-    <p>
-      <a href="http://www.ups.com"><img src="images/ups.jpg" width="300" height="600" alt="Introducing UPS Connect: A program created to free your time and help you grow your business. UPS: Join for Free. Get exclusive offers."></a>
-    </p>
+    <section>
+      <h2>Advertisement</h2>
+      <p>
+        <a href="http://www.ups.com"><img src="images/ups.jpg" width="300" height="600" alt="Introducing UPS Connect: A program created to free your time and help you grow your business. UPS: Join for Free. Get exclusive offers."></a>
+      </p>
+    </section>
 
-    <h2>Advertisement</h2>
-    <p class="ad">
-      <a href="http://www.good.is/health"><img src="images/health.jpg" width="300" height="250" alt="Good Health: A community effort to get good. Presented by Health Happens Here, a California Endowment."></a>
-    </p>
+    <section>
+      <h2>Advertisement</h2>
+      <p class="ad">
+        <a href="http://www.good.is/health"><img src="images/health.jpg" width="300" height="250" alt="Good Health: A community effort to get good. Presented by Health Happens Here, a California Endowment."></a>
+      </p>
+    </section>
 
   </div>
 
