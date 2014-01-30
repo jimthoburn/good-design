@@ -254,11 +254,18 @@
     @media (min-width: 60em) {
       body {
         padding-right: 22.5em; /* ad-width(300px) / font-size(16px) + ad-margin(1.875em) x 2 */
+        background: rgb(25, 25, 25);
+      }
+      .content {
+        background: transparent;
       }
       .ads {
+        background: rgb(51, 51, 51);
         position: absolute;
         top: 0;
         right: 0;
         padding: 0 1.875em;
+        box-sizing: border-box;
+        min-height: 100%;
       }
     }
