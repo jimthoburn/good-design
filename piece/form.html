@@ -1,0 +1,191 @@
+<!doctype html>
+<html dir="ltr" lang="en" class="controller-pieces action-new logged-in">
+<head>
+  <meta charset="utf-8" />
+  <title>Form</title>
+
+  <link rel="stylesheet" type="text/css" href="http://www.good.is/assets/application-a3b457b982f3ca4599830f27ab1bc37b.css" />
+
+  <link rel="stylesheet" type="text/css" href="egg.css" />
+
+  <style>
+
+    /* Message  */
+    .error-message {
+      margin: 1em 1em 1em 0;
+      background: rgb(253, 235, 230);
+      border: 1px solid rgb(251, 204, 204);
+      color: rgb(51, 1, 0);
+      padding: 1.25em;
+      font-size: 1.1em;
+      line-height: 1.5em;
+    }
+    .error-message h1 {
+      font-weight: bold;
+      margin-right: 0.25em;
+    }
+    .error-message h1,
+    .error-message p {
+      display: inline;
+    }
+    .error-message p,
+    .error-message li {
+      color: rgb(152, 94, 91);
+    }
+    .error-message strong {
+      font-weight: bold;
+    }
+    .error-message ul {
+      margin: 0.75em 0 0 2.67em;
+      list-style-type: disc;
+    }
+
+    /* Fields  */
+    ::-webkit-input-placeholder {
+      color: rgb(249, 154, 152);
+      text-decoration: underline;
+    }
+    ::-moz-placeholder {
+      color: rgb(249, 154, 152);
+      text-decoration: underline;
+    }
+    :-ms-input-placeholder {
+      color: rgb(249, 154, 152);
+      text-decoration: underline;
+    }
+
+    form.piece .egg-content.error {
+      color: rgb(249, 154, 152);
+      text-decoration: underline;
+    }
+
+  </style>
+
+</head>
+<body>
+  <header>
+    <section>
+      <div class="logo"><a href="">GOOD</a></div><div id="logged-out-actions"></div>
+      <div class="actions"><form accept-charset="UTF-8" action="/" class="search collapsed" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div><input data-search-route="/search" id="q" name="q" placeholder="What are you looking for?" type="text" /><button name="button" type="submit">Search</button><label>find topics, members, or keywords...</label>
+              <div id="search_error">We couldn't find any suggestions matching your keyword</div>
+              <div class="header-spinner">
+                <div class="outer"></div>
+                <div class="inner"></div>
+              </div></form><div id="action_buttons"><a href="" class="explore">Explore</a><a href="" class="post" data-authenticated="" data-redirect="/posts/new" data-track-event="Clicked Post" data-track-target="post" id="submission_form_button">Post</a></div>
+        <div id="login_js"></div>
+        <div id="notifications_js"></div>
+      </div>
+    </section>
+  </header>
+
+  <div class="main">
+
+    <section class="page">
+
+      <section class="error-message">
+        <h1>Oops!</h1>
+        <p>Don’t forget to fill out all of the fields…</p>
+        <ul>
+          <li>Please enter a <strong>title</strong></li>
+          <li>Please enter some <strong>text</strong></li>
+          <li>Please enter some <strong>tags</strong></li>
+        </ul>
+      </section>
+
+      <form accept-charset="UTF-8" action="/pieces" class="piece" id="new_piece"
+      method="post">
+        <div style="margin:0;padding:0;display:inline">
+          <input name="utf8" type="hidden" value="✓"><input name=
+          "authenticity_token" type="hidden" value=
+          "Ygdwqg3+3CSXbVHUeKVQBKJcZvxWvaBQ+C3yST+2LJ0=">
+        </div>
+
+        <h1>New Post</h1>
+
+        <header>
+          <a class="upload-image" href="/pieces/new">PNGs GIFs Oh my!</a>
+          <textarea class="title error" cols="40" id="piece_title" name="piece[title]"
+          placeholder="Enter Title..." rows="20"></textarea>
+        </header>
+
+        <textarea class="body egg" cols="40" id="piece_body" name="piece[body]" placeholder="Start your post..." rows="20" style="display: none;"></textarea>
+
+        <div class="toolbar">
+          <ul>
+            <li class="bold">bold</li>
+
+            <li class="italic">italic</li>
+
+            <li class="strikethrough">strikethrough</li>
+
+            <li class="unordered-list">unordered-list</li>
+
+            <li class="ordered-list">ordered-list</li>
+
+            <li class="blockquote">blockquote</li>
+
+            <li class="link">link</li>
+
+            <li class="image">image</li>
+
+            <li class="video">video</li>
+          </ul>
+        </div>
+
+        <div class="egg-content body error" contenteditable="true">Enter text for your post…</div>
+
+        <div class="tags">
+          <input id="piece_tag_list" name="piece[tag_list]" placeholder=
+          "Enter tags" size="30" type="text" class="error" />
+        </div>
+
+        <div class="submit">
+          <input name="commit" type="submit" value="Post"><a class="cancel" href=
+          "/">Cancel</a><a class="start-over" href="/pieces/new">Start Over</a>
+        </div>
+      </form>
+
+      <div class="spinner">
+        <div class="outer"></div>
+
+        <div class="inner"></div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="links">
+        <h2>Where people share what's good to learn and do. <a href="" class="join" data-authenticated="register">Join our community</a></h2>
+        <ul>
+          <li><a href="">About</a></li>
+          <li><a href="">Contact</a></li>
+          <li><a href="">Support</a></li>
+          <li><a href="">Advertise</a></li>
+          <li><a href="">Jobs</a></li>
+          <li><a href="">Subscriptions</a></li>
+          <li><a href="">Online Store</a></li>
+          <li><a href="">GOOD/Corps</a></li>
+          <li><a href="">Mobile Site</a></li>
+          <li><a href="">Privacy</a></li>
+          <li><a href="">Terms</a></li>
+        </ul>
+      </div>
+      <div class="social">
+        <h2>Connect with us<a href="" class="rss" target="_blank"></a></h2>
+        <ul>
+          <li><a href="" class="facebook" target="_blank"></a></li>
+          <li><a href="" class="twitter" target="_blank"></a></li>
+          <li><a href="" class="google" target="_blank"></a></li>
+          <li><a href="" class="linkedin" target="_blank"></a></li>
+          <li><a href="" class="tumblr" target="_blank"></a></li>
+          <li><a href="" class="pinterest" target="_blank"></a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="shared.js"></script>
+
+</body>
+</html>

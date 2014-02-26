@@ -44,6 +44,12 @@
     element.className += " scripted";
   };
 
+  var votes = document.getElementsByClassName("votes");
+  for (var index = 0; index < votes.length; index++) {
+    new DelayedHover(votes[index]);
+  }
+
+  /*
   var sources = document.getElementsByClassName("source");
   for (var index = 0; index < sources.length; index++) {
     new DelayedHover(sources[index]);
@@ -58,6 +64,7 @@
   for (var index = 0; index < tags.length; index++) {
     new DelayedHover(tags[index]);
   }
+  */
 
   //new DelayedHover(document.getElementById("account"), 50);
 
@@ -143,7 +150,46 @@
 
   }
 
+
+
+/*  =ToggleLink
+  ----------------------------------------------- */
+  var ToggleLink = function(element, labels) {
+
+    if (!element) return;
+
+    var button = element.getElementsByTagName("abbr");
+    if (button.length > 0) button = button[0];
+    else return;
+
+    var direction = 1;
+
+    function toggle() {
+      var value = (button.innerHTML == "Think it’s good?") ? 0 : Number(button.innerHTML);
+      button.innerHTML = value + (1 * direction);
+      direction = direction * -1;
+
+      element.parentNode.className += " loading";
+      setTimeout(function() {
+        element.parentNode.className = element.parentNode.className.replace(/loading/g, "");
+      }, 500);
+    };
+
+    element.addEventListener("click", function(e) {
+
+      // If the user wants to open the link in a new window, let the browser handle it.
+      if (e && (e.shiftKey || e.ctrlKey || e.altKey || e.metaKey)) return;
+
+      toggle();
+      e.preventDefault();
+    }, false);
+
+  }
+
+  var links = document.body.querySelectorAll(".votes a");
+  for (var j = 0; j < links.length; j++) {
+    new ToggleLink(links[j]);
+  }
+
 })();
-
-
 

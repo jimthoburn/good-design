@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Web Prototypes / Good</title>
+	<title>Piece Prototype / Good</title>
 	<style type="text/css">
 		html, body, #outer-outer-container, #outer-container {
 			height: 100%;
@@ -16,32 +16,40 @@
 			background: rgb(244, 245, 244);
 			color: rgb(0, 1, 0); /* @text-color */
 		}
-		a {
+		header h1 {
+			margin-bottom: 0;
+		}
+		header h1 a,
+		header h1 a:visited {
+			color: inherit;
+		}
+		header h2 {
+			margin-top: 0;
+			font-style: normal;
+			color: #999;
+		}
+		a[href] {
 			color: rgb(110, 160, 26); /* @link-color */
 			text-decoration: none;
 		}
-		a:hover,
-		a:active,
-		a:focus {
+		a[href]:hover,
+		a[href]:active,
+		a[href]:focus {
 			text-decoration: underline;
 		}
-		a:visited {
+		a[href]:visited {
 			color: #333;
 		}
-		h1 {
-			margin-top: 0;
-			margin-bottom: 1em;
+		ul, li {
+			margin-left: 0;
+			padding-left: 0;
 		}
-		h2 {
+		h3 {
 			margin-bottom: 0;
-			font-weight: normal;
 		}
-		h2 strong {
-			font-weight: bold;
-		}
-		h2 + p {
-			margin-top: 0;
-			max-width: 25em;
+		ul {
+			margin-top: 0.5em;
+			padding-left: 0.5em;
 		}
 		#container {
 			margin: 50px auto;
@@ -60,6 +68,12 @@
 			float: left;
 			margin-right: 3em;
 		}
+		li {
+			color: #bbb;
+		}
+		.new a {
+			color: #a93c44;
+		}
 	</style>
 </head>
 <body>
@@ -69,32 +83,16 @@
 
 				<header>
 					<h1>Good</h1>
+					<h2>Piece Prototype</h2>
 				</header>
 
 				<section>
 					<section>
-						<a href="slideshow/">
-							<h2><strong>Slideshow</strong> Prototype</h2>
-							<p>January, 2014</p>
-						</a>
-					</section>
-					</section>
-						<a href="feed/">
-							<h2><strong>Feed</strong> Prototype</h2>
-							<p>October, 2013</p>
-						</a>
-					</section>
-					<section>
-						<a href="do/">
-							<h2><strong>Do</strong> Design Sprint</h2>
-							<p>October, 2013</p>
-						</a>
-					</section>
-					<section>
-						<a href="feed-tests/">
-							<h2><strong>Feed</strong> User Testing</h2>
-							<p>September, 2013</p>
-						</a>
+						<ul>
+							<li><a href="elements.html">Elements</a></li>
+							<li><a href="example.html">Example</a></li>
+							<li><a href="form.html">Form</a></li>
+						</ul>
 					</section>
 				</section>
 
